@@ -2,6 +2,17 @@
 
 В этом репозитории находятся сгенерированные SDK-клиенты Wildberries для разных языков на основе OpenAPI спецификаций Wildberries.
 
+## Готовые пакеты
+
+### Python
+
+- PyPI: https://pypi.org/project/wildberries-sdk/
+- README: [docs/python/README.md](docs/python/README.md)
+
+### Node.js
+
+- npm: https://www.npmjs.com/package/wildberries-sdk
+- README: [docs/npm/README.md](docs/npm/README.md)
 
 В данный момент представлены **все доступные** спецификации:
 
@@ -348,15 +359,3 @@
 - `GET /api/v1/offers/{offer_id}` — Получить информацию о предложении (offerGet)
 - `POST /api/v1/offers/{offer_id}` — Редактировать предложение (offerUpdate)
 <!-- METHODS_LIST_END -->
-## Документация и пакеты
-
-### Python
-
-- PyPI: https://pypi.org/project/wildberries-sdk/
-- README: [docs/python/README.md](docs/python/README.md)
-
-### Node.js
-
-- npm: https://www.npmjs.com/package/wildberries-sdk
-- README: [docs/npm/README.md](docs/npm/README.md)
-
