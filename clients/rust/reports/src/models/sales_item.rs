@@ -139,7 +139,7 @@ pub enum WarehouseType {
     #[serde(rename = "Склад WB")]
     Wb,
     #[serde(rename = "Склад продавца")]
-    ,
+    SellerWarehouse,
 }
 
 impl Default for WarehouseType {

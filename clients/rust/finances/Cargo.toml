@@ -1,7 +1,7 @@
 [package]
 name = "wildberries_sdk_finances"
 version = "0.1.0"
-authors = ["OpenAPI Generator team and contributors"]
+authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "<div class=\"description_important\">     Узнать больше о документах и бухгалтерии можно в <a href=\"https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942\">справочном центре</a> </div>  Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/Balans), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty) и [документов](/openapi/financial-reports-and-accounting#tag/Dokumenty) продавца. "
 # Override this license by providing a License Object in the OpenAPI.
 license = "Unlicense"

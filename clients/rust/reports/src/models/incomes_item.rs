@@ -77,12 +77,12 @@ impl IncomesItem {
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Status {
     #[serde(rename = "Принято")]
-    ,
+    Accepted,
 }
 
 impl Default for Status {
     fn default() -> Status {
-        Self::
+        Self::Accepted
     }
 }
 

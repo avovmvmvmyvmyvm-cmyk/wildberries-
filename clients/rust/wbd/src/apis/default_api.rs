@@ -410,7 +410,9 @@ pub async fn content_gallery(configuration: &configuration::Configuration, files
         req_builder = req_builder.header("Authorization", value);
     };
     let mut multipart_form = reqwest::multipart::Form::new();
-    multipart_form = multipart_form.file("files", p_form_files.as_os_str()).await?;
+    for file_path in p_form_files {
+        multipart_form = multipart_form.file("files", file_path).await?;
+    }
     req_builder = req_builder.multipart(multipart_form);
 
     let req = req_builder.build()?;

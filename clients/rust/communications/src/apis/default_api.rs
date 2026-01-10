@@ -1491,7 +1491,9 @@ pub async fn api_v1_seller_message_post(configuration: &configuration::Configura
         multipart_form = multipart_form.text("message", param_value.to_string());
     }
     if let Some(ref param_value) = p_form_file {
-       multipart_form = multipart_form.file("file", param_value.as_os_str()).await?;
+       for file_path in param_value {
+           multipart_form = multipart_form.file("file", file_path).await?;
+       }
     }
     req_builder = req_builder.multipart(multipart_form);
 
