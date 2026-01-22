@@ -598,6 +598,10 @@ paths:
                     items:
                       type: object
                       properties:
+                        id:
+                          description: ID страны
+                          type: integer
+                          example: 15000170
                         name:
                           description: Значение характеристики Страны
                           type: string
@@ -1483,7 +1487,7 @@ paths:
                           items:
                             type: string
                         imtID:
-                          description: Поиск по ID объединённой карточки товара
+                          description: Поиск по [ID для объединённых карточек товаров](https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov)
                           type: integer
                     cursor:
                       description: |
@@ -1492,6 +1496,8 @@ paths:
                       properties:
                         limit:
                           type: integer
+                          maximum: 100
+                          default: 10
                           description: Сколько карточек товаров выдать в ответе
                         updatedAt:
                           type: string
@@ -1540,7 +1546,7 @@ paths:
                           description: Артикул WB
                         imtID:
                           type: integer
-                          description: ID объединённой карточки товара.<br>Един для всех артикулов WB одной объединённой карточки товара.<br>Есть у карточки товара, даже если она не объединена ни с одной другой карточкой
+                          description: ID для [объединённых](https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками<br>
                         nmUUID:
                           type: string
                           format: UUID
@@ -1786,7 +1792,7 @@ paths:
         Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок.
         <br><br>
         Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:
-          - все ошибки по одной объединённой карточке товара `imtID` одного запроса при [создании](/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post) карточек товаров
+          - все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post) карточек товаров
           - все ошибки одного запроса при [создании с присоединением](/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post) или [редактировании](/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post) карточек товаров
         <br><br>
         Чтобы получить более 100 пакетов, используйте пагинацию:
@@ -1971,6 +1977,8 @@ paths:
                   - nmID
                   - vendorCode
                   - sizes
+                minimum: 1
+                maximum: 3000
                 properties:
                   nmID:
                     type: integer
@@ -2161,7 +2169,7 @@ paths:
         - Карточки товаров
       summary: Объединение и разъединение карточек товаров
       description: |
-        Метод объединяет и разъединяет карточки товаров. Карточки товаров считаются объединёнными, если у них одинаковый `imtID`.
+        Метод [объединяет и разъединяет](https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
         <br><br>
         Для объединения карточек товаров сделайте запрос **с указанием** `imtID`. Можно объединять не более 30 карточек товаров.<br>
         Для разъединения карточек товаров сделайте запрос **без указания** `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`.
@@ -2172,7 +2180,7 @@ paths:
         Максимальный размер запроса 10 Мб.
 
         <div class="description_important">
-          Объединить можно только карточки товаров с одинаковыми предметами.
+          Объединить можно карточки товаров только в рамках одного предмета
         </div>
 
         <div class="description_limit">
@@ -2271,7 +2279,7 @@ paths:
         Метод переносит [карточки товаров в корзину](/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1get~1cards~1trash/post). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post).
 
         <div class="description_important">
-          После переноса в корзину карточке товара присваивается новый <code>imtID</code>.
+          После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href="https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov">объединённых</a> карточек товаров
         </div>
 
         Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.<br>
@@ -2370,7 +2378,7 @@ paths:
         Метод восстанавливает [карточки товаров из корзины](/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1get~1cards~1trash/post).
 
         <div class="description_important">
-          Карточка товара сохраняет тот же <code>imtID</code>, что был присвоен ей при <a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">перемещении в корзину</a>.
+          Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href="https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov">объединённых</a> карточек товаров — что был присвоен ей при <a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">перемещении в корзину</a>
         </div>
 
         <div class="description_limit">
@@ -2537,6 +2545,8 @@ paths:
                       properties:
                         limit:
                           type: integer
+                          maximum: 100
+                          default: 10
                           description: Сколько карточек товаров выдать в ответе
                         trashedAt:
                           type: string
@@ -2919,30 +2929,34 @@ paths:
       tags:
         - Создание карточек товаров
       summary: Создание карточек товаров
-      description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>\n\n<div class=\"description_important\">\n  Есть две формы запроса: для создания отдельных и объединённых карточек товаров.\n</div>\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n<br><br>\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>\nВ одном запросе можно создать максимум 100 объединённых карточек\_товаров (`imtID`), по\_30 карточек товаров в\_каждой. Максимальный размер запроса 10 Мб.<br>\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post).\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 минута | 10 запросов | 6 секунд | 5 запросов |\n</div>\n"
+      description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>\n\n<div class=\"description_important\">\n  Есть две формы запроса: для создания отдельных и объединённых карточек товаров\n</div>\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n<br><br>\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>\nОдним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек\_товаров по\_30 карточек в\_каждой. Максимальный размер запроса 10 Мб.<br>\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post).\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 минута | 10 запросов | 6 секунд | 5 запросов |\n</div>\n"
       requestBody:
         content:
           application/json:
             schema:
+              description: Отдельные карточки товаров или группы объединённых карточек товаров
               type: array
               items:
                 type: object
                 required:
                   - subjectID
                   - variants
+                minimum: 1
+                maximum: 100
                 properties:
                   subjectID:
                     type: integer
                     description: ID предмета
                   variants:
                     description: |
-                      Массив вариантов товара.<br>
-                      В каждой объединённой карточке товара может быть не более 30 карточек товаров
+                      [Объединённые](https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров.<br>Чтобы создать отдельную карточку, передайте только один объект
                     type: array
                     items:
                       type: object
                       required:
                         - vendorCode
+                      minimum: 1
+                      maximum: 30
                       properties:
                         brand:
                           type: string
@@ -3124,8 +3138,8 @@ paths:
         - Создание карточек товаров
       summary: Создание карточек товаров с присоединением
       description: |
-        Метод создаёт новые карточки товаров, присоединяя их к существующим карточкам.
-        <br><br>
+        Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
+
         Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
         <br><br>
         Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post).<br>
@@ -3147,14 +3161,16 @@ paths:
                 imtID:
                   type: integer
                   description: |
-                    `imtID` карточки товара, к которой присоединяется карточка товара
+                    `imtID` отдельной карточки товара или группы [объединённых](https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки
                 cardsToAdd:
-                  description: Структура присоединяемой карточки товара
+                  description: Добавляемые карточки товаров
                   type: array
                   items:
                     type: object
                     required:
                       - vendorCode
+                    minimum: 1
+                    maximum: 29
                     properties:
                       brand:
                         type: string
@@ -4260,7 +4276,7 @@ paths:
                         type: string
                         description: Баркод. Параметр будет отключен [9 февраля](https://dev.wildberries.ru/release-notes?id=386)
                         deprecated: true
-                        example: BarcodeTest123
+                        example: SKUTest123
                       amount:
                         type: integer
                         maximum: 100000
@@ -4370,7 +4386,7 @@ paths:
                   items:
                     type: string
                     nullable: false
-                    example: BarcodeTest123
+                    example: SKUTest123
               required:
                 - chrtIds
       responses:
@@ -4460,7 +4476,7 @@ paths:
                   maxItems: 1000
                   items:
                     type: string
-                    example: BarcodeTest123
+                    example: SKUTest123
               required:
                 - chrtIds
       responses:
@@ -4486,7 +4502,7 @@ paths:
                           nullable: false
                           description: Баркод. Поле будет отключено [9 февраля](https://dev.wildberries.ru/release-notes?id=386)
                           deprecated: true
-                          example: BarcodeTest123
+                          example: SKUTest123
                         amount:
                           type: integer
                           nullable: false
@@ -5060,11 +5076,14 @@ components:
         - nmIDs
       properties:
         targetIMT:
-          description: Существующий у продавца `imtID`, под которым необходимо объединить карточки товаров
+          description: Существующий `imtID`, под которым необходимо [объединить](https://dev.wildberries.ru/news/101#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров
           type: integer
           example: 123
         nmIDs:
-          description: '`nmID`, которые необходимо объединить (максимум 30)'
+          description: |
+            `nmID`, которые необходимо объединить
+          minimum: 1
+          maximum: 30
           type: array
           items:
             type: integer
@@ -5077,7 +5096,10 @@ components:
         - nmIDs
       properties:
         nmIDs:
-          description: '`nmID`, которые необходимо разъединить (max 30)'
+          description: |
+            `nmID`, которые необходимо разъединить
+          minimum: 1
+          maximum: 30
           type: array
           items:
             type: integer

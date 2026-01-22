@@ -1191,59 +1191,6 @@ paths:
           $ref: '#/components/responses/401'
         '429':
           $ref: '#/components/responses/429'
-  /api/v1/analytics/incorrect-attachments:
-    servers:
-      - url: https://seller-analytics-api.wildberries.ru
-    get:
-      deprecated: true
-      x-readonly-method: true
-      x-category: contentanalytics
-      security:
-        - HeaderApiKey: []
-      tags:
-        - Отчёты об удержаниях
-      summary: Подмена товара
-      description: |
-        Метод будет отключён 20 января. Используйте [актуальный метод](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah/operation/getDeductions)
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 минута | 1 запрос | 1 минута | 10 запросов |
-        </div>
-      parameters:
-        - $ref: '#/components/parameters/DateFrom'
-        - $ref: '#/components/parameters/DateTo'
-      responses:
-        '200':
-          $ref: '#/components/responses/SuccessIncorrectProductsResponse'
-        '400':
-          description: Неправильный запрос
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/4xxResponse'
-              examples:
-                IncorrectDateFrom:
-                  $ref: '#/components/examples/IncorrectDateFrom'
-                MissingDateTimeFrom:
-                  $ref: '#/components/examples/MissingDateTimeFrom'
-                MissingDateTimeTo:
-                  $ref: '#/components/examples/MissingDateTimeTo'
-                IncorrectDateTimeFrom:
-                  $ref: '#/components/examples/IncorrectDateTimeFrom'
-                IncorrectDateTimeTo:
-                  $ref: '#/components/examples/IncorrectDateTimeTo'
-                DateRangeExceeded:
-                  $ref: '#/components/examples/DateRangeExceeded'
-                DateRanges:
-                  $ref: '#/components/examples/DateRanges'
-        '401':
-          $ref: '#/components/responses/401'
-        '429':
-          $ref: '#/components/responses/429'
   /api/v1/analytics/goods-labeling:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
@@ -1275,71 +1222,6 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/SuccessGoodsLabelingResponse'
-        '400':
-          description: Неправильный запрос
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/4xxResponse'
-              examples:
-                MissingDateTimeFrom:
-                  $ref: '#/components/examples/MissingDateTimeFrom'
-                MissingDateTimeTo:
-                  $ref: '#/components/examples/MissingDateTimeTo'
-                IncorrectDateTimeFrom:
-                  $ref: '#/components/examples/IncorrectDateTimeFrom'
-                IncorrectDateTimeTo:
-                  $ref: '#/components/examples/IncorrectDateTimeTo'
-                DateRangeExceeded:
-                  $ref: '#/components/examples/DateRangeExceeded'
-                DateRanges:
-                  $ref: '#/components/examples/DateRanges'
-        '401':
-          $ref: '#/components/responses/401'
-        '429':
-          $ref: '#/components/responses/429'
-  /api/v1/analytics/characteristics-change:
-    get:
-      deprecated: true
-      x-readonly-method: true
-      x-category: contentanalytics
-      servers:
-        - url: https://seller-analytics-api.wildberries.ru
-      security:
-        - HeaderApiKey: []
-      tags:
-        - Отчёты об удержаниях
-      summary: Смена характеристик
-      description: |
-        Метод будет отключён 20 января. Используйте [актуальный метод](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah/operation/getDeductions)
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 минута | 1 запрос | 1 минута | 10 запросов |
-        </div>
-      parameters:
-        - in: query
-          name: dateFrom
-          required: true
-          description: Начало отчётного периода, `ГГГГ-ММ-ДД`
-          schema:
-            type: string
-            format: date
-          example: '2024-04-01'
-        - in: query
-          name: dateTo
-          required: true
-          description: Конец отчётного периода, `ГГГГ-ММ-ДД`
-          schema:
-            type: string
-            format: date
-          example: '2024-04-30'
-      responses:
-        '200':
-          $ref: '#/components/responses/SuccessCharacteristicsTaskResponse'
         '400':
           description: Неправильный запрос
           content:
@@ -3590,13 +3472,6 @@ components:
         origin: api-statistics
         requestId: 83c6b8ad24ac27a03f9166e57de31668
         title: Bad Request
-    IncorrectDateFrom:
-      description: Дата не может быть раньше 01.06.2023
-      value:
-        detail: dateFrom cannot be earlier than 2023-06-01
-        origin: api-statistics
-        requestId: c89837d6723b409df07f15df1a4e8ebe
-        title: Bad Request
     IncorrectDateFromBS:
       description: Дата не может быть раньше 01.11.2022
       value:
@@ -4087,42 +3962,6 @@ components:
                     type: integer
                     description: Количество удержаний в отчёте. Без учёта `limit` и `offset`
                     example: 11
-    SuccessIncorrectProductsResponse:
-      description: Успешно
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              report:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    amount:
-                      type: number
-                      description: Цена, ₽
-                      example: 24514.5
-                    date:
-                      type: string
-                      description: Дата
-                      example: '2023-12-15'
-                    lostReason:
-                      type: string
-                      description: Причина удержания
-                      example: Подмена. Вместо большой железной дороги поступила маленькая коробка.
-                    nmID:
-                      type: integer
-                      description: Артикул WB
-                      example: 123456789
-                    photoUrl:
-                      type: string
-                      description: Фото
-                      example: https://mstatic.wbstatic.net/writeoff_to_the_seller/12345678911-2023-06-21T12:13:37.768Z-1.png
-                    shkID:
-                      type: integer
-                      description: Штрихкод
-                      example: 14555724540
     SuccessGoodsLabelingResponse:
       description: Успешно
       content:
@@ -4171,73 +4010,6 @@ components:
                   - https://static-basket-03.wildberries.ru/vol54/photo-fixation-violation-shk-excise/12345678900-1811461001-3.jpg
                 shkID: 17346434621
                 sku: '4630153500834'
-    SuccessCharacteristicsTaskResponse:
-      description: Успешно
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              report:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    amount:
-                      type: integer
-                      description: Сумма штрафа в копейках
-                    date:
-                      type: string
-                      format: date-time
-                      description: Дата изменения характеристик товара на складе
-                    newBarcode:
-                      type: string
-                      description: Новый баркод в карточке товара
-                    newColor:
-                      type: string
-                      description: Новый цвет
-                    newSa:
-                      type: string
-                      description: Новый артикул продавца
-                    newShkID:
-                      type: integer
-                      description: Новый штрихкод товара в WB
-                    newSize:
-                      type: string
-                      description: Новый размер
-                    nmID:
-                      type: integer
-                      description: Артикул WB
-                    oldBarcode:
-                      type: string
-                      description: Старый баркод из карточки товара
-                    oldColor:
-                      type: string
-                      description: Старый цвет
-                    oldSa:
-                      type: string
-                      description: Старый артикул продавца
-                    oldShkID:
-                      type: integer
-                      description: Старый штрихкод товара в WB
-                    oldSize:
-                      type: string
-                      description: Старый размер
-          example:
-            report:
-              - amount: 135890
-                date: '2024-03-01T01:00:00Z'
-                newBarcode: '22222222222222'
-                newColor: темно-синий,голубой
-                newSa: hjt13/темно-синий,голубой
-                newShkID: 44444444444
-                newSize: '80'
-                nmID: 123654789
-                oldBarcode: '111111111111111'
-                oldColor: темно-синий,голубой
-                oldSa: hjt13/темно-синий,голубой
-                oldShkID: 333333333
-                oldSize: '43'
     SuccessBrandsResponse:
       description: Успешно
       content:
