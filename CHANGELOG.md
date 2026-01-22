@@ -1,6 +1,12 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.01.22)
+- Поставки FBS: удалён устаревший endpoint `GET /api/v3/supplies/{supplyId}/orders` (получение сборочных заданий в поставке)
+- Поставки FBS: удалена схема `SupplyOrder`, использовавшаяся в ответе `GET /api/v3/supplies/{supplyId}/orders`
+- Отчёты (Отчёты об удержаниях): удалён устаревший endpoint `GET /api/v1/analytics/incorrect-attachments` (подмена товара); вместе с ним удалён response `SuccessIncorrectProductsResponse` и пример ошибки `IncorrectDateFrom`
+- Отчёты (Отчёты об удержаниях): удалён устаревший endpoint `GET /api/v1/analytics/characteristics-change` (смена характеристик); вместе с ним удалён response `SuccessCharacteristicsTaskResponse`
+
 ### Changed (2026.01.21)
 - Products: поле `x-category` изменено с массива на строку для эндпоинтов получения карточек и списка карточек в корзине.
 - Orders DBS: обновлены rate limits для эндпоинта передачи данных СГ.
