@@ -15,12 +15,15 @@
 ### Автоматическая клиенты поддерживаются в актуальном состоянии с помощью GitHub Actions при обновлении спецификаций.
 
 Почему это важно?
-Посмотрите как часто wildberries обновляет свои OpenAPI спецификации
 
-<img src=".github/images/wildberries-api-changes.png" alt="wildberries-api-changes" width="200">
+Вот изменения спецификаций: [CHANGELOG.md](CHANGELOG.md)
+
+Случаются часто — несколько раз в неделю.
+
+[//]: # (<img src=".github/images/wildberries-api-changes.png" alt="wildberries-api-changes" width="200">)
 
 
-#### За месяц 14 изменений в спецификациях. 
+[//]: # (#### За месяц 14 изменений в спецификациях. )
 
 
 ## В данный момент представлены **все доступные** спецификации:
