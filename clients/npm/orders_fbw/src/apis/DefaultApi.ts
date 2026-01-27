@@ -92,11 +92,10 @@ export interface ApiV1SuppliesPostRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Метод находится в разделе [Тарифы](/openapi/wb-tariffs#tag/Tarify-na-postavku/paths/~1api~1tariffs~1v1~1acceptance~1coefficients/get) и называется **Тарифы на поставку** `GET /api/tariffs/v1/acceptance/coefficients`. Он доступен по домену `common-api.wildberries.ru` с <a href=\"/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токеном</a> любой категории.  Доступ к этому методу с доменом `supplies-api.wildberries.ru` будет отключен [3 февраля](https://dev.wildberries.ru/release-notes?id=370)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 6 запросов | 10 секунд | 6 запросов | </div> 
-     * Коэффициенты приёмки
+     * Creates request options for apiV1AcceptanceCoefficientsGet without sending the request
      * @deprecated
      */
-    async apiV1AcceptanceCoefficientsGetRaw(requestParameters: ApiV1AcceptanceCoefficientsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsAcceptanceCoefficient>>> {
+    async apiV1AcceptanceCoefficientsGetRequestOpts(requestParameters: ApiV1AcceptanceCoefficientsGetRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['warehouseIDs'] != null) {
@@ -112,12 +111,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/acceptance/coefficients`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод находится в разделе [Тарифы](/openapi/wb-tariffs#tag/Tarify-na-postavku/paths/~1api~1tariffs~1v1~1acceptance~1coefficients/get) и называется **Тарифы на поставку** `GET /api/tariffs/v1/acceptance/coefficients`. Он доступен по домену `common-api.wildberries.ru` с <a href=\"/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токеном</a> любой категории.  Доступ к этому методу с доменом `supplies-api.wildberries.ru` будет отключен [3 февраля](https://dev.wildberries.ru/release-notes?id=370)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 6 запросов | 10 секунд | 6 запросов | </div> 
+     * Коэффициенты приёмки
+     * @deprecated
+     */
+    async apiV1AcceptanceCoefficientsGetRaw(requestParameters: ApiV1AcceptanceCoefficientsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsAcceptanceCoefficient>>> {
+        const requestOptions = await this.apiV1AcceptanceCoefficientsGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ModelsAcceptanceCoefficientFromJSON));
     }
@@ -133,10 +142,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 6 запросов | 10 секунд | 6 запросов | </div> 
-     * Опции приёмки
+     * Creates request options for apiV1AcceptanceOptionsPost without sending the request
      */
-    async apiV1AcceptanceOptionsPostRaw(requestParameters: ApiV1AcceptanceOptionsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsOptionsResultModel>> {
+    async apiV1AcceptanceOptionsPostRequestOpts(requestParameters: ApiV1AcceptanceOptionsPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['modelsGood'] == null) {
             throw new runtime.RequiredError(
                 'modelsGood',
@@ -161,13 +169,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/acceptance/options`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: requestParameters['modelsGood']!.map(ModelsGoodToJSON),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 6 запросов | 10 секунд | 6 запросов | </div> 
+     * Опции приёмки
+     */
+    async apiV1AcceptanceOptionsPostRaw(requestParameters: ApiV1AcceptanceOptionsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsOptionsResultModel>> {
+        const requestOptions = await this.apiV1AcceptanceOptionsPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ModelsOptionsResultModelFromJSON(jsonValue));
     }
@@ -182,10 +199,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 30 запросов | 2 секунды | 10 запросов | </div> 
-     * Детали поставки
+     * Creates request options for apiV1SuppliesIDGet without sending the request
      */
-    async apiV1SuppliesIDGetRaw(requestParameters: ApiV1SuppliesIDGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsSupplyDetails>> {
+    async apiV1SuppliesIDGetRequestOpts(requestParameters: ApiV1SuppliesIDGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['iD'] == null) {
             throw new runtime.RequiredError(
                 'iD',
@@ -209,12 +225,21 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/supplies/{ID}`;
         urlPath = urlPath.replace(`{${"ID"}}`, encodeURIComponent(String(requestParameters['iD'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 30 запросов | 2 секунды | 10 запросов | </div> 
+     * Детали поставки
+     */
+    async apiV1SuppliesIDGetRaw(requestParameters: ApiV1SuppliesIDGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ModelsSupplyDetails>> {
+        const requestOptions = await this.apiV1SuppliesIDGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ModelsSupplyDetailsFromJSON(jsonValue));
     }
@@ -229,10 +254,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 30 запросов | 2 секунды | 10 запросов | </div> 
-     * Товары поставки
+     * Creates request options for apiV1SuppliesIDGoodsGet without sending the request
      */
-    async apiV1SuppliesIDGoodsGetRaw(requestParameters: ApiV1SuppliesIDGoodsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsGoodInSupply>>> {
+    async apiV1SuppliesIDGoodsGetRequestOpts(requestParameters: ApiV1SuppliesIDGoodsGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['iD'] == null) {
             throw new runtime.RequiredError(
                 'iD',
@@ -264,12 +288,21 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/supplies/{ID}/goods`;
         urlPath = urlPath.replace(`{${"ID"}}`, encodeURIComponent(String(requestParameters['iD'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 30 запросов | 2 секунды | 10 запросов | </div> 
+     * Товары поставки
+     */
+    async apiV1SuppliesIDGoodsGetRaw(requestParameters: ApiV1SuppliesIDGoodsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsGoodInSupply>>> {
+        const requestOptions = await this.apiV1SuppliesIDGoodsGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ModelsGoodInSupplyFromJSON));
     }
@@ -284,10 +317,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 30 запросов | 2 секунды | 10 запросов | </div> 
-     * Упаковка поставки
+     * Creates request options for apiV1SuppliesIDPackageGet without sending the request
      */
-    async apiV1SuppliesIDPackageGetRaw(requestParameters: ApiV1SuppliesIDPackageGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsBox>>> {
+    async apiV1SuppliesIDPackageGetRequestOpts(requestParameters: ApiV1SuppliesIDPackageGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['iD'] == null) {
             throw new runtime.RequiredError(
                 'iD',
@@ -307,12 +339,21 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/supplies/{ID}/package`;
         urlPath = urlPath.replace(`{${"ID"}}`, encodeURIComponent(String(requestParameters['iD'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 30 запросов | 2 секунды | 10 запросов | </div> 
+     * Упаковка поставки
+     */
+    async apiV1SuppliesIDPackageGetRaw(requestParameters: ApiV1SuppliesIDPackageGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsBox>>> {
+        const requestOptions = await this.apiV1SuppliesIDPackageGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ModelsBoxFromJSON));
     }
@@ -327,10 +368,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 30 запросов | 2 секунды | 10 запросов | </div> 
-     * Список поставок
+     * Creates request options for apiV1SuppliesPost without sending the request
      */
-    async apiV1SuppliesPostRaw(requestParameters: ApiV1SuppliesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsSupply>>> {
+    async apiV1SuppliesPostRequestOpts(requestParameters: ApiV1SuppliesPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['modelsSuppliesFiltersRequest'] == null) {
             throw new runtime.RequiredError(
                 'modelsSuppliesFiltersRequest',
@@ -359,13 +399,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/supplies`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ModelsSuppliesFiltersRequestToJSON(requestParameters['modelsSuppliesFiltersRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 30 запросов | 2 секунды | 10 запросов | </div> 
+     * Список поставок
+     */
+    async apiV1SuppliesPostRaw(requestParameters: ApiV1SuppliesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsSupply>>> {
+        const requestOptions = await this.apiV1SuppliesPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ModelsSupplyFromJSON));
     }
@@ -380,10 +429,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о доступных транзитных направлениях.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 6 запросов | 10 секунд | 10 запросов | </div> 
-     * Транзитные направления
+     * Creates request options for apiV1TransitTariffsGet without sending the request
      */
-    async apiV1TransitTariffsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsTransitTariff>>> {
+    async apiV1TransitTariffsGetRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -395,12 +443,21 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/transit-tariffs`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о доступных транзитных направлениях.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 6 запросов | 10 секунд | 10 запросов | </div> 
+     * Транзитные направления
+     */
+    async apiV1TransitTariffsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsTransitTariff>>> {
+        const requestOptions = await this.apiV1TransitTariffsGetRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ModelsTransitTariffFromJSON));
     }
@@ -415,10 +472,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список складов WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 6 запросов | 10 секунд | 6 запросов | </div> 
-     * Список складов
+     * Creates request options for apiV1WarehousesGet without sending the request
      */
-    async apiV1WarehousesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsWarehousesResultItems>>> {
+    async apiV1WarehousesGetRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -430,12 +486,21 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/warehouses`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает список складов WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 6 запросов | 10 секунд | 6 запросов | </div> 
+     * Список складов
+     */
+    async apiV1WarehousesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsWarehousesResultItems>>> {
+        const requestOptions = await this.apiV1WarehousesGetRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ModelsWarehousesResultItemsFromJSON));
     }

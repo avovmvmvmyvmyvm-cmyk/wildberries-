@@ -102,7 +102,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersCourierPostExecute(r ApiApiV3DbwOrdersCour
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -286,7 +286,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersDeliveryDatePostExecute(r ApiApiV3DbwOrder
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -512,7 +512,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersGetExecute(r ApiApiV3DbwOrdersGetRequest) 
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -683,7 +683,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersNewGetExecute(r ApiApiV3DbwOrdersNewGetReq
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -846,7 +846,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdAssemblePatchExecute(r ApiApiV3DbwO
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1033,7 +1033,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdCancelPatchExecute(r ApiApiV3DbwOrd
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1220,7 +1220,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdConfirmPatchExecute(r ApiApiV3DbwOr
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1426,7 +1426,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdMetaDeleteExecute(r ApiApiV3DbwOrde
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1611,7 +1611,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdMetaGetExecute(r ApiApiV3DbwOrdersO
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1801,7 +1801,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdMetaGtinPutExecute(r ApiApiV3DbwOrd
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1995,7 +1995,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdMetaImeiPutExecute(r ApiApiV3DbwOrd
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -2189,7 +2189,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdMetaSgtinPutExecute(r ApiApiV3DbwOr
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -2383,7 +2383,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersOrderIdMetaUinPutExecute(r ApiApiV3DbwOrde
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -2605,7 +2605,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersStatusPostExecute(r ApiApiV3DbwOrdersStatu
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -2832,7 +2832,7 @@ func (a *DBWAPIService) ApiV3DbwOrdersStickersPostExecute(r ApiApiV3DbwOrdersSti
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

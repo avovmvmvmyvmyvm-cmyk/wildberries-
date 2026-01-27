@@ -35,7 +35,7 @@ paths:
           description: Успешно
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -60,7 +60,7 @@ paths:
           description: Доступ запрещён
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -153,7 +153,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -178,7 +178,7 @@ paths:
           description: Доступ запрещён
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -237,7 +237,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -262,7 +262,7 @@ paths:
           description: Доступ запрещён
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -340,7 +340,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -365,7 +365,7 @@ paths:
           description: Доступ запрещён
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -424,7 +424,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -467,7 +467,7 @@ paths:
           description: Ошибка обновления статуса
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -568,7 +568,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -593,7 +593,7 @@ paths:
           description: Доступ запрещён
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -652,7 +652,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -695,7 +695,7 @@ paths:
           description: Ошибка обновления статуса
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -755,7 +755,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -780,7 +780,7 @@ paths:
           description: Доступ запрещён
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -837,7 +837,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -880,7 +880,7 @@ paths:
           description: Ошибка обновления статуса
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -953,7 +953,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -987,7 +987,7 @@ paths:
           description: Ошибка удаления метаданных
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -1050,7 +1050,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -1084,7 +1084,7 @@ paths:
           description: Не найдено
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -1158,7 +1158,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -1201,7 +1201,7 @@ paths:
           description: Ошибка добавления маркировки
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -1275,7 +1275,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -1318,7 +1318,7 @@ paths:
           description: Ошибка добавления маркировки
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -1392,7 +1392,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -1435,7 +1435,7 @@ paths:
           description: Ошибка добавления маркировки
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -1509,7 +1509,7 @@ paths:
           description: Неправильный запрос
         "401":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: unauthorized
                 detail: "token problem; token is malformed: could not base64 decode\
@@ -1552,7 +1552,7 @@ paths:
           description: Ошибка добавления маркировки
         "429":
           content:
-            application/json:
+            application/problem+json:
               example:
                 title: too many requests
                 detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -1643,7 +1643,7 @@ components:
   responses:
     "401":
       content:
-        application/json:
+        application/problem+json:
           example:
             title: unauthorized
             detail: "token problem; token is malformed: could not base64 decode signature:\
@@ -1659,7 +1659,7 @@ components:
       description: Не авторизован
     "429":
       content:
-        application/json:
+        application/problem+json:
           example:
             title: too many requests
             detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
@@ -2270,15 +2270,6 @@ components:
           type: array
       type: object
     _api_v3_dbw_orders_new_get_401_response:
-      example:
-        code: code
-        requestId: requestId
-        origin: origin
-        statusText: statusText
-        detail: detail
-        title: title
-        status: 6.027456183070403
-        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         title:
           description: Заголовок ошибки

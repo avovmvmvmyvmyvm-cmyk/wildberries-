@@ -95,7 +95,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsFileDownloadIdGetExecute(r ApiApiV
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -278,7 +278,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsGetExecute(r ApiApiV2NmReportDownl
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -467,7 +467,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsPostExecute(r ApiApiV2NmReportDown
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -643,7 +643,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsRetryPostExecute(r ApiApiV2NmRepor
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

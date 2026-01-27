@@ -108,7 +108,7 @@ func (a *WBAPIAPIService) PingGetExecute(r ApiPingGetRequest) (*PingGet200Respon
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

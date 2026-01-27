@@ -36,340 +36,340 @@ main().catch(console.error);
 ## Методы API
 
 ### general (`general`)
-- `general.APIApi.apiCommunicationsV2NewsGet` — `GET /api/communications/v2/news` — Получение новостей портала продавцов
-- `general.DefaultApi.apiV1InvitePost` — `POST /api/v1/invite` — Создать приглашение для нового пользователя
-- `general.DefaultApi.apiV1SellerInfoGet` — `GET /api/v1/seller-info` — Получение информации о продавце
-- `general.DefaultApi.apiV1UserDelete` — `DELETE /api/v1/user` — Удалить пользователя
-- `general.DefaultApi.apiV1UsersAccessPut` — `PUT /api/v1/users/access` — Изменить права доступа пользователей
-- `general.DefaultApi.apiV1UsersGet` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
-- `general.WBAPIApi.pingGet` — `GET /ping` — Проверка подключения
+- `general.APIApi.apiCommunicationsV2NewsGet` — Получение новостей портала продавцов
+- `general.DefaultApi.apiV1InvitePost` — Создать приглашение для нового пользователя
+- `general.DefaultApi.apiV1SellerInfoGet` — Получение информации о продавце
+- `general.DefaultApi.apiV1UserDelete` — Удалить пользователя
+- `general.DefaultApi.apiV1UsersAccessPut` — Изменить права доступа пользователей
+- `general.DefaultApi.apiV1UsersGet` — Получить список активных или приглашённых пользователей продавца
+- `general.WBAPIApi.pingGet` — Проверка подключения
 
 ### products (`products`)
-- `products.DefaultApi.apiContentV1BrandsGet` — `GET /api/content/v1/brands` — Бренды
-- `products.DefaultApi.apiV2BufferGoodsTaskGet` — `GET /api/v2/buffer/goods/task` — Детализация необработанной загрузки
-- `products.DefaultApi.apiV2BufferTasksGet` — `GET /api/v2/buffer/tasks` — Состояние необработанной загрузки
-- `products.DefaultApi.apiV2HistoryGoodsTaskGet` — `GET /api/v2/history/goods/task` — Детализация обработанной загрузки
-- `products.DefaultApi.apiV2HistoryTasksGet` — `GET /api/v2/history/tasks` — Состояние обработанной загрузки
-- `products.DefaultApi.apiV2ListGoodsFilterGet` — `GET /api/v2/list/goods/filter` — Получить товары с ценами
-- `products.DefaultApi.apiV2ListGoodsFilterPost` — `POST /api/v2/list/goods/filter` — Получить товары с ценами по артикулам
-- `products.DefaultApi.apiV2ListGoodsSizeNmGet` — `GET /api/v2/list/goods/size/nm` — Получить размеры товара с ценами
-- `products.DefaultApi.apiV2QuarantineGoodsGet` — `GET /api/v2/quarantine/goods` — Получить товары в карантине
-- `products.DefaultApi.apiV2UploadTaskClubDiscountPost` — `POST /api/v2/upload/task/club-discount` — Установить скидки WB Клуба
-- `products.DefaultApi.apiV2UploadTaskPost` — `POST /api/v2/upload/task` — Установить цены и скидки
-- `products.DefaultApi.apiV2UploadTaskSizePost` — `POST /api/v2/upload/task/size` — Установить цены для размеров
-- `products.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsGet` — `GET /api/v3/dbw/warehouses/{warehouseId}/contacts` — Список контактов
-- `products.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsPut` — `PUT /api/v3/dbw/warehouses/{warehouseId}/contacts` — Обновить список контактов
-- `products.DefaultApi.apiV3OfficesGet` — `GET /api/v3/offices` — Получить список складов WB
-- `products.DefaultApi.apiV3StocksWarehouseIdDelete` — `DELETE /api/v3/stocks/{warehouseId}` — Удалить остатки товаров
-- `products.DefaultApi.apiV3StocksWarehouseIdPost` — `POST /api/v3/stocks/{warehouseId}` — Получить остатки товаров
-- `products.DefaultApi.apiV3StocksWarehouseIdPut` — `PUT /api/v3/stocks/{warehouseId}` — Обновить остатки товаров
-- `products.DefaultApi.apiV3WarehousesGet` — `GET /api/v3/warehouses` — Получить список складов продавца
-- `products.DefaultApi.apiV3WarehousesPost` — `POST /api/v3/warehouses` — Создать склад продавца
-- `products.DefaultApi.apiV3WarehousesWarehouseIdDelete` — `DELETE /api/v3/warehouses/{warehouseId}` — Удалить склад продавца
-- `products.DefaultApi.apiV3WarehousesWarehouseIdPut` — `PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца
-- `products.DefaultApi.contentV2BarcodesPost` — `POST /content/v2/barcodes` — Генерация баркодов
-- `products.DefaultApi.contentV2CardsDeleteTrashPost` — `POST /content/v2/cards/delete/trash` — Перенос карточек товаров в корзину
-- `products.DefaultApi.contentV2CardsErrorListPost` — `POST /content/v2/cards/error/list` — Список несозданных карточек товаров с ошибками
-- `products.DefaultApi.contentV2CardsLimitsGet` — `GET /content/v2/cards/limits` — Лимиты карточек товаров
-- `products.DefaultApi.contentV2CardsMoveNmPost` — `POST /content/v2/cards/moveNm` — Объединение и разъединение карточек товаров
-- `products.DefaultApi.contentV2CardsRecoverPost` — `POST /content/v2/cards/recover` — Восстановление карточек товаров из корзины
-- `products.DefaultApi.contentV2CardsUpdatePost` — `POST /content/v2/cards/update` — Редактирование карточек товаров
-- `products.DefaultApi.contentV2CardsUploadAddPost` — `POST /content/v2/cards/upload/add` — Создание карточек товаров с присоединением
-- `products.DefaultApi.contentV2CardsUploadPost` — `POST /content/v2/cards/upload` — Создание карточек товаров
-- `products.DefaultApi.contentV2DirectoryColorsGet` — `GET /content/v2/directory/colors` — Цвет
-- `products.DefaultApi.contentV2DirectoryCountriesGet` — `GET /content/v2/directory/countries` — Страна производства
-- `products.DefaultApi.contentV2DirectoryKindsGet` — `GET /content/v2/directory/kinds` — Пол
-- `products.DefaultApi.contentV2DirectorySeasonsGet` — `GET /content/v2/directory/seasons` — Сезон
-- `products.DefaultApi.contentV2DirectoryTnvedGet` — `GET /content/v2/directory/tnved` — ТНВЭД-код
-- `products.DefaultApi.contentV2DirectoryVatGet` — `GET /content/v2/directory/vat` — Ставка НДС
-- `products.DefaultApi.contentV2GetCardsListPost` — `POST /content/v2/get/cards/list` — Список карточек товаров
-- `products.DefaultApi.contentV2GetCardsTrashPost` — `POST /content/v2/get/cards/trash` — Список карточек товаров в корзине
-- `products.DefaultApi.contentV2ObjectAllGet` — `GET /content/v2/object/all` — Список предметов
-- `products.DefaultApi.contentV2ObjectCharcsSubjectIdGet` — `GET /content/v2/object/charcs/{subjectId}` — Характеристики предмета
-- `products.DefaultApi.contentV2ObjectParentAllGet` — `GET /content/v2/object/parent/all` — Родительские категории товаров
-- `products.DefaultApi.contentV2TagIdDelete` — `DELETE /content/v2/tag/{id}` — Удаление ярлыка
-- `products.DefaultApi.contentV2TagIdPatch` — `PATCH /content/v2/tag/{id}` — Изменение ярлыка
-- `products.DefaultApi.contentV2TagNomenclatureLinkPost` — `POST /content/v2/tag/nomenclature/link` — Управление ярлыками в карточке товара
-- `products.DefaultApi.contentV2TagPost` — `POST /content/v2/tag` — Создание ярлыка
-- `products.DefaultApi.contentV2TagsGet` — `GET /content/v2/tags` — Список ярлыков
-- `products.DefaultApi.contentV3MediaFilePost` — `POST /content/v3/media/file` — Загрузить медиафайл
-- `products.DefaultApi.contentV3MediaSavePost` — `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам
+- `products.DefaultApi.apiContentV1BrandsGet` — Бренды
+- `products.DefaultApi.apiV2BufferGoodsTaskGet` — Детализация необработанной загрузки
+- `products.DefaultApi.apiV2BufferTasksGet` — Состояние необработанной загрузки
+- `products.DefaultApi.apiV2HistoryGoodsTaskGet` — Детализация обработанной загрузки
+- `products.DefaultApi.apiV2HistoryTasksGet` — Состояние обработанной загрузки
+- `products.DefaultApi.apiV2ListGoodsFilterGet` — Получить товары с ценами
+- `products.DefaultApi.apiV2ListGoodsFilterPost` — Получить товары с ценами по артикулам
+- `products.DefaultApi.apiV2ListGoodsSizeNmGet` — Получить размеры товара с ценами
+- `products.DefaultApi.apiV2QuarantineGoodsGet` — Получить товары в карантине
+- `products.DefaultApi.apiV2UploadTaskClubDiscountPost` — Установить скидки WB Клуба
+- `products.DefaultApi.apiV2UploadTaskPost` — Установить цены и скидки
+- `products.DefaultApi.apiV2UploadTaskSizePost` — Установить цены для размеров
+- `products.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsGet` — Список контактов
+- `products.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsPut` — Обновить список контактов
+- `products.DefaultApi.apiV3OfficesGet` — Получить список складов WB
+- `products.DefaultApi.apiV3StocksWarehouseIdDelete` — Удалить остатки товаров
+- `products.DefaultApi.apiV3StocksWarehouseIdPost` — Получить остатки товаров
+- `products.DefaultApi.apiV3StocksWarehouseIdPut` — Обновить остатки товаров
+- `products.DefaultApi.apiV3WarehousesGet` — Получить список складов продавца
+- `products.DefaultApi.apiV3WarehousesPost` — Создать склад продавца
+- `products.DefaultApi.apiV3WarehousesWarehouseIdDelete` — Удалить склад продавца
+- `products.DefaultApi.apiV3WarehousesWarehouseIdPut` — Обновить склад продавца
+- `products.DefaultApi.contentV2BarcodesPost` — Генерация баркодов
+- `products.DefaultApi.contentV2CardsDeleteTrashPost` — Перенос карточек товаров в корзину
+- `products.DefaultApi.contentV2CardsErrorListPost` — Список несозданных карточек товаров с ошибками
+- `products.DefaultApi.contentV2CardsLimitsGet` — Лимиты карточек товаров
+- `products.DefaultApi.contentV2CardsMoveNmPost` — Объединение и разъединение карточек товаров
+- `products.DefaultApi.contentV2CardsRecoverPost` — Восстановление карточек товаров из корзины
+- `products.DefaultApi.contentV2CardsUpdatePost` — Редактирование карточек товаров
+- `products.DefaultApi.contentV2CardsUploadAddPost` — Создание карточек товаров с присоединением
+- `products.DefaultApi.contentV2CardsUploadPost` — Создание карточек товаров
+- `products.DefaultApi.contentV2DirectoryColorsGet` — Цвет
+- `products.DefaultApi.contentV2DirectoryCountriesGet` — Страна производства
+- `products.DefaultApi.contentV2DirectoryKindsGet` — Пол
+- `products.DefaultApi.contentV2DirectorySeasonsGet` — Сезон
+- `products.DefaultApi.contentV2DirectoryTnvedGet` — ТНВЭД-код
+- `products.DefaultApi.contentV2DirectoryVatGet` — Ставка НДС
+- `products.DefaultApi.contentV2GetCardsListPost` — Список карточек товаров
+- `products.DefaultApi.contentV2GetCardsTrashPost` — Список карточек товаров в корзине
+- `products.DefaultApi.contentV2ObjectAllGet` — Список предметов
+- `products.DefaultApi.contentV2ObjectCharcsSubjectIdGet` — Характеристики предмета
+- `products.DefaultApi.contentV2ObjectParentAllGet` — Родительские категории товаров
+- `products.DefaultApi.contentV2TagIdDelete` — Удаление ярлыка
+- `products.DefaultApi.contentV2TagIdPatch` — Изменение ярлыка
+- `products.DefaultApi.contentV2TagNomenclatureLinkPost` — Управление ярлыками в карточке товара
+- `products.DefaultApi.contentV2TagPost` — Создание ярлыка
+- `products.DefaultApi.contentV2TagsGet` — Список ярлыков
+- `products.DefaultApi.contentV3MediaFilePost` — Загрузить медиафайл
+- `products.DefaultApi.contentV3MediaSavePost` — Загрузить медиафайлы по ссылкам
 
 ### orders_fbs (`orders_fbs`)
-- `orders_fbs.FBSApi.apiMarketplaceV3OrdersMetaPost` — `POST /api/marketplace/v3/orders/meta` — Получить метаданные сборочных заданий
-- `orders_fbs.FBSApi.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить за сборочным заданием номер ГТД
-- `orders_fbs.FBSApi.apiMarketplaceV3SuppliesSupplyIdOrderIdsGet` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
-- `orders_fbs.FBSApi.apiMarketplaceV3SuppliesSupplyIdOrdersPatch` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
-- `orders_fbs.FBSApi.apiV3OrdersClientPost` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
-- `orders_fbs.FBSApi.apiV3OrdersGet` — `GET /api/v3/orders` — Получить информацию о сборочных заданиях
-- `orders_fbs.FBSApi.apiV3OrdersNewGet` — `GET /api/v3/orders/new` — Получить список новых сборочных заданий
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdCancelPatch` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaDelete` — `DELETE /api/v3/orders/{orderId}/meta` — Удалить метаданные сборочного задания
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaExpirationPut` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaGtinPut` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaImeiPut` — `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaSgtinPut` — `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить за сборочным заданием код маркировки товара
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaUinPut` — `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН
-- `orders_fbs.FBSApi.apiV3OrdersStatusHistoryPost` — `POST /api/v3/orders/status/history` — История статусов для сборочных заданий кроссбордера
-- `orders_fbs.FBSApi.apiV3OrdersStatusPost` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
-- `orders_fbs.FBSApi.apiV3OrdersStickersCrossBorderPost` — `POST /api/v3/orders/stickers/cross-border` — Получить стикеры сборочных заданий кроссбордера
-- `orders_fbs.FBSApi.apiV3OrdersStickersPost` — `POST /api/v3/orders/stickers` — Получить стикеры сборочных заданий
-- `orders_fbs.FBSApi.apiV3PassesGet` — `GET /api/v3/passes` — Получить список пропусков
-- `orders_fbs.FBSApi.apiV3PassesOfficesGet` — `GET /api/v3/passes/offices` — Получить список складов, для которых требуется пропуск
-- `orders_fbs.FBSApi.apiV3PassesPassIdDelete` — `DELETE /api/v3/passes/{passId}` — Удалить пропуск
-- `orders_fbs.FBSApi.apiV3PassesPassIdPut` — `PUT /api/v3/passes/{passId}` — Обновить пропуск
-- `orders_fbs.FBSApi.apiV3PassesPost` — `POST /api/v3/passes` — Создать пропуск
-- `orders_fbs.FBSApi.apiV3SuppliesGet` — `GET /api/v3/supplies` — Получить список поставок
-- `orders_fbs.FBSApi.apiV3SuppliesOrdersReshipmentGet` — `GET /api/v3/supplies/orders/reshipment` — Получить все сборочные задания для повторной отгрузки
-- `orders_fbs.FBSApi.apiV3SuppliesPost` — `POST /api/v3/supplies` — Создать новую поставку
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdBarcodeGet` — `GET /api/v3/supplies/{supplyId}/barcode` — Получить QR-код поставки
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdDelete` — `DELETE /api/v3/supplies/{supplyId}` — Удалить поставку
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdDeliverPatch` — `PATCH /api/v3/supplies/{supplyId}/deliver` — Передать поставку в доставку
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdGet` — `GET /api/v3/supplies/{supplyId}` — Получить информацию о поставке
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxDelete` — `DELETE /api/v3/supplies/{supplyId}/trbx` — Удалить короба из поставки
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxGet` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список коробов поставки
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxPost` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить короба к поставке
-- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxStickersPost` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры коробов поставки
+- `orders_fbs.FBSApi.apiMarketplaceV3OrdersMetaPost` — Получить метаданные сборочных заданий
+- `orders_fbs.FBSApi.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — Закрепить за сборочным заданием номер ГТД
+- `orders_fbs.FBSApi.apiMarketplaceV3SuppliesSupplyIdOrderIdsGet` — Получить ID сборочных заданий поставки
+- `orders_fbs.FBSApi.apiMarketplaceV3SuppliesSupplyIdOrdersPatch` — Добавить сборочные задания к поставке
+- `orders_fbs.FBSApi.apiV3OrdersClientPost` — Заказы с информацией по клиенту
+- `orders_fbs.FBSApi.apiV3OrdersGet` — Получить информацию о сборочных заданиях
+- `orders_fbs.FBSApi.apiV3OrdersNewGet` — Получить список новых сборочных заданий
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdCancelPatch` — Отменить сборочное задание
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaDelete` — Удалить метаданные сборочного задания
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaExpirationPut` — Закрепить за сборочным заданием срок годности товара
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaGtinPut` — Закрепить за сборочным заданием GTIN
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaImeiPut` — Закрепить за сборочным заданием IMEI
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaSgtinPut` — Закрепить за сборочным заданием код маркировки товара
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaUinPut` — Закрепить за сборочным заданием УИН
+- `orders_fbs.FBSApi.apiV3OrdersStatusHistoryPost` — История статусов для сборочных заданий кроссбордера
+- `orders_fbs.FBSApi.apiV3OrdersStatusPost` — Получить статусы сборочных заданий
+- `orders_fbs.FBSApi.apiV3OrdersStickersCrossBorderPost` — Получить стикеры сборочных заданий кроссбордера
+- `orders_fbs.FBSApi.apiV3OrdersStickersPost` — Получить стикеры сборочных заданий
+- `orders_fbs.FBSApi.apiV3PassesGet` — Получить список пропусков
+- `orders_fbs.FBSApi.apiV3PassesOfficesGet` — Получить список складов, для которых требуется пропуск
+- `orders_fbs.FBSApi.apiV3PassesPassIdDelete` — Удалить пропуск
+- `orders_fbs.FBSApi.apiV3PassesPassIdPut` — Обновить пропуск
+- `orders_fbs.FBSApi.apiV3PassesPost` — Создать пропуск
+- `orders_fbs.FBSApi.apiV3SuppliesGet` — Получить список поставок
+- `orders_fbs.FBSApi.apiV3SuppliesOrdersReshipmentGet` — Получить все сборочные задания для повторной отгрузки
+- `orders_fbs.FBSApi.apiV3SuppliesPost` — Создать новую поставку
+- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdBarcodeGet` — Получить QR-код поставки
+- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdDelete` — Удалить поставку
+- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdDeliverPatch` — Передать поставку в доставку
+- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdGet` — Получить информацию о поставке
+- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxDelete` — Удалить короба из поставки
+- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxGet` — Получить список коробов поставки
+- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxPost` — Добавить короба к поставке
+- `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxStickersPost` — Получить стикеры коробов поставки
 
 ### orders_dbw (`orders_dbw`)
-- `orders_dbw.DBWApi.apiV3DbwOrdersCourierPost` — `POST /api/v3/dbw/orders/courier` — Информация о курьере
-- `orders_dbw.DBWApi.apiV3DbwOrdersDeliveryDatePost` — `POST /api/v3/dbw/orders/delivery-date` — Дата и время доставки
-- `orders_dbw.DBWApi.apiV3DbwOrdersGet` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях
-- `orders_dbw.DBWApi.apiV3DbwOrdersNewGet` — `GET /api/v3/dbw/orders/new` — Получить список новых сборочных заданий
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdAssemblePatch` — `PATCH /api/v3/dbw/orders/{orderId}/assemble` — Перевести в доставку
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdCancelPatch` — `PATCH /api/v3/dbw/orders/{orderId}/cancel` — Отменить сборочное задание
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdConfirmPatch` — `PATCH /api/v3/dbw/orders/{orderId}/confirm` — Перевести на сборку
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaDelete` — `DELETE /api/v3/dbw/orders/{orderId}/meta` — Удалить метаданные сборочного задания
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaGet` — `GET /api/v3/dbw/orders/{orderId}/meta` — Получить метаданные сборочного задания
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaGtinPut` — `PUT /api/v3/dbw/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaImeiPut` — `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaSgtinPut` — `PUT /api/v3/dbw/orders/{orderId}/meta/sgtin` — Закрепить за сборочным заданием код маркировки товара
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaUinPut` — `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
-- `orders_dbw.DBWApi.apiV3DbwOrdersStatusPost` — `POST /api/v3/dbw/orders/status` — Получить статусы сборочных заданий
-- `orders_dbw.DBWApi.apiV3DbwOrdersStickersPost` — `POST /api/v3/dbw/orders/stickers` — Получить стикеры сборочных заданий
+- `orders_dbw.DBWApi.apiV3DbwOrdersCourierPost` — Информация о курьере
+- `orders_dbw.DBWApi.apiV3DbwOrdersDeliveryDatePost` — Дата и время доставки
+- `orders_dbw.DBWApi.apiV3DbwOrdersGet` — Получить информацию о завершенных сборочных заданиях
+- `orders_dbw.DBWApi.apiV3DbwOrdersNewGet` — Получить список новых сборочных заданий
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdAssemblePatch` — Перевести в доставку
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdCancelPatch` — Отменить сборочное задание
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdConfirmPatch` — Перевести на сборку
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaDelete` — Удалить метаданные сборочного задания
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaGet` — Получить метаданные сборочного задания
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaGtinPut` — Закрепить за сборочным заданием GTIN
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaImeiPut` — Закрепить за сборочным заданием IMEI
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaSgtinPut` — Закрепить за сборочным заданием код маркировки товара
+- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaUinPut` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+- `orders_dbw.DBWApi.apiV3DbwOrdersStatusPost` — Получить статусы сборочных заданий
+- `orders_dbw.DBWApi.apiV3DbwOrdersStickersPost` — Получить стикеры сборочных заданий
 
 ### orders_dbs (`orders_dbs`)
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsMetaCustomsDeclarationPost` — `POST /api/marketplace/v3/dbs/meta/customs-declaration` — Закрепить за сборочными заданиями номер ГТД
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaDeletePost` — `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить метаданные сборочных заданий
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaGtinPost` — `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaImeiPost` — `POST /api/marketplace/v3/dbs/orders/meta/imei` — Закрепить IMEI за сборочными заданиями
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaInfoPost` — `POST /api/marketplace/v3/dbs/orders/meta/info` — Получить метаданные сборочных заданий
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaSgtinPost` — `POST /api/marketplace/v3/dbs/orders/meta/sgtin` — Закрепить коды маркировки за сборочными заданиями
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaUinPost` — `POST /api/marketplace/v3/dbs/orders/meta/uin` — Закрепить УИН за сборочными заданиями
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusCancelPost` — `POST /api/marketplace/v3/dbs/orders/status/cancel` — Отменить сборочные задания
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusConfirmPost` — `POST /api/marketplace/v3/dbs/orders/status/confirm` — Перевести сборочные задания на сборку
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusDeliverPost` — `POST /api/marketplace/v3/dbs/orders/status/deliver` — Перевести сборочные задания в доставку
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusInfoPost` — `POST /api/marketplace/v3/dbs/orders/status/info` — Получить статусы сборочных заданий
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusReceivePost` — `POST /api/marketplace/v3/dbs/orders/status/receive` — Сообщить о получении заказов
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusRejectPost` — `POST /api/marketplace/v3/dbs/orders/status/reject` — Сообщить об отказе от заказов
-- `orders_dbs.DBSApi.apiV3DbsGroupsInfoPost` — `POST /api/v3/dbs/groups/info` — Получить информацию о платной доставке
-- `orders_dbs.DBSApi.apiV3DbsOrdersClientPost` — `POST /api/v3/dbs/orders/client` — Информация о покупателе
-- `orders_dbs.DBSApi.apiV3DbsOrdersDeliveryDatePost` — `POST /api/v3/dbs/orders/delivery-date` — Дата и время доставки
-- `orders_dbs.DBSApi.apiV3DbsOrdersGet` — `GET /api/v3/dbs/orders` — Получить информацию о завершенных сборочных заданиях
-- `orders_dbs.DBSApi.apiV3DbsOrdersNewGet` — `GET /api/v3/dbs/orders/new` — Получить список новых сборочных заданий
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdCancelPatch` — `PATCH /api/v3/dbs/orders/{orderId}/cancel` — Отменить сборочное задание
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdConfirmPatch` — `PATCH /api/v3/dbs/orders/{orderId}/confirm` — Перевести на сборку
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdDeliverPatch` — `PATCH /api/v3/dbs/orders/{orderId}/deliver` — Перевести в доставку
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaDelete` — `DELETE /api/v3/dbs/orders/{orderId}/meta` — Удалить метаданные сборочного задания
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaGet` — `GET /api/v3/dbs/orders/{orderId}/meta` — Получить метаданные сборочного задания
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaGtinPut` — `PUT /api/v3/dbs/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaImeiPut` — `PUT /api/v3/dbs/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaSgtinPut` — `PUT /api/v3/dbs/orders/{orderId}/meta/sgtin` — Закрепить за сборочным заданием код маркировки товара
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaUinPut` — `PUT /api/v3/dbs/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdReceivePatch` — `PATCH /api/v3/dbs/orders/{orderId}/receive` — Сообщить, что заказ принят покупателем
-- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdRejectPatch` — `PATCH /api/v3/dbs/orders/{orderId}/reject` — Сообщить, что покупатель отказался от заказа
-- `orders_dbs.DBSApi.apiV3DbsOrdersStatusPost` — `POST /api/v3/dbs/orders/status` — Получить статусы сборочных заданий
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsMetaCustomsDeclarationPost` — Закрепить за сборочными заданиями номер ГТД
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaDeletePost` — Удалить метаданные сборочных заданий
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaGtinPost` — Закрепить GTIN за сборочными заданиями
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaImeiPost` — Закрепить IMEI за сборочными заданиями
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaInfoPost` — Получить метаданные сборочных заданий
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaSgtinPost` — Закрепить коды маркировки за сборочными заданиями
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaUinPost` — Закрепить УИН за сборочными заданиями
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusCancelPost` — Отменить сборочные задания
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusConfirmPost` — Перевести сборочные задания на сборку
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusDeliverPost` — Перевести сборочные задания в доставку
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusInfoPost` — Получить статусы сборочных заданий
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusReceivePost` — Сообщить о получении заказов
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusRejectPost` — Сообщить об отказе от заказов
+- `orders_dbs.DBSApi.apiV3DbsGroupsInfoPost` — Получить информацию о платной доставке
+- `orders_dbs.DBSApi.apiV3DbsOrdersClientPost` — Информация о покупателе
+- `orders_dbs.DBSApi.apiV3DbsOrdersDeliveryDatePost` — Дата и время доставки
+- `orders_dbs.DBSApi.apiV3DbsOrdersGet` — Получить информацию о завершенных сборочных заданиях
+- `orders_dbs.DBSApi.apiV3DbsOrdersNewGet` — Получить список новых сборочных заданий
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdCancelPatch` — Отменить сборочное задание
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdConfirmPatch` — Перевести на сборку
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdDeliverPatch` — Перевести в доставку
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaDelete` — Удалить метаданные сборочного задания
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaGet` — Получить метаданные сборочного задания
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaGtinPut` — Закрепить за сборочным заданием GTIN
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaImeiPut` — Закрепить за сборочным заданием IMEI
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaSgtinPut` — Закрепить за сборочным заданием код маркировки товара
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdMetaUinPut` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdReceivePatch` — Сообщить, что заказ принят покупателем
+- `orders_dbs.DBSApi.apiV3DbsOrdersOrderIdRejectPatch` — Сообщить, что покупатель отказался от заказа
+- `orders_dbs.DBSApi.apiV3DbsOrdersStatusPost` — Получить статусы сборочных заданий
 
 ### in_store_pickup (`in_store_pickup`)
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientIdentityPost` — `POST /api/v3/click-collect/orders/client/identity` — Проверить, что заказ принадлежит покупателю
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientPost` — `POST /api/v3/click-collect/orders/client` — Информация о покупателе
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersGet` — `GET /api/v3/click-collect/orders` — Получить информацию о завершённых сборочных заданиях
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersNewGet` — `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdCancelPatch` — `PATCH /api/v3/click-collect/orders/{orderId}/cancel` — Отменить сборочное задание
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdConfirmPatch` — `PATCH /api/v3/click-collect/orders/{orderId}/confirm` — Перевести на сборку
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaDelete` — `DELETE /api/v3/click-collect/orders/{orderId}/meta` — Удалить метаданные сборочного задания
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaGet` — `GET /api/v3/click-collect/orders/{orderId}/meta` — Получить метаданные сборочного задания
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaGtinPut` — `PUT /api/v3/click-collect/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaImeiPut` — `PUT /api/v3/click-collect/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaSgtinPut` — `PUT /api/v3/click-collect/orders/{orderId}/meta/sgtin` — Закрепить за сборочным заданием код маркировки товара
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaUinPut` — `PUT /api/v3/click-collect/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdPreparePatch` — `PATCH /api/v3/click-collect/orders/{orderId}/prepare` — Сообщить, что сборочное задание готово к выдаче
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdReceivePatch` — `PATCH /api/v3/click-collect/orders/{orderId}/receive` — Сообщить, что заказ принят покупателем
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdRejectPatch` — `PATCH /api/v3/click-collect/orders/{orderId}/reject` — Сообщить, что покупатель отказался от заказа
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersStatusPost` — `POST /api/v3/click-collect/orders/status` — Получить статусы сборочных заданий
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientIdentityPost` — Проверить, что заказ принадлежит покупателю
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientPost` — Информация о покупателе
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersGet` — Получить информацию о завершённых сборочных заданиях
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersNewGet` — Получить список новых сборочных заданий
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdCancelPatch` — Отменить сборочное задание
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdConfirmPatch` — Перевести на сборку
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaDelete` — Удалить метаданные сборочного задания
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaGet` — Получить метаданные сборочного задания
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaGtinPut` — Закрепить за сборочным заданием GTIN
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaImeiPut` — Закрепить за сборочным заданием IMEI
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaSgtinPut` — Закрепить за сборочным заданием код маркировки товара
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaUinPut` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdPreparePatch` — Сообщить, что сборочное задание готово к выдаче
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdReceivePatch` — Сообщить, что заказ принят покупателем
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdRejectPatch` — Сообщить, что покупатель отказался от заказа
+- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersStatusPost` — Получить статусы сборочных заданий
 
 ### orders_fbw (`orders_fbw`)
-- `orders_fbw.DefaultApi.apiV1AcceptanceCoefficientsGet` — `GET /api/v1/acceptance/coefficients` — Коэффициенты приёмки
-- `orders_fbw.DefaultApi.apiV1AcceptanceOptionsPost` — `POST /api/v1/acceptance/options` — Опции приёмки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDGet` — `GET /api/v1/supplies/{ID}` — Детали поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDGoodsGet` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDPackageGet` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesPost` — `POST /api/v1/supplies` — Список поставок
-- `orders_fbw.DefaultApi.apiV1TransitTariffsGet` — `GET /api/v1/transit-tariffs` — Транзитные направления
-- `orders_fbw.DefaultApi.apiV1WarehousesGet` — `GET /api/v1/warehouses` — Список складов
+- `orders_fbw.DefaultApi.apiV1AcceptanceCoefficientsGet` — Коэффициенты приёмки
+- `orders_fbw.DefaultApi.apiV1AcceptanceOptionsPost` — Опции приёмки
+- `orders_fbw.DefaultApi.apiV1SuppliesIDGet` — Детали поставки
+- `orders_fbw.DefaultApi.apiV1SuppliesIDGoodsGet` — Товары поставки
+- `orders_fbw.DefaultApi.apiV1SuppliesIDPackageGet` — Упаковка поставки
+- `orders_fbw.DefaultApi.apiV1SuppliesPost` — Список поставок
+- `orders_fbw.DefaultApi.apiV1TransitTariffsGet` — Транзитные направления
+- `orders_fbw.DefaultApi.apiV1WarehousesGet` — Список складов
 
 ### promotion (`promotion`)
-- `promotion.DefaultApi.advV0AuctionAdvertsGet` — `GET /adv/v0/auction/adverts` — Информация о кампаниях с ручной ставкой
-- `promotion.DefaultApi.advV0AuctionBidsPatch` — `PATCH /adv/v0/auction/bids` — Изменение ставок в кампаниях
-- `promotion.DefaultApi.advV0AuctionNmsPatch` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
-- `promotion.DefaultApi.advV0AuctionPlacementsPut` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
-- `promotion.DefaultApi.advV0BidsMinPost` — `POST /adv/v0/bids/min` — Минимальные ставки для карточек товаров
-- `promotion.DefaultApi.advV0BidsPatch` — `PATCH /adv/v0/bids` — Изменение ставок
-- `promotion.DefaultApi.advV0ConfigGet` — `GET /adv/v0/config` — Конфигурационные значения Продвижения
-- `promotion.DefaultApi.advV0DeleteGet` — `GET /adv/v0/delete` — Удаление кампании
-- `promotion.DefaultApi.advV0NormqueryBidsDelete` — `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
-- `promotion.DefaultApi.advV0NormqueryBidsPost` — `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров
-- `promotion.DefaultApi.advV0NormqueryGetBidsPost` — `POST /adv/v0/normquery/get-bids` — Список ставок поисковых кластеров
-- `promotion.DefaultApi.advV0NormqueryGetMinusPost` — `POST /adv/v0/normquery/get-minus` — Список минус-фраз кампаний
-- `promotion.DefaultApi.advV0NormquerySetMinusPost` — `POST /adv/v0/normquery/set-minus` — Установка и удаление минус-фраз
-- `promotion.DefaultApi.advV0NormqueryStatsPost` — `POST /adv/v0/normquery/stats` — Статистика поисковых кластеров
-- `promotion.DefaultApi.advV0PauseGet` — `GET /adv/v0/pause` — Пауза кампании
-- `promotion.DefaultApi.advV0RenamePost` — `POST /adv/v0/rename` — Переименование кампании
-- `promotion.DefaultApi.advV0StartGet` — `GET /adv/v0/start` — Запуск кампании
-- `promotion.DefaultApi.advV0StatsKeywordsGet` — `GET /adv/v0/stats/keywords` — Статистика по ключевым фразам
-- `promotion.DefaultApi.advV0StopGet` — `GET /adv/v0/stop` — Завершение кампании
-- `promotion.DefaultApi.advV1AdvertGet` — `GET /adv/v1/advert` — Информация о медиакампании
-- `promotion.DefaultApi.advV1AdvertsGet` — `GET /adv/v1/adverts` — Список медиакампаний
-- `promotion.DefaultApi.advV1AutoGetnmtoaddGet` — `GET /adv/v1/auto/getnmtoadd` — Список карточек товаров для кампании с единой ставкой
-- `promotion.DefaultApi.advV1AutoSetExcludedPost` — `POST /adv/v1/auto/set-excluded` — Установка/удаление минус-фраз для кампании с единой ставкой
-- `promotion.DefaultApi.advV1AutoUpdatenmPost` — `POST /adv/v1/auto/updatenm` — Изменение списка карточек товаров в кампании с единой ставкой
-- `promotion.DefaultApi.advV1BalanceGet` — `GET /adv/v1/balance` — Баланс
-- `promotion.DefaultApi.advV1BudgetDepositPost` — `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании
-- `promotion.DefaultApi.advV1BudgetGet` — `GET /adv/v1/budget` — Бюджет кампании
-- `promotion.DefaultApi.advV1CountGet` — `GET /adv/v1/count` — Количество медиакампаний
-- `promotion.DefaultApi.advV1PaymentsGet` — `GET /adv/v1/payments` — Получение истории пополнений счёта
-- `promotion.DefaultApi.advV1PromotionAdvertsPost` — `POST /adv/v1/promotion/adverts` — Информация о кампаниях
-- `promotion.DefaultApi.advV1PromotionCountGet` — `GET /adv/v1/promotion/count` — Списки кампаний
-- `promotion.DefaultApi.advV1SearchSetExcludedPost` — `POST /adv/v1/search/set-excluded` — Установка/удаление минус-фраз в поиске
-- `promotion.DefaultApi.advV1SearchSetPlusGet` — `GET /adv/v1/search/set-plus` — Управление активностью фиксированных фраз
-- `promotion.DefaultApi.advV1SearchSetPlusPost` — `POST /adv/v1/search/set-plus` — Установка/удаление фиксированных фраз
-- `promotion.DefaultApi.advV1StatWordsGet` — `GET /adv/v1/stat/words` — Статистика кампании c ручной ставкой по ключевым фразам
-- `promotion.DefaultApi.advV1StatsPost` — `POST /adv/v1/stats` — Статистика медиакампаний
-- `promotion.DefaultApi.advV1SupplierSubjectsGet` — `GET /adv/v1/supplier/subjects` — Предметы для кампаний
-- `promotion.DefaultApi.advV1UpdGet` — `GET /adv/v1/upd` — Получение истории затрат
-- `promotion.DefaultApi.advV2AutoStatWordsGet` — `GET /adv/v2/auto/stat-words` — Статистика кампании с единой ставкой по кластерам фраз
-- `promotion.DefaultApi.advV2FullstatsPost` — `POST /adv/v2/fullstats` — Статистика кампаний
-- `promotion.DefaultApi.advV2SeacatSaveAdPost` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
-- `promotion.DefaultApi.advV2SupplierNmsPost` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
-- `promotion.DefaultApi.advV3FullstatsGet` — `GET /adv/v3/fullstats` — Статистика кампаний
-- `promotion.DefaultApi.apiAdvertV1BidsMinPost` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
-- `promotion.DefaultApi.apiAdvertV1BidsPatch` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
-- `promotion.DefaultApi.apiAdvertV2AdvertsGet` — `GET /api/advert/v2/adverts` — Информация о кампаниях
-- `promotion.DefaultApi.apiV1CalendarPromotionsDetailsGet` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
-- `promotion.DefaultApi.apiV1CalendarPromotionsGet` — `GET /api/v1/calendar/promotions` — Список акций
-- `promotion.DefaultApi.apiV1CalendarPromotionsNomenclaturesGet` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
-- `promotion.DefaultApi.apiV1CalendarPromotionsUploadPost` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
+- `promotion.DefaultApi.advV0AuctionAdvertsGet` — Информация о кампаниях с ручной ставкой
+- `promotion.DefaultApi.advV0AuctionBidsPatch` — Изменение ставок в кампаниях
+- `promotion.DefaultApi.advV0AuctionNmsPatch` — Изменение списка карточек товаров в кампаниях
+- `promotion.DefaultApi.advV0AuctionPlacementsPut` — Изменение мест размещения в кампаниях с ручной ставкой
+- `promotion.DefaultApi.advV0BidsMinPost` — Минимальные ставки для карточек товаров
+- `promotion.DefaultApi.advV0BidsPatch` — Изменение ставок
+- `promotion.DefaultApi.advV0ConfigGet` — Конфигурационные значения Продвижения
+- `promotion.DefaultApi.advV0DeleteGet` — Удаление кампании
+- `promotion.DefaultApi.advV0NormqueryBidsDelete` — Удалить ставки поисковых кластеров
+- `promotion.DefaultApi.advV0NormqueryBidsPost` — Установить ставки для поисковых кластеров
+- `promotion.DefaultApi.advV0NormqueryGetBidsPost` — Список ставок поисковых кластеров
+- `promotion.DefaultApi.advV0NormqueryGetMinusPost` — Список минус-фраз кампаний
+- `promotion.DefaultApi.advV0NormquerySetMinusPost` — Установка и удаление минус-фраз
+- `promotion.DefaultApi.advV0NormqueryStatsPost` — Статистика поисковых кластеров
+- `promotion.DefaultApi.advV0PauseGet` — Пауза кампании
+- `promotion.DefaultApi.advV0RenamePost` — Переименование кампании
+- `promotion.DefaultApi.advV0StartGet` — Запуск кампании
+- `promotion.DefaultApi.advV0StatsKeywordsGet` — Статистика по ключевым фразам
+- `promotion.DefaultApi.advV0StopGet` — Завершение кампании
+- `promotion.DefaultApi.advV1AdvertGet` — Информация о медиакампании
+- `promotion.DefaultApi.advV1AdvertsGet` — Список медиакампаний
+- `promotion.DefaultApi.advV1AutoGetnmtoaddGet` — Список карточек товаров для кампании с единой ставкой
+- `promotion.DefaultApi.advV1AutoSetExcludedPost` — Установка/удаление минус-фраз для кампании с единой ставкой
+- `promotion.DefaultApi.advV1AutoUpdatenmPost` — Изменение списка карточек товаров в кампании с единой ставкой
+- `promotion.DefaultApi.advV1BalanceGet` — Баланс
+- `promotion.DefaultApi.advV1BudgetDepositPost` — Пополнение бюджета кампании
+- `promotion.DefaultApi.advV1BudgetGet` — Бюджет кампании
+- `promotion.DefaultApi.advV1CountGet` — Количество медиакампаний
+- `promotion.DefaultApi.advV1PaymentsGet` — Получение истории пополнений счёта
+- `promotion.DefaultApi.advV1PromotionAdvertsPost` — Информация о кампаниях
+- `promotion.DefaultApi.advV1PromotionCountGet` — Списки кампаний
+- `promotion.DefaultApi.advV1SearchSetExcludedPost` — Установка/удаление минус-фраз в поиске
+- `promotion.DefaultApi.advV1SearchSetPlusGet` — Управление активностью фиксированных фраз
+- `promotion.DefaultApi.advV1SearchSetPlusPost` — Установка/удаление фиксированных фраз
+- `promotion.DefaultApi.advV1StatWordsGet` — Статистика кампании c ручной ставкой по ключевым фразам
+- `promotion.DefaultApi.advV1StatsPost` — Статистика медиакампаний
+- `promotion.DefaultApi.advV1SupplierSubjectsGet` — Предметы для кампаний
+- `promotion.DefaultApi.advV1UpdGet` — Получение истории затрат
+- `promotion.DefaultApi.advV2AutoStatWordsGet` — Статистика кампании с единой ставкой по кластерам фраз
+- `promotion.DefaultApi.advV2FullstatsPost` — Статистика кампаний
+- `promotion.DefaultApi.advV2SeacatSaveAdPost` — Создать кампанию
+- `promotion.DefaultApi.advV2SupplierNmsPost` — Карточки товаров для кампаний
+- `promotion.DefaultApi.advV3FullstatsGet` — Статистика кампаний
+- `promotion.DefaultApi.apiAdvertV1BidsMinPost` — Минимальные ставки для карточек товаров
+- `promotion.DefaultApi.apiAdvertV1BidsPatch` — Изменение ставок в кампаниях
+- `promotion.DefaultApi.apiAdvertV2AdvertsGet` — Информация о кампаниях
+- `promotion.DefaultApi.apiV1CalendarPromotionsDetailsGet` — Детальная информация об акциях
+- `promotion.DefaultApi.apiV1CalendarPromotionsGet` — Список акций
+- `promotion.DefaultApi.apiV1CalendarPromotionsNomenclaturesGet` — Список товаров для участия в акции
+- `promotion.DefaultApi.apiV1CalendarPromotionsUploadPost` — Добавить товар в акцию
 
 ### communications (`communications`)
-- `communications.DefaultApi.apiFeedbacksV1PinsCountGet` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
-- `communications.DefaultApi.apiFeedbacksV1PinsDelete` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
-- `communications.DefaultApi.apiFeedbacksV1PinsGet` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
-- `communications.DefaultApi.apiFeedbacksV1PinsLimitsGet` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
-- `communications.DefaultApi.apiFeedbacksV1PinsPost` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
-- `communications.DefaultApi.apiV1ClaimPatch` — `PATCH /api/v1/claim` — Ответ на заявку покупателя
-- `communications.DefaultApi.apiV1ClaimsGet` — `GET /api/v1/claims` — Заявки покупателей на возврат
-- `communications.DefaultApi.apiV1FeedbackGet` — `GET /api/v1/feedback` — Получить отзыв по ID
-- `communications.DefaultApi.apiV1FeedbacksAnswerPatch` — `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
-- `communications.DefaultApi.apiV1FeedbacksAnswerPost` — `POST /api/v1/feedbacks/answer` — Ответить на отзыв
-- `communications.DefaultApi.apiV1FeedbacksArchiveGet` — `GET /api/v1/feedbacks/archive` — Список архивных отзывов
-- `communications.DefaultApi.apiV1FeedbacksCountGet` — `GET /api/v1/feedbacks/count` — Количество отзывов
-- `communications.DefaultApi.apiV1FeedbacksCountUnansweredGet` — `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
-- `communications.DefaultApi.apiV1FeedbacksGet` — `GET /api/v1/feedbacks` — Список отзывов
-- `communications.DefaultApi.apiV1FeedbacksOrderReturnPost` — `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
-- `communications.DefaultApi.apiV1NewFeedbacksQuestionsGet` — `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
-- `communications.DefaultApi.apiV1QuestionGet` — `GET /api/v1/question` — Получить вопрос по ID
-- `communications.DefaultApi.apiV1QuestionsCountGet` — `GET /api/v1/questions/count` — Количество вопросов
-- `communications.DefaultApi.apiV1QuestionsCountUnansweredGet` — `GET /api/v1/questions/count-unanswered` — Неотвеченные вопросы
-- `communications.DefaultApi.apiV1QuestionsGet` — `GET /api/v1/questions` — Список вопросов
-- `communications.DefaultApi.apiV1QuestionsPatch` — `PATCH /api/v1/questions` — Работа с вопросами
-- `communications.DefaultApi.apiV1SellerChatsGet` — `GET /api/v1/seller/chats` — Список чатов
-- `communications.DefaultApi.apiV1SellerDownloadIdGet` — `GET /api/v1/seller/download/{id}` — Получить файл из сообщения
-- `communications.DefaultApi.apiV1SellerEventsGet` — `GET /api/v1/seller/events` — События чатов
-- `communications.DefaultApi.apiV1SellerMessagePost` — `POST /api/v1/seller/message` — Отправить сообщение
+- `communications.DefaultApi.apiFeedbacksV1PinsCountGet` — Количество закреплённых и откреплённых отзывов
+- `communications.DefaultApi.apiFeedbacksV1PinsDelete` — Открепить отзывы
+- `communications.DefaultApi.apiFeedbacksV1PinsGet` — Список закреплённых и откреплённых отзывов
+- `communications.DefaultApi.apiFeedbacksV1PinsLimitsGet` — Лимиты закреплённых отзывов
+- `communications.DefaultApi.apiFeedbacksV1PinsPost` — Закрепить отзывы
+- `communications.DefaultApi.apiV1ClaimPatch` — Ответ на заявку покупателя
+- `communications.DefaultApi.apiV1ClaimsGet` — Заявки покупателей на возврат
+- `communications.DefaultApi.apiV1FeedbackGet` — Получить отзыв по ID
+- `communications.DefaultApi.apiV1FeedbacksAnswerPatch` — Отредактировать ответ на отзыв
+- `communications.DefaultApi.apiV1FeedbacksAnswerPost` — Ответить на отзыв
+- `communications.DefaultApi.apiV1FeedbacksArchiveGet` — Список архивных отзывов
+- `communications.DefaultApi.apiV1FeedbacksCountGet` — Количество отзывов
+- `communications.DefaultApi.apiV1FeedbacksCountUnansweredGet` — Необработанные отзывы
+- `communications.DefaultApi.apiV1FeedbacksGet` — Список отзывов
+- `communications.DefaultApi.apiV1FeedbacksOrderReturnPost` — Возврат товара по ID отзыва
+- `communications.DefaultApi.apiV1NewFeedbacksQuestionsGet` — Непросмотренные отзывы и вопросы
+- `communications.DefaultApi.apiV1QuestionGet` — Получить вопрос по ID
+- `communications.DefaultApi.apiV1QuestionsCountGet` — Количество вопросов
+- `communications.DefaultApi.apiV1QuestionsCountUnansweredGet` — Неотвеченные вопросы
+- `communications.DefaultApi.apiV1QuestionsGet` — Список вопросов
+- `communications.DefaultApi.apiV1QuestionsPatch` — Работа с вопросами
+- `communications.DefaultApi.apiV1SellerChatsGet` — Список чатов
+- `communications.DefaultApi.apiV1SellerDownloadIdGet` — Получить файл из сообщения
+- `communications.DefaultApi.apiV1SellerEventsGet` — События чатов
+- `communications.DefaultApi.apiV1SellerMessagePost` — Отправить сообщение
 
 ### tariffs (`tariffs`)
-- `tariffs.DefaultApi.apiTariffsV1AcceptanceCoefficientsGet` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
-- `tariffs.DefaultApi.apiV1TariffsBoxGet` — `GET /api/v1/tariffs/box` — Тарифы для коробов
-- `tariffs.DefaultApi.apiV1TariffsCommissionGet` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
-- `tariffs.DefaultApi.apiV1TariffsPalletGet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
-- `tariffs.DefaultApi.apiV1TariffsReturnGet` — `GET /api/v1/tariffs/return` — Тарифы на возврат
+- `tariffs.DefaultApi.apiTariffsV1AcceptanceCoefficientsGet` — Тарифы на поставку
+- `tariffs.DefaultApi.apiV1TariffsBoxGet` — Тарифы для коробов
+- `tariffs.DefaultApi.apiV1TariffsCommissionGet` — Комиссия по категориям товаров
+- `tariffs.DefaultApi.apiV1TariffsPalletGet` — Тарифы для монопаллет
+- `tariffs.DefaultApi.apiV1TariffsReturnGet` — Тарифы на возврат
 
 ### analytics (`analytics`)
-- `analytics.CSVApi.apiV2NmReportDownloadsFileDownloadIdGet` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
-- `analytics.CSVApi.apiV2NmReportDownloadsGet` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
-- `analytics.CSVApi.apiV2NmReportDownloadsPost` — `POST /api/v2/nm-report/downloads` — Создать отчёт
-- `analytics.CSVApi.apiV2NmReportDownloadsRetryPost` — `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
-- `analytics.DefaultApi.apiV2SearchReportProductOrdersPost` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
-- `analytics.DefaultApi.apiV2SearchReportProductSearchTextsPost` — `POST /api/v2/search-report/product/search-texts` — Поисковые запросы по товару
-- `analytics.DefaultApi.apiV2SearchReportReportPost` — `POST /api/v2/search-report/report` — Основная страница
-- `analytics.DefaultApi.apiV2SearchReportTableDetailsPost` — `POST /api/v2/search-report/table/details` — Пагинация по товарам в группе
-- `analytics.DefaultApi.apiV2SearchReportTableGroupsPost` — `POST /api/v2/search-report/table/groups` — Пагинация по группам
-- `analytics.DefaultApi.apiV2StocksReportOfficesPost` — `POST /api/v2/stocks-report/offices` — Данные по складам
-- `analytics.DefaultApi.apiV2StocksReportProductsGroupsPost` — `POST /api/v2/stocks-report/products/groups` — Данные по группам
-- `analytics.DefaultApi.apiV2StocksReportProductsProductsPost` — `POST /api/v2/stocks-report/products/products` — Данные по товарам
-- `analytics.DefaultApi.apiV2StocksReportProductsSizesPost` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
-- `analytics.DefaultApi.postSalesFunnelGroupedHistory` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
-- `analytics.DefaultApi.postSalesFunnelProducts` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
-- `analytics.DefaultApi.postSalesFunnelProductsHistory` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
+- `analytics.CSVApi.apiV2NmReportDownloadsFileDownloadIdGet` — Получить отчёт
+- `analytics.CSVApi.apiV2NmReportDownloadsGet` — Получить список отчётов
+- `analytics.CSVApi.apiV2NmReportDownloadsPost` — Создать отчёт
+- `analytics.CSVApi.apiV2NmReportDownloadsRetryPost` — Сгенерировать отчёт повторно
+- `analytics.DefaultApi.apiV2SearchReportProductOrdersPost` — Заказы и позиции по поисковым запросам товара
+- `analytics.DefaultApi.apiV2SearchReportProductSearchTextsPost` — Поисковые запросы по товару
+- `analytics.DefaultApi.apiV2SearchReportReportPost` — Основная страница
+- `analytics.DefaultApi.apiV2SearchReportTableDetailsPost` — Пагинация по товарам в группе
+- `analytics.DefaultApi.apiV2SearchReportTableGroupsPost` — Пагинация по группам
+- `analytics.DefaultApi.apiV2StocksReportOfficesPost` — Данные по складам
+- `analytics.DefaultApi.apiV2StocksReportProductsGroupsPost` — Данные по группам
+- `analytics.DefaultApi.apiV2StocksReportProductsProductsPost` — Данные по товарам
+- `analytics.DefaultApi.apiV2StocksReportProductsSizesPost` — Данные по размерам
+- `analytics.DefaultApi.postSalesFunnelGroupedHistory` — Статистика групп карточек товаров по дням
+- `analytics.DefaultApi.postSalesFunnelProducts` — Статистика карточек товаров за период
+- `analytics.DefaultApi.postSalesFunnelProductsHistory` — Статистика карточек товаров по дням
 
 ### reports (`reports`)
-- `reports.CApi.apiV1AnalyticsExciseReportPost` — `POST /api/v1/analytics/excise-report` — Получить отчёт
-- `reports.DefaultApi.apiV1AcceptanceReportGet` — `GET /api/v1/acceptance_report` — Создать отчёт
-- `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdDownloadGet` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdStatusGet` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApi.apiV1AnalyticsAntifraudDetailsGet` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
-- `reports.DefaultApi.apiV1AnalyticsBannedProductsBlockedGet` — `GET /api/v1/analytics/banned-products/blocked` — Заблокированные карточки
-- `reports.DefaultApi.apiV1AnalyticsBannedProductsShadowedGet` — `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
-- `reports.DefaultApi.apiV1AnalyticsBrandShareBrandsGet` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
-- `reports.DefaultApi.apiV1AnalyticsBrandShareGet` — `GET /api/v1/analytics/brand-share` — Получить отчёт
-- `reports.DefaultApi.apiV1AnalyticsBrandShareParentSubjectsGet` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
-- `reports.DefaultApi.apiV1AnalyticsGoodsLabelingGet` — `GET /api/v1/analytics/goods-labeling` — Маркировка товара
-- `reports.DefaultApi.apiV1AnalyticsGoodsReturnGet` — `GET /api/v1/analytics/goods-return` — Получить отчёт
-- `reports.DefaultApi.apiV1AnalyticsRegionSaleGet` — `GET /api/v1/analytics/region-sale` — Получить отчёт
-- `reports.DefaultApi.apiV1AnalyticsWarehouseMeasurementsGet` — `GET /api/v1/analytics/warehouse-measurements` — Занижение габаритов упаковки
-- `reports.DefaultApi.apiV1PaidStorageGet` — `GET /api/v1/paid_storage` — Создать отчёт
-- `reports.DefaultApi.apiV1PaidStorageTasksTaskIdDownloadGet` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApi.apiV1PaidStorageTasksTaskIdStatusGet` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApi.apiV1SupplierIncomesGet` — `GET /api/v1/supplier/incomes` — Поставки
-- `reports.DefaultApi.apiV1SupplierOrdersGet` — `GET /api/v1/supplier/orders` — Заказы
-- `reports.DefaultApi.apiV1SupplierSalesGet` — `GET /api/v1/supplier/sales` — Продажи
-- `reports.DefaultApi.apiV1SupplierStocksGet` — `GET /api/v1/supplier/stocks` — Склады
-- `reports.DefaultApi.apiV1WarehouseRemainsGet` — `GET /api/v1/warehouse_remains` — Создать отчёт
-- `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdDownloadGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdStatusGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApi.getDeductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
-- `reports.DefaultApi.getMeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
-- `reports.DefaultApi.getWarehouseMeasurements` — `GET /api/analytics/v1/warehouse-measurements` — Замеры склада
+- `reports.CApi.apiV1AnalyticsExciseReportPost` — Получить отчёт
+- `reports.DefaultApi.apiV1AcceptanceReportGet` — Создать отчёт
+- `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdDownloadGet` — Получить отчёт
+- `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdStatusGet` — Проверить статус
+- `reports.DefaultApi.apiV1AnalyticsAntifraudDetailsGet` — Самовыкупы
+- `reports.DefaultApi.apiV1AnalyticsBannedProductsBlockedGet` — Заблокированные карточки
+- `reports.DefaultApi.apiV1AnalyticsBannedProductsShadowedGet` — Скрытые из каталога
+- `reports.DefaultApi.apiV1AnalyticsBrandShareBrandsGet` — Бренды продавца
+- `reports.DefaultApi.apiV1AnalyticsBrandShareGet` — Получить отчёт
+- `reports.DefaultApi.apiV1AnalyticsBrandShareParentSubjectsGet` — Родительские категории бренда
+- `reports.DefaultApi.apiV1AnalyticsGoodsLabelingGet` — Маркировка товара
+- `reports.DefaultApi.apiV1AnalyticsGoodsReturnGet` — Получить отчёт
+- `reports.DefaultApi.apiV1AnalyticsRegionSaleGet` — Получить отчёт
+- `reports.DefaultApi.apiV1AnalyticsWarehouseMeasurementsGet` — Занижение габаритов упаковки
+- `reports.DefaultApi.apiV1PaidStorageGet` — Создать отчёт
+- `reports.DefaultApi.apiV1PaidStorageTasksTaskIdDownloadGet` — Получить отчёт
+- `reports.DefaultApi.apiV1PaidStorageTasksTaskIdStatusGet` — Проверить статус
+- `reports.DefaultApi.apiV1SupplierIncomesGet` — Поставки
+- `reports.DefaultApi.apiV1SupplierOrdersGet` — Заказы
+- `reports.DefaultApi.apiV1SupplierSalesGet` — Продажи
+- `reports.DefaultApi.apiV1SupplierStocksGet` — Склады
+- `reports.DefaultApi.apiV1WarehouseRemainsGet` — Создать отчёт
+- `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdDownloadGet` — Получить отчёт
+- `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdStatusGet` — Проверить статус
+- `reports.DefaultApi.getDeductions` — Подмены и неверные вложения
+- `reports.DefaultApi.getMeasurementPenalties` — Удержания за занижение габаритов упаковки
+- `reports.DefaultApi.getWarehouseMeasurements` — Замеры склада
 
 ### finances (`finances`)
-- `finances.DefaultApi.apiV1AccountBalanceGet` — `GET /api/v1/account/balance` — Получить баланс продавца
-- `finances.DefaultApi.apiV1DocumentsCategoriesGet` — `GET /api/v1/documents/categories` — Категории документов
-- `finances.DefaultApi.apiV1DocumentsDownloadAllPost` — `POST /api/v1/documents/download/all` — Получить документы
-- `finances.DefaultApi.apiV1DocumentsDownloadGet` — `GET /api/v1/documents/download` — Получить документ
-- `finances.DefaultApi.apiV1DocumentsListGet` — `GET /api/v1/documents/list` — Список документов
-- `finances.DefaultApi.apiV5SupplierReportDetailByPeriodGet` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
+- `finances.DefaultApi.apiV1AccountBalanceGet` — Получить баланс продавца
+- `finances.DefaultApi.apiV1DocumentsCategoriesGet` — Категории документов
+- `finances.DefaultApi.apiV1DocumentsDownloadAllPost` — Получить документы
+- `finances.DefaultApi.apiV1DocumentsDownloadGet` — Получить документ
+- `finances.DefaultApi.apiV1DocumentsListGet` — Список документов
+- `finances.DefaultApi.apiV5SupplierReportDetailByPeriodGet` — Отчёт о продажах по реализации
 
 ### wbd (`wbd`)
-- `wbd.DefaultApi.contentAuthorGet` — `GET /api/v1/content/author` — Получить список своего контента
-- `wbd.DefaultApi.contentDelete` — `POST /api/v1/content/delete` — Удалить контент
-- `wbd.DefaultApi.contentDownloadGet` — `GET /api/v1/content/download/{uri}` — Скачать контент
-- `wbd.DefaultApi.contentGallery` — `POST /api/v1/content/gallery` — Загрузить медиафайлы для предложения
-- `wbd.DefaultApi.contentIdGet` — `GET /api/v1/content/author/{content_id}` — Получить информацию о контенте
-- `wbd.DefaultApi.contentUpdate` — `POST /api/v1/content/author/{content_id}` — Редактировать контент
-- `wbd.DefaultApi.contentUploadChunk` — `POST /api/v1/content/upload/chunk` — Загрузить контент (файл)
-- `wbd.DefaultApi.contentUploadIllustration` — `POST /api/v1/content/illustration` — Загрузить обложку контента
-- `wbd.DefaultApi.contentUploadInit` — `POST /api/v1/content/upload/init` — Инициализировать новый контент
-- `wbd.DefaultApi.deleteKeysByIDs` — `DELETE /api/v1/keys-api/keys` — Удалить ключи активации
-- `wbd.DefaultApi.getCatalog` — `GET /api/v1/catalog` — Получить категории и их подкатегории
-- `wbd.DefaultApi.getRedeemedKeys` — `GET /api/v1/keys-api/keys/redeemed` — Получить купленные ключи
-- `wbd.DefaultApi.loadKeys` — `POST /api/v1/keys-api/keys` — Добавить ключи активации
-- `wbd.DefaultApi.offerCreate` — `POST /api/v1/offers` — Создать новое предложение
-- `wbd.DefaultApi.offerGet` — `GET /api/v1/offers/{offer_id}` — Получить информацию о предложении
-- `wbd.DefaultApi.offerKeysCountGet` — `GET /api/v1/offer/keys/{offer_id}` — Получить количество ключей для предложения
-- `wbd.DefaultApi.offerKeysGet` — `GET /api/v1/offer/keys/{offer_id}/list` — Получить список ключей
-- `wbd.DefaultApi.offerUpdate` — `POST /api/v1/offers/{offer_id}` — Редактировать предложение
-- `wbd.DefaultApi.offerUpdatePrice` — `POST /api/v1/offer/price/{offer_id}` — Обновить цену
-- `wbd.DefaultApi.offerUpdateStatus` — `POST /api/v1/offer/{offer_id}` — Обновить статус
-- `wbd.DefaultApi.offersAuthorGet` — `GET /api/v1/offers/author` — Получить список своих предложений
-- `wbd.DefaultApi.offersUploadThumbnail` — `POST /api/v1/offers/thumb` — Добавить или обновить обложку предложения
+- `wbd.DefaultApi.contentAuthorGet` — Получить список своего контента
+- `wbd.DefaultApi.contentDelete` — Удалить контент
+- `wbd.DefaultApi.contentDownloadGet` — Скачать контент
+- `wbd.DefaultApi.contentGallery` — Загрузить медиафайлы для предложения
+- `wbd.DefaultApi.contentIdGet` — Получить информацию о контенте
+- `wbd.DefaultApi.contentUpdate` — Редактировать контент
+- `wbd.DefaultApi.contentUploadChunk` — Загрузить контент (файл)
+- `wbd.DefaultApi.contentUploadIllustration` — Загрузить обложку контента
+- `wbd.DefaultApi.contentUploadInit` — Инициализировать новый контент
+- `wbd.DefaultApi.deleteKeysByIDs` — Удалить ключи активации
+- `wbd.DefaultApi.getCatalog` — Получить категории и их подкатегории
+- `wbd.DefaultApi.getRedeemedKeys` — Получить купленные ключи
+- `wbd.DefaultApi.loadKeys` — Добавить ключи активации
+- `wbd.DefaultApi.offerCreate` — Создать новое предложение
+- `wbd.DefaultApi.offerGet` — Получить информацию о предложении
+- `wbd.DefaultApi.offerKeysCountGet` — Получить количество ключей для предложения
+- `wbd.DefaultApi.offerKeysGet` — Получить список ключей
+- `wbd.DefaultApi.offerUpdate` — Редактировать предложение
+- `wbd.DefaultApi.offerUpdatePrice` — Обновить цену
+- `wbd.DefaultApi.offerUpdateStatus` — Обновить статус
+- `wbd.DefaultApi.offersAuthorGet` — Получить список своих предложений
+- `wbd.DefaultApi.offersUploadThumbnail` — Добавить или обновить обложку предложения
 <!-- NPM_METHODS_LIST_END -->

@@ -436,7 +436,7 @@ class CSVApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/zip', 'application/json', ],
+            ['application/zip', 'application/json', 'application/problem+json', ],
             $contentType,
             $multipart
         );
@@ -815,7 +815,7 @@ class CSVApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json', 'application/problem+json', ],
             $contentType,
             $multipart
         );
@@ -1185,7 +1185,7 @@ class CSVApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json', 'application/problem+json', ],
             $contentType,
             $multipart
         );
@@ -1568,7 +1568,7 @@ class CSVApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json', 'application/problem+json', ],
             $contentType,
             $multipart
         );

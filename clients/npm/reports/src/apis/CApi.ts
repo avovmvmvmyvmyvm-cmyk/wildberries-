@@ -43,10 +43,9 @@ export interface ApiV1AnalyticsExciseReportPostRequest {
 export class CApi extends runtime.BaseAPI {
 
     /**
-     * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/cases/1).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 5 часов | 10 запросов | 30 минут | 10 запросов | </div> 
-     * Получить отчёт
+     * Creates request options for apiV1AnalyticsExciseReportPost without sending the request
      */
-    async apiV1AnalyticsExciseReportPostRaw(requestParameters: ApiV1AnalyticsExciseReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExciseReportResponse>> {
+    async apiV1AnalyticsExciseReportPostRequestOpts(requestParameters: ApiV1AnalyticsExciseReportPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
@@ -82,13 +81,22 @@ export class CApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/analytics/excise-report`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ExciseReportRequestToJSON(requestParameters['exciseReportRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>  Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/cases/1).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 5 часов | 10 запросов | 30 минут | 10 запросов | </div> 
+     * Получить отчёт
+     */
+    async apiV1AnalyticsExciseReportPostRaw(requestParameters: ApiV1AnalyticsExciseReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExciseReportResponse>> {
+        const requestOptions = await this.apiV1AnalyticsExciseReportPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExciseReportResponseFromJSON(jsonValue));
     }

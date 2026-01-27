@@ -157,10 +157,9 @@ export interface PostSalesFunnelProductsHistoryRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Метод формирует данные для таблицы по количеству заказов и позиций в поиске по запросам покупателя. Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Заказы и позиции по поисковым запросам товара
+     * Creates request options for apiV2SearchReportProductOrdersPost without sending the request
      */
-    async apiV2SearchReportProductOrdersPostRaw(requestParameters: ApiV2SearchReportProductOrdersPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportProductOrdersPost200Response>> {
+    async apiV2SearchReportProductOrdersPostRequestOpts(requestParameters: ApiV2SearchReportProductOrdersPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['productOrdersRequest'] == null) {
             throw new runtime.RequiredError(
                 'productOrdersRequest',
@@ -181,13 +180,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/search-report/product/orders`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ProductOrdersRequestToJSON(requestParameters['productOrdersRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует данные для таблицы по количеству заказов и позиций в поиске по запросам покупателя. Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Заказы и позиции по поисковым запросам товара
+     */
+    async apiV2SearchReportProductOrdersPostRaw(requestParameters: ApiV2SearchReportProductOrdersPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportProductOrdersPost200Response>> {
+        const requestOptions = await this.apiV2SearchReportProductOrdersPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2SearchReportProductOrdersPost200ResponseFromJSON(jsonValue));
     }
@@ -202,10 +210,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует топ поисковых запросов по товару.  Параметры выбора поисковых запросов:  - `limit` — количество запросов, максимум 30 (для тарифа [Продвинутый](https://seller.wildberries.ru/monetization/tariffs) — 100)  - `topOrderBy` — способ выбора топа запросов  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Поисковые запросы по товару
+     * Creates request options for apiV2SearchReportProductSearchTextsPost without sending the request
      */
-    async apiV2SearchReportProductSearchTextsPostRaw(requestParameters: ApiV2SearchReportProductSearchTextsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportProductSearchTextsPost200Response>> {
+    async apiV2SearchReportProductSearchTextsPostRequestOpts(requestParameters: ApiV2SearchReportProductSearchTextsPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['productSearchTextsRequest'] == null) {
             throw new runtime.RequiredError(
                 'productSearchTextsRequest',
@@ -226,13 +233,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/search-report/product/search-texts`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ProductSearchTextsRequestToJSON(requestParameters['productSearchTextsRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует топ поисковых запросов по товару.  Параметры выбора поисковых запросов:  - `limit` — количество запросов, максимум 30 (для тарифа [Продвинутый](https://seller.wildberries.ru/monetization/tariffs) — 100)  - `topOrderBy` — способ выбора топа запросов  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Поисковые запросы по товару
+     */
+    async apiV2SearchReportProductSearchTextsPostRaw(requestParameters: ApiV2SearchReportProductSearchTextsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportProductSearchTextsPost200Response>> {
+        const requestOptions = await this.apiV2SearchReportProductSearchTextsPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2SearchReportProductSearchTextsPost200ResponseFromJSON(jsonValue));
     }
@@ -247,10 +263,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует набор данных для основной страницы отчёта по поисковым запросам с:  - общей информацией  - позициями товаров  - данными по видимости и переходам в карточку  - данными для таблицы по группам  Для получения дополнительных данных в таблице используйте отдельный запрос для:  - [пагинации по группам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1table~1groups/post)  - [получения по товарам в группе](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1table~1details/post)  Дополнительный параметр выбора списка товаров в таблице:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Основная страница
+     * Creates request options for apiV2SearchReportReportPost without sending the request
      */
-    async apiV2SearchReportReportPostRaw(requestParameters: ApiV2SearchReportReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportReportPost200Response>> {
+    async apiV2SearchReportReportPostRequestOpts(requestParameters: ApiV2SearchReportReportPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['mainRequest'] == null) {
             throw new runtime.RequiredError(
                 'mainRequest',
@@ -271,13 +286,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/search-report/report`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: MainRequestToJSON(requestParameters['mainRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует набор данных для основной страницы отчёта по поисковым запросам с:  - общей информацией  - позициями товаров  - данными по видимости и переходам в карточку  - данными для таблицы по группам  Для получения дополнительных данных в таблице используйте отдельный запрос для:  - [пагинации по группам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1table~1groups/post)  - [получения по товарам в группе](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1table~1details/post)  Дополнительный параметр выбора списка товаров в таблице:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Основная страница
+     */
+    async apiV2SearchReportReportPostRaw(requestParameters: ApiV2SearchReportReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportReportPost200Response>> {
+        const requestOptions = await this.apiV2SearchReportReportPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2SearchReportReportPost200ResponseFromJSON(jsonValue));
     }
@@ -292,10 +316,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.<br><br>  Фильтры для пагинации по товарам в группе или без фильтров:  - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы  - `nmIds` — фильтр по карточке товара  Дополнительный параметр выбора списка товаров:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Пагинация по товарам в группе
+     * Creates request options for apiV2SearchReportTableDetailsPost without sending the request
      */
-    async apiV2SearchReportTableDetailsPostRaw(requestParameters: ApiV2SearchReportTableDetailsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportTableDetailsPost200Response>> {
+    async apiV2SearchReportTableDetailsPostRequestOpts(requestParameters: ApiV2SearchReportTableDetailsPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['tableDetailsRequest'] == null) {
             throw new runtime.RequiredError(
                 'tableDetailsRequest',
@@ -316,13 +339,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/search-report/table/details`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: TableDetailsRequestToJSON(requestParameters['tableDetailsRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.<br><br>  Фильтры для пагинации по товарам в группе или без фильтров:  - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы  - `nmIds` — фильтр по карточке товара  Дополнительный параметр выбора списка товаров:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Пагинация по товарам в группе
+     */
+    async apiV2SearchReportTableDetailsPostRaw(requestParameters: ApiV2SearchReportTableDetailsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportTableDetailsPost200Response>> {
+        const requestOptions = await this.apiV2SearchReportTableDetailsPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2SearchReportTableDetailsPost200ResponseFromJSON(jsonValue));
     }
@@ -337,10 +369,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.<br><br>  Дополнительный параметр выбора списка товаров в таблице:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Пагинация по группам
+     * Creates request options for apiV2SearchReportTableGroupsPost without sending the request
      */
-    async apiV2SearchReportTableGroupsPostRaw(requestParameters: ApiV2SearchReportTableGroupsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportTableGroupsPost200Response>> {
+    async apiV2SearchReportTableGroupsPostRequestOpts(requestParameters: ApiV2SearchReportTableGroupsPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['tableGroupRequest'] == null) {
             throw new runtime.RequiredError(
                 'tableGroupRequest',
@@ -361,13 +392,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/search-report/table/groups`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: TableGroupRequestToJSON(requestParameters['tableGroupRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.<br><br>  Дополнительный параметр выбора списка товаров в таблице:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Пагинация по группам
+     */
+    async apiV2SearchReportTableGroupsPostRaw(requestParameters: ApiV2SearchReportTableGroupsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2SearchReportTableGroupsPost200Response>> {
+        const requestOptions = await this.apiV2SearchReportTableGroupsPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2SearchReportTableGroupsPost200ResponseFromJSON(jsonValue));
     }
@@ -382,10 +422,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"offices\":[]`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Данные по складам
+     * Creates request options for apiV2StocksReportOfficesPost without sending the request
      */
-    async apiV2StocksReportOfficesPostRaw(requestParameters: ApiV2StocksReportOfficesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2StocksReportOfficesPost200Response>> {
+    async apiV2StocksReportOfficesPostRequestOpts(requestParameters: ApiV2StocksReportOfficesPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['body'] == null) {
             throw new runtime.RequiredError(
                 'body',
@@ -406,13 +445,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/stocks-report/offices`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: requestParameters['body'] as any,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"offices\":[]`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Данные по складам
+     */
+    async apiV2StocksReportOfficesPostRaw(requestParameters: ApiV2StocksReportOfficesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2StocksReportOfficesPost200Response>> {
+        const requestOptions = await this.apiV2StocksReportOfficesPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2StocksReportOfficesPost200ResponseFromJSON(jsonValue));
     }
@@ -427,10 +475,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует набор данных об остатках по группам товаров. <br><br> Группа товаров описывается кортежем `subjectID, brandName, tagID`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Данные по группам
+     * Creates request options for apiV2StocksReportProductsGroupsPost without sending the request
      */
-    async apiV2StocksReportProductsGroupsPostRaw(requestParameters: ApiV2StocksReportProductsGroupsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2StocksReportProductsGroupsPost200Response>> {
+    async apiV2StocksReportProductsGroupsPostRequestOpts(requestParameters: ApiV2StocksReportProductsGroupsPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['tableGroupRequestSt'] == null) {
             throw new runtime.RequiredError(
                 'tableGroupRequestSt',
@@ -451,13 +498,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/stocks-report/products/groups`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: TableGroupRequestStToJSON(requestParameters['tableGroupRequestSt']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует набор данных об остатках по группам товаров. <br><br> Группа товаров описывается кортежем `subjectID, brandName, tagID`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Данные по группам
+     */
+    async apiV2StocksReportProductsGroupsPostRaw(requestParameters: ApiV2StocksReportProductsGroupsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2StocksReportProductsGroupsPost200Response>> {
+        const requestOptions = await this.apiV2StocksReportProductsGroupsPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2StocksReportProductsGroupsPost200ResponseFromJSON(jsonValue));
     }
@@ -472,10 +528,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует набор данных об остатках по товарам. <br><br> Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Данные по товарам
+     * Creates request options for apiV2StocksReportProductsProductsPost without sending the request
      */
-    async apiV2StocksReportProductsProductsPostRaw(requestParameters: ApiV2StocksReportProductsProductsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2StocksReportProductsProductsPost200Response>> {
+    async apiV2StocksReportProductsProductsPostRequestOpts(requestParameters: ApiV2StocksReportProductsProductsPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['tableProductRequest'] == null) {
             throw new runtime.RequiredError(
                 'tableProductRequest',
@@ -496,13 +551,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/stocks-report/products/products`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: TableProductRequestToJSON(requestParameters['tableProductRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует набор данных об остатках по товарам. <br><br> Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Данные по товарам
+     */
+    async apiV2StocksReportProductsProductsPostRaw(requestParameters: ApiV2StocksReportProductsProductsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2StocksReportProductsProductsPost200Response>> {
+        const requestOptions = await this.apiV2StocksReportProductsProductsPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2StocksReportProductsProductsPost200ResponseFromJSON(jsonValue));
     }
@@ -517,10 +581,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/Istoriya-ostatkov/paths/~1api~1v2~1stocks-report~1products~1products/post) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"officeName\":\"\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Данные по размерам
+     * Creates request options for apiV2StocksReportProductsSizesPost without sending the request
      */
-    async apiV2StocksReportProductsSizesPostRaw(requestParameters: ApiV2StocksReportProductsSizesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2StocksReportProductsSizesPost200Response>> {
+    async apiV2StocksReportProductsSizesPostRequestOpts(requestParameters: ApiV2StocksReportProductsSizesPostRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['body'] == null) {
             throw new runtime.RequiredError(
                 'body',
@@ -541,13 +604,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v2/stocks-report/products/sizes`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: requestParameters['body'] as any,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/Istoriya-ostatkov/paths/~1api~1v2~1stocks-report~1products~1products/post) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"officeName\":\"\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Данные по размерам
+     */
+    async apiV2StocksReportProductsSizesPostRaw(requestParameters: ApiV2StocksReportProductsSizesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2StocksReportProductsSizesPost200Response>> {
+        const requestOptions = await this.apiV2StocksReportProductsSizesPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiV2StocksReportProductsSizesPost200ResponseFromJSON(jsonValue));
     }
@@ -562,10 +634,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает статистику карточек товаров по дням или неделям. Карточки товаров сгруппированы по предметам, брендам и ярлыкам. Доступны данные по добавлениям в корзину, заказам, переходам в карточку товара и так далее.<br><br>  Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.<br><br>  Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.<br><br>  Можно получить данные максимум за последнюю неделю.  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a>. Эти методы доступны только с подпиской на <a href=\'https://seller.wildberries.ru/monetization/jam\'>расширенную аналитику Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Статистика групп карточек товаров по дням
+     * Creates request options for postSalesFunnelGroupedHistory without sending the request
      */
-    async postSalesFunnelGroupedHistoryRaw(requestParameters: PostSalesFunnelGroupedHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSalesFunnelGroupedHistory200Response>> {
+    async postSalesFunnelGroupedHistoryRequestOpts(requestParameters: PostSalesFunnelGroupedHistoryRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['groupedHistoryRequest'] == null) {
             throw new runtime.RequiredError(
                 'groupedHistoryRequest',
@@ -586,13 +657,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/analytics/v3/sales-funnel/grouped/history`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: GroupedHistoryRequestToJSON(requestParameters['groupedHistoryRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает статистику карточек товаров по дням или неделям. Карточки товаров сгруппированы по предметам, брендам и ярлыкам. Доступны данные по добавлениям в корзину, заказам, переходам в карточку товара и так далее.<br><br>  Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.<br><br>  Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.<br><br>  Можно получить данные максимум за последнюю неделю.  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a>. Эти методы доступны только с подпиской на <a href=\'https://seller.wildberries.ru/monetization/jam\'>расширенную аналитику Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Статистика групп карточек товаров по дням
+     */
+    async postSalesFunnelGroupedHistoryRaw(requestParameters: PostSalesFunnelGroupedHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSalesFunnelGroupedHistory200Response>> {
+        const requestOptions = await this.postSalesFunnelGroupedHistoryRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostSalesFunnelGroupedHistory200ResponseFromJSON(jsonValue));
     }
@@ -607,10 +687,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует отчёт о товарах, сравнивая ключевые показатели — например, добавления в корзину, заказы и переходы в карточку товара — за текущий период с аналогичным прошлым.<br><br>  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.<br><br>  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.<br><br>  Можно получить отчёт максимум за последние 365 дней.<br><br>  В данных предыдущего периода:   * Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`   * Если дата начала  `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`  Можно использовать пагинацию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Статистика карточек товаров за период
+     * Creates request options for postSalesFunnelProducts without sending the request
      */
-    async postSalesFunnelProductsRaw(requestParameters: PostSalesFunnelProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSalesFunnelProducts200Response>> {
+    async postSalesFunnelProductsRequestOpts(requestParameters: PostSalesFunnelProductsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['productsRequest'] == null) {
             throw new runtime.RequiredError(
                 'productsRequest',
@@ -631,13 +710,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/analytics/v3/sales-funnel/products`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ProductsRequestToJSON(requestParameters['productsRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод формирует отчёт о товарах, сравнивая ключевые показатели — например, добавления в корзину, заказы и переходы в карточку товара — за текущий период с аналогичным прошлым.<br><br>  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.<br><br>  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.<br><br>  Можно получить отчёт максимум за последние 365 дней.<br><br>  В данных предыдущего периода:   * Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`   * Если дата начала  `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`  Можно использовать пагинацию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Статистика карточек товаров за период
+     */
+    async postSalesFunnelProductsRaw(requestParameters: PostSalesFunnelProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSalesFunnelProducts200Response>> {
+        const requestOptions = await this.postSalesFunnelProductsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostSalesFunnelProducts200ResponseFromJSON(jsonValue));
     }
@@ -652,10 +740,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает статистику карточек товаров по дням или неделям. Доступны данные по добавлениям в корзину, заказам, переходам в карточку товара и так далее.  Можно получить данные максимум за последнюю неделю.  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a>. Эти методы доступны только с подпиской на <a href=\'https://seller.wildberries.ru/monetization/jam\'>расширенную аналитику Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
-     * Статистика карточек товаров по дням
+     * Creates request options for postSalesFunnelProductsHistory without sending the request
      */
-    async postSalesFunnelProductsHistoryRaw(requestParameters: PostSalesFunnelProductsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProductHistoryResponseInner>>> {
+    async postSalesFunnelProductsHistoryRequestOpts(requestParameters: PostSalesFunnelProductsHistoryRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['productHistoryRequest'] == null) {
             throw new runtime.RequiredError(
                 'productHistoryRequest',
@@ -676,13 +763,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/analytics/v3/sales-funnel/products/history`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ProductHistoryRequestToJSON(requestParameters['productHistoryRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод возвращает статистику карточек товаров по дням или неделям. Доступны данные по добавлениям в корзину, заказам, переходам в карточку товара и так далее.  Можно получить данные максимум за последнюю неделю.  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a>. Эти методы доступны только с подпиской на <a href=\'https://seller.wildberries.ru/monetization/jam\'>расширенную аналитику Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 3 запроса | 20 секунд | 3 запроса | </div> 
+     * Статистика карточек товаров по дням
+     */
+    async postSalesFunnelProductsHistoryRaw(requestParameters: PostSalesFunnelProductsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProductHistoryResponseInner>>> {
+        const requestOptions = await this.postSalesFunnelProductsHistoryRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ProductHistoryResponseInnerFromJSON));
     }

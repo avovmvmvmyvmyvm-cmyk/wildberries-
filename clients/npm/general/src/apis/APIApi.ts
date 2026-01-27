@@ -36,10 +36,9 @@ export interface ApiCommunicationsV2NewsGetRequest {
 export class APIApi extends runtime.BaseAPI {
 
     /**
-     * Метод позволяет получать новости портала продавцов. <br> Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 1 запрос | 1 минута | 10 запросов | </div> 
-     * Получение новостей портала продавцов
+     * Creates request options for apiCommunicationsV2NewsGet without sending the request
      */
-    async apiCommunicationsV2NewsGetRaw(requestParameters: ApiCommunicationsV2NewsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiCommunicationsV2NewsGet200Response>> {
+    async apiCommunicationsV2NewsGetRequestOpts(requestParameters: ApiCommunicationsV2NewsGetRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['from'] != null) {
@@ -59,12 +58,21 @@ export class APIApi extends runtime.BaseAPI {
 
         let urlPath = `/api/communications/v2/news`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получать новости портала продавцов. <br> Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 1 запрос | 1 минута | 10 запросов | </div> 
+     * Получение новостей портала продавцов
+     */
+    async apiCommunicationsV2NewsGetRaw(requestParameters: ApiCommunicationsV2NewsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiCommunicationsV2NewsGet200Response>> {
+        const requestOptions = await this.apiCommunicationsV2NewsGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiCommunicationsV2NewsGet200ResponseFromJSON(jsonValue));
     }

@@ -223,10 +223,9 @@ export interface OffersUploadThumbnailRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Метод позволяет получить список своего контента с использованием фильтрации.<br><br>  **Описание параметров фильтрации**  - `search` — Поиск контента по названию. Укажите часть или полное название контента для поиска. - `category` — Фильтрация контента по категории. Список категорий находится в [таблице](/openapi/wbd#tag/Kontent/Kategorii-kontenta), колонка — `catalog_id` — Идентифицировать категории. - `status` — Фильтрация контента по статусу. Возможные значения:     - `0` — Создан     - `1` — Загружено на сервер     - `2` — Опубликован     - `3` — Ошибка в обработке или публикации     - `4` — Обрабатывается     - `5` — Отправлено на сервер - `sort` — Сортировка контента по дате создания или обновления. Укажите `created` для сортировки по дате создания и `updated` для сортировки по дате обновления. - `sort_dir` — Направление сортировки. Укажите `asc` для сортировки по возрастанию или `desc` для сортировки по убыванию. - `skip` — Смещение. Позволяет пропустить определенное количество контента в результирующем наборе.<br> **Например**, если `skip` равно 20, то выборка начнется с 21 записи. - `take` — Количество контента, которое нужно вернуть в ответе.<br> **Например**, если `take` равно 10, то в ответе будет не более 10 записей.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
-     * Получить список своего контента
+     * Creates request options for contentAuthorGet without sending the request
      */
-    async contentAuthorGetRaw(requestParameters: ContentAuthorGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentList>> {
+    async contentAuthorGetRequestOpts(requestParameters: ContentAuthorGetRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['search'] != null) {
@@ -266,12 +265,21 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/content/author`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получить список своего контента с использованием фильтрации.<br><br>  **Описание параметров фильтрации**  - `search` — Поиск контента по названию. Укажите часть или полное название контента для поиска. - `category` — Фильтрация контента по категории. Список категорий находится в [таблице](/openapi/wbd#tag/Kontent/Kategorii-kontenta), колонка — `catalog_id` — Идентифицировать категории. - `status` — Фильтрация контента по статусу. Возможные значения:     - `0` — Создан     - `1` — Загружено на сервер     - `2` — Опубликован     - `3` — Ошибка в обработке или публикации     - `4` — Обрабатывается     - `5` — Отправлено на сервер - `sort` — Сортировка контента по дате создания или обновления. Укажите `created` для сортировки по дате создания и `updated` для сортировки по дате обновления. - `sort_dir` — Направление сортировки. Укажите `asc` для сортировки по возрастанию или `desc` для сортировки по убыванию. - `skip` — Смещение. Позволяет пропустить определенное количество контента в результирующем наборе.<br> **Например**, если `skip` равно 20, то выборка начнется с 21 записи. - `take` — Количество контента, которое нужно вернуть в ответе.<br> **Например**, если `take` равно 10, то в ответе будет не более 10 записей.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
+     * Получить список своего контента
+     */
+    async contentAuthorGetRaw(requestParameters: ContentAuthorGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentList>> {
+        const requestOptions = await this.contentAuthorGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContentListFromJSON(jsonValue));
     }
@@ -286,10 +294,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет удалить контент по ID.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
-     * Удалить контент
+     * Creates request options for contentDelete without sending the request
      */
-    async contentDeleteRaw(requestParameters: ContentDeleteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async contentDeleteRequestOpts(requestParameters: ContentDeleteOperationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['contentDeleteRequest'] == null) {
             throw new runtime.RequiredError(
                 'contentDeleteRequest',
@@ -310,13 +317,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/content/delete`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ContentDeleteRequestToJSON(requestParameters['contentDeleteRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет удалить контент по ID.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
+     * Удалить контент
+     */
+    async contentDeleteRaw(requestParameters: ContentDeleteOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.contentDeleteRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -330,10 +346,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет скачать контент по URI.<br><br>  **Получение URI-адреса контента** 1. Воспользуйтесь одним из методов для получения информации о контенте.     - [Получить информацию о контенте](/openapi/wbd#tag/Kontent/operation/contentIdGet)     - [Получить список своего контента](/openapi/wbd#tag/Kontent/operation/contentAuthorGet) 2. В информации о контенте возьмите URI-адрес из поля `uri` или `files`.  **Скачивание контента частями**<br><br> Вы можете скачать файл частями с использованием заголовка `Range`.<br><br>  **Пример**: `Range: bytes=0-524287999`<br><br>  Ответ содержит заголовок `Content-Range` с информацией о скаченном файле.<br><br>  **Пример**: `Content-Range: bytes 0-524287999/1073741824`  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
-     * Скачать контент
+     * Creates request options for contentDownloadGet without sending the request
      */
-    async contentDownloadGetRaw(requestParameters: ContentDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async contentDownloadGetRequestOpts(requestParameters: ContentDownloadGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['uri'] == null) {
             throw new runtime.RequiredError(
                 'uri',
@@ -357,12 +372,21 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/content/download/{uri}`;
         urlPath = urlPath.replace(`{${"uri"}}`, encodeURIComponent(String(requestParameters['uri'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет скачать контент по URI.<br><br>  **Получение URI-адреса контента** 1. Воспользуйтесь одним из методов для получения информации о контенте.     - [Получить информацию о контенте](/openapi/wbd#tag/Kontent/operation/contentIdGet)     - [Получить список своего контента](/openapi/wbd#tag/Kontent/operation/contentAuthorGet) 2. В информации о контенте возьмите URI-адрес из поля `uri` или `files`.  **Скачивание контента частями**<br><br> Вы можете скачать файл частями с использованием заголовка `Range`.<br><br>  **Пример**: `Range: bytes=0-524287999`<br><br>  Ответ содержит заголовок `Content-Range` с информацией о скаченном файле.<br><br>  **Пример**: `Content-Range: bytes 0-524287999/1073741824`  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
+     * Скачать контент
+     */
+    async contentDownloadGetRaw(requestParameters: ContentDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.contentDownloadGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -376,10 +400,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет загружать медиафайлы на сервер.<br><br>  После успешной загрузки возвращает список URI-адресов, которые можно использовать для добавления дополнительных медиафайлов в предложение.<br><br>  Данный метод поможет вам добавить дополнительные медиафайлы при создании или обновлении предложения. - [Создать новое предложение](/openapi/wbd#tag/Predlozheniya/operation/offerCreate) - [Редактировать предложение](/openapi/wbd#tag/Predlozheniya/operation/offerUpdate)  <div class=\"description_important\">   Ограничения по размеру:   <ul>       <li>изображение: <b>5 Мб</b></li>       <li>видео: <b>50 Мб</b></li>       <li>общий размер всех файлов: <b>100 Мб</b></li>   </ul>   Допустимые форматы:   <ul>       <li>изображение: <b>PNG, JPEG</b></li>       <li>видео: <b>MP4</b></li>   </ul>   Можно передать <b>до 8 медиафайлов</b>. </div>  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
-     * Загрузить медиафайлы для предложения
+     * Creates request options for contentGallery without sending the request
      */
-    async contentGalleryRaw(requestParameters: ContentGalleryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UploadGalleryResponse>> {
+    async contentGalleryRequestOpts(requestParameters: ContentGalleryRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['files'] == null) {
             throw new runtime.RequiredError(
                 'files',
@@ -420,13 +443,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/content/gallery`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: formParams,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет загружать медиафайлы на сервер.<br><br>  После успешной загрузки возвращает список URI-адресов, которые можно использовать для добавления дополнительных медиафайлов в предложение.<br><br>  Данный метод поможет вам добавить дополнительные медиафайлы при создании или обновлении предложения. - [Создать новое предложение](/openapi/wbd#tag/Predlozheniya/operation/offerCreate) - [Редактировать предложение](/openapi/wbd#tag/Predlozheniya/operation/offerUpdate)  <div class=\"description_important\">   Ограничения по размеру:   <ul>       <li>изображение: <b>5 Мб</b></li>       <li>видео: <b>50 Мб</b></li>       <li>общий размер всех файлов: <b>100 Мб</b></li>   </ul>   Допустимые форматы:   <ul>       <li>изображение: <b>PNG, JPEG</b></li>       <li>видео: <b>MP4</b></li>   </ul>   Можно передать <b>до 8 медиафайлов</b>. </div>  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
+     * Загрузить медиафайлы для предложения
+     */
+    async contentGalleryRaw(requestParameters: ContentGalleryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UploadGalleryResponse>> {
+        const requestOptions = await this.contentGalleryRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UploadGalleryResponseFromJSON(jsonValue));
     }
@@ -441,10 +473,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет получить информацию о конкретном контенте.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
-     * Получить информацию о контенте
+     * Creates request options for contentIdGet without sending the request
      */
-    async contentIdGetRaw(requestParameters: ContentIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Content>> {
+    async contentIdGetRequestOpts(requestParameters: ContentIdGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['contentId'] == null) {
             throw new runtime.RequiredError(
                 'contentId',
@@ -464,12 +495,21 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/content/author/{content_id}`;
         urlPath = urlPath.replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получить информацию о конкретном контенте.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
+     * Получить информацию о контенте
+     */
+    async contentIdGetRaw(requestParameters: ContentIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Content>> {
+        const requestOptions = await this.contentIdGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContentFromJSON(jsonValue));
     }
@@ -484,10 +524,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет редактировать информацию о контенте.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
-     * Редактировать контент
+     * Creates request options for contentUpdate without sending the request
      */
-    async contentUpdateRaw(requestParameters: ContentUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Content>> {
+    async contentUpdateRequestOpts(requestParameters: ContentUpdateRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['contentId'] == null) {
             throw new runtime.RequiredError(
                 'contentId',
@@ -516,13 +555,22 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/content/author/{content_id}`;
         urlPath = urlPath.replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: UpdateContentRequestToJSON(requestParameters['updateContentRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет редактировать информацию о контенте.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
+     * Редактировать контент
+     */
+    async contentUpdateRaw(requestParameters: ContentUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Content>> {
+        const requestOptions = await this.contentUpdateRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContentFromJSON(jsonValue));
     }
@@ -537,10 +585,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет загрузить контент (файл) по частям.<br><br>  Краткая инструкция по применению: 1. Разбейте файл на части размером не более 2 Мб. 2. Для каждой части файла:   - Убедитесь, что заголовок `X-Content-Type` соответствует типу вашего контента (например, `video/mp4`, `audio/mpeg`, `application/pdf` и т.д.).   - Установите заголовок `X-Wbd-Part-Index` в соответствии с индексом текущей части (начиная с 1).   - Укажите `uuid` контента в заголовке `X-Wbd-Content-Uuid`, который вы получили при [инициализации нового контента](/openapi/wbd#tag/Kontent/operation/contentUploadInit).   - Отправьте байты (часть файла) в теле запроса. 3. Повторяйте шаг 2 для всех частей файла до завершения загрузки.  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
-     * Загрузить контент (файл)
+     * Creates request options for contentUploadChunk without sending the request
      */
-    async contentUploadChunkRaw(requestParameters: ContentUploadChunkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UploadChunkResponse>> {
+    async contentUploadChunkRequestOpts(requestParameters: ContentUploadChunkRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['xContentType'] == null) {
             throw new runtime.RequiredError(
                 'xContentType',
@@ -594,13 +641,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/content/upload/chunk`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: requestParameters['body'] as any,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет загрузить контент (файл) по частям.<br><br>  Краткая инструкция по применению: 1. Разбейте файл на части размером не более 2 Мб. 2. Для каждой части файла:   - Убедитесь, что заголовок `X-Content-Type` соответствует типу вашего контента (например, `video/mp4`, `audio/mpeg`, `application/pdf` и т.д.).   - Установите заголовок `X-Wbd-Part-Index` в соответствии с индексом текущей части (начиная с 1).   - Укажите `uuid` контента в заголовке `X-Wbd-Content-Uuid`, который вы получили при [инициализации нового контента](/openapi/wbd#tag/Kontent/operation/contentUploadInit).   - Отправьте байты (часть файла) в теле запроса. 3. Повторяйте шаг 2 для всех частей файла до завершения загрузки.  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
+     * Загрузить контент (файл)
+     */
+    async contentUploadChunkRaw(requestParameters: ContentUploadChunkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UploadChunkResponse>> {
+        const requestOptions = await this.contentUploadChunkRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UploadChunkResponseFromJSON(jsonValue));
     }
@@ -615,10 +671,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет загрузить обложку контента.  <div class=\"description_important\">   Максимальный размер файла: 5 Мб<br>   Допустимые форматы: PNG, JPEG<br>   Рекомендации:   <ul>       <li>Соотношение сторон 1:1</li>   </ul> </div>  Краткая инструкция по применению: 1. Убедитесь, что ваш файл соответствует указанным ограничениям и рекомендациям. 2. Вызовите этот метод. 3. При загрузке обложки вы получите список URI адресов для нового контента. 4. Воспользуйтесь методом [Инициализировать новый контент](/openapi/wbd#tag/Kontent/operation/contentUploadInit) и передайте список URI адресов в поле `meta` в формате **JSON** используя следующий пример.  **Пример:**  ```json {     \"meta\": {         \"thumbnail\": [             \"vol6/529/013cfs7f229183179aj53d2b3bbb839a/480.jpg\",             \"vol6/529/013cfs7f229183179aj53d2b3bbb839a/1280.jpg\",             \"vol6/529/013cfs7f229183179aj53d2b3bbb839a/1920.jpg\"         ]     } } ```  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
-     * Загрузить обложку контента
+     * Creates request options for contentUploadIllustration without sending the request
      */
-    async contentUploadIllustrationRaw(requestParameters: ContentUploadIllustrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IllustrationResponse>> {
+    async contentUploadIllustrationRequestOpts(requestParameters: ContentUploadIllustrationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['xContentType'] == null) {
             throw new runtime.RequiredError(
                 'xContentType',
@@ -650,13 +705,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/content/illustration`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: requestParameters['body'] as any,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет загрузить обложку контента.  <div class=\"description_important\">   Максимальный размер файла: 5 Мб<br>   Допустимые форматы: PNG, JPEG<br>   Рекомендации:   <ul>       <li>Соотношение сторон 1:1</li>   </ul> </div>  Краткая инструкция по применению: 1. Убедитесь, что ваш файл соответствует указанным ограничениям и рекомендациям. 2. Вызовите этот метод. 3. При загрузке обложки вы получите список URI адресов для нового контента. 4. Воспользуйтесь методом [Инициализировать новый контент](/openapi/wbd#tag/Kontent/operation/contentUploadInit) и передайте список URI адресов в поле `meta` в формате **JSON** используя следующий пример.  **Пример:**  ```json {     \"meta\": {         \"thumbnail\": [             \"vol6/529/013cfs7f229183179aj53d2b3bbb839a/480.jpg\",             \"vol6/529/013cfs7f229183179aj53d2b3bbb839a/1280.jpg\",             \"vol6/529/013cfs7f229183179aj53d2b3bbb839a/1920.jpg\"         ]     } } ```  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
+     * Загрузить обложку контента
+     */
+    async contentUploadIllustrationRaw(requestParameters: ContentUploadIllustrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IllustrationResponse>> {
+        const requestOptions = await this.contentUploadIllustrationRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IllustrationResponseFromJSON(jsonValue));
     }
@@ -671,10 +735,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет инициализировать (загрузить) информацию нового контента.<br><br>  Типы контента и требования к ним вы можете посмотреть в оглавлении [Работа с контентом](/openapi/wbd#tag/Kontent).<br><br>  Подготовка файла к последующей загрузке: - Вам необходимо разбить файл на части (фреймы) не более 2 Мб. - Передать размер (в байтах) каждой части и порядковый номер в параметре `parts`.  **Пример:**<br> Файл размером 5 Мб, нужно разбить на 3 части — 2 Мб, 2 Мб и 1 Мб. ```json {     \"parts\": [         {           \"index\": 1,           \"size\": 2097152         },         {           \"index\": 2,           \"size\": 2097152         },         {           \"index\": 3,           \"size\": 1048576         }     ], } ```  В методе [Загрузить контент (файл)](/openapi/wbd#tag/Kontent/operation/contentUploadChunk) вам нужно будет загрузить 3 части файла с указанием их порядкового номера через `X-Wbd-Part-Index`.<br><br>  **Обязательные поля в метаданных (`meta`) для загрузки контента**<br><br>  Общие поля: - `thumbnail` - `rating`  Аудиоконтент: - `author`  Документ: - `author` - `pages`  Краткая инструкция по применению: 1. Подготовьте метаданные и информацию о вашем контенте. 2. Убедитесь, что ваш контент соответствует [требованиям](/openapi/wbd#tag/Kontent/Trebovaniya-k-kontentu) (формат и размер файла). 3. Вызовите этот метод для инициализации нового контента. 4. В ответе вы получите `uuid` контента, необходимый для последующей загрузки самого файла. 5. Используйте метод [Загрузить файл контента](/openapi/wbd#tag/Kontent/operation/contentUploadChunk), чтобы загрузить файл.  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
-     * Инициализировать новый контент
+     * Creates request options for contentUploadInit without sending the request
      */
-    async contentUploadInitRaw(requestParameters: ContentUploadInitRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UploadInitResponse>> {
+    async contentUploadInitRequestOpts(requestParameters: ContentUploadInitRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['uploadInitRequest'] == null) {
             throw new runtime.RequiredError(
                 'uploadInitRequest',
@@ -695,13 +758,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/content/upload/init`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: UploadInitRequestToJSON(requestParameters['uploadInitRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет инициализировать (загрузить) информацию нового контента.<br><br>  Типы контента и требования к ним вы можете посмотреть в оглавлении [Работа с контентом](/openapi/wbd#tag/Kontent).<br><br>  Подготовка файла к последующей загрузке: - Вам необходимо разбить файл на части (фреймы) не более 2 Мб. - Передать размер (в байтах) каждой части и порядковый номер в параметре `parts`.  **Пример:**<br> Файл размером 5 Мб, нужно разбить на 3 части — 2 Мб, 2 Мб и 1 Мб. ```json {     \"parts\": [         {           \"index\": 1,           \"size\": 2097152         },         {           \"index\": 2,           \"size\": 2097152         },         {           \"index\": 3,           \"size\": 1048576         }     ], } ```  В методе [Загрузить контент (файл)](/openapi/wbd#tag/Kontent/operation/contentUploadChunk) вам нужно будет загрузить 3 части файла с указанием их порядкового номера через `X-Wbd-Part-Index`.<br><br>  **Обязательные поля в метаданных (`meta`) для загрузки контента**<br><br>  Общие поля: - `thumbnail` - `rating`  Аудиоконтент: - `author`  Документ: - `author` - `pages`  Краткая инструкция по применению: 1. Подготовьте метаданные и информацию о вашем контенте. 2. Убедитесь, что ваш контент соответствует [требованиям](/openapi/wbd#tag/Kontent/Trebovaniya-k-kontentu) (формат и размер файла). 3. Вызовите этот метод для инициализации нового контента. 4. В ответе вы получите `uuid` контента, необходимый для последующей загрузки самого файла. 5. Используйте метод [Загрузить файл контента](/openapi/wbd#tag/Kontent/operation/contentUploadChunk), чтобы загрузить файл.  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
+     * Инициализировать новый контент
+     */
+    async contentUploadInitRaw(requestParameters: ContentUploadInitRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UploadInitResponse>> {
+        const requestOptions = await this.contentUploadInitRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UploadInitResponseFromJSON(jsonValue));
     }
@@ -716,10 +788,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет удалить ключи активации по их ID.  <div class=\"description_important\">   Доступ к методу предоставляется через заявку в <a href=\"https://digital.wildberries.ru/support\" target=\"_black\">техническую поддержку</a>. </div>  <div class=\"description_limit\">     Максимум 100 запросов в секунду </div> 
-     * Удалить ключи активации
+     * Creates request options for deleteKeysByIDs without sending the request
      */
-    async deleteKeysByIDsRaw(requestParameters: DeleteKeysByIDsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeysDeleteResponse>> {
+    async deleteKeysByIDsRequestOpts(requestParameters: DeleteKeysByIDsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['ids'] == null) {
             throw new runtime.RequiredError(
                 'ids',
@@ -742,12 +813,21 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/keys-api/keys`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет удалить ключи активации по их ID.  <div class=\"description_important\">   Доступ к методу предоставляется через заявку в <a href=\"https://digital.wildberries.ru/support\" target=\"_black\">техническую поддержку</a>. </div>  <div class=\"description_limit\">     Максимум 100 запросов в секунду </div> 
+     * Удалить ключи активации
+     */
+    async deleteKeysByIDsRaw(requestParameters: DeleteKeysByIDsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeysDeleteResponse>> {
+        const requestOptions = await this.deleteKeysByIDsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => KeysDeleteResponseFromJSON(jsonValue));
     }
@@ -762,10 +842,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет получить дерево (структуру данных) с категориям и их подкатегориями.<br><br>  **Иерархия структуры данных**<br><br>  В нашей структуре есть три уровня иерархии: 1. **Корневой узел** — сущность **Каталог** 2. **Внешние узлы** представляют собой категории (`section`): - `1` — Видеоконтент - `2` — Аудиоконтент - `3` — Ключи активации - `4` — Электронные книги - `5` — Аудиокниги - `6` — Цифровые товары - `8` — Услуги - `12` — Купоны и развлечения - `13` — Подарочные сертификаты 3. **Листья дерева** являются подкатегориями (`catalog_path`): - `65` — Обучающие видео - `66` — Спорт - `67` — Мастер-класс - `68` — Йога - `69` — Медитации  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
-     * Получить категории и их подкатегории
+     * Creates request options for getCatalog without sending the request
      */
-    async getCatalogRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFullCatalogResponse>> {
+    async getCatalogRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -777,12 +856,21 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/catalog`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получить дерево (структуру данных) с категориям и их подкатегориями.<br><br>  **Иерархия структуры данных**<br><br>  В нашей структуре есть три уровня иерархии: 1. **Корневой узел** — сущность **Каталог** 2. **Внешние узлы** представляют собой категории (`section`): - `1` — Видеоконтент - `2` — Аудиоконтент - `3` — Ключи активации - `4` — Электронные книги - `5` — Аудиокниги - `6` — Цифровые товары - `8` — Услуги - `12` — Купоны и развлечения - `13` — Подарочные сертификаты 3. **Листья дерева** являются подкатегориями (`catalog_path`): - `65` — Обучающие видео - `66` — Спорт - `67` — Мастер-класс - `68` — Йога - `69` — Медитации  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
+     * Получить категории и их подкатегории
+     */
+    async getCatalogRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFullCatalogResponse>> {
+        const requestOptions = await this.getCatalogRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GetFullCatalogResponseFromJSON(jsonValue));
     }
@@ -797,10 +885,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет получить список купленных ключей с использованием фильтрации.<br><br>  **Описание параметров фильтрации**  - `offer_id` — Фильтрация по ID предложения. Позволяет выбрать ключи, связанные с определенным предложением. - `skip` — Смещение. Указывает, сколько записей нужно пропустить в результирующем наборе.<br> **Например**, если `skip` равно 20, то выборка начнется с 21 записи. - `take` — Количество записей для получения. Указывает, сколько ключей должно быть возвращено в ответе.<br> **Например**, если `take` равно 10, то в ответе будет не более 10 записей. - `date_from` — Фильтрация по дате покупки начиная с указанной даты (включительно).<br> Формат даты: **RFC3339**. - `date_to` — Фильтрация по дате покупки до указанной даты (не включительно).<br> Формат даты: **RFC3339**.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
-     * Получить купленные ключи
+     * Creates request options for getRedeemedKeys without sending the request
      */
-    async getRedeemedKeysRaw(requestParameters: GetRedeemedKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeysRedeemedResponseList>> {
+    async getRedeemedKeysRequestOpts(requestParameters: GetRedeemedKeysRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['offerId'] != null) {
@@ -832,12 +919,21 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/keys-api/keys/redeemed`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получить список купленных ключей с использованием фильтрации.<br><br>  **Описание параметров фильтрации**  - `offer_id` — Фильтрация по ID предложения. Позволяет выбрать ключи, связанные с определенным предложением. - `skip` — Смещение. Указывает, сколько записей нужно пропустить в результирующем наборе.<br> **Например**, если `skip` равно 20, то выборка начнется с 21 записи. - `take` — Количество записей для получения. Указывает, сколько ключей должно быть возвращено в ответе.<br> **Например**, если `take` равно 10, то в ответе будет не более 10 записей. - `date_from` — Фильтрация по дате покупки начиная с указанной даты (включительно).<br> Формат даты: **RFC3339**. - `date_to` — Фильтрация по дате покупки до указанной даты (не включительно).<br> Формат даты: **RFC3339**.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
+     * Получить купленные ключи
+     */
+    async getRedeemedKeysRaw(requestParameters: GetRedeemedKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeysRedeemedResponseList>> {
+        const requestOptions = await this.getRedeemedKeysRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => KeysRedeemedResponseListFromJSON(jsonValue));
     }
@@ -852,10 +948,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет добавить ключи для предложения по ID.  <div class=\"description_important\">   Предложение должно быть из категории (<code>section</code>):   <ul>       <li>Ключи активации — <code>3</code></li>       <li>Купоны и развлечения — <code>12</code></li>       <li>Подарочные сертификаты — <code>13</code></li>   </ul> </div>  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
-     * Добавить ключи активации
+     * Creates request options for loadKeys without sending the request
      */
-    async loadKeysRaw(requestParameters: LoadKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async loadKeysRequestOpts(requestParameters: LoadKeysRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['keysLoadRequest'] == null) {
             throw new runtime.RequiredError(
                 'keysLoadRequest',
@@ -876,13 +971,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/keys-api/keys`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: KeysLoadRequestToJSON(requestParameters['keysLoadRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет добавить ключи для предложения по ID.  <div class=\"description_important\">   Предложение должно быть из категории (<code>section</code>):   <ul>       <li>Ключи активации — <code>3</code></li>       <li>Купоны и развлечения — <code>12</code></li>       <li>Подарочные сертификаты — <code>13</code></li>   </ul> </div>  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
+     * Добавить ключи активации
+     */
+    async loadKeysRaw(requestParameters: LoadKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.loadKeysRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -896,10 +1000,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет создать новое предложение.<br><br>  **Обязательные поля** - `title` — Название предложения - `description` — Описание предложения - `tags` — Теги предложения - `section` — Категория предложения - `catalog_path` — Подкатегория предложения - `age_rating` — Возрастное ограничение предложения - `price` — Цена предложения  **Добавить обложку**<br><br>  Обложка для предложения загружается **отдельно после создания предложения**.<br> Вам необходимо воспользоваться методом [Добавить или обновить обложку предложения](/openapi/wbd#tag/Predlozheniya/operation/offersUploadThumbnail).<br><br>  **Добавить дополнительные медиафайлы**  1. Загрузить медиафайлы с помощью метода [Загрузить медиафайл для предложения](/openapi/wbd#tag/Kontent/operation/contentGallery), метод возвращает список URI адресов загруженных медиафайлов. 2. Добавить URI медиафайлов в поле `gallery`.  **Категория и подкатегория предложения**<br><br>  Воспользуйтесь методом [Получить категории и их подкатегории](/openapi/wbd#tag/Predlozheniya/operation/GetCatalog) для получения ID подкатегории и правильного сопоставления с категорией.<br><br>  **Предложение из категории \"Услуги\"**<br><br>  `section` — `8`<br><br>  Доступ к публикации контента этой категории предоставляется через заявку в <a href=\"https://digital.wildberries.ru/support\" target=\"_blank\">техническую поддержку</a>.<br><br>  **Предложение c уникальными ключами**<br><br>  Предложение c уникальными ключами относятся к категориям (`section`): - **Ключи активации** — `3` - **Купоны и развлечения** — `12` - **Подарочные сертификаты** — `13`  Обязательные данные: - Ключи к предложению - Инструкция по активации ключа  **Загрузка ключей**<br><br> Список ключей передается в параметре `keys` вашего запроса при создании предложения.<br> В дальнейшем вы можете добавлять ключи с помощью метода [Добавить ключи активации](/openapi/wbd#tag/Klyuchi-aktivacii/operation/LoadKeys).<br><br>  **Добавление инструкции по активации ключа**<br><br>  Инструкцию по активации ключа необходимо добавить в поле `meta` в формате **JSON** используя следующий пример.<br> Чтобы сделать текст более привлекательным и удобочитаемым, **используйте перенос строки** `\\n`.<br><br>  **Пример:**  ```json {     \"meta\":{         \"key_instruction\": \"Инструкция по активации\\n1. Зайдите на сайт ...\\n2.Вставьте ключ в поле ...\"     } } ```  **Предложение с контентом**<br><br>  Предложение с контентом относится к категориям (`section`): - **Видеоконтент** — `1` - **Аудиоконтент** — `2` - **Электронные книги** — `4` - **Аудиокниги** — `5` - **Цифровые товары** — `6`  Обязательные данные: - Контент для предложения  **Добавление контента**<br><br>  Если вы ещё не добавили контент в личный кабинет продавца, то вы можете это сделать по [инструкции](/openapi/wbd#tag/Kontent/Kak-dobavit-novyj-kontent).<br><br>  Для добавления контента вам необходимо передать в параметре `content` список данных используя пример ниже.<br><br>  **Пример:**  ```json \"content\": [     {         \"category_id\": 1,         \"content\": 8942     },     {         \"category_id\": 1,         \"content\": 4211     } ] ```  где: - `category_id` — ID категории контента - `content` — ID контента  Эту информацию вы можете получить с помощью метод [Получить список своего контента](/openapi/wbd#tag/Kontent/operation/contentAuthorGet).  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
-     * Создать новое предложение
+     * Creates request options for offerCreate without sending the request
      */
-    async offerCreateRaw(requestParameters: OfferCreateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfferResponse>> {
+    async offerCreateRequestOpts(requestParameters: OfferCreateOperationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['offerCreateRequest'] == null) {
             throw new runtime.RequiredError(
                 'offerCreateRequest',
@@ -920,13 +1023,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/offers`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: OfferCreateRequestToJSON(requestParameters['offerCreateRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет создать новое предложение.<br><br>  **Обязательные поля** - `title` — Название предложения - `description` — Описание предложения - `tags` — Теги предложения - `section` — Категория предложения - `catalog_path` — Подкатегория предложения - `age_rating` — Возрастное ограничение предложения - `price` — Цена предложения  **Добавить обложку**<br><br>  Обложка для предложения загружается **отдельно после создания предложения**.<br> Вам необходимо воспользоваться методом [Добавить или обновить обложку предложения](/openapi/wbd#tag/Predlozheniya/operation/offersUploadThumbnail).<br><br>  **Добавить дополнительные медиафайлы**  1. Загрузить медиафайлы с помощью метода [Загрузить медиафайл для предложения](/openapi/wbd#tag/Kontent/operation/contentGallery), метод возвращает список URI адресов загруженных медиафайлов. 2. Добавить URI медиафайлов в поле `gallery`.  **Категория и подкатегория предложения**<br><br>  Воспользуйтесь методом [Получить категории и их подкатегории](/openapi/wbd#tag/Predlozheniya/operation/GetCatalog) для получения ID подкатегории и правильного сопоставления с категорией.<br><br>  **Предложение из категории \"Услуги\"**<br><br>  `section` — `8`<br><br>  Доступ к публикации контента этой категории предоставляется через заявку в <a href=\"https://digital.wildberries.ru/support\" target=\"_blank\">техническую поддержку</a>.<br><br>  **Предложение c уникальными ключами**<br><br>  Предложение c уникальными ключами относятся к категориям (`section`): - **Ключи активации** — `3` - **Купоны и развлечения** — `12` - **Подарочные сертификаты** — `13`  Обязательные данные: - Ключи к предложению - Инструкция по активации ключа  **Загрузка ключей**<br><br> Список ключей передается в параметре `keys` вашего запроса при создании предложения.<br> В дальнейшем вы можете добавлять ключи с помощью метода [Добавить ключи активации](/openapi/wbd#tag/Klyuchi-aktivacii/operation/LoadKeys).<br><br>  **Добавление инструкции по активации ключа**<br><br>  Инструкцию по активации ключа необходимо добавить в поле `meta` в формате **JSON** используя следующий пример.<br> Чтобы сделать текст более привлекательным и удобочитаемым, **используйте перенос строки** `\\n`.<br><br>  **Пример:**  ```json {     \"meta\":{         \"key_instruction\": \"Инструкция по активации\\n1. Зайдите на сайт ...\\n2.Вставьте ключ в поле ...\"     } } ```  **Предложение с контентом**<br><br>  Предложение с контентом относится к категориям (`section`): - **Видеоконтент** — `1` - **Аудиоконтент** — `2` - **Электронные книги** — `4` - **Аудиокниги** — `5` - **Цифровые товары** — `6`  Обязательные данные: - Контент для предложения  **Добавление контента**<br><br>  Если вы ещё не добавили контент в личный кабинет продавца, то вы можете это сделать по [инструкции](/openapi/wbd#tag/Kontent/Kak-dobavit-novyj-kontent).<br><br>  Для добавления контента вам необходимо передать в параметре `content` список данных используя пример ниже.<br><br>  **Пример:**  ```json \"content\": [     {         \"category_id\": 1,         \"content\": 8942     },     {         \"category_id\": 1,         \"content\": 4211     } ] ```  где: - `category_id` — ID категории контента - `content` — ID контента  Эту информацию вы можете получить с помощью метод [Получить список своего контента](/openapi/wbd#tag/Kontent/operation/contentAuthorGet).  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
+     * Создать новое предложение
+     */
+    async offerCreateRaw(requestParameters: OfferCreateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfferResponse>> {
+        const requestOptions = await this.offerCreateRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OfferResponseFromJSON(jsonValue));
     }
@@ -941,10 +1053,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет получить информацию о конкретном предложении.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
-     * Получить информацию о предложении
+     * Creates request options for offerGet without sending the request
      */
-    async offerGetRaw(requestParameters: OfferGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfferResponse>> {
+    async offerGetRequestOpts(requestParameters: OfferGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['offerId'] == null) {
             throw new runtime.RequiredError(
                 'offerId',
@@ -964,12 +1075,21 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/offers/{offer_id}`;
         urlPath = urlPath.replace(`{${"offer_id"}}`, encodeURIComponent(String(requestParameters['offerId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получить информацию о конкретном предложении.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
+     * Получить информацию о предложении
+     */
+    async offerGetRaw(requestParameters: OfferGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfferResponse>> {
+        const requestOptions = await this.offerGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OfferResponseFromJSON(jsonValue));
     }
@@ -984,10 +1104,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет получить информацию о количестве ключей у конкретного предложения.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
-     * Получить количество ключей для предложения
+     * Creates request options for offerKeysCountGet without sending the request
      */
-    async offerKeysCountGetRaw(requestParameters: OfferKeysCountGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeysCountResponse>> {
+    async offerKeysCountGetRequestOpts(requestParameters: OfferKeysCountGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['offerId'] == null) {
             throw new runtime.RequiredError(
                 'offerId',
@@ -1007,12 +1126,21 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/offer/keys/{offer_id}`;
         urlPath = urlPath.replace(`{${"offer_id"}}`, encodeURIComponent(String(requestParameters['offerId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получить информацию о количестве ключей у конкретного предложения.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
+     * Получить количество ключей для предложения
+     */
+    async offerKeysCountGetRaw(requestParameters: OfferKeysCountGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeysCountResponse>> {
+        const requestOptions = await this.offerKeysCountGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => KeysCountResponseFromJSON(jsonValue));
     }
@@ -1027,10 +1155,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет получить список загруженных вами ключей для конкретного предложения.  <div class=\"description_important\">   Доступ к методу предоставляется через заявку в <a href=\"https://digital.wildberries.ru/support\" target=\"_black\">техническую поддержку</a>. </div>  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
-     * Получить список ключей
+     * Creates request options for offerKeysGet without sending the request
      */
-    async offerKeysGetRaw(requestParameters: OfferKeysGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeysResponseList>> {
+    async offerKeysGetRequestOpts(requestParameters: OfferKeysGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['offerId'] == null) {
             throw new runtime.RequiredError(
                 'offerId',
@@ -1074,12 +1201,21 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/offer/keys/{offer_id}/list`;
         urlPath = urlPath.replace(`{${"offer_id"}}`, encodeURIComponent(String(requestParameters['offerId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получить список загруженных вами ключей для конкретного предложения.  <div class=\"description_important\">   Доступ к методу предоставляется через заявку в <a href=\"https://digital.wildberries.ru/support\" target=\"_black\">техническую поддержку</a>. </div>  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
+     * Получить список ключей
+     */
+    async offerKeysGetRaw(requestParameters: OfferKeysGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<KeysResponseList>> {
+        const requestOptions = await this.offerKeysGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => KeysResponseListFromJSON(jsonValue));
     }
@@ -1094,10 +1230,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет редактировать информацию о предложении.<br><br>  **Категория и подкатегория предложения**<br><br>  Воспользуйтесь методом [Получить категории и их подкатегории](/openapi/wbd#tag/Predlozheniya/operation/GetCatalog) для получения ID подкатегории и правильного сопоставления с категорией.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
-     * Редактировать предложение
+     * Creates request options for offerUpdate without sending the request
      */
-    async offerUpdateRaw(requestParameters: OfferUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async offerUpdateRequestOpts(requestParameters: OfferUpdateOperationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['offerId'] == null) {
             throw new runtime.RequiredError(
                 'offerId',
@@ -1126,13 +1261,22 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/offers/{offer_id}`;
         urlPath = urlPath.replace(`{${"offer_id"}}`, encodeURIComponent(String(requestParameters['offerId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: OfferUpdateRequestToJSON(requestParameters['offerUpdateRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет редактировать информацию о предложении.<br><br>  **Категория и подкатегория предложения**<br><br>  Воспользуйтесь методом [Получить категории и их подкатегории](/openapi/wbd#tag/Predlozheniya/operation/GetCatalog) для получения ID подкатегории и правильного сопоставления с категорией.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
+     * Редактировать предложение
+     */
+    async offerUpdateRaw(requestParameters: OfferUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.offerUpdateRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -1146,10 +1290,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет изменить цену предложения и цену с учетом скидок.<br><br>  Если вы не хотите выставлять скидку, то в запросе необходимо **не передавать** параметр `discount_price` или выставить у него значение `0`.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
-     * Обновить цену
+     * Creates request options for offerUpdatePrice without sending the request
      */
-    async offerUpdatePriceRaw(requestParameters: OfferUpdatePriceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async offerUpdatePriceRequestOpts(requestParameters: OfferUpdatePriceRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['offerId'] == null) {
             throw new runtime.RequiredError(
                 'offerId',
@@ -1178,13 +1321,22 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/offer/price/{offer_id}`;
         urlPath = urlPath.replace(`{${"offer_id"}}`, encodeURIComponent(String(requestParameters['offerId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: OfferPriceUpdateRequestToJSON(requestParameters['offerPriceUpdateRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет изменить цену предложения и цену с учетом скидок.<br><br>  Если вы не хотите выставлять скидку, то в запросе необходимо **не передавать** параметр `discount_price` или выставить у него значение `0`.  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
+     * Обновить цену
+     */
+    async offerUpdatePriceRaw(requestParameters: OfferUpdatePriceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.offerUpdatePriceRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -1198,10 +1350,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет обновить статус вашего предложения.<br><br>  Возможные значения: - `0` — Черновик - `1` — Опубликован - `2` — Приостановлен - `3` — Удалён  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
-     * Обновить статус
+     * Creates request options for offerUpdateStatus without sending the request
      */
-    async offerUpdateStatusRaw(requestParameters: OfferUpdateStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async offerUpdateStatusRequestOpts(requestParameters: OfferUpdateStatusRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['offerId'] == null) {
             throw new runtime.RequiredError(
                 'offerId',
@@ -1230,13 +1381,22 @@ export class DefaultApi extends runtime.BaseAPI {
         let urlPath = `/api/v1/offer/{offer_id}`;
         urlPath = urlPath.replace(`{${"offer_id"}}`, encodeURIComponent(String(requestParameters['offerId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: OfferStatusUpdateRequestToJSON(requestParameters['offerStatusUpdateRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет обновить статус вашего предложения.<br><br>  Возможные значения: - `0` — Черновик - `1` — Опубликован - `2` — Приостановлен - `3` — Удалён  <div class=\"description_limit\">   Максимум 50 запросов в секунду </div> 
+     * Обновить статус
+     */
+    async offerUpdateStatusRaw(requestParameters: OfferUpdateStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.offerUpdateStatusRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -1250,10 +1410,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет получить список своих предложений с использованием фильтрации.<br><br>  **Описание параметров фильтрации**  - `search` — Поиск предложений по названию. Укажите часть или полное название предложения для поиска. - `category` — Фильтрация предложений по категории контента. Список категорий находится в [таблице](/openapi/wbd#tag/Kontent/Kategorii-kontenta). - `status` — Фильтрация предложений по статусу. Возможные значения:     - `0` — Черновик     - `1` — Опубликован     - `2` — Приостановлен - `sort` — Сортировка предложений по дате создания или обновления. Укажите `created` для сортировки по дате создания и `updated` для сортировки по дате обновления. - `sort_dir` — Направление сортировки. Укажите `asc` для сортировки по возрастанию или `desc` для сортировки по убыванию. - `skip` — Смещение. Позволяет пропустить определенное количество предложений в результирующем наборе.<br> **Например**, если `skip` равно 20, то выборка начнется с 21 записи. - `take` — Количество предложений, которое нужно вернуть в ответе.<br> **Например**, если `take` равно 10, то в ответе будет не более 10 записей.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
-     * Получить список своих предложений
+     * Creates request options for offersAuthorGet without sending the request
      */
-    async offersAuthorGetRaw(requestParameters: OffersAuthorGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfferResponseList>> {
+    async offersAuthorGetRequestOpts(requestParameters: OffersAuthorGetRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['search'] != null) {
@@ -1293,12 +1452,21 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/offers/author`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет получить список своих предложений с использованием фильтрации.<br><br>  **Описание параметров фильтрации**  - `search` — Поиск предложений по названию. Укажите часть или полное название предложения для поиска. - `category` — Фильтрация предложений по категории контента. Список категорий находится в [таблице](/openapi/wbd#tag/Kontent/Kategorii-kontenta). - `status` — Фильтрация предложений по статусу. Возможные значения:     - `0` — Черновик     - `1` — Опубликован     - `2` — Приостановлен - `sort` — Сортировка предложений по дате создания или обновления. Укажите `created` для сортировки по дате создания и `updated` для сортировки по дате обновления. - `sort_dir` — Направление сортировки. Укажите `asc` для сортировки по возрастанию или `desc` для сортировки по убыванию. - `skip` — Смещение. Позволяет пропустить определенное количество предложений в результирующем наборе.<br> **Например**, если `skip` равно 20, то выборка начнется с 21 записи. - `take` — Количество предложений, которое нужно вернуть в ответе.<br> **Например**, если `take` равно 10, то в ответе будет не более 10 записей.  <div class=\"description_limit\">   Максимум 100 запросов в секунду </div> 
+     * Получить список своих предложений
+     */
+    async offersAuthorGetRaw(requestParameters: OffersAuthorGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfferResponseList>> {
+        const requestOptions = await this.offersAuthorGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OfferResponseListFromJSON(jsonValue));
     }
@@ -1313,10 +1481,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод позволяет добавить или обновить обложку предложения.<br> Для добавления более привлекательной карточки предложения, мы рекомендуем:    1. Добавлять изображения с соотношением сторон 1:1.   2. Минимальный размер изображения 1200х1200 пикселей.   3. Фон контрастный белому.  <div class=\"description_important\">   Максимальный размер файла: 5 Мб<br>   Допустимые форматы: PNG, JPEG </div>  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
-     * Добавить или обновить обложку предложения
+     * Creates request options for offersUploadThumbnail without sending the request
      */
-    async offersUploadThumbnailRaw(requestParameters: OffersUploadThumbnailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async offersUploadThumbnailRequestOpts(requestParameters: OffersUploadThumbnailRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['xContentType'] == null) {
             throw new runtime.RequiredError(
                 'xContentType',
@@ -1359,13 +1526,22 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/v1/offers/thumb`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: requestParameters['body'] as any,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Метод позволяет добавить или обновить обложку предложения.<br> Для добавления более привлекательной карточки предложения, мы рекомендуем:    1. Добавлять изображения с соотношением сторон 1:1.   2. Минимальный размер изображения 1200х1200 пикселей.   3. Фон контрастный белому.  <div class=\"description_important\">   Максимальный размер файла: 5 Мб<br>   Допустимые форматы: PNG, JPEG </div>  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
+     * Добавить или обновить обложку предложения
+     */
+    async offersUploadThumbnailRaw(requestParameters: OffersUploadThumbnailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.offersUploadThumbnailRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
