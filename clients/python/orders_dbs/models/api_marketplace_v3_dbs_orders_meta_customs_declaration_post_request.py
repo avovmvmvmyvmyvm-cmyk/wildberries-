@@ -17,19 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request_orders_inner import ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequestOrdersInner(BaseModel):
+class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest(BaseModel):
     """
-    ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequestOrdersInner
+    ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
     """ # noqa: E501
-    customs_declaration: Annotated[str, Field(min_length=17, strict=True, max_length=29)] = Field(description="Номер ГТД", alias="customsDeclaration")
-    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
-    __properties: ClassVar[List[str]] = ["customsDeclaration", "orderId"]
+    orders: Optional[Annotated[List[ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner], Field(max_length=1000)]] = None
+    __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +49,7 @@ class ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequestOrdersInner(BaseModel)
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequestOrdersInner from a JSON string"""
+        """Create an instance of ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +70,18 @@ class ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequestOrdersInner(BaseModel)
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in orders (list)
+        _items = []
+        if self.orders:
+            for _item_orders in self.orders:
+                if _item_orders:
+                    _items.append(_item_orders.to_dict())
+            _dict['orders'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequestOrdersInner from a dict"""
+        """Create an instance of ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +89,7 @@ class ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequestOrdersInner(BaseModel)
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "customsDeclaration": obj.get("customsDeclaration"),
-            "orderId": obj.get("orderId")
+            "orders": [ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
         })
         return _obj
 

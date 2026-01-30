@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_marketplace_v3_dbs_meta_customs_declaration_post`]
+/// struct for typed errors of method [`api_marketplace_v3_dbs_orders_meta_customs_declaration_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMarketplaceV3DbsMetaCustomsDeclarationPostError {
+pub enum ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostError {
     Status400(models::Error),
     Status401(models::ApiV3DbsOrdersNewGet401Response),
     Status403(models::Error),
@@ -373,12 +373,12 @@ pub enum ApiV3DbsOrdersStatusPostError {
 }
 
 
-/// Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post). <br><br> У одного сборочного задания может быть только один ГТД.  Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `delivery`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_dbs_meta_customs_declaration_post(configuration: &configuration::Configuration, api_marketplace_v3_dbs_meta_customs_declaration_post_request: Option<models::ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest>) -> Result<(), Error<ApiMarketplaceV3DbsMetaCustomsDeclarationPostError>> {
+/// Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post). <br><br> У одного сборочного задания может быть только один ГТД.  Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `delivery`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
+pub async fn api_marketplace_v3_dbs_orders_meta_customs_declaration_post(configuration: &configuration::Configuration, api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request: Option<models::ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest>) -> Result<(), Error<ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_marketplace_v3_dbs_meta_customs_declaration_post_request = api_marketplace_v3_dbs_meta_customs_declaration_post_request;
+    let p_body_api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request = api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request;
 
-    let uri_str = format!("{}/api/marketplace/v3/dbs/meta/customs-declaration", configuration.base_path);
+    let uri_str = format!("{}/api/marketplace/v3/dbs/orders/meta/customs-declaration", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -392,7 +392,7 @@ pub async fn api_marketplace_v3_dbs_meta_customs_declaration_post(configuration:
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_marketplace_v3_dbs_meta_customs_declaration_post_request);
+    req_builder = req_builder.json(&p_body_api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -403,7 +403,7 @@ pub async fn api_marketplace_v3_dbs_meta_customs_declaration_post(configuration:
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3DbsMetaCustomsDeclarationPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

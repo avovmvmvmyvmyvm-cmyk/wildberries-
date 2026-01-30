@@ -74,7 +74,7 @@ class DBSApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'apiMarketplaceV3DbsMetaCustomsDeclarationPost' => [
+        'apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost' => [
             'application/json',
         ],
         'apiMarketplaceV3DbsOrdersMetaDeletePost' => [
@@ -213,7 +213,7 @@ class DBSApi
     }
 
     /**
-     * Operation apiMarketplaceV3DbsMetaCustomsDeclarationPost
+     * Operation apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost
      *
      * Закрепить за сборочными заданиями номер ГТД
      *
@@ -221,22 +221,22 @@ class DBSApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_meta_customs_declaration_post_request api_marketplace_v3_dbs_meta_customs_declaration_post_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersDbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiMarketplaceV3DbsMetaCustomsDeclarationPost($api_marketplace_v3_dbs_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'][0])
+    public function apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'][0])
     {
-        $this->apiMarketplaceV3DbsMetaCustomsDeclarationPostWithHttpInfo($api_marketplace_v3_dbs_meta_customs_declaration_post_request, $hostIndex, $variables, $contentType);
+        $this->apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostWithHttpInfo($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request, $hostIndex, $variables, $contentType);
     }
 
     /**
-     * Operation apiMarketplaceV3DbsMetaCustomsDeclarationPostWithHttpInfo
+     * Operation apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostWithHttpInfo
      *
      * Закрепить за сборочными заданиями номер ГТД
      *
@@ -244,18 +244,18 @@ class DBSApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_meta_customs_declaration_post_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersDbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3DbsMetaCustomsDeclarationPostWithHttpInfo($api_marketplace_v3_dbs_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'][0])
+    public function apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostWithHttpInfo($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'][0])
     {
-        $request = $this->apiMarketplaceV3DbsMetaCustomsDeclarationPostRequest($api_marketplace_v3_dbs_meta_customs_declaration_post_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -339,7 +339,7 @@ class DBSApi
     }
 
     /**
-     * Operation apiMarketplaceV3DbsMetaCustomsDeclarationPostAsync
+     * Operation apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostAsync
      *
      * Закрепить за сборочными заданиями номер ГТД
      *
@@ -347,17 +347,17 @@ class DBSApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_meta_customs_declaration_post_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3DbsMetaCustomsDeclarationPostAsync($api_marketplace_v3_dbs_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'][0])
+    public function apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostAsync($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'][0])
     {
-        return $this->apiMarketplaceV3DbsMetaCustomsDeclarationPostAsyncWithHttpInfo($api_marketplace_v3_dbs_meta_customs_declaration_post_request, $hostIndex, $variables, $contentType)
+        return $this->apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostAsyncWithHttpInfo($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -366,7 +366,7 @@ class DBSApi
     }
 
     /**
-     * Operation apiMarketplaceV3DbsMetaCustomsDeclarationPostAsyncWithHttpInfo
+     * Operation apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostAsyncWithHttpInfo
      *
      * Закрепить за сборочными заданиями номер ГТД
      *
@@ -374,18 +374,18 @@ class DBSApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_meta_customs_declaration_post_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3DbsMetaCustomsDeclarationPostAsyncWithHttpInfo($api_marketplace_v3_dbs_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'][0])
+    public function apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostAsyncWithHttpInfo($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'][0])
     {
         $returnType = '';
-        $request = $this->apiMarketplaceV3DbsMetaCustomsDeclarationPostRequest($api_marketplace_v3_dbs_meta_customs_declaration_post_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -411,26 +411,26 @@ class DBSApi
     }
 
     /**
-     * Create request for operation 'apiMarketplaceV3DbsMetaCustomsDeclarationPost'
+     * Create request for operation 'apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_meta_customs_declaration_post_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3DbsMetaCustomsDeclarationPostRequest($api_marketplace_v3_dbs_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsMetaCustomsDeclarationPost'][0])
+    public function apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost'][0])
     {
 
 
 
-        $resourcePath = '/api/marketplace/v3/dbs/meta/customs-declaration';
+        $resourcePath = '/api/marketplace/v3/dbs/orders/meta/customs-declaration';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -448,12 +448,12 @@ class DBSApi
         );
 
         // for model (json/xml)
-        if (isset($api_marketplace_v3_dbs_meta_customs_declaration_post_request)) {
+        if (isset($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_marketplace_v3_dbs_meta_customs_declaration_post_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request));
             } else {
-                $httpBody = $api_marketplace_v3_dbs_meta_customs_declaration_post_request;
+                $httpBody = $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -501,7 +501,7 @@ class DBSApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForapiMarketplaceV3DbsMetaCustomsDeclarationPost();
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -519,11 +519,11 @@ class DBSApi
     }
 
     /**
-     * Returns an array of host settings for Operation apiMarketplaceV3DbsMetaCustomsDeclarationPost
+     * Returns an array of host settings for Operation apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForapiMarketplaceV3DbsMetaCustomsDeclarationPost(): array
+    protected function getHostSettingsForapiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost(): array
     {
         return [
             [

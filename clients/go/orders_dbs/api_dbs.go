@@ -23,23 +23,23 @@ import (
 // DBSAPIService DBSAPI service
 type DBSAPIService service
 
-type ApiApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest struct {
+type ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest struct {
 	ctx context.Context
 	ApiService *DBSAPIService
-	apiMarketplaceV3DbsMetaCustomsDeclarationPostRequest *ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest
+	apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
 }
 
-func (r ApiApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest) ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest(apiMarketplaceV3DbsMetaCustomsDeclarationPostRequest ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest) ApiApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest {
-	r.apiMarketplaceV3DbsMetaCustomsDeclarationPostRequest = &apiMarketplaceV3DbsMetaCustomsDeclarationPostRequest
+func (r ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest(apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest {
+	r.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest = &apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
 	return r
 }
 
-func (r ApiApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest) Execute() (*http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsMetaCustomsDeclarationPostExecute(r)
+func (r ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostExecute(r)
 }
 
 /*
-ApiMarketplaceV3DbsMetaCustomsDeclarationPost Закрепить за сборочными заданиями номер ГТД
+ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost Закрепить за сборочными заданиями номер ГТД
 
 Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post).
 <br><br>
@@ -52,36 +52,36 @@ ApiMarketplaceV3DbsMetaCustomsDeclarationPost Закрепить за сборо
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
-| 1 мин | 20 запросов | 3 сек | 500 запросов |
+| 1 мин | 500 запросов | 120 мс | 20 запросов |
 
 Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
 </div>
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest
+ @return ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
 */
-func (a *DBSAPIService) ApiMarketplaceV3DbsMetaCustomsDeclarationPost(ctx context.Context) ApiApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest {
-	return ApiApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest{
+func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest {
+	return ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *DBSAPIService) ApiMarketplaceV3DbsMetaCustomsDeclarationPostExecute(r ApiApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest) (*http.Response, error) {
+func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostExecute(r ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsMetaCustomsDeclarationPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/meta/customs-declaration"
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/customs-declaration"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -105,7 +105,7 @@ func (a *DBSAPIService) ApiMarketplaceV3DbsMetaCustomsDeclarationPostExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiMarketplaceV3DbsMetaCustomsDeclarationPostRequest
+	localVarPostBody = r.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

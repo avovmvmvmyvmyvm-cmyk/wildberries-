@@ -162,7 +162,7 @@ print(feedbacks)
 - `orders_dbw.DefaultApi.api_v3_dbw_orders_stickers_post` — `POST /api/v3/dbw/orders/stickers` — Получить стикеры сборочных заданий
 
 ### orders_dbs (`orders_dbs`)
-- `orders_dbs.DefaultApi.api_marketplace_v3_dbs_meta_customs_declaration_post` — `POST /api/marketplace/v3/dbs/meta/customs-declaration` — Закрепить за сборочными заданиями номер ГТД
+- `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_customs_declaration_post` — `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номер ГТД
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_delete_post` — `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить метаданные сборочных заданий
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_gtin_post` — `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_imei_post` — `POST /api/marketplace/v3/dbs/orders/meta/imei` — Закрепить IMEI за сборочными заданиями

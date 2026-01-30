@@ -19,7 +19,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_meta_customs_declaration_post_request import ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest
+from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request import ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
 from wildberries_sdk.orders_dbs.models.api_order_group_inner import ApiOrderGroupInner
 from wildberries_sdk.orders_dbs.models.api_order_groups_request import ApiOrderGroupsRequest
 from wildberries_sdk.orders_dbs.models.api_order_statuses_v2 import ApiOrderStatusesV2
@@ -66,9 +66,9 @@ class DefaultApi:
 
 
     @validate_call
-    def api_marketplace_v3_dbs_meta_customs_declaration_post(
+    def api_marketplace_v3_dbs_orders_meta_customs_declaration_post(
         self,
-        api_marketplace_v3_dbs_meta_customs_declaration_post_request: Optional[ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest] = None,
+        api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request: Optional[ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -84,10 +84,10 @@ class DefaultApi:
     ) -> None:
         """Закрепить за сборочными заданиями номер ГТД
 
-        Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post). <br><br> У одного сборочного задания может быть только один ГТД.  Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `delivery`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
+        Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post). <br><br> У одного сборочного задания может быть только один ГТД.  Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `delivery`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
 
-        :param api_marketplace_v3_dbs_meta_customs_declaration_post_request:
-        :type api_marketplace_v3_dbs_meta_customs_declaration_post_request: ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest
+        :param api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request:
+        :type api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request: ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -110,8 +110,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._api_marketplace_v3_dbs_meta_customs_declaration_post_serialize(
-            api_marketplace_v3_dbs_meta_customs_declaration_post_request=api_marketplace_v3_dbs_meta_customs_declaration_post_request,
+        _param = self._api_marketplace_v3_dbs_orders_meta_customs_declaration_post_serialize(
+            api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request=api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -139,9 +139,9 @@ class DefaultApi:
 
 
     @validate_call
-    def api_marketplace_v3_dbs_meta_customs_declaration_post_with_http_info(
+    def api_marketplace_v3_dbs_orders_meta_customs_declaration_post_with_http_info(
         self,
-        api_marketplace_v3_dbs_meta_customs_declaration_post_request: Optional[ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest] = None,
+        api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request: Optional[ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -157,10 +157,10 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Закрепить за сборочными заданиями номер ГТД
 
-        Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post). <br><br> У одного сборочного задания может быть только один ГТД.  Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `delivery`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
+        Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post). <br><br> У одного сборочного задания может быть только один ГТД.  Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `delivery`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
 
-        :param api_marketplace_v3_dbs_meta_customs_declaration_post_request:
-        :type api_marketplace_v3_dbs_meta_customs_declaration_post_request: ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest
+        :param api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request:
+        :type api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request: ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -183,8 +183,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._api_marketplace_v3_dbs_meta_customs_declaration_post_serialize(
-            api_marketplace_v3_dbs_meta_customs_declaration_post_request=api_marketplace_v3_dbs_meta_customs_declaration_post_request,
+        _param = self._api_marketplace_v3_dbs_orders_meta_customs_declaration_post_serialize(
+            api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request=api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -212,9 +212,9 @@ class DefaultApi:
 
 
     @validate_call
-    def api_marketplace_v3_dbs_meta_customs_declaration_post_without_preload_content(
+    def api_marketplace_v3_dbs_orders_meta_customs_declaration_post_without_preload_content(
         self,
-        api_marketplace_v3_dbs_meta_customs_declaration_post_request: Optional[ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest] = None,
+        api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request: Optional[ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -230,10 +230,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Закрепить за сборочными заданиями номер ГТД
 
-        Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post). <br><br> У одного сборочного задания может быть только один ГТД.  Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `delivery`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
+        Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post). <br><br> У одного сборочного задания может быть только один ГТД.  Добавлять номер ГТД можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `delivery`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
 
-        :param api_marketplace_v3_dbs_meta_customs_declaration_post_request:
-        :type api_marketplace_v3_dbs_meta_customs_declaration_post_request: ApiMarketplaceV3DbsMetaCustomsDeclarationPostRequest
+        :param api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request:
+        :type api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request: ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -256,8 +256,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._api_marketplace_v3_dbs_meta_customs_declaration_post_serialize(
-            api_marketplace_v3_dbs_meta_customs_declaration_post_request=api_marketplace_v3_dbs_meta_customs_declaration_post_request,
+        _param = self._api_marketplace_v3_dbs_orders_meta_customs_declaration_post_serialize(
+            api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request=api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -280,9 +280,9 @@ class DefaultApi:
         return response_data.response
 
 
-    def _api_marketplace_v3_dbs_meta_customs_declaration_post_serialize(
+    def _api_marketplace_v3_dbs_orders_meta_customs_declaration_post_serialize(
         self,
-        api_marketplace_v3_dbs_meta_customs_declaration_post_request,
+        api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request,
         _request_auth,
         _content_type,
         _headers,
@@ -311,8 +311,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if api_marketplace_v3_dbs_meta_customs_declaration_post_request is not None:
-            _body_params = api_marketplace_v3_dbs_meta_customs_declaration_post_request
+        if api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request is not None:
+            _body_params = api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request
 
 
         # set the HTTP header `Accept`
@@ -345,7 +345,7 @@ class DefaultApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/marketplace/v3/dbs/meta/customs-declaration',
+            resource_path='/api/marketplace/v3/dbs/orders/meta/customs-declaration',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -2197,7 +2197,7 @@ paths:
       x-category: marketplace
     servers:
     - url: https://marketplace-api.wildberries.ru
-  /api/marketplace/v3/dbs/meta/customs-declaration:
+  /api/marketplace/v3/dbs/orders/meta/customs-declaration:
     post:
       description: |
         Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post).
@@ -2211,7 +2211,7 @@ paths:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
-        | 1 мин | 20 запросов | 3 сек | 500 запросов |
+        | 1 мин | 500 запросов | 120 мс | 20 запросов |
 
         Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
         </div>
@@ -2219,7 +2219,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_marketplace_v3_dbs_meta_customs_declaration_post_request"
+              $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request"
       responses:
         "204":
           description: Обновлено
@@ -4226,7 +4226,7 @@ components:
           nullable: false
           type: array
       type: object
-    _api_marketplace_v3_dbs_meta_customs_declaration_post_request_orders_inner:
+    _api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request_orders_inner:
       properties:
         customsDeclaration:
           description: Номер ГТД
@@ -4241,11 +4241,11 @@ components:
       - customsDeclaration
       - orderId
       type: object
-    _api_marketplace_v3_dbs_meta_customs_declaration_post_request:
+    _api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request:
       properties:
         orders:
           items:
-            $ref: "#/components/schemas/_api_marketplace_v3_dbs_meta_customs_declaration_post_request_orders_inner"
+            $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request_orders_inner"
           maxItems: 1000
           type: array
       type: object
