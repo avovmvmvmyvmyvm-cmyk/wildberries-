@@ -85,7 +85,7 @@ class DefaultApi:
     ) -> ApiB2bClientInfoResponses:
         """Информация о покупателе B2B
 
-        Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |  </div> 
+        Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  </div> 
 
         :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
@@ -156,7 +156,7 @@ class DefaultApi:
     ) -> ApiResponse[ApiB2bClientInfoResponses]:
         """Информация о покупателе B2B
 
-        Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |  </div> 
+        Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  </div> 
 
         :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
@@ -227,7 +227,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Информация о покупателе B2B
 
-        Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |  </div> 
+        Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  </div> 
 
         :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2

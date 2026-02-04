@@ -281,7 +281,7 @@ export class DBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |  </div> 
+     * Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  </div> 
      * Информация о покупателе B2B
      */
     async apiMarketplaceV3DbsOrdersB2bInfoPostRaw(requestParameters: ApiMarketplaceV3DbsOrdersB2bInfoPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiB2bClientInfoResponses>> {
@@ -292,7 +292,7 @@ export class DBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |  </div> 
+     * Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  </div> 
      * Информация о покупателе B2B
      */
     async apiMarketplaceV3DbsOrdersB2bInfoPost(requestParameters: ApiMarketplaceV3DbsOrdersB2bInfoPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiB2bClientInfoResponses> {

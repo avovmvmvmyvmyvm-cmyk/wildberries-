@@ -384,7 +384,7 @@ pub enum ApiV3DbsOrdersStatusPostError {
 }
 
 
-/// Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |  </div> 
+/// Метод возвращает данные B2B-покупателей по ID сборочных заданий:   - ИНН   - КПП   - Наименование организации  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  </div> 
 pub async fn api_marketplace_v3_dbs_orders_b2b_info_post(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiB2bClientInfoResponses, Error<ApiMarketplaceV3DbsOrdersB2bInfoPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_request_v2 = api_orders_request_v2;
