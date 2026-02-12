@@ -45,7 +45,7 @@ export interface Order {
      * @type {number}
      * @memberof Order
      */
-    scanPrice?: number;
+    scanPrice?: number | null;
     /**
      * Тип доставки:
      * - `fbs` — доставка на склад Wildberries (FBS)

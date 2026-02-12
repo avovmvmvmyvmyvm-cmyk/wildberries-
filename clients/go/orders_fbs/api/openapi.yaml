@@ -3839,6 +3839,7 @@ components:
             заказа
           example: 1500
           format: uint32
+          nullable: true
           type: number
         deliveryType:
           description: |

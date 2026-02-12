@@ -126,7 +126,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'address' => true,
-        'scan_price' => false,
+        'scan_price' => true,
         'delivery_type' => false,
         'supply_id' => false,
         'order_uid' => false,
@@ -587,7 +587,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setScanPrice($scan_price)
     {
         if (is_null($scan_price)) {
-            throw new \InvalidArgumentException('non-nullable scan_price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'scan_price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('scan_price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['scan_price'] = $scan_price;
 

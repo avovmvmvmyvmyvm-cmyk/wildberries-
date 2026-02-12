@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
+from wildberries_sdk.orders_fbs.models.meta import Meta
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,7 @@ class V3OrderMetaAPI(BaseModel):
     V3OrderMetaAPI
     """ # noqa: E501
     id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
-    meta: Optional[Dict[str, Any]] = None
+    meta: Optional[Meta] = None
     __properties: ClassVar[List[str]] = ["id", "meta"]
 
     model_config = ConfigDict(

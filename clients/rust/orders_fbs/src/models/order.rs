@@ -16,8 +16,8 @@ pub struct Order {
     #[serde(rename = "address", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub address: Option<Option<Box<models::OrderAddress>>>,
     /// Цена приёмки в копейках. Отображается после фактической приёмки заказа
-    #[serde(rename = "scanPrice", skip_serializing_if = "Option::is_none")]
-    pub scan_price: Option<f64>,
+    #[serde(rename = "scanPrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub scan_price: Option<Option<f64>>,
     /// Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) 
     #[serde(rename = "deliveryType", skip_serializing_if = "Option::is_none")]
     pub delivery_type: Option<DeliveryType>,

@@ -21,7 +21,7 @@ var _ MappedNullable = &V3OrderMetaAPI{}
 type V3OrderMetaAPI struct {
 	// ID сборочного задания
 	Id *int32 `json:"id,omitempty"`
-	Meta Meta `json:"meta,omitempty"`
+	Meta *Meta `json:"meta,omitempty"`
 }
 
 // NewV3OrderMetaAPI instantiates a new V3OrderMetaAPI object
@@ -79,14 +79,14 @@ func (o *V3OrderMetaAPI) GetMeta() Meta {
 		var ret Meta
 		return ret
 	}
-	return o.Meta
+	return *o.Meta
 }
 
 // GetMetaOk returns a tuple with the Meta field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V3OrderMetaAPI) GetMetaOk() (Meta, bool) {
+func (o *V3OrderMetaAPI) GetMetaOk() (*Meta, bool) {
 	if o == nil || IsNil(o.Meta) {
-		return Meta{}, false
+		return nil, false
 	}
 	return o.Meta, true
 }
@@ -102,7 +102,7 @@ func (o *V3OrderMetaAPI) HasMeta() bool {
 
 // SetMeta gets a reference to the given Meta and assigns it to the Meta field.
 func (o *V3OrderMetaAPI) SetMeta(v Meta) {
-	o.Meta = v
+	o.Meta = &v
 }
 
 func (o V3OrderMetaAPI) MarshalJSON() ([]byte, error) {

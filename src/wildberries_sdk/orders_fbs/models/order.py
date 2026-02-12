@@ -137,6 +137,11 @@ class Order(BaseModel):
         if self.address is None and "address" in self.model_fields_set:
             _dict['address'] = None
 
+        # set to None if scan_price (nullable) is None
+        # and model_fields_set contains the field
+        if self.scan_price is None and "scan_price" in self.model_fields_set:
+            _dict['scanPrice'] = None
+
         # set to None if offices (nullable) is None
         # and model_fields_set contains the field
         if self.offices is None and "offices" in self.model_fields_set:

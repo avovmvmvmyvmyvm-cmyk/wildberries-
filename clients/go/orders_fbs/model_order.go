@@ -22,7 +22,7 @@ var _ MappedNullable = &Order{}
 type Order struct {
 	Address NullableOrderAddress `json:"address,omitempty"`
 	// Цена приёмки в копейках. Отображается после фактической приёмки заказа
-	ScanPrice *float32 `json:"scanPrice,omitempty"`
+	ScanPrice NullableFloat32 `json:"scanPrice,omitempty"`
 	// Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) 
 	DeliveryType *string `json:"deliveryType,omitempty"`
 	// ID поставки. Возвращается, если заказ закреплён за поставкой
@@ -129,36 +129,46 @@ func (o *Order) UnsetAddress() {
 	o.Address.Unset()
 }
 
-// GetScanPrice returns the ScanPrice field value if set, zero value otherwise.
+// GetScanPrice returns the ScanPrice field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Order) GetScanPrice() float32 {
-	if o == nil || IsNil(o.ScanPrice) {
+	if o == nil || IsNil(o.ScanPrice.Get()) {
 		var ret float32
 		return ret
 	}
-	return *o.ScanPrice
+	return *o.ScanPrice.Get()
 }
 
 // GetScanPriceOk returns a tuple with the ScanPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Order) GetScanPriceOk() (*float32, bool) {
-	if o == nil || IsNil(o.ScanPrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ScanPrice, true
+	return o.ScanPrice.Get(), o.ScanPrice.IsSet()
 }
 
 // HasScanPrice returns a boolean if a field has been set.
 func (o *Order) HasScanPrice() bool {
-	if o != nil && !IsNil(o.ScanPrice) {
+	if o != nil && o.ScanPrice.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetScanPrice gets a reference to the given float32 and assigns it to the ScanPrice field.
+// SetScanPrice gets a reference to the given NullableFloat32 and assigns it to the ScanPrice field.
 func (o *Order) SetScanPrice(v float32) {
-	o.ScanPrice = &v
+	o.ScanPrice.Set(&v)
+}
+// SetScanPriceNil sets the value for ScanPrice to be an explicit nil
+func (o *Order) SetScanPriceNil() {
+	o.ScanPrice.Set(nil)
+}
+
+// UnsetScanPrice ensures that no value is present for ScanPrice, not even an explicit nil
+func (o *Order) UnsetScanPrice() {
+	o.ScanPrice.Unset()
 }
 
 // GetDeliveryType returns the DeliveryType field value if set, zero value otherwise.
@@ -911,8 +921,8 @@ func (o Order) ToMap() (map[string]interface{}, error) {
 	if o.Address.IsSet() {
 		toSerialize["address"] = o.Address.Get()
 	}
-	if !IsNil(o.ScanPrice) {
-		toSerialize["scanPrice"] = o.ScanPrice
+	if o.ScanPrice.IsSet() {
+		toSerialize["scanPrice"] = o.ScanPrice.Get()
 	}
 	if !IsNil(o.DeliveryType) {
 		toSerialize["deliveryType"] = o.DeliveryType

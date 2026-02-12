@@ -17,7 +17,7 @@ pub struct V3OrderMetaApi {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<i32>,
     #[serde(rename = "meta", skip_serializing_if = "Option::is_none")]
-    pub meta: Option<models::Meta>,
+    pub meta: Option<Box<models::Meta>>,
 }
 
 impl V3OrderMetaApi {

@@ -59,7 +59,7 @@ export function V3OrderMetaAPIFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
-        'meta': json['meta'] == null ? undefined : json['meta'],
+        'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
     };
 }
 
@@ -75,7 +75,7 @@ export function V3OrderMetaAPIToJSONTyped(value?: V3OrderMetaAPI | null, ignoreD
     return {
         
         'id': value['id'],
-        'meta': value['meta'],
+        'meta': MetaToJSON(value['meta']),
     };
 }
 
