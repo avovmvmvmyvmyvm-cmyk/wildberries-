@@ -44,13 +44,13 @@ export interface ComparisonWbClubDynamic {
      */
     buyoutCount: number;
     /**
-     * Динамика сумм отмен товаров с WB Клубом
+     * Динамика сумм отмен и возвратов товаров с WB Клубом
      * @type {number}
      * @memberof ComparisonWbClubDynamic
      */
     cancelSum: number;
     /**
-     * Динамика отмен товаров с WB Клубом
+     * Динамика отмен и возвратов товаров с WB Клубом
      * @type {number}
      * @memberof ComparisonWbClubDynamic
      */
@@ -68,7 +68,7 @@ export interface ComparisonWbClubDynamic {
      */
     buyoutPercent: number;
     /**
-     * Динамика среднего количества заказов в день с WB Клубом
+     * Динамика среднего количества заказов с WB Клубом в день
      * @type {number}
      * @memberof ComparisonWbClubDynamic
      */

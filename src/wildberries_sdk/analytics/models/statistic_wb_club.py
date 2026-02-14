@@ -27,14 +27,14 @@ class StatisticWbClub(BaseModel):
     StatisticWbClub
     """ # noqa: E501
     order_count: StrictInt = Field(description="Заказали товаров с WB Клубом, шт.", alias="orderCount")
-    order_sum: StrictInt = Field(description="Заказали на сумму с WB Клубом", alias="orderSum")
-    buyout_sum: StrictInt = Field(description="Выкупили на сумму с WB Клубом", alias="buyoutSum")
+    order_sum: StrictInt = Field(description="Заказали с WB Клубом на сумму", alias="orderSum")
+    buyout_sum: StrictInt = Field(description="Выкупили с WB Клубом на сумму", alias="buyoutSum")
     buyout_count: StrictInt = Field(description="Выкупили товаров с WB Клубом, шт.", alias="buyoutCount")
-    cancel_sum: StrictInt = Field(description="Отменили на сумму с WB Клубом", alias="cancelSum")
-    cancel_count: StrictInt = Field(description="Отменили товаров с WB Клубом, шт.", alias="cancelCount")
+    cancel_sum: StrictInt = Field(description="Отменили и вернули с WB Клубом на сумму", alias="cancelSum")
+    cancel_count: StrictInt = Field(description="Отменили и вернули товаров с WB Клубом, шт.", alias="cancelCount")
     avg_price: StrictInt = Field(description="Средняя цена с WB Клубом", alias="avgPrice")
     buyout_percent: StrictInt = Field(description="Процент выкупа с WB Клубом", alias="buyoutPercent")
-    avg_order_count_per_day: Union[StrictFloat, StrictInt] = Field(description="Среднее количество заказов в день с WB Клубом, шт.", alias="avgOrderCountPerDay")
+    avg_order_count_per_day: Union[StrictFloat, StrictInt] = Field(description="Среднее количество заказов с WB Клубом в день, шт.", alias="avgOrderCountPerDay")
     __properties: ClassVar[List[str]] = ["orderCount", "orderSum", "buyoutSum", "buyoutCount", "cancelSum", "cancelCount", "avgPrice", "buyoutPercent", "avgOrderCountPerDay"]
 
     model_config = ConfigDict(

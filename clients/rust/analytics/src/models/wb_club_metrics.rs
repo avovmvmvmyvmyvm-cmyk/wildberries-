@@ -16,19 +16,19 @@ pub struct WbClubMetrics {
     /// Заказали товаров с WB Клубом, шт.
     #[serde(rename = "orderCount")]
     pub order_count: i32,
-    /// Заказали на сумму с WB Клубом
+    /// Заказали с WB Клубом на сумму
     #[serde(rename = "orderSum")]
     pub order_sum: i32,
-    /// Выкупили на сумму с WB Клубом
+    /// Выкупили с WB Клубом на сумму
     #[serde(rename = "buyoutSum")]
     pub buyout_sum: i32,
     /// Выкупили товаров с WB Клубом, шт.
     #[serde(rename = "buyoutCount")]
     pub buyout_count: i32,
-    /// Отменили на сумму с WB Клубом
+    /// Отменили и вернули с WB Клубом на сумму
     #[serde(rename = "cancelSum")]
     pub cancel_sum: i32,
-    /// Отменили товаров с WB Клубом, шт.
+    /// Отменили и вернули товаров с WB Клубом, шт.
     #[serde(rename = "cancelCount")]
     pub cancel_count: i32,
     /// Средняя цена с WB Клубом
@@ -37,7 +37,7 @@ pub struct WbClubMetrics {
     /// Процент выкупа с WB Клубом
     #[serde(rename = "buyoutPercent")]
     pub buyout_percent: i32,
-    /// Среднее количество заказов в день с WB Клубом, шт.
+    /// Среднее количество заказов с WB Клубом в день, шт.
     #[serde(rename = "avgOrderCountPerDay")]
     pub avg_order_count_per_day: f64,
 }

@@ -534,7 +534,7 @@ conf = wildberries_sdk.in_store_pickup.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: instorepickup\n"\
-               "SDK Package Version: 0.1.41".\
+               "SDK Package Version: 0.1.42".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:

@@ -26,13 +26,13 @@ export interface StatisticWbClub {
      */
     orderCount: number;
     /**
-     * Заказали на сумму с WB Клубом
+     * Заказали с WB Клубом на сумму
      * @type {number}
      * @memberof StatisticWbClub
      */
     orderSum: number;
     /**
-     * Выкупили на сумму с WB Клубом
+     * Выкупили с WB Клубом на сумму
      * @type {number}
      * @memberof StatisticWbClub
      */
@@ -44,13 +44,13 @@ export interface StatisticWbClub {
      */
     buyoutCount: number;
     /**
-     * Отменили на сумму с WB Клубом
+     * Отменили и вернули с WB Клубом на сумму
      * @type {number}
      * @memberof StatisticWbClub
      */
     cancelSum: number;
     /**
-     * Отменили товаров с WB Клубом, шт.
+     * Отменили и вернули товаров с WB Клубом, шт.
      * @type {number}
      * @memberof StatisticWbClub
      */
@@ -68,7 +68,7 @@ export interface StatisticWbClub {
      */
     buyoutPercent: number;
     /**
-     * Среднее количество заказов в день с WB Клубом, шт.
+     * Среднее количество заказов с WB Клубом в день, шт.
      * @type {number}
      * @memberof StatisticWbClub
      */

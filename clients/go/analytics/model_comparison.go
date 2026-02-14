@@ -33,9 +33,9 @@ type Comparison struct {
 	BuyoutCountDynamic int32 `json:"buyoutCountDynamic"`
 	// Динамика суммы выкупов
 	BuyoutSumDynamic int32 `json:"buyoutSumDynamic"`
-	// Динамика отмен товаров
+	// Динамика отмен и возвратов товаров
 	CancelCountDynamic int32 `json:"cancelCountDynamic"`
-	// Динамика сумм отмен товаров
+	// Динамика сумм отмен и возвратов товаров
 	CancelSumDynamic int32 `json:"cancelSumDynamic"`
 	// Динамика среднего количества заказов в день
 	AvgOrdersCountPerDayDynamic int32 `json:"avgOrdersCountPerDayDynamic"`

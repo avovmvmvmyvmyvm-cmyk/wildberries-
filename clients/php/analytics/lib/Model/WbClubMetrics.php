@@ -412,7 +412,7 @@ class WbClubMetrics implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_sum
      *
-     * @param int $order_sum Заказали на сумму с WB Клубом
+     * @param int $order_sum Заказали с WB Клубом на сумму
      *
      * @return self
      */
@@ -439,7 +439,7 @@ class WbClubMetrics implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyout_sum
      *
-     * @param int $buyout_sum Выкупили на сумму с WB Клубом
+     * @param int $buyout_sum Выкупили с WB Клубом на сумму
      *
      * @return self
      */
@@ -493,7 +493,7 @@ class WbClubMetrics implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_sum
      *
-     * @param int $cancel_sum Отменили на сумму с WB Клубом
+     * @param int $cancel_sum Отменили и вернули с WB Клубом на сумму
      *
      * @return self
      */
@@ -520,7 +520,7 @@ class WbClubMetrics implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_count
      *
-     * @param int $cancel_count Отменили товаров с WB Клубом, шт.
+     * @param int $cancel_count Отменили и вернули товаров с WB Клубом, шт.
      *
      * @return self
      */
@@ -601,7 +601,7 @@ class WbClubMetrics implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets avg_order_count_per_day
      *
-     * @param float $avg_order_count_per_day Среднее количество заказов в день с WB Клубом, шт.
+     * @param float $avg_order_count_per_day Среднее количество заказов с WB Клубом в день, шт.
      *
      * @return self
      */

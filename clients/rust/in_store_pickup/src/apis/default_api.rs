@@ -583,7 +583,7 @@ pub async fn api_v3_click_collect_orders_order_id_meta_gtin_put(configuration: &
     }
 }
 
-/// Метод обновляет IMEI сборочного задания. У одного сборочного задания может быть только один IMEI. Добавлять маркировку можно только для сборочных заданий в статусе `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
+/// Метод обновляет IMEI сборочного задания. У одного сборочного задания может быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в статусах `confirm` и `prepare`, доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
 pub async fn api_v3_click_collect_orders_order_id_meta_imei_put(configuration: &configuration::Configuration, order_id: i32, api_imei_request: models::ApiImeiRequest) -> Result<(), Error<ApiV3ClickCollectOrdersOrderIdMetaImeiPutError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_order_id = order_id;

@@ -20,7 +20,7 @@ pub struct ProductStocks {
     /// Общее количество остатков на складах продавца на текущий день, шт.
     #[serde(rename = "mp")]
     pub mp: i32,
-    /// Сумма остатков на складах
+    /// Сумма остатков на складах на текущий день, шт.
     #[serde(rename = "balanceSum")]
     pub balance_sum: i32,
 }

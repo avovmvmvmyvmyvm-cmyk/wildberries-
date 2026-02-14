@@ -30,11 +30,11 @@ class ComparisonWbClubDynamic(BaseModel):
     order_sum: StrictInt = Field(description="Динамика суммы заказов с WB Клубом", alias="orderSum")
     buyout_sum: StrictInt = Field(description="Динамика суммы выкупов с WB Клубом", alias="buyoutSum")
     buyout_count: StrictInt = Field(description="Динамика выкупов с WB Клубом", alias="buyoutCount")
-    cancel_sum: StrictInt = Field(description="Динамика сумм отмен товаров с WB Клубом", alias="cancelSum")
-    cancel_count: StrictInt = Field(description="Динамика отмен товаров с WB Клубом", alias="cancelCount")
+    cancel_sum: StrictInt = Field(description="Динамика сумм отмен и возвратов товаров с WB Клубом", alias="cancelSum")
+    cancel_count: StrictInt = Field(description="Динамика отмен и возвратов товаров с WB Клубом", alias="cancelCount")
     avg_price: StrictInt = Field(description="Динамика средней цены на товары с WB Клубом", alias="avgPrice")
     buyout_percent: StrictInt = Field(description="Динамика процента выкупа с WB Клубом", alias="buyoutPercent")
-    avg_order_count_per_day: Union[StrictFloat, StrictInt] = Field(description="Динамика среднего количества заказов в день с WB Клубом", alias="avgOrderCountPerDay")
+    avg_order_count_per_day: Union[StrictFloat, StrictInt] = Field(description="Динамика среднего количества заказов с WB Клубом в день", alias="avgOrderCountPerDay")
     __properties: ClassVar[List[str]] = ["orderCount", "orderSum", "buyoutSum", "buyoutCount", "cancelSum", "cancelCount", "avgPrice", "buyoutPercent", "avgOrderCountPerDay"]
 
     model_config = ConfigDict(

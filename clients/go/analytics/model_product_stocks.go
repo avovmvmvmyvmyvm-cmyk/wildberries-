@@ -25,7 +25,7 @@ type ProductStocks struct {
 	Wb int32 `json:"wb"`
 	// Общее количество остатков на складах продавца на текущий день, шт.
 	Mp int32 `json:"mp"`
-	// Сумма остатков на складах
+	// Сумма остатков на складах на текущий день, шт.
 	BalanceSum int32 `json:"balanceSum"`
 }
 

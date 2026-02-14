@@ -654,7 +654,7 @@ class Statistic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_count
      *
-     * @param int $cancel_count Отменили товаров, шт.
+     * @param int $cancel_count Отменили и вернули товаров, шт.
      *
      * @return self
      */
@@ -681,7 +681,7 @@ class Statistic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_sum
      *
-     * @param int $cancel_sum Отменили на сумму
+     * @param int $cancel_sum Отменили и вернули на сумму
      *
      * @return self
      */

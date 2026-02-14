@@ -33,7 +33,8 @@ export interface ApiNewOrder {
      */
     salePrice?: number | null;
     /**
-     * Список метаданных, доступных для сборочного задания
+     * Список метаданных, доступных для сборочного задания. <br>
+     * [Указывать IMEI](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products/#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
      * 
      * @type {Array<string>}
      * @memberof ApiNewOrder

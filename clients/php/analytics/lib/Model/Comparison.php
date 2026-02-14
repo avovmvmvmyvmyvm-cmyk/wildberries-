@@ -617,7 +617,7 @@ class Comparison implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_count_dynamic
      *
-     * @param int $cancel_count_dynamic Динамика отмен товаров
+     * @param int $cancel_count_dynamic Динамика отмен и возвратов товаров
      *
      * @return self
      */
@@ -644,7 +644,7 @@ class Comparison implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_sum_dynamic
      *
-     * @param int $cancel_sum_dynamic Динамика сумм отмен товаров
+     * @param int $cancel_sum_dynamic Динамика сумм отмен и возвратов товаров
      *
      * @return self
      */

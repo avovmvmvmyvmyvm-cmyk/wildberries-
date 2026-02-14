@@ -736,7 +736,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов. 
+     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 5 запросов | 200 мс | 10 запросов | </div> 
      * Списки активных и неактивных поисковых кластеров
      */
     async advV0NormqueryListPostRaw(requestParameters: AdvV0NormqueryListPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryListResponse>> {
@@ -747,7 +747,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов. 
+     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 5 запросов | 200 мс | 10 запросов | </div> 
      * Списки активных и неактивных поисковых кластеров
      */
     async advV0NormqueryListPost(requestParameters: AdvV0NormqueryListPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryListResponse> {
@@ -1437,7 +1437,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. 
+     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 20 запросов | </div> 
      * Статистика по поисковым кластерам с детализацией по дням
      */
     async advV1NormqueryStatsPostRaw(requestParameters: AdvV1NormqueryStatsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1GetNormQueryStatsResponse>> {
@@ -1448,7 +1448,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. 
+     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 20 запросов | </div> 
      * Статистика по поисковым кластерам с детализацией по дням
      */
     async advV1NormqueryStatsPost(requestParameters: AdvV1NormqueryStatsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1GetNormQueryStatsResponse> {

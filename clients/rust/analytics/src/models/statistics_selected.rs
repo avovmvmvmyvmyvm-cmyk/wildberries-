@@ -34,10 +34,10 @@ pub struct StatisticsSelected {
     /// Выкупили на сумму
     #[serde(rename = "buyoutSum")]
     pub buyout_sum: i32,
-    /// Отменили товаров, шт.
+    /// Отменили и вернули товаров, шт.
     #[serde(rename = "cancelCount")]
     pub cancel_count: i32,
-    /// Отменили на сумму
+    /// Отменили и вернули на сумму
     #[serde(rename = "cancelSum")]
     pub cancel_sum: i32,
     /// Средняя цена

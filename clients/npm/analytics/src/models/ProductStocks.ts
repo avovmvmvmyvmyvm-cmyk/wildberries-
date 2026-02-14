@@ -32,7 +32,7 @@ export interface ProductStocks {
      */
     mp: number;
     /**
-     * Сумма остатков на складах
+     * Сумма остатков на складах на текущий день, шт.
      * @type {number}
      * @memberof ProductStocks
      */

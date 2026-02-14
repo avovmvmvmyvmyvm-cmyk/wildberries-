@@ -30,7 +30,19 @@ paths:
   /api/analytics/v3/sales-funnel/products:
     post:
       description: |
-        Метод формирует отчёт о товарах, сравнивая ключевые показатели — например, добавления в корзину, заказы и переходы в карточку товара — за текущий период с аналогичным прошлым.<br><br>
+        Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.<br><br>
+
+        В течение часа после события появляется большая часть данных:
+          - о заказах
+          - о переходах в карточку товара
+          - о добавлениях товаров в корзину
+
+        Малая часть этих данных может появляться в течение нескольких дней.<br><br>
+
+        Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br>
+        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get).<br><br>
 
         Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.<br><br>
 
@@ -133,9 +145,20 @@ paths:
   /api/analytics/v3/sales-funnel/products/history:
     post:
       description: |
-        Метод возвращает статистику карточек товаров по дням или неделям. Доступны данные по добавлениям в корзину, заказам, переходам в карточку товара и так далее.
+        Метод возвращает статистику карточек товаров по дням или неделям.<br>
+        Можно получить данные максимум за последнюю неделю.<br><br>
 
-        Можно получить данные максимум за последнюю неделю.
+        Данные отчёта обновляются 1 раз в час.<br><br>
+
+        В течение часа после события появляется большая часть данных:
+          - о заказах
+          - о переходах в карточку товара
+          - о добавлениях товаров в корзину
+
+        Малая часть этих данных может появляться в течение нескольких дней.<br><br>
+
+        Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br>
+        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get).
 
         <div class="description_important">
           Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a>. Эти методы доступны только с подпиской на <a href='https://seller.wildberries.ru/monetization/jam'>расширенную аналитику Джем</a>
@@ -230,13 +253,25 @@ paths:
   /api/analytics/v3/sales-funnel/grouped/history:
     post:
       description: |
-        Метод возвращает статистику карточек товаров по дням или неделям. Карточки товаров сгруппированы по предметам, брендам и ярлыкам. Доступны данные по добавлениям в корзину, заказам, переходам в карточку товара и так далее.<br><br>
+        Метод возвращает статистику карточек товаров по дням или неделям.<br>
+        Карточки товаров сгруппированы по предметам, брендам и ярлыкам.<br>
+        Можно получить данные максимум за последнюю неделю.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.<br><br>
+
+        В течение часа после события появляется большая часть данных:
+          - о заказах
+          - о переходах в карточку товара
+          - о добавлениях товаров в корзину
+
+        Малая часть этих данных может появляться в течение нескольких дней.<br><br>
+
+        Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br>
+        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get).<br><br>
 
         Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.<br><br>
 
-        Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.<br><br>
-
-        Можно получить данные максимум за последнюю неделю.
+        Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
 
         <div class="description_important">
           Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a>. Эти методы доступны только с подпиской на <a href='https://seller.wildberries.ru/monetization/jam'>расширенную аналитику Джем</a>
@@ -820,78 +855,38 @@ paths:
                   \ |\n| openCardCount | integer | int32 | Переходы в карточку тов\
                   ара |\n| addToCartCount | integer | int32 | Положили в корзину,\
                   \ шт. |\n| ordersCount | integer | int32 | Заказали товаров, шт\
-                  . |\n| ordersSumRub | integer | int32 | Заказали на сумму, ₽ |\n\
-                  | buyoutsCount | integer | int32 | Выкупили товаров, шт. |\n| buyoutsSumRub\
-                  \ | integer | int32 | Выкупили на сумму, ₽ |\n| cancelCount | integer\
-                  \ | int32 | Отменили товаров, шт. |\n| cancelSumRub | integer |\
-                  \ int32 | Отменили на сумму, ₽ |\n| addToCartConversion | number\
-                  \ | int32 | Конверсия в корзину, % (Какой процент посетителей, о\
-                  ткрывших карточку товара, добавили товар в корзину) |\n| cartToOrderConversion\
-                  \ | integer | int32 | Конверсия в заказ, % (Какой процент посети\
-                  телей, добавивших товар в корзину, сделали заказ) |\n| buyoutPercent\
-                  \ | integer | int32 | Процент выкупа, % (Какой процент посетител\
-                  ей, заказавших товар, его выкупили. Без учёта товаров, которые е\
-                  ще доставляются покупателю) |\n| addToWishlist | integer | int32\
-                  \ | Добавили в **Отложенные**|\n| currency | string | string | В\
-                  алюта отчёта |\n\n\n**Отчёт по параметрам поиска. По предметам,\
-                  \ брендам и ярлыкам**\n\n| Имя | Поле | Формат | Описание |\n|-----------------|\
-                  \ --- | --- | --- |\n| SubjectName |\tstring | string | Название\
-                  \ предмета |\n| SubjectID | integer | int32 | ID предмета |\n| BrandName\
-                  \ | string | string  | Бренд |\n| TagID | integer | int64 | ID я\
-                  рлыка |\n| AveragePosition | integer | uint64 | Средняя позиция\
-                  \ в поиске в текущий период |\n| OpenCard | integer | uint64 | К\
-                  оличество переходов в карточку товара из поиска в текущий период\
-                  \ |\n| AddToCart | integer | uint64 | Количество добавлений това\
-                  ра в корзину из поиска в текущий период |\n| OpenToCart | integer\
-                  \ | uint64 |\tКонверсия в корзину из поиска в текущий период |\n\
-                  | Orders | integer | uint64 | Заказали товар из поиска в текущий\
-                  \ период |\n| CartToOrder | integer | uint64 | Конверсия в заказ\
-                  \ из поиска в текущий период |\n| Visibility | integer | uint64\
-                  \ | Видимость товара в поиске в текущий период. Процент вероятно\
-                  сти, что пользователь увидит карточку товара. Зависит от средней\
-                  \ позиции |\n| AveragePositionPast | integer | uint64 | Средняя\
-                  \ позиция в поиске в предыдущий период (заполняется, если указан\
-                  \ прошлый период) |\n| OpenCardPast | integer | uint64 | Количес\
-                  тво переходов в карточку товара из поиска в предыдущий период (з\
-                  аполняется, если указан прошлый период) |\n| AddToCartPast | integer\
+                  . |\n| ordersSumRub | integer | int32 | Заказали на сумму |\n| buyoutsCount\
+                  \ | integer | int32 | Выкупили товаров, шт. |\n| buyoutsSumRub |\
+                  \ integer | int32 | Выкупили на сумму |\n| cancelCount | integer\
+                  \ | int32 | Отменили и вернули товаров, шт. |\n| cancelSumRub |\
+                  \ integer | int32 | Отменили и вернули на сумму |\n| addToCartConversion\
+                  \ | number | int32 | Конверсия в корзину, % (Какой процент посет\
+                  ителей, открывших карточку товара, добавили товар в корзину) |\n\
+                  | cartToOrderConversion | integer | int32 | Конверсия в заказ, %\
+                  \ (Какой процент посетителей, добавивших товар в корзину, сделал\
+                  и заказ) |\n| buyoutPercent | integer | int32 | Процент выкупа,\
+                  \ % (Какой процент посетителей, заказавших товар, его выкупили.\
+                  \ Без учёта товаров, которые еще доставляются покупателю) |\n| addToWishlist\
+                  \ | integer | int32 | Добавили в **Отложенные**|\n| currency | string\
+                  \ | string | Валюта отчёта |\n\n\n**Отчёт по параметрам поиска.\
+                  \ По предметам, брендам и ярлыкам**\n\n| Имя | Поле | Формат | О\
+                  писание |\n|-----------------| --- | --- | --- |\n| SubjectName\
+                  \ |\tstring | string | Название предмета |\n| SubjectID | integer\
+                  \ | int32 | ID предмета |\n| BrandName | string | string  | Брен\
+                  д |\n| TagID | integer | int64 | ID ярлыка |\n| AveragePosition\
+                  \ | integer | uint64 | Средняя позиция в поиске в текущий период\
+                  \ |\n| OpenCard | integer | uint64 | Количество переходов в карт\
+                  очку товара из поиска в текущий период |\n| AddToCart | integer\
                   \ | uint64 | Количество добавлений товара в корзину из поиска в\
-                  \ предыдущий период (заполняется, если указан прошлый период) |\n\
-                  | OpenToCartPast | integer | uint64 | Конверсия в корзину из пои\
-                  ска в предыдущий период (заполняется, если указан прошлый период\
-                  ) |\n| OrdersPast | integer | uint64 | Заказали товар из поиска\
-                  \ в предыдущий период (заполняется, если указан прошлый период)\
-                  \ |\n| CartToOrderPast | integer | uint64 | Конверсия в заказ из\
-                  \ поиска в предыдущий период (заполняется, если указан прошлый п\
-                  ериод) |\n| VisibilityPast | integer | uint64 | Видимость товара\
-                  \ в поиске в предыдущий период. Процент вероятности, что пользов\
-                  атель увидит карточку товара. Зависит от средней позиции (заполн\
-                  яется, если указан прошлый период), % |\n\n\n**Отчёт по параметр\
-                  ам поиска. По артикулам WB**\n\n| Имя | Поле | Формат | Описание\
-                  \ |\n|-----------------| --- | --- | --- |\n| NmID | integer | int64\
-                  \ | Артикул WB |\n| VendorCode | string | string | Артикул прода\
-                  вца |\n| Name | string\t| string | Название товара |\n| SubjectName\
-                  \ | string\t| string | Название предмета |\n| BrandName | string\
-                  \ | string  | Бренд |\n| IsAdvertised | boolean | bool\t| Реклам\
-                  ируется ли товар |\n| IsRated | boolean | bool | Есть ли возможн\
-                  ость оценить качество карточки товара |\n| Rating | float | float64\
-                  \ | Рейтинг карточки товара |\n| FeedbackRating | float | float64\
-                  \ | Рейтинг по отзывам |\n| MinPrice | integer | uint64 | Минима\
-                  льная цена продавца со скидкой продавца (без учёта скидки WB Клу\
-                  ба |\n| MaxPrice | integer | uint64 | Максимальная цена продавца\
-                  \ со скидкой продавца (без учёта скидки WB Клуба) |\n| AveragePosition\
-                  \ | integer | uint64 | Средняя позиция товара в поиске в текущий\
-                  \ период |\n| OpenCard | integer | uint64 | Количество переходов\
-                  \ в карточку товара из поиска в текущий период |\n| AddToCart |\
-                  \ integer | uint64 | Количество добавлений товара в корзину из п\
-                  оиска в текущий период |\n| OpenToCart | integer | uint64 | Конв\
-                  ерсия в корзину из поиска в текущий период |\n| Orders | integer\
-                  \ | uint64 | Заказали товар из поиска в текущий период |\n| CartToOrder\
-                  \ | integer | uint64 | Конверсия в заказ из поиска в текущий пер\
-                  иод |\n| Visibility | integer | uint64 | Видимость товара в поис\
-                  ке в текущий период. Процент вероятности, что пользователь увиди\
-                  т карточку товара. Зависит от средней позиции |\n| AveragePositionPast\
-                  \ | integer | uint64 | Средняя позиция товара в поиске в предыду\
-                  щий период (заполняется, если указан прошлый период) |\n| OpenCardPast\
+                  \ текущий период |\n| OpenToCart | integer | uint64 |\tКонверсия\
+                  \ в корзину из поиска в текущий период |\n| Orders | integer | uint64\
+                  \ | Заказали товар из поиска в текущий период |\n| CartToOrder |\
+                  \ integer | uint64 | Конверсия в заказ из поиска в текущий перио\
+                  д |\n| Visibility | integer | uint64 | Видимость товара в поиске\
+                  \ в текущий период. Процент вероятности, что пользователь увидит\
+                  \ карточку товара. Зависит от средней позиции |\n| AveragePositionPast\
+                  \ | integer | uint64 | Средняя позиция в поиске в предыдущий пер\
+                  иод (заполняется, если указан прошлый период) |\n| OpenCardPast\
                   \ | integer | uint64 | Количество переходов в карточку товара из\
                   \ поиска в предыдущий период (заполняется, если указан прошлый п\
                   ериод) |\n| AddToCartPast | integer | uint64 | Количество добавл\
@@ -905,7 +900,48 @@ paths:
                   , если указан прошлый период) |\n| VisibilityPast | integer | uint64\
                   \ | Видимость товара в поиске в предыдущий период. Процент вероя\
                   тности, что пользователь увидит карточку товара. Зависит от сред\
-                  ней позиции (заполняется, если указан прошлый период), % |\n| IsSubstitutedSKU\
+                  ней позиции (заполняется, если указан прошлый период), % |\n\n\n\
+                  **Отчёт по параметрам поиска. По артикулам WB**\n\n| Имя | Поле\
+                  \ | Формат | Описание |\n|-----------------| --- | --- | --- |\n\
+                  | NmID | integer | int64 | Артикул WB |\n| VendorCode | string |\
+                  \ string | Артикул продавца |\n| Name | string\t| string | Назва\
+                  ние товара |\n| SubjectName | string\t| string | Название предме\
+                  та |\n| BrandName | string | string  | Бренд |\n| IsAdvertised |\
+                  \ boolean | bool\t| Рекламируется ли товар |\n| IsRated | boolean\
+                  \ | bool | Есть ли возможность оценить качество карточки товара\
+                  \ |\n| Rating | float | float64 | Рейтинг карточки товара |\n| FeedbackRating\
+                  \ | float | float64 | Рейтинг по отзывам |\n| MinPrice | integer\
+                  \ | uint64 | Минимальная цена продавца со скидкой продавца (без\
+                  \ учёта скидки WB Клуба |\n| MaxPrice | integer | uint64 | Макси\
+                  мальная цена продавца со скидкой продавца (без учёта скидки WB К\
+                  луба) |\n| AveragePosition | integer | uint64 | Средняя позиция\
+                  \ товара в поиске в текущий период |\n| OpenCard | integer | uint64\
+                  \ | Количество переходов в карточку товара из поиска в текущий п\
+                  ериод |\n| AddToCart | integer | uint64 | Количество добавлений\
+                  \ товара в корзину из поиска в текущий период |\n| OpenToCart |\
+                  \ integer | uint64 | Конверсия в корзину из поиска в текущий пер\
+                  иод |\n| Orders | integer | uint64 | Заказали товар из поиска в\
+                  \ текущий период |\n| CartToOrder | integer | uint64 | Конверсия\
+                  \ в заказ из поиска в текущий период |\n| Visibility | integer |\
+                  \ uint64 | Видимость товара в поиске в текущий период. Процент в\
+                  ероятности, что пользователь увидит карточку товара. Зависит от\
+                  \ средней позиции |\n| AveragePositionPast | integer | uint64 |\
+                  \ Средняя позиция товара в поиске в предыдущий период (заполняет\
+                  ся, если указан прошлый период) |\n| OpenCardPast | integer | uint64\
+                  \ | Количество переходов в карточку товара из поиска в предыдущи\
+                  й период (заполняется, если указан прошлый период) |\n| AddToCartPast\
+                  \ | integer | uint64 | Количество добавлений товара в корзину из\
+                  \ поиска в предыдущий период (заполняется, если указан прошлый п\
+                  ериод) |\n| OpenToCartPast | integer | uint64 | Конверсия в корз\
+                  ину из поиска в предыдущий период (заполняется, если указан прош\
+                  лый период) |\n| OrdersPast | integer | uint64 | Заказали товар\
+                  \ из поиска в предыдущий период (заполняется, если указан прошлы\
+                  й период) |\n| CartToOrderPast | integer | uint64 | Конверсия в\
+                  \ заказ из поиска в предыдущий период (заполняется, если указан\
+                  \ прошлый период) |\n| VisibilityPast | integer | uint64 | Видим\
+                  ость товара в поиске в предыдущий период. Процент вероятности, ч\
+                  то пользователь увидит карточку товара. Зависит от средней позиц\
+                  ии (заполняется, если указан прошлый период), % |\n| IsSubstitutedSKU\
                   \ | boolean | bool | Искали ли товар по подменному артикулу. Буд\
                   ет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или\
                   \ `includeSearchTexts` |\n| Currency | string | string | Валюта\
@@ -1094,7 +1130,9 @@ paths:
         Дополнительный параметр выбора списка товаров в таблице:
          - `positionCluster` — средняя позиция в поиске
 
-        Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+        Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1174,7 +1212,9 @@ paths:
         Дополнительный параметр выбора списка товаров в таблице:
          - `positionCluster` — средняя позиция в поиске
 
-        Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+        Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1258,7 +1298,9 @@ paths:
         Дополнительный параметр выбора списка товаров:
          - `positionCluster` — средняя позиция в поиске
 
-        Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+        Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1339,7 +1381,9 @@ paths:
          - `limit` — количество запросов, максимум 30 (для тарифа [Продвинутый](https://seller.wildberries.ru/monetization/tariffs) — 100)
          - `topOrderBy` — способ выбора топа запросов
 
-        Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
+        Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1414,7 +1458,9 @@ paths:
   /api/v2/search-report/product/orders:
     post:
       description: |
-        Метод формирует данные для таблицы по количеству заказов и позиций в поиске по запросам покупателя. Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post).
+        Метод формирует данные для таблицы по количеству заказов и позиций в поиске по запросам покупателя. Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post).<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1491,7 +1537,9 @@ paths:
       description: |
         Метод формирует набор данных об остатках по группам товаров.
         <br><br>
-        Группа товаров описывается кортежем `subjectID, brandName, tagID`.
+        Группа товаров описывается кортежем `subjectID, brandName, tagID`.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1568,7 +1616,9 @@ paths:
       description: |
         Метод формирует набор данных об остатках по товарам.
         <br><br>
-        Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.
+        Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1651,7 +1701,9 @@ paths:
         3. Товар не имеет размера и `"includeOffice":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров.
         4. Товар не имеет размера и `"includeOffice":false`, тогда тело ответа будет пустым.<br></br>
         Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/Istoriya-ostatkov/paths/~1api~1v2~1stocks-report~1products~1products/post) у таких товаров `"hasSizes":false`.<br></br>
-        Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Маркетплейс"` и `"officeName":""`.
+        Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Маркетплейс"` и `"officeName":""`.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1728,7 +1780,9 @@ paths:
       description: |
         Метод формирует набор данных об остатках по складам.
         <br><br>
-        Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Маркетплейс"` и `"offices":[]`.
+        Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Маркетплейс"` и `"offices":[]`.<br><br>
+
+        Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -5993,12 +6047,12 @@ components:
           format: uint32
           type: integer
         cancelCount:
-          description: "Отменили товаров, шт."
+          description: "Отменили и вернули товаров, шт."
           example: 0
           format: uint32
           type: integer
         cancelSum:
-          description: Отменили на сумму
+          description: Отменили и вернули на сумму
           example: 0
           format: uint32
           type: integer
@@ -6082,12 +6136,12 @@ components:
           format: int
           type: integer
         cancelCountDynamic:
-          description: Динамика отмен товаров
+          description: Динамика отмен и возвратов товаров
           example: 0
           format: int
           type: integer
         cancelSumDynamic:
-          description: Динамика сумм отмен товаров
+          description: Динамика сумм отмен и возвратов товаров
           example: 0
           format: int
           type: integer
@@ -6147,12 +6201,12 @@ components:
           format: uint32
           type: integer
         orderSum:
-          description: Заказали на сумму с WB Клубом
+          description: Заказали с WB Клубом на сумму
           example: 1262
           format: uint32
           type: integer
         buyoutSum:
-          description: Выкупили на сумму с WB Клубом
+          description: Выкупили с WB Клубом на сумму
           example: 1262
           format: uint32
           type: integer
@@ -6162,12 +6216,12 @@ components:
           format: uint32
           type: integer
         cancelSum:
-          description: Отменили на сумму с WB Клубом
+          description: Отменили и вернули с WB Клубом на сумму
           example: 0
           format: uint32
           type: integer
         cancelCount:
-          description: "Отменили товаров с WB Клубом, шт."
+          description: "Отменили и вернули товаров с WB Клубом, шт."
           example: 0
           format: uint32
           type: integer
@@ -6182,7 +6236,7 @@ components:
           format: uint32
           type: integer
         avgOrderCountPerDay:
-          description: "Среднее количество заказов в день с WB Клубом, шт."
+          description: "Среднее количество заказов с WB Клубом в день, шт."
           example: 0.04
           format: float64
           type: number
@@ -6219,12 +6273,12 @@ components:
           format: int
           type: integer
         cancelSum:
-          description: Динамика сумм отмен товаров с WB Клубом
+          description: Динамика сумм отмен и возвратов товаров с WB Клубом
           example: 0
           format: int
           type: integer
         cancelCount:
-          description: Динамика отмен товаров с WB Клубом
+          description: Динамика отмен и возвратов товаров с WB Клубом
           example: 0
           format: int
           type: integer
@@ -6239,7 +6293,7 @@ components:
           format: int
           type: integer
         avgOrderCountPerDay:
-          description: Динамика среднего количества заказов в день с WB Клубом
+          description: Динамика среднего количества заказов с WB Клубом в день
           example: 0.04
           format: int
           type: number
@@ -6393,8 +6447,8 @@ components:
               - `orderSum` — Заказали на сумму
               - `buyoutCount` — Выкупили товаров, шт
               - `buyoutSum` — Выкупили на сумму
-              - `cancelCount` — Отменили товаров, шт
-              - `cancelSum` — Отменили на сумму
+              - `cancelCount` — Отменили и вернули товаров, шт
+              - `cancelSum` — Отменили и вернули на сумму
               - `avgPrice` — Средняя цена
               - `stockMpQty` — Остатки на складах продавца, шт
               - `stockWbQty` — Остатки на складах WB, шт
@@ -6403,14 +6457,14 @@ components:
               - `timeToReady` — Среднее время доставки
               - `localizationPercent` — Локальные заказы в рамках одного региона
               - `wbClub.orderCount` — Заказали товаров с WB Клубом, шт
-              - `wbClub.orderSum` — Заказали на сумму с WB Клубом
+              - `wbClub.orderSum` — Заказали с WB Клубом на сумму
               - `wbClub.buyoutSum` — Выкупили товаров с WB Клубом, шт
               - `wbClub.buyoutCount` — Процент выкупа с WB Клубом
-              - `wbClub.cancelSum` — Отменили товаров с WB Клубом, шт
+              - `wbClub.cancelSum` — Отменили и вернули товаров с WB Клубом на сумму
               - `wbClub.avgPrice` — Средняя цена с WB Клубом
               - `wbClub.buyoutPercent` — Процент выкупа с WB Клубом
               - `wbClub.avgOrderCountPerDay` — Среднее количество заказов в день с WB Клубом, шт
-              - `wbClub.cancelCount` — Отменили товаров с WB Клубом, шт
+              - `wbClub.cancelCount` — Отменили и вернули товаров с WB Клубом, шт
           enum:
           - openCard
           - addToCart
@@ -9840,7 +9894,7 @@ components:
           format: uint32
           type: integer
         balanceSum:
-          description: Сумма остатков на складах
+          description: "Сумма остатков на складах на текущий день, шт."
           example: 0
           format: uint32
           type: integer

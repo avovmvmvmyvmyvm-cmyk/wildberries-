@@ -29,15 +29,15 @@ type ComparisonWbClubDynamic struct {
 	BuyoutSum int32 `json:"buyoutSum"`
 	// Динамика выкупов с WB Клубом
 	BuyoutCount int32 `json:"buyoutCount"`
-	// Динамика сумм отмен товаров с WB Клубом
+	// Динамика сумм отмен и возвратов товаров с WB Клубом
 	CancelSum int32 `json:"cancelSum"`
-	// Динамика отмен товаров с WB Клубом
+	// Динамика отмен и возвратов товаров с WB Клубом
 	CancelCount int32 `json:"cancelCount"`
 	// Динамика средней цены на товары с WB Клубом
 	AvgPrice int32 `json:"avgPrice"`
 	// Динамика процента выкупа с WB Клубом
 	BuyoutPercent int32 `json:"buyoutPercent"`
-	// Динамика среднего количества заказов в день с WB Клубом
+	// Динамика среднего количества заказов с WB Клубом в день
 	AvgOrderCountPerDay float32 `json:"avgOrderCountPerDay"`
 }
 

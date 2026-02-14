@@ -662,7 +662,7 @@ pub async fn adv_v0_normquery_get_minus_post(configuration: &configuration::Conf
     }
 }
 
-/// Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов. 
+/// Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 5 запросов | 200 мс | 10 запросов | </div> 
 pub async fn adv_v0_normquery_list_post(configuration: &configuration::Configuration, v0_get_norm_query_list_request: models::V0GetNormQueryListRequest) -> Result<models::V0GetNormQueryListResponse, Error<AdvV0NormqueryListPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_v0_get_norm_query_list_request = v0_get_norm_query_list_request;
@@ -1223,7 +1223,7 @@ pub async fn adv_v1_count_get(configuration: &configuration::Configuration, ) ->
     }
 }
 
-/// Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. 
+/// Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 20 запросов | </div> 
 pub async fn adv_v1_normquery_stats_post(configuration: &configuration::Configuration, v1_get_norm_query_stats_request: models::V1GetNormQueryStatsRequest) -> Result<models::V1GetNormQueryStatsResponse, Error<AdvV1NormqueryStatsPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_v1_get_norm_query_stats_request = v1_get_norm_query_stats_request;

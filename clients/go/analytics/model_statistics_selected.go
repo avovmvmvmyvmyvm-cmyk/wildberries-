@@ -35,9 +35,9 @@ type StatisticsSelected struct {
 	BuyoutCount int32 `json:"buyoutCount"`
 	// Выкупили на сумму
 	BuyoutSum int32 `json:"buyoutSum"`
-	// Отменили товаров, шт.
+	// Отменили и вернули товаров, шт.
 	CancelCount int32 `json:"cancelCount"`
-	// Отменили на сумму
+	// Отменили и вернули на сумму
 	CancelSum int32 `json:"cancelSum"`
 	// Средняя цена
 	AvgPrice int32 `json:"avgPrice"`

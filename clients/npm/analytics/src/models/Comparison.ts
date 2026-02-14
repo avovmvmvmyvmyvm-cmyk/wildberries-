@@ -78,13 +78,13 @@ export interface Comparison {
      */
     buyoutSumDynamic: number;
     /**
-     * Динамика отмен товаров
+     * Динамика отмен и возвратов товаров
      * @type {number}
      * @memberof Comparison
      */
     cancelCountDynamic: number;
     /**
-     * Динамика сумм отмен товаров
+     * Динамика сумм отмен и возвратов товаров
      * @type {number}
      * @memberof Comparison
      */

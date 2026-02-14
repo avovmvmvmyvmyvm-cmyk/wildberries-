@@ -91,13 +91,13 @@ export interface StatisticsPast {
      */
     buyoutSum: number;
     /**
-     * Отменили товаров, шт.
+     * Отменили и вернули товаров, шт.
      * @type {number}
      * @memberof StatisticsPast
      */
     cancelCount: number;
     /**
-     * Отменили на сумму
+     * Отменили и вернули на сумму
      * @type {number}
      * @memberof StatisticsPast
      */

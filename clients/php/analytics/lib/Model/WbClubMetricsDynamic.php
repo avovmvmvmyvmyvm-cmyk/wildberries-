@@ -493,7 +493,7 @@ class WbClubMetricsDynamic implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets cancel_sum
      *
-     * @param int $cancel_sum Динамика сумм отмен товаров с WB Клубом
+     * @param int $cancel_sum Динамика сумм отмен и возвратов товаров с WB Клубом
      *
      * @return self
      */
@@ -520,7 +520,7 @@ class WbClubMetricsDynamic implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets cancel_count
      *
-     * @param int $cancel_count Динамика отмен товаров с WB Клубом
+     * @param int $cancel_count Динамика отмен и возвратов товаров с WB Клубом
      *
      * @return self
      */
@@ -601,7 +601,7 @@ class WbClubMetricsDynamic implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets avg_order_count_per_day
      *
-     * @param float $avg_order_count_per_day Динамика среднего количества заказов в день с WB Клубом
+     * @param float $avg_order_count_per_day Динамика среднего количества заказов с WB Клубом в день
      *
      * @return self
      */

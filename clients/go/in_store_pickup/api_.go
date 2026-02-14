@@ -1709,8 +1709,8 @@ func (r ApiApiV3ClickCollectOrdersOrderIdMetaImeiPutRequest) Execute() (*http.Re
 ApiV3ClickCollectOrdersOrderIdMetaImeiPut Закрепить за сборочным заданием IMEI
 
 Метод обновляет IMEI сборочного задания. У одного сборочного задания может
-быть только один IMEI. Добавлять маркировку можно только для сборочных заданий в
-статусе `confirm` и доставка которых осуществляется силами WB.
+быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в
+статусах `confirm` и `prepare`, доставка которых осуществляется силами WB.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:

@@ -31,10 +31,10 @@ pub struct StatisticsComparison {
     /// Динамика суммы выкупов
     #[serde(rename = "buyoutSumDynamic")]
     pub buyout_sum_dynamic: i32,
-    /// Динамика отмен товаров
+    /// Динамика отмен и возвратов товаров
     #[serde(rename = "cancelCountDynamic")]
     pub cancel_count_dynamic: i32,
-    /// Динамика сумм отмен товаров
+    /// Динамика сумм отмен и возвратов товаров
     #[serde(rename = "cancelSumDynamic")]
     pub cancel_sum_dynamic: i32,
     /// Динамика среднего количества заказов в день

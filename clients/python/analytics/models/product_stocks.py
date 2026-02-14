@@ -28,7 +28,7 @@ class ProductStocks(BaseModel):
     """ # noqa: E501
     wb: StrictInt = Field(description="Общее количество остатков на складах WB на текущий день, шт.")
     mp: StrictInt = Field(description="Общее количество остатков на складах продавца на текущий день, шт.")
-    balance_sum: StrictInt = Field(description="Сумма остатков на складах", alias="balanceSum")
+    balance_sum: StrictInt = Field(description="Сумма остатков на складах на текущий день, шт.", alias="balanceSum")
     __properties: ClassVar[List[str]] = ["wb", "mp", "balanceSum"]
 
     model_config = ConfigDict(

@@ -25,10 +25,10 @@ pub struct ComparisonWbClubDynamic {
     /// Динамика выкупов с WB Клубом
     #[serde(rename = "buyoutCount")]
     pub buyout_count: i32,
-    /// Динамика сумм отмен товаров с WB Клубом
+    /// Динамика сумм отмен и возвратов товаров с WB Клубом
     #[serde(rename = "cancelSum")]
     pub cancel_sum: i32,
-    /// Динамика отмен товаров с WB Клубом
+    /// Динамика отмен и возвратов товаров с WB Клубом
     #[serde(rename = "cancelCount")]
     pub cancel_count: i32,
     /// Динамика средней цены на товары с WB Клубом
@@ -37,7 +37,7 @@ pub struct ComparisonWbClubDynamic {
     /// Динамика процента выкупа с WB Клубом
     #[serde(rename = "buyoutPercent")]
     pub buyout_percent: i32,
-    /// Динамика среднего количества заказов в день с WB Клубом
+    /// Динамика среднего количества заказов с WB Клубом в день
     #[serde(rename = "avgOrderCountPerDay")]
     pub avg_order_count_per_day: f64,
 }

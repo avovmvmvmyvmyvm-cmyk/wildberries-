@@ -2109,7 +2109,7 @@ class DefaultApi:
     ) -> V0GetNormQueryListResponse:
         """Списки активных и неактивных поисковых кластеров
 
-        Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов. 
+        Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 5 запросов | 200 мс | 10 запросов | </div> 
 
         :param v0_get_norm_query_list_request: (required)
         :type v0_get_norm_query_list_request: V0GetNormQueryListRequest
@@ -2179,7 +2179,7 @@ class DefaultApi:
     ) -> ApiResponse[V0GetNormQueryListResponse]:
         """Списки активных и неактивных поисковых кластеров
 
-        Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов. 
+        Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 5 запросов | 200 мс | 10 запросов | </div> 
 
         :param v0_get_norm_query_list_request: (required)
         :type v0_get_norm_query_list_request: V0GetNormQueryListRequest
@@ -2249,7 +2249,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Списки активных и неактивных поисковых кластеров
 
-        Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов. 
+        Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 5 запросов | 200 мс | 10 запросов | </div> 
 
         :param v0_get_norm_query_list_request: (required)
         :type v0_get_norm_query_list_request: V0GetNormQueryListRequest
@@ -5839,7 +5839,7 @@ class DefaultApi:
     ) -> V1GetNormQueryStatsResponse:
         """Статистика по поисковым кластерам с детализацией по дням
 
-        Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. 
+        Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 20 запросов | </div> 
 
         :param v1_get_norm_query_stats_request: (required)
         :type v1_get_norm_query_stats_request: V1GetNormQueryStatsRequest
@@ -5909,7 +5909,7 @@ class DefaultApi:
     ) -> ApiResponse[V1GetNormQueryStatsResponse]:
         """Статистика по поисковым кластерам с детализацией по дням
 
-        Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. 
+        Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 20 запросов | </div> 
 
         :param v1_get_norm_query_stats_request: (required)
         :type v1_get_norm_query_stats_request: V1GetNormQueryStatsRequest
@@ -5979,7 +5979,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Статистика по поисковым кластерам с детализацией по дням
 
-        Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. 
+        Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 20 запросов | </div> 
 
         :param v1_get_norm_query_stats_request: (required)
         :type v1_get_norm_query_stats_request: V1GetNormQueryStatsRequest

@@ -23,21 +23,21 @@ var _ MappedNullable = &StatisticWbClub{}
 type StatisticWbClub struct {
 	// Заказали товаров с WB Клубом, шт.
 	OrderCount int32 `json:"orderCount"`
-	// Заказали на сумму с WB Клубом
+	// Заказали с WB Клубом на сумму
 	OrderSum int32 `json:"orderSum"`
-	// Выкупили на сумму с WB Клубом
+	// Выкупили с WB Клубом на сумму
 	BuyoutSum int32 `json:"buyoutSum"`
 	// Выкупили товаров с WB Клубом, шт.
 	BuyoutCount int32 `json:"buyoutCount"`
-	// Отменили на сумму с WB Клубом
+	// Отменили и вернули с WB Клубом на сумму
 	CancelSum int32 `json:"cancelSum"`
-	// Отменили товаров с WB Клубом, шт.
+	// Отменили и вернули товаров с WB Клубом, шт.
 	CancelCount int32 `json:"cancelCount"`
 	// Средняя цена с WB Клубом
 	AvgPrice int32 `json:"avgPrice"`
 	// Процент выкупа с WB Клубом
 	BuyoutPercent int32 `json:"buyoutPercent"`
-	// Среднее количество заказов в день с WB Клубом, шт.
+	// Среднее количество заказов с WB Клубом в день, шт.
 	AvgOrderCountPerDay float32 `json:"avgOrderCountPerDay"`
 }
 

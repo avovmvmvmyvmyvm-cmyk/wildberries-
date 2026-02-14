@@ -27,8 +27,8 @@ export interface OrderBy {
      *   - `orderSum` — Заказали на сумму
      *   - `buyoutCount` — Выкупили товаров, шт
      *   - `buyoutSum` — Выкупили на сумму
-     *   - `cancelCount` — Отменили товаров, шт
-     *   - `cancelSum` — Отменили на сумму
+     *   - `cancelCount` — Отменили и вернули товаров, шт
+     *   - `cancelSum` — Отменили и вернули на сумму
      *   - `avgPrice` — Средняя цена
      *   - `stockMpQty` — Остатки на складах продавца, шт
      *   - `stockWbQty` — Остатки на складах WB, шт
@@ -37,14 +37,14 @@ export interface OrderBy {
      *   - `timeToReady` — Среднее время доставки
      *   - `localizationPercent` — Локальные заказы в рамках одного региона
      *   - `wbClub.orderCount` — Заказали товаров с WB Клубом, шт
-     *   - `wbClub.orderSum` — Заказали на сумму с WB Клубом
+     *   - `wbClub.orderSum` — Заказали с WB Клубом на сумму
      *   - `wbClub.buyoutSum` — Выкупили товаров с WB Клубом, шт
      *   - `wbClub.buyoutCount` — Процент выкупа с WB Клубом
-     *   - `wbClub.cancelSum` — Отменили товаров с WB Клубом, шт
+     *   - `wbClub.cancelSum` — Отменили и вернули товаров с WB Клубом на сумму
      *   - `wbClub.avgPrice` — Средняя цена с WB Клубом
      *   - `wbClub.buyoutPercent` — Процент выкупа с WB Клубом
      *   - `wbClub.avgOrderCountPerDay` — Среднее количество заказов в день с WB Клубом, шт
-     *   - `wbClub.cancelCount` — Отменили товаров с WB Клубом, шт
+     *   - `wbClub.cancelCount` — Отменили и вернули товаров с WB Клубом, шт
      * 
      * @type {OrderByFieldEnum}
      * @memberof OrderBy

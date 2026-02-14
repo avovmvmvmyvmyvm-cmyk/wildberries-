@@ -380,7 +380,7 @@ class ProductStocks implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets balance_sum
      *
-     * @param int $balance_sum Сумма остатков на складах
+     * @param int $balance_sum Сумма остатков на складах на текущий день, шт.
      *
      * @return self
      */
