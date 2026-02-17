@@ -43,9 +43,11 @@ type ResponseFeedbackInner struct {
 	WasViewed *bool `json:"wasViewed,omitempty"`
 	// Имя автора отзыва
 	UserName *string `json:"userName,omitempty"`
-	// Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит 
+	// Статус заказа. <br>Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен 
+	OrderStatus *string `json:"orderStatus,omitempty"`
+	// Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` — для безразмерных товаров - `ок` — соответствует размеру - `smaller` — маломерит - `bigger` — большемерит 
 	MatchingSize *string `json:"matchingSize,omitempty"`
-	// Доступна ли продавцу возможность оставить жалобу на отзыв (`true` - доступна, `false` - не доступна)
+	// Доступна ли продавцу возможность оставить жалобу на отзыв (`true` — доступна, `false` — не доступна)
 	IsAbleSupplierFeedbackValuation *bool `json:"isAbleSupplierFeedbackValuation,omitempty"`
 	// Ключ причины жалобы на отзыв 
 	SupplierFeedbackValuation *int32 `json:"supplierFeedbackValuation,omitempty"`
@@ -527,6 +529,38 @@ func (o *ResponseFeedbackInner) HasUserName() bool {
 // SetUserName gets a reference to the given string and assigns it to the UserName field.
 func (o *ResponseFeedbackInner) SetUserName(v string) {
 	o.UserName = &v
+}
+
+// GetOrderStatus returns the OrderStatus field value if set, zero value otherwise.
+func (o *ResponseFeedbackInner) GetOrderStatus() string {
+	if o == nil || IsNil(o.OrderStatus) {
+		var ret string
+		return ret
+	}
+	return *o.OrderStatus
+}
+
+// GetOrderStatusOk returns a tuple with the OrderStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResponseFeedbackInner) GetOrderStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.OrderStatus) {
+		return nil, false
+	}
+	return o.OrderStatus, true
+}
+
+// HasOrderStatus returns a boolean if a field has been set.
+func (o *ResponseFeedbackInner) HasOrderStatus() bool {
+	if o != nil && !IsNil(o.OrderStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderStatus gets a reference to the given string and assigns it to the OrderStatus field.
+func (o *ResponseFeedbackInner) SetOrderStatus(v string) {
+	o.OrderStatus = &v
 }
 
 // GetMatchingSize returns the MatchingSize field value if set, zero value otherwise.
@@ -1088,6 +1122,9 @@ func (o ResponseFeedbackInner) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.UserName) {
 		toSerialize["userName"] = o.UserName
+	}
+	if !IsNil(o.OrderStatus) {
+		toSerialize["orderStatus"] = o.OrderStatus
 	}
 	if !IsNil(o.MatchingSize) {
 		toSerialize["matchingSize"] = o.MatchingSize

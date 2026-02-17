@@ -16,9 +16,9 @@ pub struct ApiV1FeedbackGet200ResponseData {
     /// ID отзыва
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    /// Имя автора отзыва
-    #[serde(rename = "userName", skip_serializing_if = "Option::is_none")]
-    pub user_name: Option<String>,
+    /// Текст отзыва
+    #[serde(rename = "text", skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
     /// Достоинства товара
     #[serde(rename = "pros", skip_serializing_if = "Option::is_none")]
     pub pros: Option<String>,
@@ -28,9 +28,6 @@ pub struct ApiV1FeedbackGet200ResponseData {
     /// Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит 
     #[serde(rename = "matchingSize", skip_serializing_if = "Option::is_none")]
     pub matching_size: Option<String>,
-    /// Текст отзыва
-    #[serde(rename = "text", skip_serializing_if = "Option::is_none")]
-    pub text: Option<String>,
     /// Оценка товара
     #[serde(rename = "productValuation", skip_serializing_if = "Option::is_none")]
     pub product_valuation: Option<i32>,
@@ -47,6 +44,12 @@ pub struct ApiV1FeedbackGet200ResponseData {
     /// Массив структур фотографий
     #[serde(rename = "photoLinks", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub photo_links: Option<Option<Vec<models::ApiV1FeedbackGet200ResponseDataPhotoLinksInner>>>,
+    /// Имя автора отзыва
+    #[serde(rename = "userName", skip_serializing_if = "Option::is_none")]
+    pub user_name: Option<String>,
+    /// Статус заказа. <br>Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен 
+    #[serde(rename = "orderStatus", skip_serializing_if = "Option::is_none")]
+    pub order_status: Option<String>,
     #[serde(rename = "video", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub video: Option<Option<Box<models::ApiV1FeedbackGet200ResponseDataVideo>>>,
     /// Просмотрен ли отзыв
@@ -100,17 +103,18 @@ impl ApiV1FeedbackGet200ResponseData {
     pub fn new() -> ApiV1FeedbackGet200ResponseData {
         ApiV1FeedbackGet200ResponseData {
             id: None,
-            user_name: None,
+            text: None,
             pros: None,
             cons: None,
             matching_size: None,
-            text: None,
             product_valuation: None,
             created_date: None,
             answer: None,
             state: None,
             product_details: None,
             photo_links: None,
+            user_name: None,
+            order_status: None,
             video: None,
             was_viewed: None,
             is_able_supplier_feedback_valuation: None,

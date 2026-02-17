@@ -32,17 +32,18 @@ class ApiV1FeedbackGet200ResponseData(BaseModel):
     ApiV1FeedbackGet200ResponseData
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="ID отзыва")
-    user_name: Optional[StrictStr] = Field(default=None, description="Имя автора отзыва", alias="userName")
+    text: Optional[StrictStr] = Field(default=None, description="Текст отзыва")
     pros: Optional[StrictStr] = Field(default=None, description="Достоинства товара")
     cons: Optional[StrictStr] = Field(default=None, description="Недостатки товара")
     matching_size: Optional[StrictStr] = Field(default=None, description="Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит ", alias="matchingSize")
-    text: Optional[StrictStr] = Field(default=None, description="Текст отзыва")
     product_valuation: Optional[StrictInt] = Field(default=None, description="Оценка товара", alias="productValuation")
     created_date: Optional[datetime] = Field(default=None, description="Дата и время создания отзыва", alias="createdDate")
     answer: Optional[ApiV1FeedbackGet200ResponseDataAnswer] = None
     state: Optional[StrictStr] = Field(default=None, description="Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан ")
     product_details: Optional[ApiV1FeedbackGet200ResponseDataProductDetails] = Field(default=None, alias="productDetails")
     photo_links: Optional[List[ApiV1FeedbackGet200ResponseDataPhotoLinksInner]] = Field(default=None, description="Массив структур фотографий", alias="photoLinks")
+    user_name: Optional[StrictStr] = Field(default=None, description="Имя автора отзыва", alias="userName")
+    order_status: Optional[StrictStr] = Field(default=None, description="Статус заказа. <br>Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен ", alias="orderStatus")
     video: Optional[ApiV1FeedbackGet200ResponseDataVideo] = None
     was_viewed: Optional[StrictBool] = Field(default=None, description="Просмотрен ли отзыв", alias="wasViewed")
     is_able_supplier_feedback_valuation: Optional[StrictBool] = Field(default=None, description="Доступна ли продавцу возможность оставить жалобу на отзыв:   - `true`— да   - `false` — нет ", alias="isAbleSupplierFeedbackValuation")
@@ -59,7 +60,7 @@ class ApiV1FeedbackGet200ResponseData(BaseModel):
     subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
     parent_feedback_id: Optional[StrictStr] = Field(default=None, description="ID начального отзыва (`null`, если этот отзыв начальный)", alias="parentFeedbackId")
     child_feedback_id: Optional[StrictStr] = Field(default=None, description="ID дополненного отзыва (`null`, если этот отзыв дополненный)", alias="childFeedbackId")
-    __properties: ClassVar[List[str]] = ["id", "userName", "pros", "cons", "matchingSize", "text", "productValuation", "createdDate", "answer", "state", "productDetails", "photoLinks", "video", "wasViewed", "isAbleSupplierFeedbackValuation", "supplierFeedbackValuation", "isAbleSupplierProductValuation", "supplierProductValuation", "isAbleReturnProductOrders", "returnProductOrdersDate", "bables", "lastOrderShkId", "lastOrderCreatedAt", "color", "subjectId", "subjectName", "parentFeedbackId", "childFeedbackId"]
+    __properties: ClassVar[List[str]] = ["id", "text", "pros", "cons", "matchingSize", "productValuation", "createdDate", "answer", "state", "productDetails", "photoLinks", "userName", "orderStatus", "video", "wasViewed", "isAbleSupplierFeedbackValuation", "supplierFeedbackValuation", "isAbleSupplierProductValuation", "supplierProductValuation", "isAbleReturnProductOrders", "returnProductOrdersDate", "bables", "lastOrderShkId", "lastOrderCreatedAt", "color", "subjectId", "subjectName", "parentFeedbackId", "childFeedbackId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -164,17 +165,18 @@ class ApiV1FeedbackGet200ResponseData(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "userName": obj.get("userName"),
+            "text": obj.get("text"),
             "pros": obj.get("pros"),
             "cons": obj.get("cons"),
             "matchingSize": obj.get("matchingSize"),
-            "text": obj.get("text"),
             "productValuation": obj.get("productValuation"),
             "createdDate": obj.get("createdDate"),
             "answer": ApiV1FeedbackGet200ResponseDataAnswer.from_dict(obj["answer"]) if obj.get("answer") is not None else None,
             "state": obj.get("state"),
             "productDetails": ApiV1FeedbackGet200ResponseDataProductDetails.from_dict(obj["productDetails"]) if obj.get("productDetails") is not None else None,
             "photoLinks": [ApiV1FeedbackGet200ResponseDataPhotoLinksInner.from_dict(_item) for _item in obj["photoLinks"]] if obj.get("photoLinks") is not None else None,
+            "userName": obj.get("userName"),
+            "orderStatus": obj.get("orderStatus"),
             "video": ApiV1FeedbackGet200ResponseDataVideo.from_dict(obj["video"]) if obj.get("video") is not None else None,
             "wasViewed": obj.get("wasViewed"),
             "isAbleSupplierFeedbackValuation": obj.get("isAbleSupplierFeedbackValuation"),

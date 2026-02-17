@@ -130,19 +130,31 @@ export interface ResponseFeedbackInner {
      */
     userName?: string;
     /**
+     * Статус заказа.
+     * <br>Возможные значения:
+     * - `buyout` — выкуплен
+     * - `rejected` — отказались
+     * - `returned` — возврат
+     * - `notSpecified` — статус не присвоен
+     * 
+     * @type {string}
+     * @memberof ResponseFeedbackInner
+     */
+    orderStatus?: string;
+    /**
      * Соответствие заявленного размера реальному.
      * <br>Возможные значения:
-     * - ` ` - для безразмерных товаров
-     * - `ок` - соответствует размеру
-     * - `smaller` - маломерит
-     * - `bigger` - большемерит
+     * - ` ` — для безразмерных товаров
+     * - `ок` — соответствует размеру
+     * - `smaller` — маломерит
+     * - `bigger` — большемерит
      * 
      * @type {string}
      * @memberof ResponseFeedbackInner
      */
     matchingSize?: string;
     /**
-     * Доступна ли продавцу возможность оставить жалобу на отзыв (`true` - доступна, `false` - не доступна)
+     * Доступна ли продавцу возможность оставить жалобу на отзыв (`true` — доступна, `false` — не доступна)
      * @type {boolean}
      * @memberof ResponseFeedbackInner
      */
@@ -265,6 +277,7 @@ export function ResponseFeedbackInnerFromJSONTyped(json: any, ignoreDiscriminato
         'video': json['video'] == null ? undefined : ResponseFeedbackInnerVideoFromJSON(json['video']),
         'wasViewed': json['wasViewed'] == null ? undefined : json['wasViewed'],
         'userName': json['userName'] == null ? undefined : json['userName'],
+        'orderStatus': json['orderStatus'] == null ? undefined : json['orderStatus'],
         'matchingSize': json['matchingSize'] == null ? undefined : json['matchingSize'],
         'isAbleSupplierFeedbackValuation': json['isAbleSupplierFeedbackValuation'] == null ? undefined : json['isAbleSupplierFeedbackValuation'],
         'supplierFeedbackValuation': json['supplierFeedbackValuation'] == null ? undefined : json['supplierFeedbackValuation'],
@@ -307,6 +320,7 @@ export function ResponseFeedbackInnerToJSONTyped(value?: ResponseFeedbackInner |
         'video': ResponseFeedbackInnerVideoToJSON(value['video']),
         'wasViewed': value['wasViewed'],
         'userName': value['userName'],
+        'orderStatus': value['orderStatus'],
         'matchingSize': value['matchingSize'],
         'isAbleSupplierFeedbackValuation': value['isAbleSupplierFeedbackValuation'],
         'supplierFeedbackValuation': value['supplierFeedbackValuation'],

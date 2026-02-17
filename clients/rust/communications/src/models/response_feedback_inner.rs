@@ -49,10 +49,13 @@ pub struct ResponseFeedbackInner {
     /// Имя автора отзыва
     #[serde(rename = "userName", skip_serializing_if = "Option::is_none")]
     pub user_name: Option<String>,
-    /// Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит 
+    /// Статус заказа. <br>Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен 
+    #[serde(rename = "orderStatus", skip_serializing_if = "Option::is_none")]
+    pub order_status: Option<String>,
+    /// Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` — для безразмерных товаров - `ок` — соответствует размеру - `smaller` — маломерит - `bigger` — большемерит 
     #[serde(rename = "matchingSize", skip_serializing_if = "Option::is_none")]
     pub matching_size: Option<String>,
-    /// Доступна ли продавцу возможность оставить жалобу на отзыв (`true` - доступна, `false` - не доступна)
+    /// Доступна ли продавцу возможность оставить жалобу на отзыв (`true` — доступна, `false` — не доступна)
     #[serde(rename = "isAbleSupplierFeedbackValuation", skip_serializing_if = "Option::is_none")]
     pub is_able_supplier_feedback_valuation: Option<bool>,
     /// Ключ причины жалобы на отзыв 
@@ -112,6 +115,7 @@ impl ResponseFeedbackInner {
             video: None,
             was_viewed: None,
             user_name: None,
+            order_status: None,
             matching_size: None,
             is_able_supplier_feedback_valuation: None,
             supplier_feedback_valuation: None,

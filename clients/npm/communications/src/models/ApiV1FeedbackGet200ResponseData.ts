@@ -55,11 +55,11 @@ export interface ApiV1FeedbackGet200ResponseData {
      */
     id?: string;
     /**
-     * Имя автора отзыва
+     * Текст отзыва
      * @type {string}
      * @memberof ApiV1FeedbackGet200ResponseData
      */
-    userName?: string;
+    text?: string;
     /**
      * Достоинства товара
      * @type {string}
@@ -84,12 +84,6 @@ export interface ApiV1FeedbackGet200ResponseData {
      * @memberof ApiV1FeedbackGet200ResponseData
      */
     matchingSize?: string;
-    /**
-     * Текст отзыва
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
-     */
-    text?: string;
     /**
      * Оценка товара
      * @type {number}
@@ -129,6 +123,24 @@ export interface ApiV1FeedbackGet200ResponseData {
      * @memberof ApiV1FeedbackGet200ResponseData
      */
     photoLinks?: Array<ApiV1FeedbackGet200ResponseDataPhotoLinksInner> | null;
+    /**
+     * Имя автора отзыва
+     * @type {string}
+     * @memberof ApiV1FeedbackGet200ResponseData
+     */
+    userName?: string;
+    /**
+     * Статус заказа.
+     * <br>Возможные значения:
+     * - `buyout` — выкуплен
+     * - `rejected` — отказались
+     * - `returned` — возврат
+     * - `notSpecified` — статус не присвоен
+     * 
+     * @type {string}
+     * @memberof ApiV1FeedbackGet200ResponseData
+     */
+    orderStatus?: string;
     /**
      * 
      * @type {ApiV1FeedbackGet200ResponseDataVideo}
@@ -253,17 +265,18 @@ export function ApiV1FeedbackGet200ResponseDataFromJSONTyped(json: any, ignoreDi
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
-        'userName': json['userName'] == null ? undefined : json['userName'],
+        'text': json['text'] == null ? undefined : json['text'],
         'pros': json['pros'] == null ? undefined : json['pros'],
         'cons': json['cons'] == null ? undefined : json['cons'],
         'matchingSize': json['matchingSize'] == null ? undefined : json['matchingSize'],
-        'text': json['text'] == null ? undefined : json['text'],
         'productValuation': json['productValuation'] == null ? undefined : json['productValuation'],
         'createdDate': json['createdDate'] == null ? undefined : (new Date(json['createdDate'])),
         'answer': json['answer'] == null ? undefined : ApiV1FeedbackGet200ResponseDataAnswerFromJSON(json['answer']),
         'state': json['state'] == null ? undefined : json['state'],
         'productDetails': json['productDetails'] == null ? undefined : ApiV1FeedbackGet200ResponseDataProductDetailsFromJSON(json['productDetails']),
         'photoLinks': json['photoLinks'] == null ? undefined : ((json['photoLinks'] as Array<any>).map(ApiV1FeedbackGet200ResponseDataPhotoLinksInnerFromJSON)),
+        'userName': json['userName'] == null ? undefined : json['userName'],
+        'orderStatus': json['orderStatus'] == null ? undefined : json['orderStatus'],
         'video': json['video'] == null ? undefined : ApiV1FeedbackGet200ResponseDataVideoFromJSON(json['video']),
         'wasViewed': json['wasViewed'] == null ? undefined : json['wasViewed'],
         'isAbleSupplierFeedbackValuation': json['isAbleSupplierFeedbackValuation'] == null ? undefined : json['isAbleSupplierFeedbackValuation'],
@@ -295,17 +308,18 @@ export function ApiV1FeedbackGet200ResponseDataToJSONTyped(value?: ApiV1Feedback
     return {
         
         'id': value['id'],
-        'userName': value['userName'],
+        'text': value['text'],
         'pros': value['pros'],
         'cons': value['cons'],
         'matchingSize': value['matchingSize'],
-        'text': value['text'],
         'productValuation': value['productValuation'],
         'createdDate': value['createdDate'] == null ? value['createdDate'] : value['createdDate'].toISOString(),
         'answer': ApiV1FeedbackGet200ResponseDataAnswerToJSON(value['answer']),
         'state': value['state'],
         'productDetails': ApiV1FeedbackGet200ResponseDataProductDetailsToJSON(value['productDetails']),
         'photoLinks': value['photoLinks'] == null ? undefined : ((value['photoLinks'] as Array<any>).map(ApiV1FeedbackGet200ResponseDataPhotoLinksInnerToJSON)),
+        'userName': value['userName'],
+        'orderStatus': value['orderStatus'],
         'video': ApiV1FeedbackGet200ResponseDataVideoToJSON(value['video']),
         'wasViewed': value['wasViewed'],
         'isAbleSupplierFeedbackValuation': value['isAbleSupplierFeedbackValuation'],

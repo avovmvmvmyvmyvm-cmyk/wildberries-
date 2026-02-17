@@ -19,7 +19,7 @@ pub struct ApiNewOrder {
     /// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
     #[serde(rename = "salePrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub sale_price: Option<Option<i32>>,
-    /// Список метаданных, доступных для сборочного задания. <br> [Указывать IMEI](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products/#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515` 
+    /// Список метаданных, доступных для сборочного задания 
     #[serde(rename = "requiredMeta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub required_meta: Option<Option<Vec<String>>>,
     /// Артикул продавца

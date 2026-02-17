@@ -44,8 +44,9 @@ class ResponseFeedbackInner(BaseModel):
     video: Optional[ResponseFeedbackInnerVideo] = None
     was_viewed: Optional[StrictBool] = Field(default=None, description="Просмотрен ли отзыв", alias="wasViewed")
     user_name: Optional[StrictStr] = Field(default=None, description="Имя автора отзыва", alias="userName")
-    matching_size: Optional[StrictStr] = Field(default=None, description="Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит ", alias="matchingSize")
-    is_able_supplier_feedback_valuation: Optional[StrictBool] = Field(default=None, description="Доступна ли продавцу возможность оставить жалобу на отзыв (`true` - доступна, `false` - не доступна)", alias="isAbleSupplierFeedbackValuation")
+    order_status: Optional[StrictStr] = Field(default=None, description="Статус заказа. <br>Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен ", alias="orderStatus")
+    matching_size: Optional[StrictStr] = Field(default=None, description="Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` — для безразмерных товаров - `ок` — соответствует размеру - `smaller` — маломерит - `bigger` — большемерит ", alias="matchingSize")
+    is_able_supplier_feedback_valuation: Optional[StrictBool] = Field(default=None, description="Доступна ли продавцу возможность оставить жалобу на отзыв (`true` — доступна, `false` — не доступна)", alias="isAbleSupplierFeedbackValuation")
     supplier_feedback_valuation: Optional[StrictInt] = Field(default=None, description="Ключ причины жалобы на отзыв ", alias="supplierFeedbackValuation")
     is_able_supplier_product_valuation: Optional[StrictBool] = Field(default=None, description="Доступна ли продавцу возможность сообщить о проблеме с товаром:   - `true` — да   - `false` — нет ", alias="isAbleSupplierProductValuation")
     supplier_product_valuation: Optional[StrictInt] = Field(default=None, description="Ключ проблемы с товаром ", alias="supplierProductValuation")
@@ -59,7 +60,7 @@ class ResponseFeedbackInner(BaseModel):
     subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
     parent_feedback_id: Optional[StrictStr] = Field(default=None, description="ID начального отзыва (`null`, если этот отзыв начальный)", alias="parentFeedbackId")
     child_feedback_id: Optional[StrictStr] = Field(default=None, description="ID дополненного отзыва (`null`, если этот отзыв дополненный)", alias="childFeedbackId")
-    __properties: ClassVar[List[str]] = ["id", "text", "pros", "cons", "productValuation", "createdDate", "answer", "state", "productDetails", "photoLinks", "video", "wasViewed", "userName", "matchingSize", "isAbleSupplierFeedbackValuation", "supplierFeedbackValuation", "isAbleSupplierProductValuation", "supplierProductValuation", "isAbleReturnProductOrders", "returnProductOrdersDate", "bables", "lastOrderShkId", "lastOrderCreatedAt", "color", "subjectId", "subjectName", "parentFeedbackId", "childFeedbackId"]
+    __properties: ClassVar[List[str]] = ["id", "text", "pros", "cons", "productValuation", "createdDate", "answer", "state", "productDetails", "photoLinks", "video", "wasViewed", "userName", "orderStatus", "matchingSize", "isAbleSupplierFeedbackValuation", "supplierFeedbackValuation", "isAbleSupplierProductValuation", "supplierProductValuation", "isAbleReturnProductOrders", "returnProductOrdersDate", "bables", "lastOrderShkId", "lastOrderCreatedAt", "color", "subjectId", "subjectName", "parentFeedbackId", "childFeedbackId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -176,6 +177,7 @@ class ResponseFeedbackInner(BaseModel):
             "video": ResponseFeedbackInnerVideo.from_dict(obj["video"]) if obj.get("video") is not None else None,
             "wasViewed": obj.get("wasViewed"),
             "userName": obj.get("userName"),
+            "orderStatus": obj.get("orderStatus"),
             "matchingSize": obj.get("matchingSize"),
             "isAbleSupplierFeedbackValuation": obj.get("isAbleSupplierFeedbackValuation"),
             "supplierFeedbackValuation": obj.get("supplierFeedbackValuation"),

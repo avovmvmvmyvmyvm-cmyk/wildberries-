@@ -24,7 +24,7 @@ type ApiNewOrder struct {
 	Ddate *string `json:"ddate,omitempty"`
 	// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`
-	// Список метаданных, доступных для сборочного задания. <br> [Указывать IMEI](./in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products/#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515` 
+	// Список метаданных, доступных для сборочного задания 
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Артикул продавца
 	Article *string `json:"article,omitempty"`

@@ -22,16 +22,14 @@ var _ MappedNullable = &ApiV1FeedbackGet200ResponseData{}
 type ApiV1FeedbackGet200ResponseData struct {
 	// ID отзыва
 	Id *string `json:"id,omitempty"`
-	// Имя автора отзыва
-	UserName *string `json:"userName,omitempty"`
+	// Текст отзыва
+	Text *string `json:"text,omitempty"`
 	// Достоинства товара
 	Pros *string `json:"pros,omitempty"`
 	// Недостатки товара
 	Cons *string `json:"cons,omitempty"`
 	// Соответствие заявленного размера реальному. <br>Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит 
 	MatchingSize *string `json:"matchingSize,omitempty"`
-	// Текст отзыва
-	Text *string `json:"text,omitempty"`
 	// Оценка товара
 	ProductValuation *int32 `json:"productValuation,omitempty"`
 	// Дата и время создания отзыва
@@ -42,6 +40,10 @@ type ApiV1FeedbackGet200ResponseData struct {
 	ProductDetails *ApiV1FeedbackGet200ResponseDataProductDetails `json:"productDetails,omitempty"`
 	// Массив структур фотографий
 	PhotoLinks []ApiV1FeedbackGet200ResponseDataPhotoLinksInner `json:"photoLinks,omitempty"`
+	// Имя автора отзыва
+	UserName *string `json:"userName,omitempty"`
+	// Статус заказа. <br>Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен 
+	OrderStatus *string `json:"orderStatus,omitempty"`
 	Video NullableApiV1FeedbackGet200ResponseDataVideo `json:"video,omitempty"`
 	// Просмотрен ли отзыв
 	WasViewed *bool `json:"wasViewed,omitempty"`
@@ -124,36 +126,36 @@ func (o *ApiV1FeedbackGet200ResponseData) SetId(v string) {
 	o.Id = &v
 }
 
-// GetUserName returns the UserName field value if set, zero value otherwise.
-func (o *ApiV1FeedbackGet200ResponseData) GetUserName() string {
-	if o == nil || IsNil(o.UserName) {
+// GetText returns the Text field value if set, zero value otherwise.
+func (o *ApiV1FeedbackGet200ResponseData) GetText() string {
+	if o == nil || IsNil(o.Text) {
 		var ret string
 		return ret
 	}
-	return *o.UserName
+	return *o.Text
 }
 
-// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
+// GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiV1FeedbackGet200ResponseData) GetUserNameOk() (*string, bool) {
-	if o == nil || IsNil(o.UserName) {
+func (o *ApiV1FeedbackGet200ResponseData) GetTextOk() (*string, bool) {
+	if o == nil || IsNil(o.Text) {
 		return nil, false
 	}
-	return o.UserName, true
+	return o.Text, true
 }
 
-// HasUserName returns a boolean if a field has been set.
-func (o *ApiV1FeedbackGet200ResponseData) HasUserName() bool {
-	if o != nil && !IsNil(o.UserName) {
+// HasText returns a boolean if a field has been set.
+func (o *ApiV1FeedbackGet200ResponseData) HasText() bool {
+	if o != nil && !IsNil(o.Text) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserName gets a reference to the given string and assigns it to the UserName field.
-func (o *ApiV1FeedbackGet200ResponseData) SetUserName(v string) {
-	o.UserName = &v
+// SetText gets a reference to the given string and assigns it to the Text field.
+func (o *ApiV1FeedbackGet200ResponseData) SetText(v string) {
+	o.Text = &v
 }
 
 // GetPros returns the Pros field value if set, zero value otherwise.
@@ -250,38 +252,6 @@ func (o *ApiV1FeedbackGet200ResponseData) HasMatchingSize() bool {
 // SetMatchingSize gets a reference to the given string and assigns it to the MatchingSize field.
 func (o *ApiV1FeedbackGet200ResponseData) SetMatchingSize(v string) {
 	o.MatchingSize = &v
-}
-
-// GetText returns the Text field value if set, zero value otherwise.
-func (o *ApiV1FeedbackGet200ResponseData) GetText() string {
-	if o == nil || IsNil(o.Text) {
-		var ret string
-		return ret
-	}
-	return *o.Text
-}
-
-// GetTextOk returns a tuple with the Text field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ApiV1FeedbackGet200ResponseData) GetTextOk() (*string, bool) {
-	if o == nil || IsNil(o.Text) {
-		return nil, false
-	}
-	return o.Text, true
-}
-
-// HasText returns a boolean if a field has been set.
-func (o *ApiV1FeedbackGet200ResponseData) HasText() bool {
-	if o != nil && !IsNil(o.Text) {
-		return true
-	}
-
-	return false
-}
-
-// SetText gets a reference to the given string and assigns it to the Text field.
-func (o *ApiV1FeedbackGet200ResponseData) SetText(v string) {
-	o.Text = &v
 }
 
 // GetProductValuation returns the ProductValuation field value if set, zero value otherwise.
@@ -485,6 +455,70 @@ func (o *ApiV1FeedbackGet200ResponseData) HasPhotoLinks() bool {
 // SetPhotoLinks gets a reference to the given []ApiV1FeedbackGet200ResponseDataPhotoLinksInner and assigns it to the PhotoLinks field.
 func (o *ApiV1FeedbackGet200ResponseData) SetPhotoLinks(v []ApiV1FeedbackGet200ResponseDataPhotoLinksInner) {
 	o.PhotoLinks = v
+}
+
+// GetUserName returns the UserName field value if set, zero value otherwise.
+func (o *ApiV1FeedbackGet200ResponseData) GetUserName() string {
+	if o == nil || IsNil(o.UserName) {
+		var ret string
+		return ret
+	}
+	return *o.UserName
+}
+
+// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiV1FeedbackGet200ResponseData) GetUserNameOk() (*string, bool) {
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
+	}
+	return o.UserName, true
+}
+
+// HasUserName returns a boolean if a field has been set.
+func (o *ApiV1FeedbackGet200ResponseData) HasUserName() bool {
+	if o != nil && !IsNil(o.UserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserName gets a reference to the given string and assigns it to the UserName field.
+func (o *ApiV1FeedbackGet200ResponseData) SetUserName(v string) {
+	o.UserName = &v
+}
+
+// GetOrderStatus returns the OrderStatus field value if set, zero value otherwise.
+func (o *ApiV1FeedbackGet200ResponseData) GetOrderStatus() string {
+	if o == nil || IsNil(o.OrderStatus) {
+		var ret string
+		return ret
+	}
+	return *o.OrderStatus
+}
+
+// GetOrderStatusOk returns a tuple with the OrderStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiV1FeedbackGet200ResponseData) GetOrderStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.OrderStatus) {
+		return nil, false
+	}
+	return o.OrderStatus, true
+}
+
+// HasOrderStatus returns a boolean if a field has been set.
+func (o *ApiV1FeedbackGet200ResponseData) HasOrderStatus() bool {
+	if o != nil && !IsNil(o.OrderStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderStatus gets a reference to the given string and assigns it to the OrderStatus field.
+func (o *ApiV1FeedbackGet200ResponseData) SetOrderStatus(v string) {
+	o.OrderStatus = &v
 }
 
 // GetVideo returns the Video field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1053,8 +1087,8 @@ func (o ApiV1FeedbackGet200ResponseData) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !IsNil(o.UserName) {
-		toSerialize["userName"] = o.UserName
+	if !IsNil(o.Text) {
+		toSerialize["text"] = o.Text
 	}
 	if !IsNil(o.Pros) {
 		toSerialize["pros"] = o.Pros
@@ -1064,9 +1098,6 @@ func (o ApiV1FeedbackGet200ResponseData) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.MatchingSize) {
 		toSerialize["matchingSize"] = o.MatchingSize
-	}
-	if !IsNil(o.Text) {
-		toSerialize["text"] = o.Text
 	}
 	if !IsNil(o.ProductValuation) {
 		toSerialize["productValuation"] = o.ProductValuation
@@ -1085,6 +1116,12 @@ func (o ApiV1FeedbackGet200ResponseData) ToMap() (map[string]interface{}, error)
 	}
 	if o.PhotoLinks != nil {
 		toSerialize["photoLinks"] = o.PhotoLinks
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
+	}
+	if !IsNil(o.OrderStatus) {
+		toSerialize["orderStatus"] = o.OrderStatus
 	}
 	if o.Video.IsSet() {
 		toSerialize["video"] = o.Video.Get()

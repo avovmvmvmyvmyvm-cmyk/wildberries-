@@ -996,6 +996,7 @@ paths:
                     - fullSize: https://feedback04.wbbasket.ru/vol1486/part148682/123456789/photos/fs.jpg
                       miniSize: https://feedback04.wbbasket.ru/vol1486/part148682/123456789/photos/ms.jpg
                     userName: Николай
+                    orderStatus: buyout
                     matchingSize: ok
                     isAbleSupplierFeedbackValuation: false
                     supplierFeedbackValuation: 1
@@ -1375,6 +1376,7 @@ paths:
                   - fullSize: https://feedback04.wbbasket.ru/vol1486/part148682/123456789/photos/fs.jpg
                     miniSize: https://feedback04.wbbasket.ru/vol1486/part148682/123456789/photos/ms.jpg
                   userName: Николай
+                  orderStatus: returned
                   matchingSize: ok
                   isAbleSupplierFeedbackValuation: false
                   supplierFeedbackValuation: 1
@@ -1542,6 +1544,7 @@ paths:
                     - fullSize: https://feedback04.wbbasket.ru/vol1486/part148682/123456789/photos/fs.jpg
                       miniSize: https://feedback04.wbbasket.ru/vol1486/part148682/123456789/photos/ms.jpg
                     userName: Николай
+                    orderStatus: returned
                     matchingSize: ok
                     isAbleSupplierFeedbackValuation: false
                     supplierFeedbackValuation: 1
@@ -4612,6 +4615,7 @@ components:
             miniSize: miniSize
           - fullSize: fullSize
             miniSize: miniSize
+          orderStatus: orderStatus
           video:
             link: link
             durationSec: 2
@@ -4659,6 +4663,7 @@ components:
             miniSize: miniSize
           - fullSize: fullSize
             miniSize: miniSize
+          orderStatus: orderStatus
           video:
             link: link
             durationSec: 2
@@ -4726,6 +4731,7 @@ components:
               miniSize: miniSize
             - fullSize: fullSize
               miniSize: miniSize
+            orderStatus: orderStatus
             video:
               link: link
               durationSec: 2
@@ -4773,6 +4779,7 @@ components:
               miniSize: miniSize
             - fullSize: fullSize
               miniSize: miniSize
+            orderStatus: orderStatus
             video:
               link: link
               durationSec: 2
@@ -4974,6 +4981,7 @@ components:
           miniSize: miniSize
         - fullSize: fullSize
           miniSize: miniSize
+        orderStatus: orderStatus
         video:
           link: link
           durationSec: 5
@@ -5019,9 +5027,8 @@ components:
         id:
           description: ID отзыва
           type: string
-        userName:
-          description: Имя автора отзыва
-          nullable: false
+        text:
+          description: Текст отзыва
           type: string
         pros:
           description: Достоинства товара
@@ -5039,9 +5046,6 @@ components:
             - `ок` - соответствует размеру
             - `smaller` - маломерит
             - `bigger` - большемерит
-          type: string
-        text:
-          description: Текст отзыва
           type: string
         productValuation:
           description: Оценка товара
@@ -5066,6 +5070,19 @@ components:
             $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_photoLinks_inner"
           nullable: true
           type: array
+        userName:
+          description: Имя автора отзыва
+          nullable: false
+          type: string
+        orderStatus:
+          description: |
+            Статус заказа.
+            <br>Возможные значения:
+            - `buyout` — выкуплен
+            - `rejected` — отказались
+            - `returned` — возврат
+            - `notSpecified` — статус не присвоен
+          type: string
         video:
           $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_video"
         wasViewed:
@@ -5141,6 +5158,7 @@ components:
             miniSize: miniSize
           - fullSize: fullSize
             miniSize: miniSize
+          orderStatus: orderStatus
           video:
             link: link
             durationSec: 5
@@ -5211,6 +5229,7 @@ components:
             miniSize: miniSize
           - fullSize: fullSize
             miniSize: miniSize
+          orderStatus: orderStatus
           video:
             link: link
             durationSec: 2
@@ -5258,6 +5277,7 @@ components:
             miniSize: miniSize
           - fullSize: fullSize
             miniSize: miniSize
+          orderStatus: orderStatus
           video:
             link: link
             durationSec: 2
@@ -5317,6 +5337,7 @@ components:
               miniSize: miniSize
             - fullSize: fullSize
               miniSize: miniSize
+            orderStatus: orderStatus
             video:
               link: link
               durationSec: 2
@@ -5364,6 +5385,7 @@ components:
               miniSize: miniSize
             - fullSize: fullSize
               miniSize: miniSize
+            orderStatus: orderStatus
             video:
               link: link
               durationSec: 2
@@ -5905,6 +5927,7 @@ components:
           miniSize: miniSize
         - fullSize: fullSize
           miniSize: miniSize
+        orderStatus: orderStatus
         video:
           link: link
           durationSec: 2
@@ -5993,18 +6016,27 @@ components:
         userName:
           description: Имя автора отзыва
           type: string
+        orderStatus:
+          description: |
+            Статус заказа.
+            <br>Возможные значения:
+            - `buyout` — выкуплен
+            - `rejected` — отказались
+            - `returned` — возврат
+            - `notSpecified` — статус не присвоен
+          type: string
         matchingSize:
           description: |
             Соответствие заявленного размера реальному.
             <br>Возможные значения:
-            - ` ` - для безразмерных товаров
-            - `ок` - соответствует размеру
-            - `smaller` - маломерит
-            - `bigger` - большемерит
+            - ` ` — для безразмерных товаров
+            - `ок` — соответствует размеру
+            - `smaller` — маломерит
+            - `bigger` — большемерит
           type: string
         isAbleSupplierFeedbackValuation:
           description: "Доступна ли продавцу возможность оставить жалобу на отзыв\
-            \ (`true` - доступна, `false` - не доступна)"
+            \ (`true` — доступна, `false` — не доступна)"
           type: boolean
         supplierFeedbackValuation:
           description: |
