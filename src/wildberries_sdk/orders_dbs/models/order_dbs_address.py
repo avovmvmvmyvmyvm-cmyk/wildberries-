@@ -24,7 +24,7 @@ from typing_extensions import Self
 
 class OrderDBSAddress(BaseModel):
     """
-    Адрес покупателя для доставки
+    Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
     """ # noqa: E501
     full_address: Optional[StrictStr] = Field(default=None, description="Адрес доставки", alias="fullAddress")
     longitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Долгота")

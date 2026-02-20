@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// StockType Тип складов хранения товаров:   - `\"\"` — все   - `wb` — Склады WB   - `mp` — Склады продавца 
+// StockType Тип складов хранения товаров:   - `\"\"` — все   - `wb` — склады WB   - `mp` — склады продавца 
 type StockType string
 
 // List of StockType

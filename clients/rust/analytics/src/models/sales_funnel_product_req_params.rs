@@ -38,7 +38,7 @@ pub struct SalesFunnelProductReqParams {
     /// Как сгруппировать данные (по умолчанию по дням):    * `day` — по дням   * `week` — по неделям   * `month` — по месяцам 
     #[serde(rename = "aggregationLevel", skip_serializing_if = "Option::is_none")]
     pub aggregation_level: Option<AggregationLevel>,
-    /// Скрыть удалённые карточки товаров
+    /// Скрыть удалённые товары
     #[serde(rename = "skipDeletedNm", skip_serializing_if = "Option::is_none")]
     pub skip_deleted_nm: Option<bool>,
 }

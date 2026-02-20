@@ -81,7 +81,8 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'int',
         'converted_currency_code' => 'int',
         'cargo_type' => 'int',
-        'is_zero_order' => 'bool'
+        'is_zero_order' => 'bool',
+        'wb_sticker_id' => 'int'
     ];
 
     /**
@@ -116,7 +117,8 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'ISO 4217',
         'converted_currency_code' => 'ISO 4217',
         'cargo_type' => null,
-        'is_zero_order' => null
+        'is_zero_order' => null,
+        'wb_sticker_id' => null
     ];
 
     /**
@@ -149,7 +151,8 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => false,
         'converted_currency_code' => false,
         'cargo_type' => false,
-        'is_zero_order' => false
+        'is_zero_order' => false,
+        'wb_sticker_id' => false
     ];
 
     /**
@@ -262,7 +265,8 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'currencyCode',
         'converted_currency_code' => 'convertedCurrencyCode',
         'cargo_type' => 'cargoType',
-        'is_zero_order' => 'isZeroOrder'
+        'is_zero_order' => 'isZeroOrder',
+        'wb_sticker_id' => 'wbStickerId'
     ];
 
     /**
@@ -295,7 +299,8 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'setCurrencyCode',
         'converted_currency_code' => 'setConvertedCurrencyCode',
         'cargo_type' => 'setCargoType',
-        'is_zero_order' => 'setIsZeroOrder'
+        'is_zero_order' => 'setIsZeroOrder',
+        'wb_sticker_id' => 'setWbStickerId'
     ];
 
     /**
@@ -328,7 +333,8 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'getCurrencyCode',
         'converted_currency_code' => 'getConvertedCurrencyCode',
         'cargo_type' => 'getCargoType',
-        'is_zero_order' => 'getIsZeroOrder'
+        'is_zero_order' => 'getIsZeroOrder',
+        'wb_sticker_id' => 'getWbStickerId'
     ];
 
     /**
@@ -374,6 +380,7 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const DELIVERY_TYPE_DBS = 'dbs';
     public const DELIVERY_TYPE_EDBS = 'edbs';
+    public const DELIVERY_TYPE_DBS_PICKUP_POINT = 'dbsPickupPoint';
     public const CARGO_TYPE_NUMBER_1 = 1;
     public const CARGO_TYPE_NUMBER_2 = 2;
     public const CARGO_TYPE_NUMBER_3 = 3;
@@ -388,6 +395,7 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::DELIVERY_TYPE_DBS,
             self::DELIVERY_TYPE_EDBS,
+            self::DELIVERY_TYPE_DBS_PICKUP_POINT,
         ];
     }
 
@@ -445,6 +453,7 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('converted_currency_code', $data ?? [], null);
         $this->setIfExists('cargo_type', $data ?? [], null);
         $this->setIfExists('is_zero_order', $data ?? [], null);
+        $this->setIfExists('wb_sticker_id', $data ?? [], null);
     }
 
     /**
@@ -839,7 +848,7 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_type
      *
-     * @param string|null $delivery_type Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца
+     * @param string|null $delivery_type Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца
      *
      * @return self
      */
@@ -1220,6 +1229,33 @@ class OrderNewDBS implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_zero_order cannot be null');
         }
         $this->container['is_zero_order'] = $is_zero_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets wb_sticker_id
+     *
+     * @return int|null
+     */
+    public function getWbStickerId()
+    {
+        return $this->container['wb_sticker_id'];
+    }
+
+    /**
+     * Sets wb_sticker_id
+     *
+     * @param int|null $wb_sticker_id ID стикера. Отображается только для заказов в ПВЗ
+     *
+     * @return self
+     */
+    public function setWbStickerId($wb_sticker_id)
+    {
+        if (is_null($wb_sticker_id)) {
+            throw new \InvalidArgumentException('non-nullable wb_sticker_id cannot be null');
+        }
+        $this->container['wb_sticker_id'] = $wb_sticker_id;
 
         return $this;
     }

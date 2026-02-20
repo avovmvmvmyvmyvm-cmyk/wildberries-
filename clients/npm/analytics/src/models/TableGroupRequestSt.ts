@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PeriodSt } from './PeriodSt';
+import type { PeriodInv } from './PeriodInv';
 import {
-    PeriodStFromJSON,
-    PeriodStFromJSONTyped,
-    PeriodStToJSON,
-    PeriodStToJSONTyped,
-} from './PeriodSt';
+    PeriodInvFromJSON,
+    PeriodInvFromJSONTyped,
+    PeriodInvToJSON,
+    PeriodInvToJSONTyped,
+} from './PeriodInv';
 import type { StockType } from './StockType';
 import {
     StockTypeFromJSON,
@@ -67,10 +67,10 @@ export interface TableGroupRequestSt {
     tagIDs?: Array<number>;
     /**
      * 
-     * @type {PeriodSt}
+     * @type {PeriodInv}
      * @memberof TableGroupRequestSt
      */
-    currentPeriod: PeriodSt;
+    currentPeriod: PeriodInv;
     /**
      * 
      * @type {StockType}
@@ -158,7 +158,7 @@ export function TableGroupRequestStFromJSONTyped(json: any, ignoreDiscriminator:
         'subjectIDs': json['subjectIDs'] == null ? undefined : json['subjectIDs'],
         'brandNames': json['brandNames'] == null ? undefined : json['brandNames'],
         'tagIDs': json['tagIDs'] == null ? undefined : json['tagIDs'],
-        'currentPeriod': PeriodStFromJSON(json['currentPeriod']),
+        'currentPeriod': PeriodInvFromJSON(json['currentPeriod']),
         'stockType': StockTypeFromJSON(json['stockType']),
         'skipDeletedNm': json['skipDeletedNm'],
         'availabilityFilters': json['availabilityFilters'],
@@ -183,7 +183,7 @@ export function TableGroupRequestStToJSONTyped(value?: TableGroupRequestSt | nul
         'subjectIDs': value['subjectIDs'],
         'brandNames': value['brandNames'],
         'tagIDs': value['tagIDs'],
-        'currentPeriod': PeriodStToJSON(value['currentPeriod']),
+        'currentPeriod': PeriodInvToJSON(value['currentPeriod']),
         'stockType': StockTypeToJSON(value['stockType']),
         'skipDeletedNm': value['skipDeletedNm'],
         'availabilityFilters': value['availabilityFilters'],

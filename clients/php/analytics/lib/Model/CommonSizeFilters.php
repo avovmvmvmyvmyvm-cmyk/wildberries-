@@ -59,7 +59,7 @@ class CommonSizeFilters implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'nm_id' => 'int',
-        'current_period' => '\Wildberries\Sdk\Analytics\Model\PeriodSt',
+        'current_period' => '\Wildberries\Sdk\Analytics\Model\PeriodInv',
         'stock_type' => '\Wildberries\Sdk\Analytics\Model\StockType',
         'order_by' => '\Wildberries\Sdk\Analytics\Model\TableOrderBy',
         'include_office' => 'bool'
@@ -363,7 +363,7 @@ class CommonSizeFilters implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets current_period
      *
-     * @return \Wildberries\Sdk\Analytics\Model\PeriodSt
+     * @return \Wildberries\Sdk\Analytics\Model\PeriodInv
      */
     public function getCurrentPeriod()
     {
@@ -373,7 +373,7 @@ class CommonSizeFilters implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets current_period
      *
-     * @param \Wildberries\Sdk\Analytics\Model\PeriodSt $current_period current_period
+     * @param \Wildberries\Sdk\Analytics\Model\PeriodInv $current_period current_period
      *
      * @return self
      */

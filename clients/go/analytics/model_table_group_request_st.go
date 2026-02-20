@@ -29,7 +29,7 @@ type TableGroupRequestSt struct {
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
 	TagIDs []int64 `json:"tagIDs,omitempty"`
-	CurrentPeriod PeriodSt `json:"currentPeriod"`
+	CurrentPeriod PeriodInv `json:"currentPeriod"`
 	StockType StockType `json:"stockType"`
 	// Скрыть удалённые товары
 	SkipDeletedNm bool `json:"skipDeletedNm"`
@@ -48,7 +48,7 @@ type _TableGroupRequestSt TableGroupRequestSt
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableGroupRequestSt(currentPeriod PeriodSt, stockType StockType, skipDeletedNm bool, availabilityFilters []string, orderBy TableOrderBy, offset int32) *TableGroupRequestSt {
+func NewTableGroupRequestSt(currentPeriod PeriodInv, stockType StockType, skipDeletedNm bool, availabilityFilters []string, orderBy TableOrderBy, offset int32) *TableGroupRequestSt {
 	this := TableGroupRequestSt{}
 	this.CurrentPeriod = currentPeriod
 	this.StockType = stockType
@@ -200,9 +200,9 @@ func (o *TableGroupRequestSt) SetTagIDs(v []int64) {
 }
 
 // GetCurrentPeriod returns the CurrentPeriod field value
-func (o *TableGroupRequestSt) GetCurrentPeriod() PeriodSt {
+func (o *TableGroupRequestSt) GetCurrentPeriod() PeriodInv {
 	if o == nil {
-		var ret PeriodSt
+		var ret PeriodInv
 		return ret
 	}
 
@@ -211,7 +211,7 @@ func (o *TableGroupRequestSt) GetCurrentPeriod() PeriodSt {
 
 // GetCurrentPeriodOk returns a tuple with the CurrentPeriod field value
 // and a boolean to check if the value has been set.
-func (o *TableGroupRequestSt) GetCurrentPeriodOk() (*PeriodSt, bool) {
+func (o *TableGroupRequestSt) GetCurrentPeriodOk() (*PeriodInv, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -219,7 +219,7 @@ func (o *TableGroupRequestSt) GetCurrentPeriodOk() (*PeriodSt, bool) {
 }
 
 // SetCurrentPeriod sets field value
-func (o *TableGroupRequestSt) SetCurrentPeriod(v PeriodSt) {
+func (o *TableGroupRequestSt) SetCurrentPeriod(v PeriodInv) {
 	o.CurrentPeriod = v
 }
 

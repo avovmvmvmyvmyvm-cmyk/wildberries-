@@ -59,7 +59,7 @@ export interface GroupedHistoryRequest {
      */
     tagIds?: Array<number>;
     /**
-     * Скрыть удалённые карточки товаров
+     * Скрыть удалённые товары
      * @type {boolean}
      * @memberof GroupedHistoryRequest
      */

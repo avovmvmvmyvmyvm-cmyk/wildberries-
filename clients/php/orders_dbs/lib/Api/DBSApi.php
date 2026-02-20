@@ -116,6 +116,9 @@ class DBSApi
         'apiMarketplaceV3DbsOrdersStatusRejectPost' => [
             'application/json',
         ],
+        'apiMarketplaceV3DbsOrdersStickersPost' => [
+            'application/json',
+        ],
         'apiV3DbsGroupsInfoPost' => [
             'application/json',
         ],
@@ -5544,6 +5547,448 @@ class DBSApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForapiMarketplaceV3DbsOrdersStatusRejectPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation apiMarketplaceV3DbsOrdersStickersPost
+     *
+     * Получить стикеры для сборочных заданий с доставкой в ПВЗ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $type Формат стикера (required)
+     * @param  int $width Ширина стикера (required)
+     * @param  int $height Высота стикера (required)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPostRequest|null $api_marketplace_v3_dbs_orders_stickers_post_request api_marketplace_v3_dbs_orders_stickers_post_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersDbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPost200Response|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\ApiV3DbsOrdersNewGet401Response|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\ApiV3DbsOrdersNewGet401Response
+     */
+    public function apiMarketplaceV3DbsOrdersStickersPost($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'][0])
+    {
+        list($response) = $this->apiMarketplaceV3DbsOrdersStickersPostWithHttpInfo($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation apiMarketplaceV3DbsOrdersStickersPostWithHttpInfo
+     *
+     * Получить стикеры для сборочных заданий с доставкой в ПВЗ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $type Формат стикера (required)
+     * @param  int $width Ширина стикера (required)
+     * @param  int $height Высота стикера (required)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPostRequest|null $api_marketplace_v3_dbs_orders_stickers_post_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersDbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPost200Response|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\ApiV3DbsOrdersNewGet401Response|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\ApiV3DbsOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function apiMarketplaceV3DbsOrdersStickersPostWithHttpInfo($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'][0])
+    {
+        $request = $this->apiMarketplaceV3DbsOrdersStickersPostRequest($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPost200Response',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersDbs\Model\Error',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersDbs\Model\ApiV3DbsOrdersNewGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersDbs\Model\Error',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersDbs\Model\ApiV3DbsOrdersNewGet401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPost200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPost200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersDbs\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersDbs\Model\ApiV3DbsOrdersNewGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersDbs\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersDbs\Model\ApiV3DbsOrdersNewGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation apiMarketplaceV3DbsOrdersStickersPostAsync
+     *
+     * Получить стикеры для сборочных заданий с доставкой в ПВЗ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $type Формат стикера (required)
+     * @param  int $width Ширина стикера (required)
+     * @param  int $height Высота стикера (required)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPostRequest|null $api_marketplace_v3_dbs_orders_stickers_post_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function apiMarketplaceV3DbsOrdersStickersPostAsync($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'][0])
+    {
+        return $this->apiMarketplaceV3DbsOrdersStickersPostAsyncWithHttpInfo($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation apiMarketplaceV3DbsOrdersStickersPostAsyncWithHttpInfo
+     *
+     * Получить стикеры для сборочных заданий с доставкой в ПВЗ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $type Формат стикера (required)
+     * @param  int $width Ширина стикера (required)
+     * @param  int $height Высота стикера (required)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPostRequest|null $api_marketplace_v3_dbs_orders_stickers_post_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function apiMarketplaceV3DbsOrdersStickersPostAsyncWithHttpInfo($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPost200Response';
+        $request = $this->apiMarketplaceV3DbsOrdersStickersPostRequest($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'apiMarketplaceV3DbsOrdersStickersPost'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $type Формат стикера (required)
+     * @param  int $width Ширина стикера (required)
+     * @param  int $height Высота стикера (required)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStickersPostRequest|null $api_marketplace_v3_dbs_orders_stickers_post_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function apiMarketplaceV3DbsOrdersStickersPostRequest($type, $width, $height, $api_marketplace_v3_dbs_orders_stickers_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3DbsOrdersStickersPost'][0])
+    {
+
+        // verify the required parameter 'type' is set
+        if ($type === null || (is_array($type) && count($type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $type when calling apiMarketplaceV3DbsOrdersStickersPost'
+            );
+        }
+
+        // verify the required parameter 'width' is set
+        if ($width === null || (is_array($width) && count($width) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $width when calling apiMarketplaceV3DbsOrdersStickersPost'
+            );
+        }
+
+        // verify the required parameter 'height' is set
+        if ($height === null || (is_array($height) && count($height) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $height when calling apiMarketplaceV3DbsOrdersStickersPost'
+            );
+        }
+
+
+
+        $resourcePath = '/api/marketplace/v3/dbs/orders/stickers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $width,
+            'width', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $height,
+            'height', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($api_marketplace_v3_dbs_orders_stickers_post_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_marketplace_v3_dbs_orders_stickers_post_request));
+            } else {
+                $httpBody = $api_marketplace_v3_dbs_orders_stickers_post_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3DbsOrdersStickersPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation apiMarketplaceV3DbsOrdersStickersPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3DbsOrdersStickersPost(): array
     {
         return [
             [

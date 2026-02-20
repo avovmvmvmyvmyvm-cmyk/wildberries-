@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * Адрес покупателя для доставки
+ * Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
  * @export
  * @interface OrderDBSAddress
  */

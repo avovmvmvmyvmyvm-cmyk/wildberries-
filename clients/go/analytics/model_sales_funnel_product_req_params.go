@@ -37,7 +37,7 @@ type SalesFunnelProductReqParams struct {
 	Timezone *string `json:"timezone,omitempty"`
 	// Как сгруппировать данные (по умолчанию по дням):    * `day` — по дням   * `week` — по неделям   * `month` — по месяцам 
 	AggregationLevel *string `json:"aggregationLevel,omitempty"`
-	// Скрыть удалённые карточки товаров
+	// Скрыть удалённые товары
 	SkipDeletedNm *bool `json:"skipDeletedNm,omitempty"`
 }
 

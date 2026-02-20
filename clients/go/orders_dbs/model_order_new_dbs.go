@@ -40,7 +40,7 @@ type OrderNewDBS struct {
 	Rid *string `json:"rid,omitempty"`
 	// Дата создания сборочного задания
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	// Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца 
+	// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца 
 	DeliveryType *string `json:"deliveryType,omitempty"`
 	// Массив баркодов товара
 	Skus []string `json:"skus,omitempty"`
@@ -68,6 +68,8 @@ type OrderNewDBS struct {
 	CargoType *int32 `json:"cargoType,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
+	// ID стикера. Отображается только для заказов в ПВЗ
+	WbStickerId *int32 `json:"wbStickerId,omitempty"`
 }
 
 // NewOrderNewDBS instantiates a new OrderNewDBS object
@@ -898,6 +900,38 @@ func (o *OrderNewDBS) SetIsZeroOrder(v bool) {
 	o.IsZeroOrder = &v
 }
 
+// GetWbStickerId returns the WbStickerId field value if set, zero value otherwise.
+func (o *OrderNewDBS) GetWbStickerId() int32 {
+	if o == nil || IsNil(o.WbStickerId) {
+		var ret int32
+		return ret
+	}
+	return *o.WbStickerId
+}
+
+// GetWbStickerIdOk returns a tuple with the WbStickerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderNewDBS) GetWbStickerIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.WbStickerId) {
+		return nil, false
+	}
+	return o.WbStickerId, true
+}
+
+// HasWbStickerId returns a boolean if a field has been set.
+func (o *OrderNewDBS) HasWbStickerId() bool {
+	if o != nil && !IsNil(o.WbStickerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetWbStickerId gets a reference to the given int32 and assigns it to the WbStickerId field.
+func (o *OrderNewDBS) SetWbStickerId(v int32) {
+	o.WbStickerId = &v
+}
+
 func (o OrderNewDBS) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -982,6 +1016,9 @@ func (o OrderNewDBS) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsZeroOrder) {
 		toSerialize["isZeroOrder"] = o.IsZeroOrder
+	}
+	if !IsNil(o.WbStickerId) {
+		toSerialize["wbStickerId"] = o.WbStickerId
 	}
 	return toSerialize, nil
 }

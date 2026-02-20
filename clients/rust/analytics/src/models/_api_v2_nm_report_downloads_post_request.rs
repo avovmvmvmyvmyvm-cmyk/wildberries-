@@ -25,7 +25,9 @@ pub enum ApiV2NmReportDownloadsPostRequest {
     #[serde(rename="SEARCH_QUERIES_PREMIUM_REPORT_TEXT")]
     SearchQueriesPremiumReportText(Box<models::SearchReportTextReq>),
     #[serde(rename="STOCK_HISTORY_REPORT_CSV")]
-    StockHistoryReportCsv(Box<models::StocksReportReq>),
+    StockHistoryReportCsv(Box<models::InventoryMetricsReportReq>),
+    #[serde(rename="STOCK_HISTORY_DAILY_CSV")]
+    StockHistoryDailyCsv(Box<models::InventoryHistoryReportReq>),
 }
 
 impl Default for ApiV2NmReportDownloadsPostRequest {

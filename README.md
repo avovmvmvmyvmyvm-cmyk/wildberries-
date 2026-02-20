@@ -172,6 +172,7 @@
 - `POST /api/marketplace/v3/dbs/orders/status/info` — Получить статусы сборочных заданий
 - `POST /api/marketplace/v3/dbs/orders/status/receive` — Сообщить о получении заказов
 - `POST /api/marketplace/v3/dbs/orders/status/reject` — Сообщить об отказе от заказов
+- `POST /api/marketplace/v3/dbs/orders/stickers` — Получить стикеры для сборочных заданий с доставкой в ПВЗ
 - `POST /api/v3/dbs/groups/info` — Получить информацию о платной доставке
 - `GET /api/v3/dbs/orders` — Получить информацию о завершенных сборочных заданиях
 - `POST /api/v3/dbs/orders/client` — Информация о покупателе

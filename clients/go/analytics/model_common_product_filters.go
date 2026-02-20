@@ -29,7 +29,7 @@ type CommonProductFilters struct {
 	BrandName *string `json:"brandName,omitempty"`
 	// ID ярлыка
 	TagID *int64 `json:"tagID,omitempty"`
-	CurrentPeriod PeriodSt `json:"currentPeriod"`
+	CurrentPeriod PeriodInv `json:"currentPeriod"`
 	StockType StockType `json:"stockType"`
 	// Скрыть удалённые товары
 	SkipDeletedNm bool `json:"skipDeletedNm"`
@@ -44,7 +44,7 @@ type _CommonProductFilters CommonProductFilters
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonProductFilters(currentPeriod PeriodSt, stockType StockType, skipDeletedNm bool, orderBy TableOrderBy, availabilityFilters []string) *CommonProductFilters {
+func NewCommonProductFilters(currentPeriod PeriodInv, stockType StockType, skipDeletedNm bool, orderBy TableOrderBy, availabilityFilters []string) *CommonProductFilters {
 	this := CommonProductFilters{}
 	this.CurrentPeriod = currentPeriod
 	this.StockType = stockType
@@ -191,9 +191,9 @@ func (o *CommonProductFilters) SetTagID(v int64) {
 }
 
 // GetCurrentPeriod returns the CurrentPeriod field value
-func (o *CommonProductFilters) GetCurrentPeriod() PeriodSt {
+func (o *CommonProductFilters) GetCurrentPeriod() PeriodInv {
 	if o == nil {
-		var ret PeriodSt
+		var ret PeriodInv
 		return ret
 	}
 
@@ -202,7 +202,7 @@ func (o *CommonProductFilters) GetCurrentPeriod() PeriodSt {
 
 // GetCurrentPeriodOk returns a tuple with the CurrentPeriod field value
 // and a boolean to check if the value has been set.
-func (o *CommonProductFilters) GetCurrentPeriodOk() (*PeriodSt, bool) {
+func (o *CommonProductFilters) GetCurrentPeriodOk() (*PeriodInv, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -210,7 +210,7 @@ func (o *CommonProductFilters) GetCurrentPeriodOk() (*PeriodSt, bool) {
 }
 
 // SetCurrentPeriod sets field value
-func (o *CommonProductFilters) SetCurrentPeriod(v PeriodSt) {
+func (o *CommonProductFilters) SetCurrentPeriod(v PeriodInv) {
 	o.CurrentPeriod = v
 }
 

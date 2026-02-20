@@ -24,7 +24,7 @@ pub struct GroupedHistoryRequest {
     /// Список ID ярлыков для фильтрации
     #[serde(rename = "tagIds", skip_serializing_if = "Option::is_none")]
     pub tag_ids: Option<Vec<i32>>,
-    /// Скрыть удалённые карточки товаров
+    /// Скрыть удалённые товары
     #[serde(rename = "skipDeletedNm", skip_serializing_if = "Option::is_none")]
     pub skip_deleted_nm: Option<bool>,
     #[serde(rename = "aggregationLevel", skip_serializing_if = "Option::is_none")]

@@ -62,7 +62,7 @@ class CommonProductFilters implements ModelInterface, ArrayAccess, \JsonSerializ
         'subject_id' => 'int',
         'brand_name' => 'string',
         'tag_id' => 'int',
-        'current_period' => '\Wildberries\Sdk\Analytics\Model\PeriodSt',
+        'current_period' => '\Wildberries\Sdk\Analytics\Model\PeriodInv',
         'stock_type' => '\Wildberries\Sdk\Analytics\Model\StockType',
         'skip_deleted_nm' => 'bool',
         'order_by' => '\Wildberries\Sdk\Analytics\Model\TableOrderBy',
@@ -495,7 +495,7 @@ class CommonProductFilters implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets current_period
      *
-     * @return \Wildberries\Sdk\Analytics\Model\PeriodSt
+     * @return \Wildberries\Sdk\Analytics\Model\PeriodInv
      */
     public function getCurrentPeriod()
     {
@@ -505,7 +505,7 @@ class CommonProductFilters implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets current_period
      *
-     * @param \Wildberries\Sdk\Analytics\Model\PeriodSt $current_period current_period
+     * @param \Wildberries\Sdk\Analytics\Model\PeriodInv $current_period current_period
      *
      * @return self
      */

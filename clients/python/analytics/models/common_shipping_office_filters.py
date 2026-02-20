@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.analytics.models.period_st import PeriodSt
+from wildberries_sdk.analytics.models.period_inv import PeriodInv
 from wildberries_sdk.analytics.models.stock_type import StockType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,7 +32,7 @@ class CommonShippingOfficeFilters(BaseModel):
     subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIDs")
     brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
     tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIDs")
-    current_period: PeriodSt = Field(alias="currentPeriod")
+    current_period: PeriodInv = Field(alias="currentPeriod")
     stock_type: StockType = Field(alias="stockType")
     skip_deleted_nm: StrictBool = Field(description="Скрыть удалённые товары", alias="skipDeletedNm")
     __properties: ClassVar[List[str]] = ["nmIDs", "subjectIDs", "brandNames", "tagIDs", "currentPeriod", "stockType", "skipDeletedNm"]
@@ -95,7 +95,7 @@ class CommonShippingOfficeFilters(BaseModel):
             "subjectIDs": obj.get("subjectIDs"),
             "brandNames": obj.get("brandNames"),
             "tagIDs": obj.get("tagIDs"),
-            "currentPeriod": PeriodSt.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
+            "currentPeriod": PeriodInv.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
             "stockType": obj.get("stockType"),
             "skipDeletedNm": obj.get("skipDeletedNm")
         })

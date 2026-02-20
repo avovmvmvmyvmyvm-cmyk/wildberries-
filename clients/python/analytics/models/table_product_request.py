@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wildberries_sdk.analytics.models.period_st import PeriodSt
+from wildberries_sdk.analytics.models.period_inv import PeriodInv
 from wildberries_sdk.analytics.models.stock_type import StockType
 from wildberries_sdk.analytics.models.table_order_by import TableOrderBy
 from typing import Optional, Set
@@ -34,7 +34,7 @@ class TableProductRequest(BaseModel):
     subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectID")
     brand_name: Optional[StrictStr] = Field(default=None, description="Бренд", alias="brandName")
     tag_id: Optional[StrictInt] = Field(default=None, description="ID ярлыка", alias="tagID")
-    current_period: PeriodSt = Field(alias="currentPeriod")
+    current_period: PeriodInv = Field(alias="currentPeriod")
     stock_type: StockType = Field(alias="stockType")
     skip_deleted_nm: StrictBool = Field(description="Скрыть удалённые товары", alias="skipDeletedNm")
     order_by: TableOrderBy = Field(alias="orderBy")
@@ -112,7 +112,7 @@ class TableProductRequest(BaseModel):
             "subjectID": obj.get("subjectID"),
             "brandName": obj.get("brandName"),
             "tagID": obj.get("tagID"),
-            "currentPeriod": PeriodSt.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
+            "currentPeriod": PeriodInv.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
             "stockType": obj.get("stockType"),
             "skipDeletedNm": obj.get("skipDeletedNm"),
             "orderBy": TableOrderBy.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,

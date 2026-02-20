@@ -11,8 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// StockType : Тип складов хранения товаров:   - `\"\"` — все   - `wb` — Склады WB   - `mp` — Склады продавца 
-/// Тип складов хранения товаров:   - `\"\"` — все   - `wb` — Склады WB   - `mp` — Склады продавца 
+/// StockType : Тип складов хранения товаров:   - `\"\"` — все   - `wb` — склады WB   - `mp` — склады продавца 
+/// Тип складов хранения товаров:   - `\"\"` — все   - `wb` — склады WB   - `mp` — склады продавца 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum StockType {
     #[serde(rename = "")]

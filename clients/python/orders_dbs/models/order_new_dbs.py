@@ -41,7 +41,7 @@ class OrderNewDBS(BaseModel):
     color_code: Optional[StrictStr] = Field(default=None, description="Код цвета (только для колеруемых товаров)", alias="colorCode")
     rid: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)   - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)   - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)   - [Отчет о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)   - [Отчет о продажах по реализации](./financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get) ")
     created_at: Optional[datetime] = Field(default=None, description="Дата создания сборочного задания", alias="createdAt")
-    delivery_type: Optional[StrictStr] = Field(default=None, description="Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца ", alias="deliveryType")
+    delivery_type: Optional[StrictStr] = Field(default=None, description="Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца ", alias="deliveryType")
     skus: Optional[List[StrictStr]] = Field(default=None, description="Массив баркодов товара")
     id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
     warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId")
@@ -55,7 +55,8 @@ class OrderNewDBS(BaseModel):
     converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode")
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
     is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder")
-    __properties: ClassVar[List[str]] = ["salePrice", "requiredMeta", "comment", "options", "address", "orderUid", "groupId", "article", "colorCode", "rid", "createdAt", "deliveryType", "skus", "id", "warehouseId", "nmId", "chrtId", "price", "finalPrice", "convertedFinalPrice", "convertedPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "isZeroOrder"]
+    wb_sticker_id: Optional[StrictInt] = Field(default=None, description="ID стикера. Отображается только для заказов в ПВЗ", alias="wbStickerId")
+    __properties: ClassVar[List[str]] = ["salePrice", "requiredMeta", "comment", "options", "address", "orderUid", "groupId", "article", "colorCode", "rid", "createdAt", "deliveryType", "skus", "id", "warehouseId", "nmId", "chrtId", "price", "finalPrice", "convertedFinalPrice", "convertedPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "isZeroOrder", "wbStickerId"]
 
     @field_validator('delivery_type')
     def delivery_type_validate_enum(cls, value):
@@ -63,8 +64,8 @@ class OrderNewDBS(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['dbs', 'edbs']):
-            raise ValueError("must be one of enum values ('dbs', 'edbs')")
+        if value not in set(['dbs', 'edbs', 'dbsPickupPoint']):
+            raise ValueError("must be one of enum values ('dbs', 'edbs', 'dbsPickupPoint')")
         return value
 
     @field_validator('cargo_type')
@@ -168,7 +169,8 @@ class OrderNewDBS(BaseModel):
             "currencyCode": obj.get("currencyCode"),
             "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
             "cargoType": obj.get("cargoType"),
-            "isZeroOrder": obj.get("isZeroOrder")
+            "isZeroOrder": obj.get("isZeroOrder"),
+            "wbStickerId": obj.get("wbStickerId")
         })
         return _obj
 

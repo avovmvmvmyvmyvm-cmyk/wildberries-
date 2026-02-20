@@ -17,7 +17,7 @@ import (
 // checks if the OrderDBSAddress type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OrderDBSAddress{}
 
-// OrderDBSAddress Адрес покупателя для доставки
+// OrderDBSAddress Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
 type OrderDBSAddress struct {
 	// Адрес доставки
 	FullAddress *string `json:"fullAddress,omitempty"`

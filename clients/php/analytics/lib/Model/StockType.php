@@ -33,7 +33,7 @@ use \Wildberries\Sdk\Analytics\ObjectSerializer;
  * StockType Class Doc Comment
  *
  * @category Class
- * @description Тип складов хранения товаров:   - &#x60;\&quot;\&quot;&#x60; — все   - &#x60;wb&#x60; — Склады WB   - &#x60;mp&#x60; — Склады продавца
+ * @description Тип складов хранения товаров:   - &#x60;\&quot;\&quot;&#x60; — все   - &#x60;wb&#x60; — склады WB   - &#x60;mp&#x60; — склады продавца
  * @package  Wildberries\Sdk\Analytics
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

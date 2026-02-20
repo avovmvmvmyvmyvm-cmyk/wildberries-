@@ -27,7 +27,7 @@ pub struct CommonProductFilters {
     #[serde(rename = "tagID", skip_serializing_if = "Option::is_none")]
     pub tag_id: Option<i64>,
     #[serde(rename = "currentPeriod")]
-    pub current_period: Box<models::PeriodSt>,
+    pub current_period: Box<models::PeriodInv>,
     #[serde(rename = "stockType")]
     pub stock_type: models::StockType,
     /// Скрыть удалённые товары
@@ -42,7 +42,7 @@ pub struct CommonProductFilters {
 
 impl CommonProductFilters {
     /// Общие фильтры по товару
-    pub fn new(current_period: models::PeriodSt, stock_type: models::StockType, skip_deleted_nm: bool, order_by: models::TableOrderBy, availability_filters: Vec<AvailabilityFilters>) -> CommonProductFilters {
+    pub fn new(current_period: models::PeriodInv, stock_type: models::StockType, skip_deleted_nm: bool, order_by: models::TableOrderBy, availability_filters: Vec<AvailabilityFilters>) -> CommonProductFilters {
         CommonProductFilters {
             nm_ids: None,
             subject_id: None,

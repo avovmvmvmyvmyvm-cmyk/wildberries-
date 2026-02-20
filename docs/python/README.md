@@ -176,6 +176,7 @@ print(feedbacks)
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_status_info_post` — `POST /api/marketplace/v3/dbs/orders/status/info` — Получить статусы сборочных заданий
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_status_receive_post` — `POST /api/marketplace/v3/dbs/orders/status/receive` — Сообщить о получении заказов
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_status_reject_post` — `POST /api/marketplace/v3/dbs/orders/status/reject` — Сообщить об отказе от заказов
+- `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_stickers_post` — `POST /api/marketplace/v3/dbs/orders/stickers` — Получить стикеры для сборочных заданий с доставкой в ПВЗ
 - `orders_dbs.DefaultApi.api_v3_dbs_groups_info_post` — `POST /api/v3/dbs/groups/info` — Получить информацию о платной доставке
 - `orders_dbs.DefaultApi.api_v3_dbs_orders_client_post` — `POST /api/v3/dbs/orders/client` — Информация о покупателе
 - `orders_dbs.DefaultApi.api_v3_dbs_orders_delivery_date_post` — `POST /api/v3/dbs/orders/delivery-date` — Дата и время доставки

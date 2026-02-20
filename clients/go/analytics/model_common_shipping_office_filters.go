@@ -29,7 +29,7 @@ type CommonShippingOfficeFilters struct {
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
 	TagIDs []int64 `json:"tagIDs,omitempty"`
-	CurrentPeriod PeriodSt `json:"currentPeriod"`
+	CurrentPeriod PeriodInv `json:"currentPeriod"`
 	StockType StockType `json:"stockType"`
 	// Скрыть удалённые товары
 	SkipDeletedNm bool `json:"skipDeletedNm"`
@@ -41,7 +41,7 @@ type _CommonShippingOfficeFilters CommonShippingOfficeFilters
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonShippingOfficeFilters(currentPeriod PeriodSt, stockType StockType, skipDeletedNm bool) *CommonShippingOfficeFilters {
+func NewCommonShippingOfficeFilters(currentPeriod PeriodInv, stockType StockType, skipDeletedNm bool) *CommonShippingOfficeFilters {
 	this := CommonShippingOfficeFilters{}
 	this.CurrentPeriod = currentPeriod
 	this.StockType = stockType
@@ -186,9 +186,9 @@ func (o *CommonShippingOfficeFilters) SetTagIDs(v []int64) {
 }
 
 // GetCurrentPeriod returns the CurrentPeriod field value
-func (o *CommonShippingOfficeFilters) GetCurrentPeriod() PeriodSt {
+func (o *CommonShippingOfficeFilters) GetCurrentPeriod() PeriodInv {
 	if o == nil {
-		var ret PeriodSt
+		var ret PeriodInv
 		return ret
 	}
 
@@ -197,7 +197,7 @@ func (o *CommonShippingOfficeFilters) GetCurrentPeriod() PeriodSt {
 
 // GetCurrentPeriodOk returns a tuple with the CurrentPeriod field value
 // and a boolean to check if the value has been set.
-func (o *CommonShippingOfficeFilters) GetCurrentPeriodOk() (*PeriodSt, bool) {
+func (o *CommonShippingOfficeFilters) GetCurrentPeriodOk() (*PeriodInv, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -205,7 +205,7 @@ func (o *CommonShippingOfficeFilters) GetCurrentPeriodOk() (*PeriodSt, bool) {
 }
 
 // SetCurrentPeriod sets field value
-func (o *CommonShippingOfficeFilters) SetCurrentPeriod(v PeriodSt) {
+func (o *CommonShippingOfficeFilters) SetCurrentPeriod(v PeriodInv) {
 	o.CurrentPeriod = v
 }
 

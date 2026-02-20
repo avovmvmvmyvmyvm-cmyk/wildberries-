@@ -12,6 +12,20 @@
  * Do not edit the class manually.
  */
 
+import type { InventoryHistoryReportReq } from './InventoryHistoryReportReq';
+import {
+    instanceOfInventoryHistoryReportReq,
+    InventoryHistoryReportReqFromJSON,
+    InventoryHistoryReportReqFromJSONTyped,
+    InventoryHistoryReportReqToJSON,
+} from './InventoryHistoryReportReq';
+import type { InventoryMetricsReportReq } from './InventoryMetricsReportReq';
+import {
+    instanceOfInventoryMetricsReportReq,
+    InventoryMetricsReportReqFromJSON,
+    InventoryMetricsReportReqFromJSONTyped,
+    InventoryMetricsReportReqToJSON,
+} from './InventoryMetricsReportReq';
 import type { SalesFunnelGroupReq } from './SalesFunnelGroupReq';
 import {
     instanceOfSalesFunnelGroupReq,
@@ -47,20 +61,13 @@ import {
     SearchReportTextReqFromJSONTyped,
     SearchReportTextReqToJSON,
 } from './SearchReportTextReq';
-import type { StocksReportReq } from './StocksReportReq';
-import {
-    instanceOfStocksReportReq,
-    StocksReportReqFromJSON,
-    StocksReportReqFromJSONTyped,
-    StocksReportReqToJSON,
-} from './StocksReportReq';
 
 /**
  * @type ApiV2NmReportDownloadsPostRequest
  * 
  * @export
  */
-export type ApiV2NmReportDownloadsPostRequest = { reportType: 'DETAIL_HISTORY_REPORT' } & SalesFunnelProductReq | { reportType: 'GROUPED_HISTORY_REPORT' } & SalesFunnelGroupReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_GROUP' } & SearchReportGroupReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } & SearchReportProductReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT' } & SearchReportTextReq | { reportType: 'STOCK_HISTORY_REPORT_CSV' } & StocksReportReq;
+export type ApiV2NmReportDownloadsPostRequest = { reportType: 'DETAIL_HISTORY_REPORT' } & SalesFunnelProductReq | { reportType: 'GROUPED_HISTORY_REPORT' } & SalesFunnelGroupReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_GROUP' } & SearchReportGroupReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } & SearchReportProductReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT' } & SearchReportTextReq | { reportType: 'STOCK_HISTORY_DAILY_CSV' } & InventoryHistoryReportReq | { reportType: 'STOCK_HISTORY_REPORT_CSV' } & InventoryMetricsReportReq;
 
 export function ApiV2NmReportDownloadsPostRequestFromJSON(json: any): ApiV2NmReportDownloadsPostRequest {
     return ApiV2NmReportDownloadsPostRequestFromJSONTyped(json, false);
@@ -81,8 +88,10 @@ export function ApiV2NmReportDownloadsPostRequestFromJSONTyped(json: any, ignore
             return Object.assign({}, SearchReportProductReqFromJSONTyped(json, true), { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } as const);
         case 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT':
             return Object.assign({}, SearchReportTextReqFromJSONTyped(json, true), { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT' } as const);
+        case 'STOCK_HISTORY_DAILY_CSV':
+            return Object.assign({}, InventoryHistoryReportReqFromJSONTyped(json, true), { reportType: 'STOCK_HISTORY_DAILY_CSV' } as const);
         case 'STOCK_HISTORY_REPORT_CSV':
-            return Object.assign({}, StocksReportReqFromJSONTyped(json, true), { reportType: 'STOCK_HISTORY_REPORT_CSV' } as const);
+            return Object.assign({}, InventoryMetricsReportReqFromJSONTyped(json, true), { reportType: 'STOCK_HISTORY_REPORT_CSV' } as const);
         default:
             return json;
     }
@@ -107,8 +116,10 @@ export function ApiV2NmReportDownloadsPostRequestToJSONTyped(value?: ApiV2NmRepo
             return Object.assign({}, SearchReportProductReqToJSON(value), { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } as const);
         case 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT':
             return Object.assign({}, SearchReportTextReqToJSON(value), { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT' } as const);
+        case 'STOCK_HISTORY_DAILY_CSV':
+            return Object.assign({}, InventoryHistoryReportReqToJSON(value), { reportType: 'STOCK_HISTORY_DAILY_CSV' } as const);
         case 'STOCK_HISTORY_REPORT_CSV':
-            return Object.assign({}, StocksReportReqToJSON(value), { reportType: 'STOCK_HISTORY_REPORT_CSV' } as const);
+            return Object.assign({}, InventoryMetricsReportReqToJSON(value), { reportType: 'STOCK_HISTORY_REPORT_CSV' } as const);
         default:
             return value;
     }

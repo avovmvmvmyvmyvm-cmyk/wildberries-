@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PeriodSt } from './PeriodSt';
+import type { PeriodInv } from './PeriodInv';
 import {
-    PeriodStFromJSON,
-    PeriodStFromJSONTyped,
-    PeriodStToJSON,
-    PeriodStToJSONTyped,
-} from './PeriodSt';
+    PeriodInvFromJSON,
+    PeriodInvFromJSONTyped,
+    PeriodInvToJSON,
+    PeriodInvToJSONTyped,
+} from './PeriodInv';
 import type { StockType } from './StockType';
 import {
     StockTypeFromJSON,
@@ -67,10 +67,10 @@ export interface TableProductRequest {
     tagID?: number;
     /**
      * 
-     * @type {PeriodSt}
+     * @type {PeriodInv}
      * @memberof TableProductRequest
      */
-    currentPeriod: PeriodSt;
+    currentPeriod: PeriodInv;
     /**
      * 
      * @type {StockType}
@@ -158,7 +158,7 @@ export function TableProductRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'subjectID': json['subjectID'] == null ? undefined : json['subjectID'],
         'brandName': json['brandName'] == null ? undefined : json['brandName'],
         'tagID': json['tagID'] == null ? undefined : json['tagID'],
-        'currentPeriod': PeriodStFromJSON(json['currentPeriod']),
+        'currentPeriod': PeriodInvFromJSON(json['currentPeriod']),
         'stockType': StockTypeFromJSON(json['stockType']),
         'skipDeletedNm': json['skipDeletedNm'],
         'orderBy': TableOrderByFromJSON(json['orderBy']),
@@ -183,7 +183,7 @@ export function TableProductRequestToJSONTyped(value?: TableProductRequest | nul
         'subjectID': value['subjectID'],
         'brandName': value['brandName'],
         'tagID': value['tagID'],
-        'currentPeriod': PeriodStToJSON(value['currentPeriod']),
+        'currentPeriod': PeriodInvToJSON(value['currentPeriod']),
         'stockType': StockTypeToJSON(value['stockType']),
         'skipDeletedNm': value['skipDeletedNm'],
         'orderBy': TableOrderByToJSON(value['orderBy']),

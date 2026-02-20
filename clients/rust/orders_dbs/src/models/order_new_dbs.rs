@@ -44,7 +44,7 @@ pub struct OrderNewDbs {
     /// Дата создания сборочного задания
     #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
-    /// Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца 
+    /// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца 
     #[serde(rename = "deliveryType", skip_serializing_if = "Option::is_none")]
     pub delivery_type: Option<DeliveryType>,
     /// Массив баркодов товара
@@ -86,6 +86,9 @@ pub struct OrderNewDbs {
     /// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
     #[serde(rename = "isZeroOrder", skip_serializing_if = "Option::is_none")]
     pub is_zero_order: Option<bool>,
+    /// ID стикера. Отображается только для заказов в ПВЗ
+    #[serde(rename = "wbStickerId", skip_serializing_if = "Option::is_none")]
+    pub wb_sticker_id: Option<i32>,
 }
 
 impl OrderNewDbs {
@@ -116,16 +119,19 @@ impl OrderNewDbs {
             converted_currency_code: None,
             cargo_type: None,
             is_zero_order: None,
+            wb_sticker_id: None,
         }
     }
 }
-/// Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца 
+/// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum DeliveryType {
     #[serde(rename = "dbs")]
     Dbs,
     #[serde(rename = "edbs")]
     Edbs,
+    #[serde(rename = "dbsPickupPoint")]
+    DbsPickupPoint,
 }
 
 impl Default for DeliveryType {

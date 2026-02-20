@@ -24,7 +24,7 @@ type ProductHistoryRequest struct {
 	SelectedPeriod ProductsRequestSelectedPeriod `json:"selectedPeriod"`
 	// Артикулы WB, по которым нужно составить отчёт 
 	NmIds []int32 `json:"nmIds"`
-	// Скрыть удалённые карточки товаров
+	// Скрыть удалённые товары
 	SkipDeletedNm *bool `json:"skipDeletedNm,omitempty"`
 	AggregationLevel *Level `json:"aggregationLevel,omitempty"`
 }

@@ -26,7 +26,7 @@ pub struct TableGroupRequestSt {
     #[serde(rename = "tagIDs", skip_serializing_if = "Option::is_none")]
     pub tag_ids: Option<Vec<i64>>,
     #[serde(rename = "currentPeriod")]
-    pub current_period: Box<models::PeriodSt>,
+    pub current_period: Box<models::PeriodInv>,
     #[serde(rename = "stockType")]
     pub stock_type: models::StockType,
     /// Скрыть удалённые товары
@@ -46,7 +46,7 @@ pub struct TableGroupRequestSt {
 }
 
 impl TableGroupRequestSt {
-    pub fn new(current_period: models::PeriodSt, stock_type: models::StockType, skip_deleted_nm: bool, availability_filters: Vec<AvailabilityFilters>, order_by: models::TableOrderBy, offset: i32) -> TableGroupRequestSt {
+    pub fn new(current_period: models::PeriodInv, stock_type: models::StockType, skip_deleted_nm: bool, availability_filters: Vec<AvailabilityFilters>, order_by: models::TableOrderBy, offset: i32) -> TableGroupRequestSt {
         TableGroupRequestSt {
             nm_ids: None,
             subject_ids: None,

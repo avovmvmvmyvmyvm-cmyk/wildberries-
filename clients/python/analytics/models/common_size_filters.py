@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.analytics.models.period_st import PeriodSt
+from wildberries_sdk.analytics.models.period_inv import PeriodInv
 from wildberries_sdk.analytics.models.stock_type import StockType
 from wildberries_sdk.analytics.models.table_order_by import TableOrderBy
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class CommonSizeFilters(BaseModel):
     Общие фильтры по размеру
     """ # noqa: E501
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmID")
-    current_period: PeriodSt = Field(alias="currentPeriod")
+    current_period: PeriodInv = Field(alias="currentPeriod")
     stock_type: StockType = Field(alias="stockType")
     order_by: TableOrderBy = Field(alias="orderBy")
     include_office: StrictBool = Field(description="Включить детализацию по складам", alias="includeOffice")
@@ -94,7 +94,7 @@ class CommonSizeFilters(BaseModel):
 
         _obj = cls.model_validate({
             "nmID": obj.get("nmID"),
-            "currentPeriod": PeriodSt.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
+            "currentPeriod": PeriodInv.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
             "stockType": obj.get("stockType"),
             "orderBy": TableOrderBy.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,
             "includeOffice": obj.get("includeOffice")

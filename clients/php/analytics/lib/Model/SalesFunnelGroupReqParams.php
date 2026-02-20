@@ -547,7 +547,7 @@ class SalesFunnelGroupReqParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets skip_deleted_nm
      *
-     * @param bool|null $skip_deleted_nm Скрыть удалённые `nmID`
+     * @param bool|null $skip_deleted_nm Скрыть удалённые товары
      *
      * @return self
      */

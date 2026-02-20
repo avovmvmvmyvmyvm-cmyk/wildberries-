@@ -28,7 +28,7 @@ type GroupedHistoryRequest struct {
 	SubjectIds []int32 `json:"subjectIds,omitempty"`
 	// Список ID ярлыков для фильтрации
 	TagIds []int32 `json:"tagIds,omitempty"`
-	// Скрыть удалённые карточки товаров
+	// Скрыть удалённые товары
 	SkipDeletedNm *bool `json:"skipDeletedNm,omitempty"`
 	AggregationLevel *Level `json:"aggregationLevel,omitempty"`
 }

@@ -632,7 +632,7 @@ class SalesFunnelProductReqParams implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets skip_deleted_nm
      *
-     * @param bool|null $skip_deleted_nm Скрыть удалённые карточки товаров
+     * @param bool|null $skip_deleted_nm Скрыть удалённые товары
      *
      * @return self
      */

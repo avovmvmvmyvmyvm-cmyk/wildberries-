@@ -161,7 +161,7 @@ paths:
         Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get).
 
         <div class="description_important">
-          Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a>. Эти методы доступны только с подпиской на <a href='https://seller.wildberries.ru/monetization/jam'>расширенную аналитику Джем</a>
+          Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
         </div>
 
         <div class="description_limit">
@@ -274,7 +274,7 @@ paths:
         Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
 
         <div class="description_important">
-          Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a>. Эти методы доступны только с подпиской на <a href='https://seller.wildberries.ru/monetization/jam'>расширенную аналитику Джем</a>
+          Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a> — тип <code>GROUPED_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
         </div>
 
         <div class="description_limit">
@@ -468,7 +468,7 @@ paths:
 
         В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>
 
-        Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [истории остатков](/openapi/analytics#tag/Istoriya-ostatkov).<br><br>
+        Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [остаткам](/openapi/analytics#tag/Istoriya-ostatkov).<br><br>
 
         Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>
 
@@ -477,7 +477,7 @@ paths:
         Если не удалось [получить отчёт](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1file~1%7BdownloadId%7D/get), можно создать [повторное задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1retry/post). Также можно [получить список и проверить статусы](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) отчётов.
 
         <div class="description_important">
-          Отчёт по <a href="https://seller.wildberries.ru/content-analytics/history-remains">истории остатков</a> — тип <code>STOCK_HISTORY_REPORT_CSV</code> — можно создать без подписки <a href="https://seller.wildberries.ru/monetization/jam">Джем</a>
+          Отчёты по <a href="https://seller.wildberries.ru/content-analytics/history-remains">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href="https://seller.wildberries.ru/monetization/jam">Джем</a>
         </div>
 
         <div class="description_limit">
@@ -618,12 +618,12 @@ paths:
                     includeSubstitutedSKUs: true
                     includeSearchTexts: true
                     limit: 50
-              StocksReportReq:
-                description: Отчёт по истории остатков
+              InventoryMetricsReportReq:
+                description: Отчёт по статистике остатков
                 value:
                   id: 06eae887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: STOCK_HISTORY_REPORT_CSV
-                  userReportName: Stocks report
+                  userReportName: Inventory report
                   params:
                     nmIDs:
                     - 111222333
@@ -649,6 +649,31 @@ paths:
                     orderBy:
                       field: avgOrders
                       mode: asc
+              InventoryHistoryReportReq:
+                description: Отчёт по истории остатков
+                value:
+                  id: 06eae887-9d9f-491f-b16a-bb1766fcb8d2
+                  reportType: STOCK_HISTORY_DAILY_CSV
+                  userReportName: Inventory report
+                  params:
+                    nmIds:
+                    - 111222333
+                    - 444555666
+                    subjectIds:
+                    - 123
+                    - 456
+                    brandNames:
+                    - ЭгКа
+                    - Stock
+                    tagIds:
+                    - 3
+                    - 4
+                    - 5
+                    currentPeriod:
+                      start: 2025-12-13
+                      end: 2025-12-15
+                    stockType: ""
+                    skipDeletedNm: true
             schema:
               $ref: "#/components/schemas/_api_v2_nm_report_downloads_post_request"
       responses:
@@ -845,8 +870,10 @@ paths:
                   $ref: "#/components/examples/SearchReportProductRes"
                 SearchReportTextRes:
                   $ref: "#/components/examples/SearchReportTextRes"
-                StocksReportRes:
-                  $ref: "#/components/examples/StocksReportRes"
+                InventoryMetricsReportRes:
+                  $ref: "#/components/examples/InventoryMetricsReportRes"
+                InventoryHistoryReportRes:
+                  $ref: "#/components/examples/InventoryHistoryReportRes"
               schema:
                 description: "Описание полей в файле CSV:\n<br>\n<br>\n**Воронка п\
                   родаж**\n\n| Имя | Тип | Формат | Описание |\n|-----------------|\
@@ -1011,40 +1038,61 @@ paths:
                   т вероятности, что пользователь увидит карточку товара. Зависит\
                   \ от средней позиции (заполняется, если указан прошлый период),\
                   \ % |\n| Currency | string | string | Валюта отчёта |\n\n\n**Отч\
-                  ёт по истории остатков**\n\n| Имя | Поле | Формат | Описание |\n\
-                  |-----------------| --- | --- | --- |\n| VendorCode | string | string\
-                  \ | Артикул продавца |\n| Name | string\t| string | Название тов\
-                  ара |\n| NmID | integer | int64 | Артикул WB |\n| SubjectName |\
-                  \ string\t| string | Название предмета |\n| BrandName | string |\
-                  \ string  | Бренд |\n| SizeName | string\t| string | Название ра\
-                  змера |\n| ChrtID | integer | int64 | ID размера |\n| RegionName\
-                  \ | string\t| string | Регион отгрузки |\n| OfficeName | string\t\
-                  | string | Название склада |\n| Availability | string\t| enum |\
-                  \ Доступность товара |\n| OrdersCount | integer\t| uint64 | Зака\
-                  зы, шт. |\n| OrdersSum | integer\t| uint64 | Заказы, сумма |\n|\
-                  \ BuyoutCount | integer\t| uint64 | Выкупы, шт. |\n| BuyoutSum |\
-                  \ integer\t| uint64 | Выкупы, сумма |\n| BuyoutPercent | integer\t\
-                  | uint32 | Процент выкупа |\n| AvgOrders | number\t| float64 | С\
-                  реднее количество заказов в день |\n| StockCount | integer\t| uint64\
-                  \ | Остатки на текущий день, шт. |\n| StockSum | integer\t| uint64\
-                  \ | Стоимость остатков на текущий день |\n| SaleRate | integer\t\
-                  | int32 | Оборачиваемость текущих остатков в часах |\n| AvgStockTurnover\
-                  \ | integer\t| int32 | Оборачиваемость средних остатков в часах\
-                  \ |\n| ToClientCount | integer\t| uint64 | В пути к клиенту, шт\
-                  . |\n| FromClientCount | integer\t| uint64 | В пути от клиента,\
-                  \ шт. |\n| Price | integer\t| uint64 | Текущая цена продавца со\
-                  \ скидкой продавца (без учёта скидки WB Клуба) |\n| OfficeMissingTime\
-                  \ | integer\t| int32 | Время отсутствия товара на складе в часах\
-                  \ |\n| LostOrdersCount | number\t| float64 | Упущенные заказы, ш\
-                  т. |\n| LostOrdersSum | number\t| float64 | Упущенные заказы, су\
-                  мма |\n| LostBuyoutsCount | number\t| float64 | Упущенные выкупы\
-                  , шт. |\n| LostBuyoutsSum | number\t| float64 | Упущенные выкупы\
-                  , сумма |\n| AvgOrdersByMonth_MM.YYYY | number\t| float64 | Сред\
-                  нее количество заказов по месяцам. Столбцы формируются динамичес\
-                  ки в зависимости от переданного текущего периода. Каждому месяцу\
-                  \ текущего периода соответствует один столбец. В случае, если то\
-                  вар не существовал на момент конкретного месяца, то значение буд\
-                  ет пропущено |\n| Currency | string | string | Валюта отчёта |\n"
+                  ёт по статистике остатков**\n\n| Имя | Поле | Формат | Описание\
+                  \ |\n|-----------------| --- | --- | --- |\n| VendorCode | string\
+                  \ | string | Артикул продавца |\n| Name | string\t| string | Наз\
+                  вание товара |\n| NmID | integer | int64 | Артикул WB |\n| SubjectName\
+                  \ | string\t| string | Название предмета |\n| BrandName | string\
+                  \ | string  | Бренд |\n| SizeName | string\t| string | Название\
+                  \ размера |\n| ChrtID | integer | int64 | ID размера |\n| RegionName\
+                  \ | string\t| string | Регион отгрузки. Для складов продавца зна\
+                  чение в строках будет `Маркетплейс`, так как данные по складам п\
+                  родавца приходят в агрегированном виде — по всем сразу, без дета\
+                  лизации по конкретным складам |\n| OfficeName | string\t| string\
+                  \ | Название склада. Для складов продавца значение в строках буд\
+                  ет `Маркетплейс`, так как данные по складам продавца приходят в\
+                  \ агрегированном виде — по всем сразу, без детализации по конкре\
+                  тным складам |\n| Availability | string\t| enum | Доступность то\
+                  вара |\n| OrdersCount | integer\t| uint64 | Заказы, шт. |\n| OrdersSum\
+                  \ | integer\t| uint64 | Заказы, сумма |\n| BuyoutCount | integer\t\
+                  | uint64 | Выкупы, шт. |\n| BuyoutSum | integer\t| uint64 | Выку\
+                  пы, сумма |\n| BuyoutPercent | integer\t| uint32 | Процент выкуп\
+                  а |\n| AvgOrders | number\t| float64 | Среднее количество заказо\
+                  в в день |\n| StockCount | integer\t| uint64 | Остатки на текущи\
+                  й день, шт. |\n| StockSum | integer\t| uint64 | Стоимость остатк\
+                  ов на текущий день |\n| SaleRate | integer\t| int32 | Оборачивае\
+                  мость текущих остатков в часах |\n| AvgStockTurnover | integer\t\
+                  | int32 | Оборачиваемость средних остатков в часах |\n| ToClientCount\
+                  \ | integer\t| uint64 | В пути к клиенту, шт. |\n| FromClientCount\
+                  \ | integer\t| uint64 | В пути от клиента, шт. |\n| Price | integer\t\
+                  | uint64 | Текущая цена продавца со скидкой продавца (без учёта\
+                  \ скидки WB Клуба) |\n| OfficeMissingTime | integer\t| int32 | В\
+                  ремя отсутствия товара на складе в часах |\n| LostOrdersCount |\
+                  \ number\t| float64 | Упущенные заказы, шт. |\n| LostOrdersSum |\
+                  \ number\t| float64 | Упущенные заказы, сумма |\n| LostBuyoutsCount\
+                  \ | number\t| float64 | Упущенные выкупы, шт. |\n| LostBuyoutsSum\
+                  \ | number\t| float64 | Упущенные выкупы, сумма |\n| AvgOrdersByMonth_MM.YYYY\
+                  \ | number\t| float64 | Среднее количество заказов по месяцам. С\
+                  толбцы формируются динамически в зависимости от переданного теку\
+                  щего периода. Каждому месяцу текущего периода соответствует один\
+                  \ столбец. В случае, если товар не существовал на момент конкрет\
+                  ного месяца, то значение будет пропущено |\n| Currency | string\
+                  \ | string | Валюта отчёта |\n\n\n**Отчёт по истории остатков**\n\
+                  \n| Имя | Поле | Формат | Описание |\n|-----------------| --- |\
+                  \ --- | --- |\n| VendorCode | string | string | Артикул продавца\
+                  \ |\n| Name | string\t| string | Название товара |\n| NmID | integer\
+                  \ | int64 | Артикул WB |\n| SubjectName | string\t| string | Наз\
+                  вание предмета |\n| BrandName | string | string  | Бренд |\n| SizeName\
+                  \ | string\t| string | Название размера |\n| ChrtID | integer |\
+                  \ int64 | ID размера |\n| OfficeName | string\t| string | Назван\
+                  ие склада. Для складов продавца значение в строках будет `Маркет\
+                  плейс`, так как данные по складам продавца приходят в агрегирова\
+                  нном виде — по всем сразу, без детализации по конкретным складам\
+                  \ |\n| DD.MM.YYYY | integer| uint64 | Остаток по состоянию на 23:59\
+                  \ дня в заголовке. Столбцы формируются динамически в зависимости\
+                  \ от переданного в запросе периода. Каждому дню периода соответс\
+                  твует один столбец. Если товара не было в конкретный день, значе\
+                  ние будет пропущено |\n"
                 format: binary
                 type: string
           description: Успешно
@@ -1895,7 +1943,7 @@ components:
         211131895,211131895,Костюмы,H&M,wb51k31eyg!!!,костюм,10.0,5.0,102,102,36,1,1,44,100,6,100,14,0,5,100,83,100,100,0,0,0,0,0,0,0,0,0,RUB
         221411786,211131895,Костюмы,H&M,wb51k31eyg!!!,костюм,10.0,5.0,102,102,19,1,1,2,11,0,0,0,0,0,0,0,0,100,3,0,0,0,0,0,0,0,0
         женские блузки,211131895,Костюмы,H&M,wb51k31eyg!!!,костюм,10.0,5.0,102,102,38383,14,14,1,0,0,0,0,0,0,0,0,0,79,29764,0,0,0,0,0,0,0,0,RUB
-    StocksReportRes:
+    InventoryMetricsReportRes:
       description: ""
       value: |
         VendorCode,Name,NmID,SubjectName,BrandName,SizeName,ChrtID,RegionName,OfficeName,Availability,OrdersCount,OrdersSum,BuyoutCount,BuyoutSum,BuyoutPercent,AvgOrders,StockCount,StockSum,SaleRate,AvgStockTurnover,ToClientCount,FromClientCount,Price,OfficeMissingTime,LostOrdersCount,LostOrdersSum,LostBuyoutsCount,LostBuyoutsSum,AvgOrdersByMonth_11.2013,AvgOrdersByMonth_12.2013,AvgOrdersByMonth_01.2014,AvgOrdersByMonth_02.2014,AvgOrdersByMonth_03.2014,AvgOrdersByMonth_04.2014,AvgOrdersByMonth_05.2014,AvgOrdersByMonth_06.2014,AvgOrdersByMonth_07.2014,Currency
@@ -1904,6 +1952,20 @@ components:
         059509746730,Pure Quartz Speaker,6780550382946145952,Термокомплекты,Next Step Living,60-62,984574321,South,Office3,balanced,3214,3214000,789,789000,30,0.30,40,40000,1,11,555,666,66484,-3,0.03,0.08,0.71,0.48,,,47297.22,55308.71,6463.43,48664.95,0.00,0.00,74502.72,RUB
         058266400986,Modular Stainless Monitor,3475827302459171321,Термокомплекты,TagniFi,65-67,926554321,East,Office4,nonActual,312,312000,123,123000,40,0.71,50,50000,13,-2,666,888,53254,-3,0.96,0.01,0.97,0.92,,67227.50,4608.98,90300.06,15890.52,0.00,0.00,41891.11,0.00,RUB
         070198970053,Microwave Quick Eco-Friendly,4734922922328623947,Термокомплекты,Boston Consulting Group,46-48,983234321,West,Office5,nonLiquid,343,343000,456,456000,50,0.92,60,60000,17,-2,777,101010,43823,-1,0.84,0.14,0.26,0.75,30463.57,8073.43,26678.35,0.00,339.99,56237.24,2172.75,74665.30,14296.76,RUB
+    InventoryHistoryReportRes:
+      description: ""
+      value: |
+        VendorCode,Name,NmID,SubjectName,BrandName,SizeName,ChrtID,OfficeName,13.12.2025,14.12.2025,15.12.2025
+        41058/прозрачный,Чехол для телефона прозрачный111,5870243,Чехлы для телефонов,Arizona.kz,-,20964883,Коледино,1,1,1
+        41058/прозрачный,Чехол для телефона прозрачный111,5870243,Чехлы для телефонов,Arizona.kz,-,20964883,Маркетплейс,1000,997,923
+        wb59toaotq,Брюки,12862180,Болеро,,O,39533928,Маркетплейс,6,8,4
+        451263124,Брюки фывфыв 123,12862181,Брюки,DUB,A,39533929,Маркетплейс,11,10,11
+        wb33q6504x,ПАЗЛ,13088345,Пазлы,паззззлы,-,40030565,Маркетплейс,2,28,54
+        4854554654/0,Альбом,13480414,Альбомы для коллекционирования,Эконом,-,40873579,Маркетплейс,25,20,19
+        14053651Черный,Дубленка 333334,14652473,Дубленки,SARTORI DODICI,48,43253666,Маркетплейс,30,30,30
+        HGF56X,Чай,14986284,Чай,Lipton,-,43804848,Коледино,154,254,223
+        123401,Кроссовки,14917832,Кофе молотый,,-,43807552,Казань,0,0,0
+        123401,Кроссовки,14917832,Кофе молотый,,-,43807552,Подольск,4,0,23
   responses:
     "401":
       content:
@@ -4118,14 +4180,15 @@ components:
       - params
       - reportType
       type: object
-    StocksReportReq:
+    InventoryMetricsReportReq:
       properties:
         id:
           description: ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
           format: uuid
           type: string
         reportType:
-          description: Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по истории остатков
+          description: Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике
+            остатков
           type: string
         userReportName:
           description: "Название отчёта. Если не указано, сформируется автоматичес\
@@ -4135,6 +4198,26 @@ components:
           allOf:
           - $ref: "#/components/schemas/CommonReportFilters"
           description: Параметры отчёта
+      required:
+      - id
+      - params
+      - reportType
+      type: object
+    InventoryHistoryReportReq:
+      properties:
+        id:
+          description: ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
+          format: uuid
+          type: string
+        reportType:
+          description: Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
+          type: string
+        userReportName:
+          description: "Название отчёта. Если не указано, сформируется автоматичес\
+            ки"
+          type: string
+        params:
+          $ref: "#/components/schemas/InventoryHistoryReportReq_params"
       required:
       - id
       - params
@@ -4151,11 +4234,11 @@ components:
           type: string
     NmReportCreateReportResponse:
       example:
-        data: Created
+        data: Началось формирование файла/отчета
       properties:
         data:
           description: "Уведомление, что началась генерация отчёта"
-          example: Created
+          example: Началось формирование файла/отчета
           type: string
       required:
       - data
@@ -4346,7 +4429,7 @@ components:
             type: integer
           type: array
         currentPeriod:
-          $ref: "#/components/schemas/PeriodSt"
+          $ref: "#/components/schemas/PeriodInv"
         stockType:
           $ref: "#/components/schemas/StockType"
         skipDeletedNm:
@@ -4384,7 +4467,7 @@ components:
       - skipDeletedNm
       - stockType
       type: object
-    PeriodSt:
+    PeriodInv:
       description: Период
       example:
         start: 2024-02-10
@@ -4409,8 +4492,8 @@ components:
       description: |
         Тип складов хранения товаров:
           - `""` — все
-          - `wb` — Склады WB
-          - `mp` — Склады продавца
+          - `wb` — склады WB
+          - `mp` — склады продавца
       enum:
       - ""
       - wb
@@ -5157,7 +5240,7 @@ components:
           format: int64
           type: integer
         currentPeriod:
-          $ref: "#/components/schemas/PeriodSt"
+          $ref: "#/components/schemas/PeriodInv"
         stockType:
           $ref: "#/components/schemas/StockType"
         skipDeletedNm:
@@ -5320,7 +5403,7 @@ components:
           format: int64
           type: integer
         currentPeriod:
-          $ref: "#/components/schemas/PeriodSt"
+          $ref: "#/components/schemas/PeriodInv"
         stockType:
           $ref: "#/components/schemas/StockType"
         orderBy:
@@ -5553,7 +5636,7 @@ components:
             type: integer
           type: array
         currentPeriod:
-          $ref: "#/components/schemas/PeriodSt"
+          $ref: "#/components/schemas/PeriodInv"
         stockType:
           $ref: "#/components/schemas/StockType"
         skipDeletedNm:
@@ -5731,7 +5814,7 @@ components:
             type: integer
           type: array
         skipDeletedNm:
-          description: Скрыть удалённые карточки товаров
+          description: Скрыть удалённые товары
           example: false
           type: boolean
         orderBy:
@@ -5779,7 +5862,7 @@ components:
           minItems: 1
           type: array
         skipDeletedNm:
-          description: Скрыть удалённые карточки товаров
+          description: Скрыть удалённые товары
           type: boolean
         aggregationLevel:
           $ref: "#/components/schemas/Level"
@@ -5833,7 +5916,7 @@ components:
             type: integer
           type: array
         skipDeletedNm:
-          description: Скрыть удалённые карточки товаров
+          description: Скрыть удалённые товары
           example: false
           type: boolean
         aggregationLevel:
@@ -7180,7 +7263,8 @@ components:
           SEARCH_QUERIES_PREMIUM_REPORT_GROUP: "#/components/schemas/SearchReportGroupReq"
           SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT: "#/components/schemas/SearchReportProductReq"
           SEARCH_QUERIES_PREMIUM_REPORT_TEXT: "#/components/schemas/SearchReportTextReq"
-          STOCK_HISTORY_REPORT_CSV: "#/components/schemas/StocksReportReq"
+          STOCK_HISTORY_REPORT_CSV: "#/components/schemas/InventoryMetricsReportReq"
+          STOCK_HISTORY_DAILY_CSV: "#/components/schemas/InventoryHistoryReportReq"
         propertyName: reportType
       oneOf:
       - $ref: "#/components/schemas/SalesFunnelProductReq"
@@ -7188,7 +7272,8 @@ components:
       - $ref: "#/components/schemas/SearchReportGroupReq"
       - $ref: "#/components/schemas/SearchReportProductReq"
       - $ref: "#/components/schemas/SearchReportTextReq"
-      - $ref: "#/components/schemas/StocksReportReq"
+      - $ref: "#/components/schemas/InventoryMetricsReportReq"
+      - $ref: "#/components/schemas/InventoryHistoryReportReq"
     _api_v2_nm_report_downloads_post_429_response:
       oneOf:
       - $ref: "#/components/schemas/response429Download"
@@ -8928,7 +9013,7 @@ components:
           - month
           type: string
         skipDeletedNm:
-          description: Скрыть удалённые карточки товаров
+          description: Скрыть удалённые товары
           type: boolean
       required:
       - endDate
@@ -8984,7 +9069,7 @@ components:
               * `month` — по месяцам
           type: string
         skipDeletedNm:
-          description: Скрыть удалённые `nmID`
+          description: Скрыть удалённые товары
           type: boolean
       required:
       - endDate
@@ -9187,6 +9272,58 @@ components:
       - limit
       - orderBy
       - topOrderBy
+      type: object
+    InventoryHistoryReportReq_params:
+      description: Параметры отчёта
+      properties:
+        nmIds:
+          description: Список артикулов WB для фильтрации
+          example:
+          - 111222333
+          - 444555666
+          items:
+            format: int64
+            type: integer
+          type: array
+        subjectIds:
+          description: Список ID предметов для фильтрации
+          example:
+          - 123
+          - 456
+          items:
+            format: int32
+            type: integer
+          type: array
+        brandNames:
+          description: Список брендов для фильтрации
+          example:
+          - Эрк
+          - Дент
+          items:
+            type: string
+          type: array
+        tagIds:
+          description: Список ID ярлыков для фильтрации
+          example:
+          - 3
+          - 4
+          - 5
+          items:
+            format: int64
+            type: integer
+          type: array
+        currentPeriod:
+          $ref: "#/components/schemas/PeriodInv"
+        stockType:
+          $ref: "#/components/schemas/StockType"
+        skipDeletedNm:
+          description: Скрыть удалённые товары
+          example: true
+          type: boolean
+      required:
+      - currentPeriod
+      - skipDeletedNm
+      - stockType
       type: object
     NmReportGetReportsResponse_data_inner:
       example:

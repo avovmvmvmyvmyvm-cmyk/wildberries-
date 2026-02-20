@@ -31,7 +31,7 @@ class ProductHistoryRequest(BaseModel):
     """ # noqa: E501
     selected_period: ProductsRequestSelectedPeriod = Field(alias="selectedPeriod")
     nm_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=20)] = Field(description="Артикулы WB, по которым нужно составить отчёт ", alias="nmIds")
-    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые карточки товаров", alias="skipDeletedNm")
+    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые товары", alias="skipDeletedNm")
     aggregation_level: Optional[Level] = Field(default=Level.DAY, alias="aggregationLevel")
     __properties: ClassVar[List[str]] = ["selectedPeriod", "nmIds", "skipDeletedNm", "aggregationLevel"]
 

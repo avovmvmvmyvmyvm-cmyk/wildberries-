@@ -19,6 +19,8 @@ import type {
   ApiBatchError,
   ApiError,
   ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest,
+  ApiMarketplaceV3DbsOrdersStickersPost200Response,
+  ApiMarketplaceV3DbsOrdersStickersPostRequest,
   ApiOrderGroupInner,
   ApiOrderGroupsRequest,
   ApiOrderStatusesV2,
@@ -56,6 +58,10 @@ import {
     ApiErrorToJSON,
     ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestFromJSON,
     ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestToJSON,
+    ApiMarketplaceV3DbsOrdersStickersPost200ResponseFromJSON,
+    ApiMarketplaceV3DbsOrdersStickersPost200ResponseToJSON,
+    ApiMarketplaceV3DbsOrdersStickersPostRequestFromJSON,
+    ApiMarketplaceV3DbsOrdersStickersPostRequestToJSON,
     ApiOrderGroupInnerFromJSON,
     ApiOrderGroupInnerToJSON,
     ApiOrderGroupsRequestFromJSON,
@@ -166,6 +172,13 @@ export interface ApiMarketplaceV3DbsOrdersStatusReceivePostRequest {
 
 export interface ApiMarketplaceV3DbsOrdersStatusRejectPostRequest {
     apiOrdersCodeRequest?: ApiOrdersCodeRequest;
+}
+
+export interface ApiMarketplaceV3DbsOrdersStickersPostOperationRequest {
+    type: ApiMarketplaceV3DbsOrdersStickersPostOperationTypeEnum;
+    width: ApiMarketplaceV3DbsOrdersStickersPostOperationWidthEnum;
+    height: ApiMarketplaceV3DbsOrdersStickersPostOperationHeightEnum;
+    apiMarketplaceV3DbsOrdersStickersPostRequest?: ApiMarketplaceV3DbsOrdersStickersPostRequest;
 }
 
 export interface ApiV3DbsGroupsInfoPostRequest {
@@ -894,6 +907,85 @@ export class DBSApi extends runtime.BaseAPI {
      */
     async apiMarketplaceV3DbsOrdersStatusRejectPost(requestParameters: ApiMarketplaceV3DbsOrdersStatusRejectPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.apiMarketplaceV3DbsOrdersStatusRejectPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for apiMarketplaceV3DbsOrdersStickersPost without sending the request
+     */
+    async apiMarketplaceV3DbsOrdersStickersPostRequestOpts(requestParameters: ApiMarketplaceV3DbsOrdersStickersPostOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['type'] == null) {
+            throw new runtime.RequiredError(
+                'type',
+                'Required parameter "type" was null or undefined when calling apiMarketplaceV3DbsOrdersStickersPost().'
+            );
+        }
+
+        if (requestParameters['width'] == null) {
+            throw new runtime.RequiredError(
+                'width',
+                'Required parameter "width" was null or undefined when calling apiMarketplaceV3DbsOrdersStickersPost().'
+            );
+        }
+
+        if (requestParameters['height'] == null) {
+            throw new runtime.RequiredError(
+                'height',
+                'Required parameter "height" was null or undefined when calling apiMarketplaceV3DbsOrdersStickersPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['width'] != null) {
+            queryParameters['width'] = requestParameters['width'];
+        }
+
+        if (requestParameters['height'] != null) {
+            queryParameters['height'] = requestParameters['height'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/dbs/orders/stickers`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiMarketplaceV3DbsOrdersStickersPostRequestToJSON(requestParameters['apiMarketplaceV3DbsOrdersStickersPostRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает стикеры для сборочных заданий с доставкой в ПВЗ в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post):   - `confirm` — на сборке   - `deliver` — в доставке  Получить стикеры можно только в размере 580x400 px в формате PDF.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  </div> 
+     * Получить стикеры для сборочных заданий с доставкой в ПВЗ
+     */
+    async apiMarketplaceV3DbsOrdersStickersPostRaw(requestParameters: ApiMarketplaceV3DbsOrdersStickersPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMarketplaceV3DbsOrdersStickersPost200Response>> {
+        const requestOptions = await this.apiMarketplaceV3DbsOrdersStickersPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMarketplaceV3DbsOrdersStickersPost200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает стикеры для сборочных заданий с доставкой в ПВЗ в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post):   - `confirm` — на сборке   - `deliver` — в доставке  Получить стикеры можно только в размере 580x400 px в формате PDF.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  </div> 
+     * Получить стикеры для сборочных заданий с доставкой в ПВЗ
+     */
+    async apiMarketplaceV3DbsOrdersStickersPost(requestParameters: ApiMarketplaceV3DbsOrdersStickersPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMarketplaceV3DbsOrdersStickersPost200Response> {
+        const response = await this.apiMarketplaceV3DbsOrdersStickersPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1856,3 +1948,25 @@ export class DBSApi extends runtime.BaseAPI {
     }
 
 }
+
+/**
+ * @export
+ */
+export const ApiMarketplaceV3DbsOrdersStickersPostOperationTypeEnum = {
+    Pdf: 'pdf'
+} as const;
+export type ApiMarketplaceV3DbsOrdersStickersPostOperationTypeEnum = typeof ApiMarketplaceV3DbsOrdersStickersPostOperationTypeEnum[keyof typeof ApiMarketplaceV3DbsOrdersStickersPostOperationTypeEnum];
+/**
+ * @export
+ */
+export const ApiMarketplaceV3DbsOrdersStickersPostOperationWidthEnum = {
+    NUMBER_58: 58
+} as const;
+export type ApiMarketplaceV3DbsOrdersStickersPostOperationWidthEnum = typeof ApiMarketplaceV3DbsOrdersStickersPostOperationWidthEnum[keyof typeof ApiMarketplaceV3DbsOrdersStickersPostOperationWidthEnum];
+/**
+ * @export
+ */
+export const ApiMarketplaceV3DbsOrdersStickersPostOperationHeightEnum = {
+    NUMBER_40: 40
+} as const;
+export type ApiMarketplaceV3DbsOrdersStickersPostOperationHeightEnum = typeof ApiMarketplaceV3DbsOrdersStickersPostOperationHeightEnum[keyof typeof ApiMarketplaceV3DbsOrdersStickersPostOperationHeightEnum];

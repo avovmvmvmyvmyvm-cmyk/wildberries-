@@ -62,7 +62,7 @@ class CommonReportFilters implements ModelInterface, ArrayAccess, \JsonSerializa
         'subject_ids' => 'int[]',
         'brand_names' => 'string[]',
         'tag_ids' => 'int[]',
-        'current_period' => '\Wildberries\Sdk\Analytics\Model\PeriodSt',
+        'current_period' => '\Wildberries\Sdk\Analytics\Model\PeriodInv',
         'stock_type' => '\Wildberries\Sdk\Analytics\Model\StockType',
         'skip_deleted_nm' => 'bool',
         'availability_filters' => 'string[]',
@@ -495,7 +495,7 @@ class CommonReportFilters implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets current_period
      *
-     * @return \Wildberries\Sdk\Analytics\Model\PeriodSt
+     * @return \Wildberries\Sdk\Analytics\Model\PeriodInv
      */
     public function getCurrentPeriod()
     {
@@ -505,7 +505,7 @@ class CommonReportFilters implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets current_period
      *
-     * @param \Wildberries\Sdk\Analytics\Model\PeriodSt $current_period current_period
+     * @param \Wildberries\Sdk\Analytics\Model\PeriodInv $current_period current_period
      *
      * @return self
      */

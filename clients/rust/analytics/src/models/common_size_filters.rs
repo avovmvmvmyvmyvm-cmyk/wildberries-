@@ -18,7 +18,7 @@ pub struct CommonSizeFilters {
     #[serde(rename = "nmID")]
     pub nm_id: i64,
     #[serde(rename = "currentPeriod")]
-    pub current_period: Box<models::PeriodSt>,
+    pub current_period: Box<models::PeriodInv>,
     #[serde(rename = "stockType")]
     pub stock_type: models::StockType,
     #[serde(rename = "orderBy")]
@@ -30,7 +30,7 @@ pub struct CommonSizeFilters {
 
 impl CommonSizeFilters {
     /// Общие фильтры по размеру
-    pub fn new(nm_id: i64, current_period: models::PeriodSt, stock_type: models::StockType, order_by: models::TableOrderBy, include_office: bool) -> CommonSizeFilters {
+    pub fn new(nm_id: i64, current_period: models::PeriodInv, stock_type: models::StockType, order_by: models::TableOrderBy, include_office: bool) -> CommonSizeFilters {
         CommonSizeFilters {
             nm_id,
             current_period: Box::new(current_period),

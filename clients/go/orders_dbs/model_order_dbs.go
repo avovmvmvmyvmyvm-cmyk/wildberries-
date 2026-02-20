@@ -21,7 +21,7 @@ var _ MappedNullable = &OrderDBS{}
 // OrderDBS struct for OrderDBS
 type OrderDBS struct {
 	Address NullableOrderDBSAddress `json:"address,omitempty"`
-	// Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца 
+	// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца 
 	DeliveryType *string `json:"deliveryType,omitempty"`
 	Options *OrderNewDBSOptions `json:"options,omitempty"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
@@ -46,6 +46,8 @@ type OrderDBS struct {
 	NmId *int32 `json:"nmId,omitempty"`
 	// ID размера товара в системе WB
 	ChrtId *int32 `json:"chrtId,omitempty"`
+	// Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ
+	ScanPrice NullableInt32 `json:"scanPrice,omitempty"`
 	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
 	Price *int32 `json:"price,omitempty"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
@@ -64,6 +66,8 @@ type OrderDBS struct {
 	Comment *string `json:"comment,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
+	// ID стикера. Отображается только для заказов в ПВЗ
+	WbStickerId *int32 `json:"wbStickerId,omitempty"`
 }
 
 // NewOrderDBS instantiates a new OrderDBS object
@@ -541,6 +545,48 @@ func (o *OrderDBS) SetChrtId(v int32) {
 	o.ChrtId = &v
 }
 
+// GetScanPrice returns the ScanPrice field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *OrderDBS) GetScanPrice() int32 {
+	if o == nil || IsNil(o.ScanPrice.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.ScanPrice.Get()
+}
+
+// GetScanPriceOk returns a tuple with the ScanPrice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *OrderDBS) GetScanPriceOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ScanPrice.Get(), o.ScanPrice.IsSet()
+}
+
+// HasScanPrice returns a boolean if a field has been set.
+func (o *OrderDBS) HasScanPrice() bool {
+	if o != nil && o.ScanPrice.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetScanPrice gets a reference to the given NullableInt32 and assigns it to the ScanPrice field.
+func (o *OrderDBS) SetScanPrice(v int32) {
+	o.ScanPrice.Set(&v)
+}
+// SetScanPriceNil sets the value for ScanPrice to be an explicit nil
+func (o *OrderDBS) SetScanPriceNil() {
+	o.ScanPrice.Set(nil)
+}
+
+// UnsetScanPrice ensures that no value is present for ScanPrice, not even an explicit nil
+func (o *OrderDBS) UnsetScanPrice() {
+	o.ScanPrice.Unset()
+}
+
 // GetPrice returns the Price field value if set, zero value otherwise.
 func (o *OrderDBS) GetPrice() int32 {
 	if o == nil || IsNil(o.Price) {
@@ -829,6 +875,38 @@ func (o *OrderDBS) SetIsZeroOrder(v bool) {
 	o.IsZeroOrder = &v
 }
 
+// GetWbStickerId returns the WbStickerId field value if set, zero value otherwise.
+func (o *OrderDBS) GetWbStickerId() int32 {
+	if o == nil || IsNil(o.WbStickerId) {
+		var ret int32
+		return ret
+	}
+	return *o.WbStickerId
+}
+
+// GetWbStickerIdOk returns a tuple with the WbStickerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderDBS) GetWbStickerIdOk() (*int32, bool) {
+	if o == nil || IsNil(o.WbStickerId) {
+		return nil, false
+	}
+	return o.WbStickerId, true
+}
+
+// HasWbStickerId returns a boolean if a field has been set.
+func (o *OrderDBS) HasWbStickerId() bool {
+	if o != nil && !IsNil(o.WbStickerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetWbStickerId gets a reference to the given int32 and assigns it to the WbStickerId field.
+func (o *OrderDBS) SetWbStickerId(v int32) {
+	o.WbStickerId = &v
+}
+
 func (o OrderDBS) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -881,6 +959,9 @@ func (o OrderDBS) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ChrtId) {
 		toSerialize["chrtId"] = o.ChrtId
 	}
+	if o.ScanPrice.IsSet() {
+		toSerialize["scanPrice"] = o.ScanPrice.Get()
+	}
 	if !IsNil(o.Price) {
 		toSerialize["price"] = o.Price
 	}
@@ -907,6 +988,9 @@ func (o OrderDBS) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsZeroOrder) {
 		toSerialize["isZeroOrder"] = o.IsZeroOrder
+	}
+	if !IsNil(o.WbStickerId) {
+		toSerialize["wbStickerId"] = o.WbStickerId
 	}
 	return toSerialize, nil
 }

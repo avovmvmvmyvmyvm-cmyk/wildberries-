@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PeriodSt } from './PeriodSt';
+import type { PeriodInv } from './PeriodInv';
 import {
-    PeriodStFromJSON,
-    PeriodStFromJSONTyped,
-    PeriodStToJSON,
-    PeriodStToJSONTyped,
-} from './PeriodSt';
+    PeriodInvFromJSON,
+    PeriodInvFromJSONTyped,
+    PeriodInvToJSON,
+    PeriodInvToJSONTyped,
+} from './PeriodInv';
 import type { StockType } from './StockType';
 import {
     StockTypeFromJSON,
@@ -49,10 +49,10 @@ export interface CommonSizeFilters {
     nmID: number;
     /**
      * 
-     * @type {PeriodSt}
+     * @type {PeriodInv}
      * @memberof CommonSizeFilters
      */
-    currentPeriod: PeriodSt;
+    currentPeriod: PeriodInv;
     /**
      * 
      * @type {StockType}
@@ -98,7 +98,7 @@ export function CommonSizeFiltersFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'nmID': json['nmID'],
-        'currentPeriod': PeriodStFromJSON(json['currentPeriod']),
+        'currentPeriod': PeriodInvFromJSON(json['currentPeriod']),
         'stockType': StockTypeFromJSON(json['stockType']),
         'orderBy': TableOrderByFromJSON(json['orderBy']),
         'includeOffice': json['includeOffice'],
@@ -117,7 +117,7 @@ export function CommonSizeFiltersToJSONTyped(value?: CommonSizeFilters | null, i
     return {
         
         'nmID': value['nmID'],
-        'currentPeriod': PeriodStToJSON(value['currentPeriod']),
+        'currentPeriod': PeriodInvToJSON(value['currentPeriod']),
         'stockType': StockTypeToJSON(value['stockType']),
         'orderBy': TableOrderByToJSON(value['orderBy']),
         'includeOffice': value['includeOffice'],

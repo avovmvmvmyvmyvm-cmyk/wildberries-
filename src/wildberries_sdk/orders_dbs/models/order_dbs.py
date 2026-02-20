@@ -31,7 +31,7 @@ class OrderDBS(BaseModel):
     OrderDBS
     """ # noqa: E501
     address: Optional[OrderDBSAddress] = None
-    delivery_type: Optional[StrictStr] = Field(default=None, description="Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца ", alias="deliveryType")
+    delivery_type: Optional[StrictStr] = Field(default=None, description="Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца ", alias="deliveryType")
     options: Optional[OrderNewDBSOptions] = None
     order_uid: Optional[StrictStr] = Field(default=None, description="ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`", alias="orderUid")
     group_id: Optional[StrictStr] = Field(default=None, description="ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)", alias="groupId")
@@ -44,6 +44,7 @@ class OrderDBS(BaseModel):
     warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId")
     nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
     chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара в системе WB", alias="chrtId")
+    scan_price: Optional[StrictInt] = Field(default=None, description="Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ", alias="scanPrice")
     price: Optional[StrictInt] = Field(default=None, description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях")
     converted_price: Optional[StrictInt] = Field(default=None, description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях", alias="convertedPrice")
     currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты продажи", alias="currencyCode")
@@ -53,7 +54,8 @@ class OrderDBS(BaseModel):
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
     comment: Optional[Annotated[str, Field(strict=True, max_length=300)]] = Field(default=None, description="Комментарий покупателя")
     is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder")
-    __properties: ClassVar[List[str]] = ["address", "deliveryType", "options", "orderUid", "groupId", "article", "colorCode", "rid", "createdAt", "skus", "id", "warehouseId", "nmId", "chrtId", "price", "convertedPrice", "currencyCode", "convertedCurrencyCode", "convertedFinalPrice", "finalPrice", "cargoType", "comment", "isZeroOrder"]
+    wb_sticker_id: Optional[StrictInt] = Field(default=None, description="ID стикера. Отображается только для заказов в ПВЗ", alias="wbStickerId")
+    __properties: ClassVar[List[str]] = ["address", "deliveryType", "options", "orderUid", "groupId", "article", "colorCode", "rid", "createdAt", "skus", "id", "warehouseId", "nmId", "chrtId", "scanPrice", "price", "convertedPrice", "currencyCode", "convertedCurrencyCode", "convertedFinalPrice", "finalPrice", "cargoType", "comment", "isZeroOrder", "wbStickerId"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
@@ -115,6 +117,11 @@ class OrderDBS(BaseModel):
         if self.address is None and "address" in self.model_fields_set:
             _dict['address'] = None
 
+        # set to None if scan_price (nullable) is None
+        # and model_fields_set contains the field
+        if self.scan_price is None and "scan_price" in self.model_fields_set:
+            _dict['scanPrice'] = None
+
         return _dict
 
     @classmethod
@@ -141,6 +148,7 @@ class OrderDBS(BaseModel):
             "warehouseId": obj.get("warehouseId"),
             "nmId": obj.get("nmId"),
             "chrtId": obj.get("chrtId"),
+            "scanPrice": obj.get("scanPrice"),
             "price": obj.get("price"),
             "convertedPrice": obj.get("convertedPrice"),
             "currencyCode": obj.get("currencyCode"),
@@ -149,7 +157,8 @@ class OrderDBS(BaseModel):
             "finalPrice": obj.get("finalPrice"),
             "cargoType": obj.get("cargoType"),
             "comment": obj.get("comment"),
-            "isZeroOrder": obj.get("isZeroOrder")
+            "isZeroOrder": obj.get("isZeroOrder"),
+            "wbStickerId": obj.get("wbStickerId")
         })
         return _obj
 

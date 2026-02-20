@@ -24,12 +24,12 @@ from wildberries_sdk.analytics.models.common_report_filters import CommonReportF
 from typing import Optional, Set
 from typing_extensions import Self
 
-class StocksReportReq(BaseModel):
+class InventoryMetricsReportReq(BaseModel):
     """
-    StocksReportReq
+    InventoryMetricsReportReq
     """ # noqa: E501
     id: UUID = Field(description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно")
-    report_type: StrictStr = Field(description="Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по истории остатков", alias="reportType")
+    report_type: StrictStr = Field(description="Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков", alias="reportType")
     user_report_name: Optional[StrictStr] = Field(default=None, description="Название отчёта. Если не указано, сформируется автоматически", alias="userReportName")
     params: CommonReportFilters = Field(description="Параметры отчёта")
     __properties: ClassVar[List[str]] = ["id", "reportType", "userReportName", "params"]
@@ -52,7 +52,7 @@ class StocksReportReq(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of StocksReportReq from a JSON string"""
+        """Create an instance of InventoryMetricsReportReq from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,7 +80,7 @@ class StocksReportReq(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of StocksReportReq from a dict"""
+        """Create an instance of InventoryMetricsReportReq from a dict"""
         if obj is None:
             return None
 

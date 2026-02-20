@@ -18,12 +18,27 @@ import (
 
 // ApiV2NmReportDownloadsPostRequest - struct for ApiV2NmReportDownloadsPostRequest
 type ApiV2NmReportDownloadsPostRequest struct {
+	InventoryHistoryReportReq *InventoryHistoryReportReq
+	InventoryMetricsReportReq *InventoryMetricsReportReq
 	SalesFunnelGroupReq *SalesFunnelGroupReq
 	SalesFunnelProductReq *SalesFunnelProductReq
 	SearchReportGroupReq *SearchReportGroupReq
 	SearchReportProductReq *SearchReportProductReq
 	SearchReportTextReq *SearchReportTextReq
-	StocksReportReq *StocksReportReq
+}
+
+// InventoryHistoryReportReqAsApiV2NmReportDownloadsPostRequest is a convenience function that returns InventoryHistoryReportReq wrapped in ApiV2NmReportDownloadsPostRequest
+func InventoryHistoryReportReqAsApiV2NmReportDownloadsPostRequest(v *InventoryHistoryReportReq) ApiV2NmReportDownloadsPostRequest {
+	return ApiV2NmReportDownloadsPostRequest{
+		InventoryHistoryReportReq: v,
+	}
+}
+
+// InventoryMetricsReportReqAsApiV2NmReportDownloadsPostRequest is a convenience function that returns InventoryMetricsReportReq wrapped in ApiV2NmReportDownloadsPostRequest
+func InventoryMetricsReportReqAsApiV2NmReportDownloadsPostRequest(v *InventoryMetricsReportReq) ApiV2NmReportDownloadsPostRequest {
+	return ApiV2NmReportDownloadsPostRequest{
+		InventoryMetricsReportReq: v,
+	}
 }
 
 // SalesFunnelGroupReqAsApiV2NmReportDownloadsPostRequest is a convenience function that returns SalesFunnelGroupReq wrapped in ApiV2NmReportDownloadsPostRequest
@@ -61,18 +76,45 @@ func SearchReportTextReqAsApiV2NmReportDownloadsPostRequest(v *SearchReportTextR
 	}
 }
 
-// StocksReportReqAsApiV2NmReportDownloadsPostRequest is a convenience function that returns StocksReportReq wrapped in ApiV2NmReportDownloadsPostRequest
-func StocksReportReqAsApiV2NmReportDownloadsPostRequest(v *StocksReportReq) ApiV2NmReportDownloadsPostRequest {
-	return ApiV2NmReportDownloadsPostRequest{
-		StocksReportReq: v,
-	}
-}
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *ApiV2NmReportDownloadsPostRequest) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
+	// try to unmarshal data into InventoryHistoryReportReq
+	err = newStrictDecoder(data).Decode(&dst.InventoryHistoryReportReq)
+	if err == nil {
+		jsonInventoryHistoryReportReq, _ := json.Marshal(dst.InventoryHistoryReportReq)
+		if string(jsonInventoryHistoryReportReq) == "{}" { // empty struct
+			dst.InventoryHistoryReportReq = nil
+		} else {
+			if err = validator.Validate(dst.InventoryHistoryReportReq); err != nil {
+				dst.InventoryHistoryReportReq = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.InventoryHistoryReportReq = nil
+	}
+
+	// try to unmarshal data into InventoryMetricsReportReq
+	err = newStrictDecoder(data).Decode(&dst.InventoryMetricsReportReq)
+	if err == nil {
+		jsonInventoryMetricsReportReq, _ := json.Marshal(dst.InventoryMetricsReportReq)
+		if string(jsonInventoryMetricsReportReq) == "{}" { // empty struct
+			dst.InventoryMetricsReportReq = nil
+		} else {
+			if err = validator.Validate(dst.InventoryMetricsReportReq); err != nil {
+				dst.InventoryMetricsReportReq = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.InventoryMetricsReportReq = nil
+	}
+
 	// try to unmarshal data into SalesFunnelGroupReq
 	err = newStrictDecoder(data).Decode(&dst.SalesFunnelGroupReq)
 	if err == nil {
@@ -158,31 +200,15 @@ func (dst *ApiV2NmReportDownloadsPostRequest) UnmarshalJSON(data []byte) error {
 		dst.SearchReportTextReq = nil
 	}
 
-	// try to unmarshal data into StocksReportReq
-	err = newStrictDecoder(data).Decode(&dst.StocksReportReq)
-	if err == nil {
-		jsonStocksReportReq, _ := json.Marshal(dst.StocksReportReq)
-		if string(jsonStocksReportReq) == "{}" { // empty struct
-			dst.StocksReportReq = nil
-		} else {
-			if err = validator.Validate(dst.StocksReportReq); err != nil {
-				dst.StocksReportReq = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.StocksReportReq = nil
-	}
-
 	if match > 1 { // more than 1 match
 		// reset to nil
+		dst.InventoryHistoryReportReq = nil
+		dst.InventoryMetricsReportReq = nil
 		dst.SalesFunnelGroupReq = nil
 		dst.SalesFunnelProductReq = nil
 		dst.SearchReportGroupReq = nil
 		dst.SearchReportProductReq = nil
 		dst.SearchReportTextReq = nil
-		dst.StocksReportReq = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(ApiV2NmReportDownloadsPostRequest)")
 	} else if match == 1 {
@@ -194,6 +220,14 @@ func (dst *ApiV2NmReportDownloadsPostRequest) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src ApiV2NmReportDownloadsPostRequest) MarshalJSON() ([]byte, error) {
+	if src.InventoryHistoryReportReq != nil {
+		return json.Marshal(&src.InventoryHistoryReportReq)
+	}
+
+	if src.InventoryMetricsReportReq != nil {
+		return json.Marshal(&src.InventoryMetricsReportReq)
+	}
+
 	if src.SalesFunnelGroupReq != nil {
 		return json.Marshal(&src.SalesFunnelGroupReq)
 	}
@@ -214,10 +248,6 @@ func (src ApiV2NmReportDownloadsPostRequest) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.SearchReportTextReq)
 	}
 
-	if src.StocksReportReq != nil {
-		return json.Marshal(&src.StocksReportReq)
-	}
-
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -226,6 +256,14 @@ func (obj *ApiV2NmReportDownloadsPostRequest) GetActualInstance() (interface{}) 
 	if obj == nil {
 		return nil
 	}
+	if obj.InventoryHistoryReportReq != nil {
+		return obj.InventoryHistoryReportReq
+	}
+
+	if obj.InventoryMetricsReportReq != nil {
+		return obj.InventoryMetricsReportReq
+	}
+
 	if obj.SalesFunnelGroupReq != nil {
 		return obj.SalesFunnelGroupReq
 	}
@@ -246,16 +284,20 @@ func (obj *ApiV2NmReportDownloadsPostRequest) GetActualInstance() (interface{}) 
 		return obj.SearchReportTextReq
 	}
 
-	if obj.StocksReportReq != nil {
-		return obj.StocksReportReq
-	}
-
 	// all schemas are nil
 	return nil
 }
 
 // Get the actual instance value
 func (obj ApiV2NmReportDownloadsPostRequest) GetActualInstanceValue() (interface{}) {
+	if obj.InventoryHistoryReportReq != nil {
+		return *obj.InventoryHistoryReportReq
+	}
+
+	if obj.InventoryMetricsReportReq != nil {
+		return *obj.InventoryMetricsReportReq
+	}
+
 	if obj.SalesFunnelGroupReq != nil {
 		return *obj.SalesFunnelGroupReq
 	}
@@ -274,10 +316,6 @@ func (obj ApiV2NmReportDownloadsPostRequest) GetActualInstanceValue() (interface
 
 	if obj.SearchReportTextReq != nil {
 		return *obj.SearchReportTextReq
-	}
-
-	if obj.StocksReportReq != nil {
-		return *obj.StocksReportReq
 	}
 
 	// all schemas are nil

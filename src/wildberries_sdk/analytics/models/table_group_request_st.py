@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wildberries_sdk.analytics.models.period_st import PeriodSt
+from wildberries_sdk.analytics.models.period_inv import PeriodInv
 from wildberries_sdk.analytics.models.stock_type import StockType
 from wildberries_sdk.analytics.models.table_order_by import TableOrderBy
 from typing import Optional, Set
@@ -34,7 +34,7 @@ class TableGroupRequestSt(BaseModel):
     subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIDs")
     brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
     tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIDs")
-    current_period: PeriodSt = Field(alias="currentPeriod")
+    current_period: PeriodInv = Field(alias="currentPeriod")
     stock_type: StockType = Field(alias="stockType")
     skip_deleted_nm: StrictBool = Field(description="Скрыть удалённые товары", alias="skipDeletedNm")
     availability_filters: List[StrictStr] = Field(description="Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано ", alias="availabilityFilters")
@@ -112,7 +112,7 @@ class TableGroupRequestSt(BaseModel):
             "subjectIDs": obj.get("subjectIDs"),
             "brandNames": obj.get("brandNames"),
             "tagIDs": obj.get("tagIDs"),
-            "currentPeriod": PeriodSt.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
+            "currentPeriod": PeriodInv.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
             "stockType": obj.get("stockType"),
             "skipDeletedNm": obj.get("skipDeletedNm"),
             "availabilityFilters": obj.get("availabilityFilters"),

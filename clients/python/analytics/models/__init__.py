@@ -46,6 +46,9 @@ from wildberries_sdk.analytics.models.float_graph_by_period_item import FloatGra
 from wildberries_sdk.analytics.models.grouped_history_request import GroupedHistoryRequest
 from wildberries_sdk.analytics.models.history import History
 from wildberries_sdk.analytics.models.history_product import HistoryProduct
+from wildberries_sdk.analytics.models.inventory_history_report_req import InventoryHistoryReportReq
+from wildberries_sdk.analytics.models.inventory_history_report_req_params import InventoryHistoryReportReqParams
+from wildberries_sdk.analytics.models.inventory_metrics_report_req import InventoryMetricsReportReq
 from wildberries_sdk.analytics.models.level import Level
 from wildberries_sdk.analytics.models.main_request import MainRequest
 from wildberries_sdk.analytics.models.main_response import MainResponse
@@ -60,8 +63,8 @@ from wildberries_sdk.analytics.models.order_by_main_and_details import OrderByMa
 from wildberries_sdk.analytics.models.order_by_mode import OrderByMode
 from wildberries_sdk.analytics.models.past_period import PastPeriod
 from wildberries_sdk.analytics.models.period import Period
+from wildberries_sdk.analytics.models.period_inv import PeriodInv
 from wildberries_sdk.analytics.models.period_orders_request import PeriodOrdersRequest
-from wildberries_sdk.analytics.models.period_st import PeriodSt
 from wildberries_sdk.analytics.models.position_cluster import PositionCluster
 from wildberries_sdk.analytics.models.position_info import PositionInfo
 from wildberries_sdk.analytics.models.position_info_average import PositionInfoAverage
@@ -114,7 +117,6 @@ from wildberries_sdk.analytics.models.statistics_comparison import StatisticsCom
 from wildberries_sdk.analytics.models.statistics_past import StatisticsPast
 from wildberries_sdk.analytics.models.statistics_selected import StatisticsSelected
 from wildberries_sdk.analytics.models.stock_type import StockType
-from wildberries_sdk.analytics.models.stocks_report_req import StocksReportReq
 from wildberries_sdk.analytics.models.table_common_metrics import TableCommonMetrics
 from wildberries_sdk.analytics.models.table_common_metrics_avg_stock_turnover import TableCommonMetricsAvgStockTurnover
 from wildberries_sdk.analytics.models.table_common_metrics_office_missing_time import TableCommonMetricsOfficeMissingTime

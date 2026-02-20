@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// OrderNewDbsAddress : Адрес покупателя для доставки
+/// OrderNewDbsAddress : Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderNewDbsAddress {
     /// Адрес доставки
@@ -26,7 +26,7 @@ pub struct OrderNewDbsAddress {
 }
 
 impl OrderNewDbsAddress {
-    /// Адрес покупателя для доставки
+    /// Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ 
     pub fn new() -> OrderNewDbsAddress {
         OrderNewDbsAddress {
             full_address: None,

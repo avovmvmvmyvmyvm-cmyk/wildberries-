@@ -71,6 +71,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'warehouse_id' => 'int',
         'nm_id' => 'int',
         'chrt_id' => 'int',
+        'scan_price' => 'int',
         'price' => 'int',
         'converted_price' => 'int',
         'currency_code' => 'int',
@@ -79,7 +80,8 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'final_price' => 'int',
         'cargo_type' => 'int',
         'comment' => 'string',
-        'is_zero_order' => 'bool'
+        'is_zero_order' => 'bool',
+        'wb_sticker_id' => 'int'
     ];
 
     /**
@@ -104,6 +106,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'warehouse_id' => null,
         'nm_id' => null,
         'chrt_id' => null,
+        'scan_price' => null,
         'price' => null,
         'converted_price' => null,
         'currency_code' => 'ISO 4217',
@@ -112,7 +115,8 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'final_price' => null,
         'cargo_type' => null,
         'comment' => null,
-        'is_zero_order' => null
+        'is_zero_order' => null,
+        'wb_sticker_id' => null
     ];
 
     /**
@@ -135,6 +139,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'warehouse_id' => false,
         'nm_id' => false,
         'chrt_id' => false,
+        'scan_price' => true,
         'price' => false,
         'converted_price' => false,
         'currency_code' => false,
@@ -143,7 +148,8 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'final_price' => false,
         'cargo_type' => false,
         'comment' => false,
-        'is_zero_order' => false
+        'is_zero_order' => false,
+        'wb_sticker_id' => false
     ];
 
     /**
@@ -246,6 +252,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'warehouse_id' => 'warehouseId',
         'nm_id' => 'nmId',
         'chrt_id' => 'chrtId',
+        'scan_price' => 'scanPrice',
         'price' => 'price',
         'converted_price' => 'convertedPrice',
         'currency_code' => 'currencyCode',
@@ -254,7 +261,8 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'final_price' => 'finalPrice',
         'cargo_type' => 'cargoType',
         'comment' => 'comment',
-        'is_zero_order' => 'isZeroOrder'
+        'is_zero_order' => 'isZeroOrder',
+        'wb_sticker_id' => 'wbStickerId'
     ];
 
     /**
@@ -277,6 +285,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'warehouse_id' => 'setWarehouseId',
         'nm_id' => 'setNmId',
         'chrt_id' => 'setChrtId',
+        'scan_price' => 'setScanPrice',
         'price' => 'setPrice',
         'converted_price' => 'setConvertedPrice',
         'currency_code' => 'setCurrencyCode',
@@ -285,7 +294,8 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'final_price' => 'setFinalPrice',
         'cargo_type' => 'setCargoType',
         'comment' => 'setComment',
-        'is_zero_order' => 'setIsZeroOrder'
+        'is_zero_order' => 'setIsZeroOrder',
+        'wb_sticker_id' => 'setWbStickerId'
     ];
 
     /**
@@ -308,6 +318,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'warehouse_id' => 'getWarehouseId',
         'nm_id' => 'getNmId',
         'chrt_id' => 'getChrtId',
+        'scan_price' => 'getScanPrice',
         'price' => 'getPrice',
         'converted_price' => 'getConvertedPrice',
         'currency_code' => 'getCurrencyCode',
@@ -316,7 +327,8 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'final_price' => 'getFinalPrice',
         'cargo_type' => 'getCargoType',
         'comment' => 'getComment',
-        'is_zero_order' => 'getIsZeroOrder'
+        'is_zero_order' => 'getIsZeroOrder',
+        'wb_sticker_id' => 'getWbStickerId'
     ];
 
     /**
@@ -407,6 +419,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('warehouse_id', $data ?? [], null);
         $this->setIfExists('nm_id', $data ?? [], null);
         $this->setIfExists('chrt_id', $data ?? [], null);
+        $this->setIfExists('scan_price', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('converted_price', $data ?? [], null);
         $this->setIfExists('currency_code', $data ?? [], null);
@@ -416,6 +429,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('cargo_type', $data ?? [], null);
         $this->setIfExists('comment', $data ?? [], null);
         $this->setIfExists('is_zero_order', $data ?? [], null);
+        $this->setIfExists('wb_sticker_id', $data ?? [], null);
     }
 
     /**
@@ -520,7 +534,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_type
      *
-     * @param string|null $delivery_type Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца
+     * @param string|null $delivery_type Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца
      *
      * @return self
      */
@@ -859,6 +873,40 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets scan_price
+     *
+     * @return int|null
+     */
+    public function getScanPrice()
+    {
+        return $this->container['scan_price'];
+    }
+
+    /**
+     * Sets scan_price
+     *
+     * @param int|null $scan_price Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ
+     *
+     * @return self
+     */
+    public function setScanPrice($scan_price)
+    {
+        if (is_null($scan_price)) {
+            array_push($this->openAPINullablesSetToNull, 'scan_price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('scan_price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['scan_price'] = $scan_price;
+
+        return $this;
+    }
+
+    /**
      * Gets price
      *
      * @return int|null
@@ -1111,6 +1159,33 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_zero_order cannot be null');
         }
         $this->container['is_zero_order'] = $is_zero_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets wb_sticker_id
+     *
+     * @return int|null
+     */
+    public function getWbStickerId()
+    {
+        return $this->container['wb_sticker_id'];
+    }
+
+    /**
+     * Sets wb_sticker_id
+     *
+     * @param int|null $wb_sticker_id ID стикера. Отображается только для заказов в ПВЗ
+     *
+     * @return self
+     */
+    public function setWbStickerId($wb_sticker_id)
+    {
+        if (is_null($wb_sticker_id)) {
+            throw new \InvalidArgumentException('non-nullable wb_sticker_id cannot be null');
+        }
+        $this->container['wb_sticker_id'] = $wb_sticker_id;
 
         return $this;
     }

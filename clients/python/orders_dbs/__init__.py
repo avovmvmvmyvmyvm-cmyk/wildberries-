@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.45"
+__version__ = "0.1.46"
 
 # Define package exports
 __all__ = [
@@ -39,6 +39,9 @@ __all__ = [
     "ApiIMEI",
     "ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest",
     "ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner",
+    "ApiMarketplaceV3DbsOrdersStickersPost200Response",
+    "ApiMarketplaceV3DbsOrdersStickersPost200ResponseStickersInner",
+    "ApiMarketplaceV3DbsOrdersStickersPostRequest",
     "ApiOrderCodeRequest",
     "ApiOrderGroupInner",
     "ApiOrderGroupsRequest",
@@ -115,6 +118,9 @@ from wildberries_sdk.orders_dbs.models.api_gtin import ApiGTIN as ApiGTIN
 from wildberries_sdk.orders_dbs.models.api_imei import ApiIMEI as ApiIMEI
 from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request import ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest as ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
 from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request_orders_inner import ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner as ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner
+from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_stickers_post200_response import ApiMarketplaceV3DbsOrdersStickersPost200Response as ApiMarketplaceV3DbsOrdersStickersPost200Response
+from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_stickers_post200_response_stickers_inner import ApiMarketplaceV3DbsOrdersStickersPost200ResponseStickersInner as ApiMarketplaceV3DbsOrdersStickersPost200ResponseStickersInner
+from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_stickers_post_request import ApiMarketplaceV3DbsOrdersStickersPostRequest as ApiMarketplaceV3DbsOrdersStickersPostRequest
 from wildberries_sdk.orders_dbs.models.api_order_code_request import ApiOrderCodeRequest as ApiOrderCodeRequest
 from wildberries_sdk.orders_dbs.models.api_order_group_inner import ApiOrderGroupInner as ApiOrderGroupInner
 from wildberries_sdk.orders_dbs.models.api_order_groups_request import ApiOrderGroupsRequest as ApiOrderGroupsRequest

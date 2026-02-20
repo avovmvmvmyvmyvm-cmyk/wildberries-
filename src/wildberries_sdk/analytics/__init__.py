@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.45"
+__version__ = "0.1.46"
 
 # Define package exports
 __all__ = [
@@ -61,6 +61,9 @@ __all__ = [
     "GroupedHistoryRequest",
     "History",
     "HistoryProduct",
+    "InventoryHistoryReportReq",
+    "InventoryHistoryReportReqParams",
+    "InventoryMetricsReportReq",
     "Level",
     "MainRequest",
     "MainResponse",
@@ -75,8 +78,8 @@ __all__ = [
     "OrderByMode",
     "PastPeriod",
     "Period",
+    "PeriodInv",
     "PeriodOrdersRequest",
-    "PeriodSt",
     "PositionCluster",
     "PositionInfo",
     "PositionInfoAverage",
@@ -129,7 +132,6 @@ __all__ = [
     "StatisticsPast",
     "StatisticsSelected",
     "StockType",
-    "StocksReportReq",
     "TableCommonMetrics",
     "TableCommonMetricsAvgStockTurnover",
     "TableCommonMetricsOfficeMissingTime",
@@ -234,6 +236,9 @@ from wildberries_sdk.analytics.models.float_graph_by_period_item import FloatGra
 from wildberries_sdk.analytics.models.grouped_history_request import GroupedHistoryRequest as GroupedHistoryRequest
 from wildberries_sdk.analytics.models.history import History as History
 from wildberries_sdk.analytics.models.history_product import HistoryProduct as HistoryProduct
+from wildberries_sdk.analytics.models.inventory_history_report_req import InventoryHistoryReportReq as InventoryHistoryReportReq
+from wildberries_sdk.analytics.models.inventory_history_report_req_params import InventoryHistoryReportReqParams as InventoryHistoryReportReqParams
+from wildberries_sdk.analytics.models.inventory_metrics_report_req import InventoryMetricsReportReq as InventoryMetricsReportReq
 from wildberries_sdk.analytics.models.level import Level as Level
 from wildberries_sdk.analytics.models.main_request import MainRequest as MainRequest
 from wildberries_sdk.analytics.models.main_response import MainResponse as MainResponse
@@ -248,8 +253,8 @@ from wildberries_sdk.analytics.models.order_by_main_and_details import OrderByMa
 from wildberries_sdk.analytics.models.order_by_mode import OrderByMode as OrderByMode
 from wildberries_sdk.analytics.models.past_period import PastPeriod as PastPeriod
 from wildberries_sdk.analytics.models.period import Period as Period
+from wildberries_sdk.analytics.models.period_inv import PeriodInv as PeriodInv
 from wildberries_sdk.analytics.models.period_orders_request import PeriodOrdersRequest as PeriodOrdersRequest
-from wildberries_sdk.analytics.models.period_st import PeriodSt as PeriodSt
 from wildberries_sdk.analytics.models.position_cluster import PositionCluster as PositionCluster
 from wildberries_sdk.analytics.models.position_info import PositionInfo as PositionInfo
 from wildberries_sdk.analytics.models.position_info_average import PositionInfoAverage as PositionInfoAverage
@@ -302,7 +307,6 @@ from wildberries_sdk.analytics.models.statistics_comparison import StatisticsCom
 from wildberries_sdk.analytics.models.statistics_past import StatisticsPast as StatisticsPast
 from wildberries_sdk.analytics.models.statistics_selected import StatisticsSelected as StatisticsSelected
 from wildberries_sdk.analytics.models.stock_type import StockType as StockType
-from wildberries_sdk.analytics.models.stocks_report_req import StocksReportReq as StocksReportReq
 from wildberries_sdk.analytics.models.table_common_metrics import TableCommonMetrics as TableCommonMetrics
 from wildberries_sdk.analytics.models.table_common_metrics_avg_stock_turnover import TableCommonMetricsAvgStockTurnover as TableCommonMetricsAvgStockTurnover
 from wildberries_sdk.analytics.models.table_common_metrics_office_missing_time import TableCommonMetricsOfficeMissingTime as TableCommonMetricsOfficeMissingTime

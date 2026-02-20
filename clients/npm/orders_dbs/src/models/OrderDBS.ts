@@ -43,6 +43,7 @@ export interface OrderDBS {
     /**
      * Тип доставки:
      *   - `dbs` — доставка силами продавца
+     *   - `dbsPickupPoint` — доставка силами продавца в ПВЗ
      *   - `edbs` — экспресс-доставка силами продавца
      * 
      * @type {string}
@@ -129,6 +130,12 @@ export interface OrderDBS {
      */
     chrtId?: number;
     /**
+     * Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ
+     * @type {number}
+     * @memberof OrderDBS
+     */
+    scanPrice?: number | null;
+    /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
      * @type {number}
      * @memberof OrderDBS
@@ -189,6 +196,12 @@ export interface OrderDBS {
      * @memberof OrderDBS
      */
     isZeroOrder?: boolean;
+    /**
+     * ID стикера. Отображается только для заказов в ПВЗ
+     * @type {number}
+     * @memberof OrderDBS
+     */
+    wbStickerId?: number;
 }
 
 
@@ -234,6 +247,7 @@ export function OrderDBSFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'warehouseId': json['warehouseId'] == null ? undefined : json['warehouseId'],
         'nmId': json['nmId'] == null ? undefined : json['nmId'],
         'chrtId': json['chrtId'] == null ? undefined : json['chrtId'],
+        'scanPrice': json['scanPrice'] == null ? undefined : json['scanPrice'],
         'price': json['price'] == null ? undefined : json['price'],
         'convertedPrice': json['convertedPrice'] == null ? undefined : json['convertedPrice'],
         'currencyCode': json['currencyCode'] == null ? undefined : json['currencyCode'],
@@ -243,6 +257,7 @@ export function OrderDBSFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'comment': json['comment'] == null ? undefined : json['comment'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
+        'wbStickerId': json['wbStickerId'] == null ? undefined : json['wbStickerId'],
     };
 }
 
@@ -271,6 +286,7 @@ export function OrderDBSToJSONTyped(value?: OrderDBS | null, ignoreDiscriminator
         'warehouseId': value['warehouseId'],
         'nmId': value['nmId'],
         'chrtId': value['chrtId'],
+        'scanPrice': value['scanPrice'],
         'price': value['price'],
         'convertedPrice': value['convertedPrice'],
         'currencyCode': value['currencyCode'],
@@ -280,6 +296,7 @@ export function OrderDBSToJSONTyped(value?: OrderDBS | null, ignoreDiscriminator
         'cargoType': value['cargoType'],
         'comment': value['comment'],
         'isZeroOrder': value['isZeroOrder'],
+        'wbStickerId': value['wbStickerId'],
     };
 }
 

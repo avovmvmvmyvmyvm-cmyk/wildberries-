@@ -29,7 +29,7 @@ type TableProductRequest struct {
 	BrandName *string `json:"brandName,omitempty"`
 	// ID ярлыка
 	TagID *int64 `json:"tagID,omitempty"`
-	CurrentPeriod PeriodSt `json:"currentPeriod"`
+	CurrentPeriod PeriodInv `json:"currentPeriod"`
 	StockType StockType `json:"stockType"`
 	// Скрыть удалённые товары
 	SkipDeletedNm bool `json:"skipDeletedNm"`
@@ -48,7 +48,7 @@ type _TableProductRequest TableProductRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableProductRequest(currentPeriod PeriodSt, stockType StockType, skipDeletedNm bool, orderBy TableOrderBy, availabilityFilters []string, offset int32) *TableProductRequest {
+func NewTableProductRequest(currentPeriod PeriodInv, stockType StockType, skipDeletedNm bool, orderBy TableOrderBy, availabilityFilters []string, offset int32) *TableProductRequest {
 	this := TableProductRequest{}
 	this.CurrentPeriod = currentPeriod
 	this.StockType = stockType
@@ -200,9 +200,9 @@ func (o *TableProductRequest) SetTagID(v int64) {
 }
 
 // GetCurrentPeriod returns the CurrentPeriod field value
-func (o *TableProductRequest) GetCurrentPeriod() PeriodSt {
+func (o *TableProductRequest) GetCurrentPeriod() PeriodInv {
 	if o == nil {
-		var ret PeriodSt
+		var ret PeriodInv
 		return ret
 	}
 
@@ -211,7 +211,7 @@ func (o *TableProductRequest) GetCurrentPeriod() PeriodSt {
 
 // GetCurrentPeriodOk returns a tuple with the CurrentPeriod field value
 // and a boolean to check if the value has been set.
-func (o *TableProductRequest) GetCurrentPeriodOk() (*PeriodSt, bool) {
+func (o *TableProductRequest) GetCurrentPeriodOk() (*PeriodInv, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -219,7 +219,7 @@ func (o *TableProductRequest) GetCurrentPeriodOk() (*PeriodSt, bool) {
 }
 
 // SetCurrentPeriod sets field value
-func (o *TableProductRequest) SetCurrentPeriod(v PeriodSt) {
+func (o *TableProductRequest) SetCurrentPeriod(v PeriodInv) {
 	o.CurrentPeriod = v
 }
 

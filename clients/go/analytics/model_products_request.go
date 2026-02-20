@@ -31,7 +31,7 @@ type ProductsRequest struct {
 	SubjectIds []int32 `json:"subjectIds,omitempty"`
 	// Список ID ярлыков для фильтрации
 	TagIds []int32 `json:"tagIds,omitempty"`
-	// Скрыть удалённые карточки товаров
+	// Скрыть удалённые товары
 	SkipDeletedNm *bool `json:"skipDeletedNm,omitempty"`
 	OrderBy *OrderBy `json:"orderBy,omitempty"`
 	// Количество карточек товара в ответе

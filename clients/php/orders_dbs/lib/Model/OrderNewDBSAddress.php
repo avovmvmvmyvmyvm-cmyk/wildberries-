@@ -35,7 +35,7 @@ use \Wildberries\Sdk\OrdersDbs\ObjectSerializer;
  * OrderNewDBSAddress Class Doc Comment
  *
  * @category Class
- * @description Адрес покупателя для доставки
+ * @description Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
  * @package  Wildberries\Sdk\OrdersDbs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

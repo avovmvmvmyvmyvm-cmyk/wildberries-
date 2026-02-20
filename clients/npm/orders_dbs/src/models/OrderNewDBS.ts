@@ -111,6 +111,7 @@ export interface OrderNewDBS {
     /**
      * Тип доставки:
      *   - `dbs` — доставка силами продавца
+     *   - `dbsPickupPoint` — доставка силами продавца в ПВЗ
      *   - `edbs` — экспресс-доставка силами продавца
      * 
      * @type {OrderNewDBSDeliveryTypeEnum}
@@ -202,6 +203,12 @@ export interface OrderNewDBS {
      * @memberof OrderNewDBS
      */
     isZeroOrder?: boolean;
+    /**
+     * ID стикера. Отображается только для заказов в ПВЗ
+     * @type {number}
+     * @memberof OrderNewDBS
+     */
+    wbStickerId?: number;
 }
 
 
@@ -210,7 +217,8 @@ export interface OrderNewDBS {
  */
 export const OrderNewDBSDeliveryTypeEnum = {
     Dbs: 'dbs',
-    Edbs: 'edbs'
+    Edbs: 'edbs',
+    DbsPickupPoint: 'dbsPickupPoint'
 } as const;
 export type OrderNewDBSDeliveryTypeEnum = typeof OrderNewDBSDeliveryTypeEnum[keyof typeof OrderNewDBSDeliveryTypeEnum];
 
@@ -267,6 +275,7 @@ export function OrderNewDBSFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'convertedCurrencyCode': json['convertedCurrencyCode'] == null ? undefined : json['convertedCurrencyCode'],
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
+        'wbStickerId': json['wbStickerId'] == null ? undefined : json['wbStickerId'],
     };
 }
 
@@ -306,6 +315,7 @@ export function OrderNewDBSToJSONTyped(value?: OrderNewDBS | null, ignoreDiscrim
         'convertedCurrencyCode': value['convertedCurrencyCode'],
         'cargoType': value['cargoType'],
         'isZeroOrder': value['isZeroOrder'],
+        'wbStickerId': value['wbStickerId'],
     };
 }
 

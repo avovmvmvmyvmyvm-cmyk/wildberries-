@@ -32,7 +32,7 @@ class GroupedHistoryRequest(BaseModel):
     brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
     subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds")
     tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds")
-    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые карточки товаров", alias="skipDeletedNm")
+    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые товары", alias="skipDeletedNm")
     aggregation_level: Optional[Level] = Field(default=Level.DAY, alias="aggregationLevel")
     __properties: ClassVar[List[str]] = ["selectedPeriod", "brandNames", "subjectIds", "tagIds", "skipDeletedNm", "aggregationLevel"]
 

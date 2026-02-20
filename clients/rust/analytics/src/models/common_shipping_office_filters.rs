@@ -27,7 +27,7 @@ pub struct CommonShippingOfficeFilters {
     #[serde(rename = "tagIDs", skip_serializing_if = "Option::is_none")]
     pub tag_ids: Option<Vec<i64>>,
     #[serde(rename = "currentPeriod")]
-    pub current_period: Box<models::PeriodSt>,
+    pub current_period: Box<models::PeriodInv>,
     #[serde(rename = "stockType")]
     pub stock_type: models::StockType,
     /// Скрыть удалённые товары
@@ -37,7 +37,7 @@ pub struct CommonShippingOfficeFilters {
 
 impl CommonShippingOfficeFilters {
     /// Общие фильтры по регионам отгрузки
-    pub fn new(current_period: models::PeriodSt, stock_type: models::StockType, skip_deleted_nm: bool) -> CommonShippingOfficeFilters {
+    pub fn new(current_period: models::PeriodInv, stock_type: models::StockType, skip_deleted_nm: bool) -> CommonShippingOfficeFilters {
         CommonShippingOfficeFilters {
             nm_ids: None,
             subject_ids: None,

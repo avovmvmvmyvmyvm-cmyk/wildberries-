@@ -68,7 +68,7 @@ export interface SalesFunnelGroupReqParams {
      */
     aggregationLevel?: string;
     /**
-     * Скрыть удалённые `nmID`
+     * Скрыть удалённые товары
      * @type {boolean}
      * @memberof SalesFunnelGroupReqParams
      */

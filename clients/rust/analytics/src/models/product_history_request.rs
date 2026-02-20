@@ -18,7 +18,7 @@ pub struct ProductHistoryRequest {
     /// Артикулы WB, по которым нужно составить отчёт 
     #[serde(rename = "nmIds")]
     pub nm_ids: Vec<i32>,
-    /// Скрыть удалённые карточки товаров
+    /// Скрыть удалённые товары
     #[serde(rename = "skipDeletedNm", skip_serializing_if = "Option::is_none")]
     pub skip_deleted_nm: Option<bool>,
     #[serde(rename = "aggregationLevel", skip_serializing_if = "Option::is_none")]

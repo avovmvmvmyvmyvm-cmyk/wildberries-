@@ -164,6 +164,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_dbs.DBSAPIService.ApiMarketplaceV3DbsOrdersStatusInfoPost` — `POST /api/marketplace/v3/dbs/orders/status/info` — Получить статусы сборочных заданий
 - `orders_dbs.DBSAPIService.ApiMarketplaceV3DbsOrdersStatusReceivePost` — `POST /api/marketplace/v3/dbs/orders/status/receive` — Сообщить о получении заказов
 - `orders_dbs.DBSAPIService.ApiMarketplaceV3DbsOrdersStatusRejectPost` — `POST /api/marketplace/v3/dbs/orders/status/reject` — Сообщить об отказе от заказов
+- `orders_dbs.DBSAPIService.ApiMarketplaceV3DbsOrdersStickersPost` — `POST /api/marketplace/v3/dbs/orders/stickers` — Получить стикеры для сборочных заданий с доставкой в ПВЗ
 - `orders_dbs.DBSAPIService.ApiV3DbsGroupsInfoPost` — `POST /api/v3/dbs/groups/info` — Получить информацию о платной доставке
 - `orders_dbs.DBSAPIService.ApiV3DbsOrdersClientPost` — `POST /api/v3/dbs/orders/client` — Информация о покупателе
 - `orders_dbs.DBSAPIService.ApiV3DbsOrdersDeliveryDatePost` — `POST /api/v3/dbs/orders/delivery-date` — Дата и время доставки

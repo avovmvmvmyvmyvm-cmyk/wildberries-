@@ -36,7 +36,7 @@ class ProductsRequest(BaseModel):
     brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
     subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds")
     tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds")
-    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые карточки товаров", alias="skipDeletedNm")
+    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые товары", alias="skipDeletedNm")
     order_by: Optional[OrderBy] = Field(default=None, alias="orderBy")
     limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(default=50, description="Количество карточек товара в ответе")
     offset: Optional[StrictInt] = Field(default=0, description="Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента")

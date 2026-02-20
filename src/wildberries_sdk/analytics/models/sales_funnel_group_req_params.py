@@ -34,7 +34,7 @@ class SalesFunnelGroupReqParams(BaseModel):
     end_date: date = Field(description="Конец периода", alias="endDate")
     timezone: Optional[StrictStr] = Field(default=None, description="Временная зона, по умолчанию Europe/Moscow ")
     aggregation_level: Optional[StrictStr] = Field(default=None, description="Как сгруппировать данные (по умолчанию по дням):    * `day` — по дням   * `week` — по неделям   * `month` — по месяцам ", alias="aggregationLevel")
-    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые `nmID`", alias="skipDeletedNm")
+    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые товары", alias="skipDeletedNm")
     __properties: ClassVar[List[str]] = ["subjectIds", "brandNames", "tagIds", "startDate", "endDate", "timezone", "aggregationLevel", "skipDeletedNm"]
 
     model_config = ConfigDict(

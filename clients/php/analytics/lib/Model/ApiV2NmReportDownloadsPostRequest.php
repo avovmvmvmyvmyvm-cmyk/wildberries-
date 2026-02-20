@@ -60,7 +60,7 @@ class ApiV2NmReportDownloadsPostRequest implements ModelInterface, ArrayAccess, 
         'id' => 'string',
         'report_type' => 'string',
         'user_report_name' => 'string',
-        'params' => '\Wildberries\Sdk\Analytics\Model\CommonReportFilters'
+        'params' => '\Wildberries\Sdk\Analytics\Model\InventoryHistoryReportReqParams'
     ];
 
     /**
@@ -362,7 +362,7 @@ class ApiV2NmReportDownloadsPostRequest implements ModelInterface, ArrayAccess, 
     /**
      * Sets report_type
      *
-     * @param string $report_type Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по истории остатков
+     * @param string $report_type Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
      *
      * @return self
      */
@@ -406,7 +406,7 @@ class ApiV2NmReportDownloadsPostRequest implements ModelInterface, ArrayAccess, 
     /**
      * Gets params
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonReportFilters
+     * @return \Wildberries\Sdk\Analytics\Model\InventoryHistoryReportReqParams
      */
     public function getParams()
     {
@@ -416,7 +416,7 @@ class ApiV2NmReportDownloadsPostRequest implements ModelInterface, ArrayAccess, 
     /**
      * Sets params
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonReportFilters $params Параметры отчёта
+     * @param \Wildberries\Sdk\Analytics\Model\InventoryHistoryReportReqParams $params params
      *
      * @return self
      */

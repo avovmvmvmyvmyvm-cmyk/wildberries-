@@ -75,7 +75,7 @@ export interface SalesFunnelProductReqParams {
      */
     aggregationLevel?: SalesFunnelProductReqParamsAggregationLevelEnum;
     /**
-     * Скрыть удалённые карточки товаров
+     * Скрыть удалённые товары
      * @type {boolean}
      * @memberof SalesFunnelProductReqParams
      */

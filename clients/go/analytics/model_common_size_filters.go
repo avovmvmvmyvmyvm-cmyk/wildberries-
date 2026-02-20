@@ -23,7 +23,7 @@ var _ MappedNullable = &CommonSizeFilters{}
 type CommonSizeFilters struct {
 	// Артикул WB
 	NmID int64 `json:"nmID"`
-	CurrentPeriod PeriodSt `json:"currentPeriod"`
+	CurrentPeriod PeriodInv `json:"currentPeriod"`
 	StockType StockType `json:"stockType"`
 	OrderBy TableOrderBy `json:"orderBy"`
 	// Включить детализацию по складам
@@ -36,7 +36,7 @@ type _CommonSizeFilters CommonSizeFilters
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonSizeFilters(nmID int64, currentPeriod PeriodSt, stockType StockType, orderBy TableOrderBy, includeOffice bool) *CommonSizeFilters {
+func NewCommonSizeFilters(nmID int64, currentPeriod PeriodInv, stockType StockType, orderBy TableOrderBy, includeOffice bool) *CommonSizeFilters {
 	this := CommonSizeFilters{}
 	this.NmID = nmID
 	this.CurrentPeriod = currentPeriod
@@ -79,9 +79,9 @@ func (o *CommonSizeFilters) SetNmID(v int64) {
 }
 
 // GetCurrentPeriod returns the CurrentPeriod field value
-func (o *CommonSizeFilters) GetCurrentPeriod() PeriodSt {
+func (o *CommonSizeFilters) GetCurrentPeriod() PeriodInv {
 	if o == nil {
-		var ret PeriodSt
+		var ret PeriodInv
 		return ret
 	}
 
@@ -90,7 +90,7 @@ func (o *CommonSizeFilters) GetCurrentPeriod() PeriodSt {
 
 // GetCurrentPeriodOk returns a tuple with the CurrentPeriod field value
 // and a boolean to check if the value has been set.
-func (o *CommonSizeFilters) GetCurrentPeriodOk() (*PeriodSt, bool) {
+func (o *CommonSizeFilters) GetCurrentPeriodOk() (*PeriodInv, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *CommonSizeFilters) GetCurrentPeriodOk() (*PeriodSt, bool) {
 }
 
 // SetCurrentPeriod sets field value
-func (o *CommonSizeFilters) SetCurrentPeriod(v PeriodSt) {
+func (o *CommonSizeFilters) SetCurrentPeriod(v PeriodInv) {
 	o.CurrentPeriod = v
 }
 

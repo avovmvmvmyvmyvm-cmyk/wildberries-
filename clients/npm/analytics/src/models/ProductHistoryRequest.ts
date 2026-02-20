@@ -48,7 +48,7 @@ export interface ProductHistoryRequest {
      */
     nmIds: Array<number>;
     /**
-     * Скрыть удалённые карточки товаров
+     * Скрыть удалённые товары
      * @type {boolean}
      * @memberof ProductHistoryRequest
      */

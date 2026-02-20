@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct OrderDbs {
     #[serde(rename = "address", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub address: Option<Option<Box<models::OrderDbsAddress>>>,
-    /// Тип доставки:   - `dbs` — доставка силами продавца   - `edbs` — экспресс-доставка силами продавца 
+    /// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца 
     #[serde(rename = "deliveryType", skip_serializing_if = "Option::is_none")]
     pub delivery_type: Option<String>,
     #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
@@ -53,6 +53,9 @@ pub struct OrderDbs {
     /// ID размера товара в системе WB
     #[serde(rename = "chrtId", skip_serializing_if = "Option::is_none")]
     pub chrt_id: Option<i32>,
+    /// Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ
+    #[serde(rename = "scanPrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub scan_price: Option<Option<i32>>,
     /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
     #[serde(rename = "price", skip_serializing_if = "Option::is_none")]
     pub price: Option<i32>,
@@ -80,6 +83,9 @@ pub struct OrderDbs {
     /// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
     #[serde(rename = "isZeroOrder", skip_serializing_if = "Option::is_none")]
     pub is_zero_order: Option<bool>,
+    /// ID стикера. Отображается только для заказов в ПВЗ
+    #[serde(rename = "wbStickerId", skip_serializing_if = "Option::is_none")]
+    pub wb_sticker_id: Option<i32>,
 }
 
 impl OrderDbs {
@@ -99,6 +105,7 @@ impl OrderDbs {
             warehouse_id: None,
             nm_id: None,
             chrt_id: None,
+            scan_price: None,
             price: None,
             converted_price: None,
             currency_code: None,
@@ -108,6 +115,7 @@ impl OrderDbs {
             cargo_type: None,
             comment: None,
             is_zero_order: None,
+            wb_sticker_id: None,
         }
     }
 }

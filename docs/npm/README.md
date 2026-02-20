@@ -163,6 +163,7 @@ main().catch(console.error);
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusInfoPost` — Получить статусы сборочных заданий
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusReceivePost` — Сообщить о получении заказов
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusRejectPost` — Сообщить об отказе от заказов
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStickersPost` — Получить стикеры для сборочных заданий с доставкой в ПВЗ
 - `orders_dbs.DBSApi.apiV3DbsGroupsInfoPost` — Получить информацию о платной доставке
 - `orders_dbs.DBSApi.apiV3DbsOrdersClientPost` — Информация о покупателе
 - `orders_dbs.DBSApi.apiV3DbsOrdersDeliveryDatePost` — Дата и время доставки
