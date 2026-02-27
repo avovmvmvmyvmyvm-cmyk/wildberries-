@@ -51,7 +51,8 @@ class TableCommonMetrics(BaseModel):
     __properties: ClassVar[List[str]] = ["ordersCount", "ordersSum", "avgOrders", "avgOrdersByMonth", "buyoutCount", "buyoutSum", "buyoutPercent", "stockCount", "stockSum", "saleRate", "avgStockTurnover", "toClientCount", "fromClientCount", "officeMissingTime", "lostOrdersCount", "lostOrdersSum", "lostBuyoutsCount", "lostBuyoutsSum"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

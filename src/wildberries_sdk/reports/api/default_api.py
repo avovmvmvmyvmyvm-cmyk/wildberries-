@@ -409,6 +409,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",
@@ -480,6 +481,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",
@@ -551,6 +553,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",
@@ -4264,6 +4267,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ResponsePaidStorageInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",
@@ -4335,6 +4339,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ResponsePaidStorageInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",
@@ -4406,6 +4411,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ResponsePaidStorageInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",
@@ -6407,6 +6413,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",
@@ -6478,6 +6485,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",
@@ -6549,6 +6557,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner]",
+            '204': None,
             '400': "Model4xxResponse",
             '401': "ApiV1SupplierIncomesGet401Response",
             '404': "Model4xxResponse",

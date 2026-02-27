@@ -41,7 +41,8 @@ class ContentV2CardsUpdatePostRequestInner(BaseModel):
     __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "brand", "title", "description", "dimensions", "characteristics", "sizes"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

@@ -56,7 +56,8 @@ class AdvV1AdvertGet200ResponseItemsInner(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "name", "status", "place", "budget", "daily_limit", "category_name", "cpm", "url", "advert_type", "created_at", "updated_at", "date_from", "date_to", "nms", "bottomText1", "bottomText2", "message", "additionalSettings", "receiversCount", "subject_id", "subject_name", "action_name", "show_hours", "Erid"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

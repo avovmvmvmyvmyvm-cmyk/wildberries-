@@ -34,7 +34,8 @@ class KeyResponse(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "value", "created_at", "buyed_at", "deleted_at"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

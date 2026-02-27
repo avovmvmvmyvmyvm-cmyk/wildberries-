@@ -31,7 +31,8 @@ class ApiV1SellerDownloadIdGet202Response(BaseModel):
     __properties: ClassVar[List[str]] = ["moderationState", "retrySeconds"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

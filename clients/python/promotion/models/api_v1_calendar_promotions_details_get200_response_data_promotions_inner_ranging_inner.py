@@ -33,7 +33,8 @@ class ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerRangingInne
     __properties: ClassVar[List[str]] = ["condition", "participationRate", "boost"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

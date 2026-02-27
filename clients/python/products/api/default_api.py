@@ -13880,7 +13880,7 @@ class DefaultApi:
         :param x_photo_number: Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов.  (required)
         :type x_photo_number: int
         :param uploadfile:
-        :type uploadfile: bytearray
+        :type uploadfile: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13959,7 +13959,7 @@ class DefaultApi:
         :param x_photo_number: Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов.  (required)
         :type x_photo_number: int
         :param uploadfile:
-        :type uploadfile: bytearray
+        :type uploadfile: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14038,7 +14038,7 @@ class DefaultApi:
         :param x_photo_number: Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов.  (required)
         :type x_photo_number: int
         :param uploadfile:
-        :type uploadfile: bytearray
+        :type uploadfile: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

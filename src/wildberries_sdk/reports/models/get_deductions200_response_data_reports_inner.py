@@ -45,7 +45,8 @@ class GetDeductions200ResponseDataReportsInner(BaseModel):
     __properties: ClassVar[List[str]] = ["dtBonus", "nmId", "oldShkId", "oldColor", "oldSize", "oldSku", "oldVendorCode", "newShkId", "newColor", "newSize", "newSku", "newVendorCode", "bonusSumm", "bonusType", "photoUrls"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

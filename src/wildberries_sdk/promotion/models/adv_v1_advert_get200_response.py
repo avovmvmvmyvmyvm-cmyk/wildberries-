@@ -40,7 +40,8 @@ class AdvV1AdvertGet200Response(BaseModel):
     __properties: ClassVar[List[str]] = ["advertId", "name", "brand", "type", "status", "createTime", "extended", "items"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

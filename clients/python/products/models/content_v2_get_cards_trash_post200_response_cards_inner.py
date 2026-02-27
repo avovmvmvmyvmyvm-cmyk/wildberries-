@@ -46,7 +46,8 @@ class ContentV2GetCardsTrashPost200ResponseCardsInner(BaseModel):
     __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "subjectID", "subjectName", "photos", "video", "wholesale", "sizes", "dimensions", "characteristics", "createdAt", "trashedAt"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

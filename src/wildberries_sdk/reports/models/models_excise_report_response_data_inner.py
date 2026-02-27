@@ -41,7 +41,8 @@ class ModelsExciseReportResponseDataInner(BaseModel):
     __properties: ClassVar[List[str]] = ["name", "price", "currency_name_short", "excise_short", "barcode", "nm_id", "operation_type_id", "fiscal_doc_number", "fiscal_dt", "fiscal_drive_number", "rid", "srid"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

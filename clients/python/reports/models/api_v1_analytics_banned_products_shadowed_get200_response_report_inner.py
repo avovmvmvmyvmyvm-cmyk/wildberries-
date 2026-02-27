@@ -34,7 +34,8 @@ class ApiV1AnalyticsBannedProductsShadowedGet200ResponseReportInner(BaseModel):
     __properties: ClassVar[List[str]] = ["brand", "nmId", "title", "vendorCode", "nmRating"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

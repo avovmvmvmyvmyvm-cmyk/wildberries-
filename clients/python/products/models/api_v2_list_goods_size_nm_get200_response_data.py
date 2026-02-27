@@ -31,7 +31,8 @@ class ApiV2ListGoodsSizeNmGet200ResponseData(BaseModel):
     __properties: ClassVar[List[str]] = ["listGoods"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

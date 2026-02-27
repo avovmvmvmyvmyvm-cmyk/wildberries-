@@ -35,7 +35,8 @@ class ModelsWarehousePalletRates(BaseModel):
     __properties: ClassVar[List[str]] = ["palletDeliveryExpr", "palletDeliveryValueBase", "palletDeliveryValueLiter", "palletStorageExpr", "palletStorageValueExpr", "warehouseName"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

@@ -38,7 +38,8 @@ class QuarantineGoods(BaseModel):
     __properties: ClassVar[List[str]] = ["nmID", "sizeID", "techSizeName", "currencyIsoCode4217", "newPrice", "oldPrice", "newDiscount", "oldDiscount", "priceDiff"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

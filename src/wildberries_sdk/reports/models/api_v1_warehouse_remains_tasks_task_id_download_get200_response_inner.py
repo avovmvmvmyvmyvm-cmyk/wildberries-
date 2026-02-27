@@ -38,7 +38,8 @@ class ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner(BaseModel):
     __properties: ClassVar[List[str]] = ["brand", "subjectName", "vendorCode", "nmId", "barcode", "techSize", "volume", "warehouses"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

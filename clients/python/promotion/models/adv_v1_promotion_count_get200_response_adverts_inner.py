@@ -34,7 +34,8 @@ class AdvV1PromotionCountGet200ResponseAdvertsInner(BaseModel):
     __properties: ClassVar[List[str]] = ["type", "status", "count", "advert_list"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

@@ -39,7 +39,8 @@ class AdvV1AdvertGet200ResponseExtended(BaseModel):
     __properties: ClassVar[List[str]] = ["reason", "expenses", "from", "to", "updated_at", "price", "budget", "operation", "contract_id"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

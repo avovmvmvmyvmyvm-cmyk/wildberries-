@@ -1034,7 +1034,7 @@ class DefaultApi:
         Метод позволяет загружать медиафайлы на сервер.<br><br>  После успешной загрузки возвращает список URI-адресов, которые можно использовать для добавления дополнительных медиафайлов в предложение.<br><br>  Данный метод поможет вам добавить дополнительные медиафайлы при создании или обновлении предложения. - [Создать новое предложение](/openapi/wbd#tag/Predlozheniya/operation/offerCreate) - [Редактировать предложение](/openapi/wbd#tag/Predlozheniya/operation/offerUpdate)  <div class=\"description_important\">   Ограничения по размеру:   <ul>       <li>изображение: <b>5 Мб</b></li>       <li>видео: <b>50 Мб</b></li>       <li>общий размер всех файлов: <b>100 Мб</b></li>   </ul>   Допустимые форматы:   <ul>       <li>изображение: <b>PNG, JPEG</b></li>       <li>видео: <b>MP4</b></li>   </ul>   Можно передать <b>до 8 медиафайлов</b>. </div>  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
 
         :param files: (required)
-        :type files: List[bytearray]
+        :type files: List[bytes]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1104,7 +1104,7 @@ class DefaultApi:
         Метод позволяет загружать медиафайлы на сервер.<br><br>  После успешной загрузки возвращает список URI-адресов, которые можно использовать для добавления дополнительных медиафайлов в предложение.<br><br>  Данный метод поможет вам добавить дополнительные медиафайлы при создании или обновлении предложения. - [Создать новое предложение](/openapi/wbd#tag/Predlozheniya/operation/offerCreate) - [Редактировать предложение](/openapi/wbd#tag/Predlozheniya/operation/offerUpdate)  <div class=\"description_important\">   Ограничения по размеру:   <ul>       <li>изображение: <b>5 Мб</b></li>       <li>видео: <b>50 Мб</b></li>       <li>общий размер всех файлов: <b>100 Мб</b></li>   </ul>   Допустимые форматы:   <ul>       <li>изображение: <b>PNG, JPEG</b></li>       <li>видео: <b>MP4</b></li>   </ul>   Можно передать <b>до 8 медиафайлов</b>. </div>  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
 
         :param files: (required)
-        :type files: List[bytearray]
+        :type files: List[bytes]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1174,7 +1174,7 @@ class DefaultApi:
         Метод позволяет загружать медиафайлы на сервер.<br><br>  После успешной загрузки возвращает список URI-адресов, которые можно использовать для добавления дополнительных медиафайлов в предложение.<br><br>  Данный метод поможет вам добавить дополнительные медиафайлы при создании или обновлении предложения. - [Создать новое предложение](/openapi/wbd#tag/Predlozheniya/operation/offerCreate) - [Редактировать предложение](/openapi/wbd#tag/Predlozheniya/operation/offerUpdate)  <div class=\"description_important\">   Ограничения по размеру:   <ul>       <li>изображение: <b>5 Мб</b></li>       <li>видео: <b>50 Мб</b></li>       <li>общий размер всех файлов: <b>100 Мб</b></li>   </ul>   Допустимые форматы:   <ul>       <li>изображение: <b>PNG, JPEG</b></li>       <li>видео: <b>MP4</b></li>   </ul>   Можно передать <b>до 8 медиафайлов</b>. </div>  <div class=\"description_limit\">   Максимум 10 запросов в секунду </div> 
 
         :param files: (required)
-        :type files: List[bytearray]
+        :type files: List[bytes]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1907,7 +1907,7 @@ class DefaultApi:
         :param x_wbd_content_uuid: Уникальный ID полученный в [инициализации нового контента](./wbd#tag/Kontent/operation/contentUploadInit) (required)
         :type x_wbd_content_uuid: str
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1989,7 +1989,7 @@ class DefaultApi:
         :param x_wbd_content_uuid: Уникальный ID полученный в [инициализации нового контента](./wbd#tag/Kontent/operation/contentUploadInit) (required)
         :type x_wbd_content_uuid: str
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2071,7 +2071,7 @@ class DefaultApi:
         :param x_wbd_content_uuid: Уникальный ID полученный в [инициализации нового контента](./wbd#tag/Kontent/operation/contentUploadInit) (required)
         :type x_wbd_content_uuid: str
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2240,7 +2240,7 @@ class DefaultApi:
         :param x_content_type: Тип файла (required)
         :type x_content_type: str
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2314,7 +2314,7 @@ class DefaultApi:
         :param x_content_type: Тип файла (required)
         :type x_content_type: str
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2388,7 +2388,7 @@ class DefaultApi:
         :param x_content_type: Тип файла (required)
         :type x_content_type: str
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6509,7 +6509,7 @@ class DefaultApi:
         :param x_wbd_offer_id: ID предложения (required)
         :type x_wbd_offer_id: int
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6587,7 +6587,7 @@ class DefaultApi:
         :param x_wbd_offer_id: ID предложения (required)
         :type x_wbd_offer_id: int
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6665,7 +6665,7 @@ class DefaultApi:
         :param x_wbd_offer_id: ID предложения (required)
         :type x_wbd_offer_id: int
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

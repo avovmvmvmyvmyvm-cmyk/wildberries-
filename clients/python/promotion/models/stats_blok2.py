@@ -52,7 +52,8 @@ class StatsBlok2(BaseModel):
     __properties: ClassVar[List[str]] = ["item_id", "item_name", "category_name", "advert_type", "place", "views", "clicks", "cr", "ctr", "date_from", "date_to", "subject_name", "atbs", "orders", "price", "cpc", "status", "daily_stats", "expenses", "cr1", "cr2"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

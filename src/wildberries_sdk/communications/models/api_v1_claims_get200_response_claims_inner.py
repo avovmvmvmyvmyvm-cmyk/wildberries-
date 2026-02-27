@@ -44,10 +44,13 @@ class ApiV1ClaimsGet200ResponseClaimsInner(BaseModel):
     price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Фактическая цена с учетом всех скидок. Взимается с покупателя")
     currency_code: Optional[StrictStr] = Field(default=None, description="Код валюты цены")
     srid: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа, по товару которого создана заявка")
-    __properties: ClassVar[List[str]] = ["id", "claim_type", "status", "status_ex", "nm_id", "user_comment", "wb_comment", "dt", "imt_name", "order_dt", "dt_update", "photos", "video_paths", "actions", "price", "currency_code", "srid"]
+    origin_id_info: Optional[StrictStr] = Field(default=None, description="Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`\"subjectId\":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post) параметры и поля `price` и `discount`)")
+    delivery_dt: Optional[StrictStr] = Field(default=None, description="Дата и время получения заказа покупателем")
+    __properties: ClassVar[List[str]] = ["id", "claim_type", "status", "status_ex", "nm_id", "user_comment", "wb_comment", "dt", "imt_name", "order_dt", "dt_update", "photos", "video_paths", "actions", "price", "currency_code", "srid", "origin_id_info", "delivery_dt"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -95,6 +98,11 @@ class ApiV1ClaimsGet200ResponseClaimsInner(BaseModel):
         if self.imt_name is None and "imt_name" in self.model_fields_set:
             _dict['imt_name'] = None
 
+        # set to None if origin_id_info (nullable) is None
+        # and model_fields_set contains the field
+        if self.origin_id_info is None and "origin_id_info" in self.model_fields_set:
+            _dict['origin_id_info'] = None
+
         return _dict
 
     @classmethod
@@ -123,7 +131,9 @@ class ApiV1ClaimsGet200ResponseClaimsInner(BaseModel):
             "actions": obj.get("actions"),
             "price": obj.get("price"),
             "currency_code": obj.get("currency_code"),
-            "srid": obj.get("srid")
+            "srid": obj.get("srid"),
+            "origin_id_info": obj.get("origin_id_info"),
+            "delivery_dt": obj.get("delivery_dt")
         })
         return _obj
 

@@ -42,7 +42,8 @@ class ModelsAcceptanceCoefficient(BaseModel):
     __properties: ClassVar[List[str]] = ["date", "coefficient", "warehouseID", "warehouseName", "allowUnload", "boxTypeID", "storageCoef", "deliveryCoef", "deliveryBaseLiter", "deliveryAdditionalLiter", "storageBaseLiter", "storageAdditionalLiter", "isSortingCenter"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

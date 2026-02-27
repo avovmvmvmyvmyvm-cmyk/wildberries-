@@ -37,7 +37,8 @@ class ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner(BaseModel):
     __properties: ClassVar[List[str]] = ["amount", "date", "incomeId", "nmID", "photoUrls", "shkID", "sku"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

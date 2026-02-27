@@ -53,6 +53,10 @@ type ApiV1ClaimsGet200ResponseClaimsInner struct {
 	CurrencyCode *string `json:"currency_code,omitempty"`
 	// Уникальный ID заказа, по товару которого создана заявка
 	Srid *string `json:"srid,omitempty"`
+	// Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`\"subjectId\":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post) параметры и поля `price` и `discount`)
+	OriginIdInfo NullableString `json:"origin_id_info,omitempty"`
+	// Дата и время получения заказа покупателем
+	DeliveryDt *string `json:"delivery_dt,omitempty"`
 }
 
 // NewApiV1ClaimsGet200ResponseClaimsInner instantiates a new ApiV1ClaimsGet200ResponseClaimsInner object
@@ -636,6 +640,80 @@ func (o *ApiV1ClaimsGet200ResponseClaimsInner) SetSrid(v string) {
 	o.Srid = &v
 }
 
+// GetOriginIdInfo returns the OriginIdInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) GetOriginIdInfo() string {
+	if o == nil || IsNil(o.OriginIdInfo.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.OriginIdInfo.Get()
+}
+
+// GetOriginIdInfoOk returns a tuple with the OriginIdInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) GetOriginIdInfoOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.OriginIdInfo.Get(), o.OriginIdInfo.IsSet()
+}
+
+// HasOriginIdInfo returns a boolean if a field has been set.
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) HasOriginIdInfo() bool {
+	if o != nil && o.OriginIdInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOriginIdInfo gets a reference to the given NullableString and assigns it to the OriginIdInfo field.
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) SetOriginIdInfo(v string) {
+	o.OriginIdInfo.Set(&v)
+}
+// SetOriginIdInfoNil sets the value for OriginIdInfo to be an explicit nil
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) SetOriginIdInfoNil() {
+	o.OriginIdInfo.Set(nil)
+}
+
+// UnsetOriginIdInfo ensures that no value is present for OriginIdInfo, not even an explicit nil
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) UnsetOriginIdInfo() {
+	o.OriginIdInfo.Unset()
+}
+
+// GetDeliveryDt returns the DeliveryDt field value if set, zero value otherwise.
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) GetDeliveryDt() string {
+	if o == nil || IsNil(o.DeliveryDt) {
+		var ret string
+		return ret
+	}
+	return *o.DeliveryDt
+}
+
+// GetDeliveryDtOk returns a tuple with the DeliveryDt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) GetDeliveryDtOk() (*string, bool) {
+	if o == nil || IsNil(o.DeliveryDt) {
+		return nil, false
+	}
+	return o.DeliveryDt, true
+}
+
+// HasDeliveryDt returns a boolean if a field has been set.
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) HasDeliveryDt() bool {
+	if o != nil && !IsNil(o.DeliveryDt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliveryDt gets a reference to the given string and assigns it to the DeliveryDt field.
+func (o *ApiV1ClaimsGet200ResponseClaimsInner) SetDeliveryDt(v string) {
+	o.DeliveryDt = &v
+}
+
 func (o ApiV1ClaimsGet200ResponseClaimsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -696,6 +774,12 @@ func (o ApiV1ClaimsGet200ResponseClaimsInner) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.Srid) {
 		toSerialize["srid"] = o.Srid
+	}
+	if o.OriginIdInfo.IsSet() {
+		toSerialize["origin_id_info"] = o.OriginIdInfo.Get()
+	}
+	if !IsNil(o.DeliveryDt) {
+		toSerialize["delivery_dt"] = o.DeliveryDt
 	}
 	return toSerialize, nil
 }

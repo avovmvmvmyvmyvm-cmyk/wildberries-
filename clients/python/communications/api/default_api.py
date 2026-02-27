@@ -6831,7 +6831,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> bytearray:
+    ) -> bytes:
         """Получить файл из сообщения
 
         Метод возвращает файл или изображение из сообщения по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 10 сек | 10 запросов | 1 сек | 10 запросов | </div> 
@@ -6869,7 +6869,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '202': "ApiV1SellerDownloadIdGet202Response",
             '400': "ApiV1SellerEventsGet400Response",
             '451': "ApiV1SellerDownloadIdGet451Response",
@@ -6901,7 +6901,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[bytearray]:
+    ) -> ApiResponse[bytes]:
         """Получить файл из сообщения
 
         Метод возвращает файл или изображение из сообщения по его ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 10 сек | 10 запросов | 1 сек | 10 запросов | </div> 
@@ -6939,7 +6939,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '202': "ApiV1SellerDownloadIdGet202Response",
             '400': "ApiV1SellerEventsGet400Response",
             '451': "ApiV1SellerDownloadIdGet451Response",
@@ -7009,7 +7009,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '202': "ApiV1SellerDownloadIdGet202Response",
             '400': "ApiV1SellerEventsGet400Response",
             '451': "ApiV1SellerDownloadIdGet451Response",
@@ -7396,7 +7396,7 @@ class DefaultApi:
         :param message: Текст сообщения. Максимум 1000 символов.
         :type message: str
         :param file: Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб. 
-        :type file: List[bytearray]
+        :type file: List[bytes]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7474,7 +7474,7 @@ class DefaultApi:
         :param message: Текст сообщения. Максимум 1000 символов.
         :type message: str
         :param file: Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб. 
-        :type file: List[bytearray]
+        :type file: List[bytes]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7552,7 +7552,7 @@ class DefaultApi:
         :param message: Текст сообщения. Максимум 1000 символов.
         :type message: str
         :param file: Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб. 
-        :type file: List[bytearray]
+        :type file: List[bytes]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

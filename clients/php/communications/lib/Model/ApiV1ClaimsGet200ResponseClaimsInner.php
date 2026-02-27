@@ -73,7 +73,9 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         'actions' => 'string[]',
         'price' => 'float',
         'currency_code' => 'string',
-        'srid' => 'string'
+        'srid' => 'string',
+        'origin_id_info' => 'string',
+        'delivery_dt' => 'string'
     ];
 
     /**
@@ -100,7 +102,9 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         'actions' => null,
         'price' => null,
         'currency_code' => null,
-        'srid' => null
+        'srid' => null,
+        'origin_id_info' => null,
+        'delivery_dt' => null
     ];
 
     /**
@@ -125,7 +129,9 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         'actions' => false,
         'price' => false,
         'currency_code' => false,
-        'srid' => false
+        'srid' => false,
+        'origin_id_info' => true,
+        'delivery_dt' => false
     ];
 
     /**
@@ -230,7 +236,9 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         'actions' => 'actions',
         'price' => 'price',
         'currency_code' => 'currency_code',
-        'srid' => 'srid'
+        'srid' => 'srid',
+        'origin_id_info' => 'origin_id_info',
+        'delivery_dt' => 'delivery_dt'
     ];
 
     /**
@@ -255,7 +263,9 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         'actions' => 'setActions',
         'price' => 'setPrice',
         'currency_code' => 'setCurrencyCode',
-        'srid' => 'setSrid'
+        'srid' => 'setSrid',
+        'origin_id_info' => 'setOriginIdInfo',
+        'delivery_dt' => 'setDeliveryDt'
     ];
 
     /**
@@ -280,7 +290,9 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         'actions' => 'getActions',
         'price' => 'getPrice',
         'currency_code' => 'getCurrencyCode',
-        'srid' => 'getSrid'
+        'srid' => 'getSrid',
+        'origin_id_info' => 'getOriginIdInfo',
+        'delivery_dt' => 'getDeliveryDt'
     ];
 
     /**
@@ -357,6 +369,8 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('currency_code', $data ?? [], null);
         $this->setIfExists('srid', $data ?? [], null);
+        $this->setIfExists('origin_id_info', $data ?? [], null);
+        $this->setIfExists('delivery_dt', $data ?? [], null);
     }
 
     /**
@@ -916,6 +930,67 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable srid cannot be null');
         }
         $this->container['srid'] = $srid;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_id_info
+     *
+     * @return string|null
+     */
+    public function getOriginIdInfo()
+    {
+        return $this->container['origin_id_info'];
+    }
+
+    /**
+     * Sets origin_id_info
+     *
+     * @param string|null $origin_id_info Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`\"subjectId\":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post) параметры и поля `price` и `discount`)
+     *
+     * @return self
+     */
+    public function setOriginIdInfo($origin_id_info)
+    {
+        if (is_null($origin_id_info)) {
+            array_push($this->openAPINullablesSetToNull, 'origin_id_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('origin_id_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['origin_id_info'] = $origin_id_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_dt
+     *
+     * @return string|null
+     */
+    public function getDeliveryDt()
+    {
+        return $this->container['delivery_dt'];
+    }
+
+    /**
+     * Sets delivery_dt
+     *
+     * @param string|null $delivery_dt Дата и время получения заказа покупателем
+     *
+     * @return self
+     */
+    public function setDeliveryDt($delivery_dt)
+    {
+        if (is_null($delivery_dt)) {
+            throw new \InvalidArgumentException('non-nullable delivery_dt cannot be null');
+        }
+        $this->container['delivery_dt'] = $delivery_dt;
 
         return $this;
     }

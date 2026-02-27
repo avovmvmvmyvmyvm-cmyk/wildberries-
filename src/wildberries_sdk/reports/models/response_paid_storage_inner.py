@@ -52,7 +52,8 @@ class ResponsePaidStorageInner(BaseModel):
     __properties: ClassVar[List[str]] = ["date", "logWarehouseCoef", "officeId", "warehouse", "warehouseCoef", "giId", "chrtId", "size", "barcode", "subject", "brand", "vendorCode", "nmId", "volume", "calcType", "warehousePrice", "barcodesCount", "palletPlaceCode", "palletCount", "originalDate", "loyaltyDiscount", "tariffFixDate", "tariffLowerDate"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

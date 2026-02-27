@@ -145,6 +145,18 @@ export interface ApiV1ClaimsGet200ResponseClaimsInner {
      * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     srid?: string;
+    /**
+     * Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`"subjectId":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post) параметры и поля `price` и `discount`)
+     * @type {string}
+     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
+     */
+    originIdInfo?: string | null;
+    /**
+     * Дата и время получения заказа покупателем
+     * @type {string}
+     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
+     */
+    deliveryDt?: string;
 }
 
 /**
@@ -181,6 +193,8 @@ export function ApiV1ClaimsGet200ResponseClaimsInnerFromJSONTyped(json: any, ign
         'price': json['price'] == null ? undefined : json['price'],
         'currencyCode': json['currency_code'] == null ? undefined : json['currency_code'],
         'srid': json['srid'] == null ? undefined : json['srid'],
+        'originIdInfo': json['origin_id_info'] == null ? undefined : json['origin_id_info'],
+        'deliveryDt': json['delivery_dt'] == null ? undefined : json['delivery_dt'],
     };
 }
 
@@ -212,6 +226,8 @@ export function ApiV1ClaimsGet200ResponseClaimsInnerToJSONTyped(value?: ApiV1Cla
         'price': value['price'],
         'currency_code': value['currencyCode'],
         'srid': value['srid'],
+        'origin_id_info': value['originIdInfo'],
+        'delivery_dt': value['deliveryDt'],
     };
 }
 

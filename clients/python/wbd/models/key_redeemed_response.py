@@ -36,7 +36,8 @@ class KeyRedeemedResponse(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "value", "created_at", "buyed_at", "offer_id", "offer_title", "offer_price"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

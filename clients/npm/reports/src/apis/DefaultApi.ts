@@ -346,9 +346,16 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт о [платной приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AcceptanceReportTasksTaskIdDownloadGet(requestParameters: ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner>> {
+    async apiV1AcceptanceReportTasksTaskIdDownloadGet(requestParameters: ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner> | null | undefined > {
         const response = await this.apiV1AcceptanceReportTasksTaskIdDownloadGetRaw(requestParameters, initOverrides);
-        return await response.value();
+        switch (response.raw.status) {
+            case 200:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
     }
 
     /**
@@ -1095,9 +1102,16 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1PaidStorageTasksTaskIdDownloadGet(requestParameters: ApiV1PaidStorageTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ResponsePaidStorageInner>> {
+    async apiV1PaidStorageTasksTaskIdDownloadGet(requestParameters: ApiV1PaidStorageTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ResponsePaidStorageInner> | null | undefined > {
         const response = await this.apiV1PaidStorageTasksTaskIdDownloadGetRaw(requestParameters, initOverrides);
-        return await response.value();
+        switch (response.raw.status) {
+            case 200:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
     }
 
     /**
@@ -1503,9 +1517,16 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1WarehouseRemainsTasksTaskIdDownloadGet(requestParameters: ApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner>> {
+    async apiV1WarehouseRemainsTasksTaskIdDownloadGet(requestParameters: ApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner> | null | undefined > {
         const response = await this.apiV1WarehouseRemainsTasksTaskIdDownloadGetRaw(requestParameters, initOverrides);
-        return await response.value();
+        switch (response.raw.status) {
+            case 200:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
     }
 
     /**

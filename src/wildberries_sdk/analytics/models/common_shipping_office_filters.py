@@ -38,7 +38,8 @@ class CommonShippingOfficeFilters(BaseModel):
     __properties: ClassVar[List[str]] = ["nmIDs", "subjectIDs", "brandNames", "tagIDs", "currentPeriod", "stockType", "skipDeletedNm"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

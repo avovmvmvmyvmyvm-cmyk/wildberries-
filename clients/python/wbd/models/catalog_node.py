@@ -39,7 +39,8 @@ class CatalogNode(BaseModel):
     __properties: ClassVar[List[str]] = ["children", "img", "name", "parent_id", "path", "id", "is_section", "node_order", "section_id", "total"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

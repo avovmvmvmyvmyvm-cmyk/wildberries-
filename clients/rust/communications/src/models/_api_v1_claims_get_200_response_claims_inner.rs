@@ -64,6 +64,12 @@ pub struct ApiV1ClaimsGet200ResponseClaimsInner {
     /// Уникальный ID заказа, по товару которого создана заявка
     #[serde(rename = "srid", skip_serializing_if = "Option::is_none")]
     pub srid: Option<String>,
+    /// Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`\"subjectId\":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post) параметры и поля `price` и `discount`)
+    #[serde(rename = "origin_id_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub origin_id_info: Option<Option<String>>,
+    /// Дата и время получения заказа покупателем
+    #[serde(rename = "delivery_dt", skip_serializing_if = "Option::is_none")]
+    pub delivery_dt: Option<String>,
 }
 
 impl ApiV1ClaimsGet200ResponseClaimsInner {
@@ -86,6 +92,8 @@ impl ApiV1ClaimsGet200ResponseClaimsInner {
             price: None,
             currency_code: None,
             srid: None,
+            origin_id_info: None,
+            delivery_dt: None,
         }
     }
 }

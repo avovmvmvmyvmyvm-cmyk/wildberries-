@@ -45,7 +45,8 @@ class FullStatsItem(BaseModel):
     __properties: ClassVar[List[str]] = ["advertId", "atbs", "boosterStats", "canceled", "clicks", "cpc", "cr", "ctr", "days", "orders", "shks", "sum", "sum_price", "views"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

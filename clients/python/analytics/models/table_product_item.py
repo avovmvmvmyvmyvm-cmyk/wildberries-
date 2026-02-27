@@ -56,7 +56,8 @@ class TableProductItem(BaseModel):
     __properties: ClassVar[List[str]] = ["nmId", "name", "vendorCode", "subjectName", "brandName", "mainPhoto", "isAdvertised", "isSubstitutedSKU", "isCardRated", "rating", "feedbackRating", "price", "avgPosition", "openCard", "addToCart", "openToCart", "orders", "cartToOrder", "visibility"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

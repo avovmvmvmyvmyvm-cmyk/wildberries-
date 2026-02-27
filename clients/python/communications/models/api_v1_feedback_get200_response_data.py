@@ -63,7 +63,8 @@ class ApiV1FeedbackGet200ResponseData(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "text", "pros", "cons", "matchingSize", "productValuation", "createdDate", "answer", "state", "productDetails", "photoLinks", "userName", "orderStatus", "video", "wasViewed", "isAbleSupplierFeedbackValuation", "supplierFeedbackValuation", "isAbleSupplierProductValuation", "supplierProductValuation", "isAbleReturnProductOrders", "returnProductOrdersDate", "bables", "lastOrderShkId", "lastOrderCreatedAt", "color", "subjectId", "subjectName", "parentFeedbackId", "childFeedbackId"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )

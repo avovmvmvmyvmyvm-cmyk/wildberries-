@@ -36,7 +36,8 @@ class GoodCard(BaseModel):
     __properties: ClassVar[List[str]] = ["date", "nmID", "price", "priceCurrency", "rid", "size", "statusID"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
