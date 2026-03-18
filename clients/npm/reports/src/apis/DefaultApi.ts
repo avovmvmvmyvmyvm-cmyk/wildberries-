@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Отчёты
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Платной приёмке](/openapi/reports#tag/Platnaya-priyomka)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -26,14 +26,13 @@ import type {
   ApiV1AnalyticsGoodsLabelingGet200Response,
   ApiV1AnalyticsGoodsReturnGet200Response,
   ApiV1AnalyticsRegionSaleGet200Response,
-  ApiV1SupplierIncomesGet400Response,
-  ApiV1SupplierIncomesGet401Response,
-  ApiV1SupplierIncomesGet402Response,
+  ApiV1SupplierStocksGet400Response,
+  ApiV1SupplierStocksGet401Response,
+  ApiV1SupplierStocksGet402Response,
   ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner,
   CreateTaskResponse,
   GetDeductions200Response,
   GetTasksResponse,
-  IncomesItem,
   MeasurementPenalties,
   Model4xxResponse,
   OrdersItem,
@@ -67,12 +66,12 @@ import {
     ApiV1AnalyticsGoodsReturnGet200ResponseToJSON,
     ApiV1AnalyticsRegionSaleGet200ResponseFromJSON,
     ApiV1AnalyticsRegionSaleGet200ResponseToJSON,
-    ApiV1SupplierIncomesGet400ResponseFromJSON,
-    ApiV1SupplierIncomesGet400ResponseToJSON,
-    ApiV1SupplierIncomesGet401ResponseFromJSON,
-    ApiV1SupplierIncomesGet401ResponseToJSON,
-    ApiV1SupplierIncomesGet402ResponseFromJSON,
-    ApiV1SupplierIncomesGet402ResponseToJSON,
+    ApiV1SupplierStocksGet400ResponseFromJSON,
+    ApiV1SupplierStocksGet400ResponseToJSON,
+    ApiV1SupplierStocksGet401ResponseFromJSON,
+    ApiV1SupplierStocksGet401ResponseToJSON,
+    ApiV1SupplierStocksGet402ResponseFromJSON,
+    ApiV1SupplierStocksGet402ResponseToJSON,
     ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerFromJSON,
     ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerToJSON,
     CreateTaskResponseFromJSON,
@@ -81,8 +80,6 @@ import {
     GetDeductions200ResponseToJSON,
     GetTasksResponseFromJSON,
     GetTasksResponseToJSON,
-    IncomesItemFromJSON,
-    IncomesItemToJSON,
     MeasurementPenaltiesFromJSON,
     MeasurementPenaltiesToJSON,
     Model4xxResponseFromJSON,
@@ -170,10 +167,6 @@ export interface ApiV1PaidStorageTasksTaskIdDownloadGetRequest {
 
 export interface ApiV1PaidStorageTasksTaskIdStatusGetRequest {
     taskId: string;
-}
-
-export interface ApiV1SupplierIncomesGetRequest {
-    dateFrom: Date;
 }
 
 export interface ApiV1SupplierOrdersGetRequest {
@@ -284,7 +277,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Создать отчёт
      */
     async apiV1AcceptanceReportGetRaw(requestParameters: ApiV1AcceptanceReportGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTaskResponse>> {
@@ -295,7 +288,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Создать отчёт
      */
     async apiV1AcceptanceReportGet(requestParameters: ApiV1AcceptanceReportGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTaskResponse> {
@@ -335,7 +328,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает отчёт о [платной приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Получить отчёт
      */
     async apiV1AcceptanceReportTasksTaskIdDownloadGetRaw(requestParameters: ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner>>> {
@@ -346,7 +339,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает отчёт о [платной приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Получить отчёт
      */
     async apiV1AcceptanceReportTasksTaskIdDownloadGet(requestParameters: ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner> | null | undefined > {
@@ -393,7 +386,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 5 сек | 1 запрос | 5 сек | 1 запрос | </div> 
+     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 5 сек | 1 запрос | 5 сек | 1 запрос | </div> 
      * Проверить статус
      */
     async apiV1AcceptanceReportTasksTaskIdStatusGetRaw(requestParameters: ApiV1AcceptanceReportTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTasksResponse>> {
@@ -404,7 +397,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 5 сек | 1 запрос | 5 сек | 1 запрос | </div> 
+     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 5 сек | 1 запрос | 5 сек | 1 запрос | </div> 
      * Проверить статус
      */
     async apiV1AcceptanceReportTasksTaskIdStatusGet(requestParameters: ApiV1AcceptanceReportTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTasksResponse> {
@@ -1165,63 +1158,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async apiV1PaidStorageTasksTaskIdStatusGet(requestParameters: ApiV1PaidStorageTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTasksResponse> {
         const response = await this.apiV1PaidStorageTasksTaskIdStatusGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1SupplierIncomesGet without sending the request
-     * @deprecated
-     */
-    async apiV1SupplierIncomesGetRequestOpts(requestParameters: ApiV1SupplierIncomesGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['dateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1SupplierIncomesGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/supplier/incomes`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [11 марта](https://dev.wildberries.ru/release-notes?id=431) 
-     * Поставки
-     * @deprecated
-     */
-    async apiV1SupplierIncomesGetRaw(requestParameters: ApiV1SupplierIncomesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<IncomesItem>>> {
-        const requestOptions = await this.apiV1SupplierIncomesGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(IncomesItemFromJSON));
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [11 марта](https://dev.wildberries.ru/release-notes?id=431) 
-     * Поставки
-     * @deprecated
-     */
-    async apiV1SupplierIncomesGet(requestParameters: ApiV1SupplierIncomesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IncomesItem>> {
-        const response = await this.apiV1SupplierIncomesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -132,6 +132,7 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxStickersPost` — Получить стикеры коробов поставки
 
 ### orders_dbw (`orders_dbw`)
+- `orders_dbw.DBWApi.apiMarketplaceV3DbwOrdersClientPost` — Информация о покупателе
 - `orders_dbw.DBWApi.apiV3DbwOrdersCourierPost` — Информация о курьере
 - `orders_dbw.DBWApi.apiV3DbwOrdersDeliveryDatePost` — Дата и время доставки
 - `orders_dbw.DBWApi.apiV3DbwOrdersGet` — Получить информацию о завершенных сборочных заданиях
@@ -251,6 +252,7 @@ main().catch(console.error);
 - `promotion.DefaultApi.advV2SeacatSaveAdPost` — Создать кампанию
 - `promotion.DefaultApi.advV2SupplierNmsPost` — Карточки товаров для кампаний
 - `promotion.DefaultApi.advV3FullstatsGet` — Статистика кампаний
+- `promotion.DefaultApi.apiAdvertV0BidsRecommendationsGet` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
 - `promotion.DefaultApi.apiAdvertV1BidsMinPost` — Минимальные ставки для карточек товаров
 - `promotion.DefaultApi.apiAdvertV1BidsPatch` — Изменение ставок в кампаниях
 - `promotion.DefaultApi.apiAdvertV2AdvertsGet` — Информация о кампаниях
@@ -328,7 +330,6 @@ main().catch(console.error);
 - `reports.DefaultApi.apiV1PaidStorageGet` — Создать отчёт
 - `reports.DefaultApi.apiV1PaidStorageTasksTaskIdDownloadGet` — Получить отчёт
 - `reports.DefaultApi.apiV1PaidStorageTasksTaskIdStatusGet` — Проверить статус
-- `reports.DefaultApi.apiV1SupplierIncomesGet` — Поставки
 - `reports.DefaultApi.apiV1SupplierOrdersGet` — Заказы
 - `reports.DefaultApi.apiV1SupplierSalesGet` — Продажи
 - `reports.DefaultApi.apiV1SupplierStocksGet` — Склады
@@ -346,28 +347,4 @@ main().catch(console.error);
 - `finances.DefaultApi.apiV1DocumentsDownloadGet` — Получить документ
 - `finances.DefaultApi.apiV1DocumentsListGet` — Список документов
 - `finances.DefaultApi.apiV5SupplierReportDetailByPeriodGet` — Отчёт о продажах по реализации
-
-### wbd (`wbd`)
-- `wbd.DefaultApi.contentAuthorGet` — Получить список своего контента
-- `wbd.DefaultApi.contentDelete` — Удалить контент
-- `wbd.DefaultApi.contentDownloadGet` — Скачать контент
-- `wbd.DefaultApi.contentGallery` — Загрузить медиафайлы для предложения
-- `wbd.DefaultApi.contentIdGet` — Получить информацию о контенте
-- `wbd.DefaultApi.contentUpdate` — Редактировать контент
-- `wbd.DefaultApi.contentUploadChunk` — Загрузить контент (файл)
-- `wbd.DefaultApi.contentUploadIllustration` — Загрузить обложку контента
-- `wbd.DefaultApi.contentUploadInit` — Инициализировать новый контент
-- `wbd.DefaultApi.deleteKeysByIDs` — Удалить ключи активации
-- `wbd.DefaultApi.getCatalog` — Получить категории и их подкатегории
-- `wbd.DefaultApi.getRedeemedKeys` — Получить купленные ключи
-- `wbd.DefaultApi.loadKeys` — Добавить ключи активации
-- `wbd.DefaultApi.offerCreate` — Создать новое предложение
-- `wbd.DefaultApi.offerGet` — Получить информацию о предложении
-- `wbd.DefaultApi.offerKeysCountGet` — Получить количество ключей для предложения
-- `wbd.DefaultApi.offerKeysGet` — Получить список ключей
-- `wbd.DefaultApi.offerUpdate` — Редактировать предложение
-- `wbd.DefaultApi.offerUpdatePrice` — Обновить цену
-- `wbd.DefaultApi.offerUpdateStatus` — Обновить статус
-- `wbd.DefaultApi.offersAuthorGet` — Получить список своих предложений
-- `wbd.DefaultApi.offersUploadThumbnail` — Добавить или обновить обложку предложения
 <!-- NPM_METHODS_LIST_END -->

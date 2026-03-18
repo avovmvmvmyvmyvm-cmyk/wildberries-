@@ -57,6 +57,7 @@ import type {
   ResponseAdvError1,
   ResponseWithReturn,
   StandardizedBatchError,
+  V0BidsRecommendationsResponse,
   V0GetNormQueryBidsRequest,
   V0GetNormQueryBidsResponse,
   V0GetNormQueryListRequest,
@@ -155,6 +156,8 @@ import {
     ResponseWithReturnToJSON,
     StandardizedBatchErrorFromJSON,
     StandardizedBatchErrorToJSON,
+    V0BidsRecommendationsResponseFromJSON,
+    V0BidsRecommendationsResponseToJSON,
     V0GetNormQueryBidsRequestFromJSON,
     V0GetNormQueryBidsRequestToJSON,
     V0GetNormQueryBidsResponseFromJSON,
@@ -293,6 +296,11 @@ export interface AdvV3FullstatsGetRequest {
     ids: string;
     beginDate: Date;
     endDate: Date;
+}
+
+export interface ApiAdvertV0BidsRecommendationsGetRequest {
+    nmId: number;
+    advertId: number;
 }
 
 export interface ApiAdvertV1BidsMinPostOperationRequest {
@@ -1894,6 +1902,71 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async advV3FullstatsGet(requestParameters: AdvV3FullstatsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FullStatsItem>> {
         const response = await this.advV3FullstatsGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for apiAdvertV0BidsRecommendationsGet without sending the request
+     */
+    async apiAdvertV0BidsRecommendationsGetRequestOpts(requestParameters: ApiAdvertV0BidsRecommendationsGetRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['nmId'] == null) {
+            throw new runtime.RequiredError(
+                'nmId',
+                'Required parameter "nmId" was null or undefined when calling apiAdvertV0BidsRecommendationsGet().'
+            );
+        }
+
+        if (requestParameters['advertId'] == null) {
+            throw new runtime.RequiredError(
+                'advertId',
+                'Required parameter "advertId" was null or undefined when calling apiAdvertV0BidsRecommendationsGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['nmId'] != null) {
+            queryParameters['nmId'] = requestParameters['nmId'];
+        }
+
+        if (requestParameters['advertId'] != null) {
+            queryParameters['advertId'] = requestParameters['advertId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v0/bids/recommendations`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Только для кампаний с типом оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     * Рекомендуемые ставки для карточек товаров и поисковых кластеров
+     */
+    async apiAdvertV0BidsRecommendationsGetRaw(requestParameters: ApiAdvertV0BidsRecommendationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0BidsRecommendationsResponse>> {
+        const requestOptions = await this.apiAdvertV0BidsRecommendationsGetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V0BidsRecommendationsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Только для кампаний с типом оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+     * Рекомендуемые ставки для карточек товаров и поисковых кластеров
+     */
+    async apiAdvertV0BidsRecommendationsGet(requestParameters: ApiAdvertV0BidsRecommendationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0BidsRecommendationsResponse> {
+        const response = await this.apiAdvertV0BidsRecommendationsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

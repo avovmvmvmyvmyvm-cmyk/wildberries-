@@ -288,12 +288,6 @@ class V0GetNormQueryMinusResponseItem implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['advert_id'] === null) {
-            $invalidProperties[] = "'advert_id' can't be null";
-        }
-        if ($this->container['nm_id'] === null) {
-            $invalidProperties[] = "'nm_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -312,7 +306,7 @@ class V0GetNormQueryMinusResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Gets advert_id
      *
-     * @return int
+     * @return int|null
      */
     public function getAdvertId()
     {
@@ -322,7 +316,7 @@ class V0GetNormQueryMinusResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Sets advert_id
      *
-     * @param int $advert_id ID кампании
+     * @param int|null $advert_id ID кампании
      *
      * @return self
      */
@@ -339,7 +333,7 @@ class V0GetNormQueryMinusResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Gets nm_id
      *
-     * @return int
+     * @return int|null
      */
     public function getNmId()
     {
@@ -349,7 +343,7 @@ class V0GetNormQueryMinusResponseItem implements ModelInterface, ArrayAccess, \J
     /**
      * Sets nm_id
      *
-     * @param int $nm_id Артикул WB
+     * @param int|null $nm_id Артикул WB
      *
      * @return self
      */

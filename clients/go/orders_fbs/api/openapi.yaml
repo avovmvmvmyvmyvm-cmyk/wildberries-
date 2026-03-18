@@ -4120,7 +4120,7 @@ components:
         officeId: 123
         price: 1014
         options:
-          isB2b: true
+          isB2B: true
         convertedCurrencyCode: 643
         id: 13833711
         address:
@@ -4410,7 +4410,7 @@ components:
         officeId: 123
         price: 1014
         options:
-          isB2b: true
+          isB2B: true
         convertedCurrencyCode: 643
         id: 13833711
         optionalMeta:
@@ -5094,7 +5094,7 @@ components:
           officeId: 123
           price: 1014
           options:
-            isB2b: true
+            isB2B: true
           convertedCurrencyCode: 643
           id: 13833711
           optionalMeta:
@@ -5136,7 +5136,7 @@ components:
           officeId: 123
           price: 1014
           options:
-            isB2b: true
+            isB2B: true
           convertedCurrencyCode: 643
           id: 13833711
           optionalMeta:
@@ -5189,7 +5189,7 @@ components:
           officeId: 123
           price: 1014
           options:
-            isB2b: true
+            isB2B: true
           convertedCurrencyCode: 643
           id: 13833711
           address:
@@ -5223,7 +5223,7 @@ components:
           officeId: 123
           price: 1014
           options:
-            isB2b: true
+            isB2B: true
           convertedCurrencyCode: 643
           id: 13833711
           address:
@@ -6056,9 +6056,9 @@ components:
     Order_options:
       description: Опции заказа
       example:
-        isB2b: true
+        isB2B: true
       properties:
-        isB2b:
+        isB2B:
           description: |
             Признак B2B-продажи:
               - `false` — не B2B-продажа

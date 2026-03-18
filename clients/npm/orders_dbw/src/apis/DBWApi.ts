@@ -28,6 +28,7 @@ import type {
   ApiV3DbwOrdersStatusPostRequest,
   ApiV3DbwOrdersStickersPost200Response,
   ApiV3DbwOrdersStickersPostRequest,
+  ClientInfoResp,
   DeliveryDatesInfoResp,
   DeliveryDatesRequest,
   OrderCourierInfoResp,
@@ -60,6 +61,8 @@ import {
     ApiV3DbwOrdersStickersPost200ResponseToJSON,
     ApiV3DbwOrdersStickersPostRequestFromJSON,
     ApiV3DbwOrdersStickersPostRequestToJSON,
+    ClientInfoRespFromJSON,
+    ClientInfoRespToJSON,
     DeliveryDatesInfoRespFromJSON,
     DeliveryDatesInfoRespToJSON,
     DeliveryDatesRequestFromJSON,
@@ -69,6 +72,10 @@ import {
     OrdersRequestAPIFromJSON,
     OrdersRequestAPIToJSON,
 } from '../models/index';
+
+export interface ApiMarketplaceV3DbwOrdersClientPostRequest {
+    ordersRequestAPI: OrdersRequestAPI;
+}
 
 export interface ApiV3DbwOrdersCourierPostRequest {
     ordersRequestAPI: OrdersRequestAPI;
@@ -141,6 +148,59 @@ export interface ApiV3DbwOrdersStickersPostOperationRequest {
  * 
  */
 export class DBWApi extends runtime.BaseAPI {
+
+    /**
+     * Creates request options for apiMarketplaceV3DbwOrdersClientPost without sending the request
+     */
+    async apiMarketplaceV3DbwOrdersClientPostRequestOpts(requestParameters: ApiMarketplaceV3DbwOrdersClientPostRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['ordersRequestAPI'] == null) {
+            throw new runtime.RequiredError(
+                'ordersRequestAPI',
+                'Required parameter "ordersRequestAPI" was null or undefined when calling apiMarketplaceV3DbwOrdersClientPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/dbw/orders/client`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: OrdersRequestAPIToJSON(requestParameters['ordersRequestAPI']),
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о покупателях по ID сборочных заданий.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление метаданных</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
+     * Информация о покупателе
+     */
+    async apiMarketplaceV3DbwOrdersClientPostRaw(requestParameters: ApiMarketplaceV3DbwOrdersClientPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfoResp>> {
+        const requestOptions = await this.apiMarketplaceV3DbwOrdersClientPostRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClientInfoRespFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает информацию о покупателях по ID сборочных заданий.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление метаданных</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов </div> 
+     * Информация о покупателе
+     */
+    async apiMarketplaceV3DbwOrdersClientPost(requestParameters: ApiMarketplaceV3DbwOrdersClientPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfoResp> {
+        const response = await this.apiMarketplaceV3DbwOrdersClientPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * Creates request options for apiV3DbwOrdersCourierPost without sending the request

@@ -74,6 +74,28 @@ export interface ModelsSupply {
      * @memberof ModelsSupply
      */
     statusID?: ModelsSupplyStatusIDEnum;
+    /**
+     * ID типа поставки:
+     *   - `0` — Без коробов (виртуальная поставка)
+     *   - `1` и `2` — Короба
+     *   - `5` — Монопаллеты
+     *   - `6` — Суперсейф
+     * 
+     * @type {any}
+     * @memberof ModelsSupply
+     */
+    boxTypeID?: any | null;
+    /**
+     * Тип поставки — **Поштучная палета**:
+     *   - `true` — да
+     *   - `false` — нет
+     * 
+     *   Поле возвращается только при `"boxTypeID": 2`
+     * 
+     * @type {boolean}
+     * @memberof ModelsSupply
+     */
+    isBoxOnPallet?: boolean;
 }
 
 
@@ -116,6 +138,8 @@ export function ModelsSupplyFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'factDate': json['factDate'] == null ? undefined : json['factDate'],
         'updatedDate': json['updatedDate'] == null ? undefined : json['updatedDate'],
         'statusID': json['statusID'] == null ? undefined : json['statusID'],
+        'boxTypeID': json['boxTypeID'] == null ? undefined : json['boxTypeID'],
+        'isBoxOnPallet': json['isBoxOnPallet'] == null ? undefined : json['isBoxOnPallet'],
     };
 }
 
@@ -138,6 +162,8 @@ export function ModelsSupplyToJSONTyped(value?: ModelsSupply | null, ignoreDiscr
         'factDate': value['factDate'],
         'updatedDate': value['updatedDate'],
         'statusID': value['statusID'],
+        'boxTypeID': value['boxTypeID'],
+        'isBoxOnPallet': value['isBoxOnPallet'],
     };
 }
 

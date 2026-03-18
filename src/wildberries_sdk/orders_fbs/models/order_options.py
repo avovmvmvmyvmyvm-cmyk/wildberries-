@@ -21,13 +21,14 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class OrderOptions(BaseModel):
     """
     Опции заказа
     """ # noqa: E501
-    is_b2b: Optional[StrictBool] = Field(default=None, description="Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа ", alias="isB2b")
-    __properties: ClassVar[List[str]] = ["isB2b"]
+    is_b2_b: Optional[StrictBool] = Field(default=None, description="Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа ", alias="isB2B")
+    __properties: ClassVar[List[str]] = ["isB2B"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -43,8 +44,7 @@ class OrderOptions(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -81,7 +81,7 @@ class OrderOptions(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "isB2b": obj.get("isB2b")
+            "isB2B": obj.get("isB2B")
         })
         return _obj
 

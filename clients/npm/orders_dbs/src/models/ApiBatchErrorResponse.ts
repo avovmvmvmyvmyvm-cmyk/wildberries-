@@ -20,7 +20,10 @@ import { mapValues } from '../runtime';
  */
 export interface ApiBatchErrorResponse {
     /**
-     * Код ошибки
+     * Код ошибки:
+     *   - `404`
+     *   - `409`
+     * 
      * @type {number}
      * @memberof ApiBatchErrorResponse
      */
@@ -28,6 +31,7 @@ export interface ApiBatchErrorResponse {
     /**
      * - `NotFound` — сборочное задание не найдено
      * - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
+     * - `ImeiIsNotFilled` — не заполнен IMEI
      * 
      * @type {string}
      * @memberof ApiBatchErrorResponse

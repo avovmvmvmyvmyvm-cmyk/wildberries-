@@ -274,9 +274,6 @@ class V0GetNormQueryMinusResponse implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['items'] === null) {
-            $invalidProperties[] = "'items' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -295,7 +292,7 @@ class V0GetNormQueryMinusResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets items
      *
-     * @return \Wildberries\Sdk\Promotion\Model\V0GetNormQueryMinusResponseItem[]
+     * @return \Wildberries\Sdk\Promotion\Model\V0GetNormQueryMinusResponseItem[]|null
      */
     public function getItems()
     {
@@ -305,7 +302,7 @@ class V0GetNormQueryMinusResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets items
      *
-     * @param \Wildberries\Sdk\Promotion\Model\V0GetNormQueryMinusResponseItem[] $items items
+     * @param \Wildberries\Sdk\Promotion\Model\V0GetNormQueryMinusResponseItem[]|null $items items
      *
      * @return self
      */

@@ -32,14 +32,13 @@ export interface V0GetNormQueryMinusResponse {
      * @type {Array<V0GetNormQueryMinusResponseItem>}
      * @memberof V0GetNormQueryMinusResponse
      */
-    items: Array<V0GetNormQueryMinusResponseItem>;
+    items?: Array<V0GetNormQueryMinusResponseItem>;
 }
 
 /**
  * Check if a given object implements the V0GetNormQueryMinusResponse interface.
  */
 export function instanceOfV0GetNormQueryMinusResponse(value: object): value is V0GetNormQueryMinusResponse {
-    if (!('items' in value) || value['items'] === undefined) return false;
     return true;
 }
 
@@ -53,7 +52,7 @@ export function V0GetNormQueryMinusResponseFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'items': ((json['items'] as Array<any>).map(V0GetNormQueryMinusResponseItemFromJSON)),
+        'items': json['items'] == null ? undefined : ((json['items'] as Array<any>).map(V0GetNormQueryMinusResponseItemFromJSON)),
     };
 }
 
@@ -68,7 +67,7 @@ export function V0GetNormQueryMinusResponseToJSONTyped(value?: V0GetNormQueryMin
 
     return {
         
-        'items': ((value['items'] as Array<any>).map(V0GetNormQueryMinusResponseItemToJSON)),
+        'items': value['items'] == null ? undefined : ((value['items'] as Array<any>).map(V0GetNormQueryMinusResponseItemToJSON)),
     };
 }
 

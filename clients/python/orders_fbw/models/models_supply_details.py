@@ -17,10 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ModelsSupplyDetails(BaseModel):
     """
@@ -51,7 +52,8 @@ class ModelsSupplyDetails(BaseModel):
     accepted_quantity: Optional[StrictInt] = Field(default=None, description="Принято, шт", alias="acceptedQuantity")
     unloading_quantity: Optional[StrictInt] = Field(default=None, description="Количество товара, находящегося на раскладке, шт", alias="unloadingQuantity")
     depersonalized_quantity: Optional[StrictInt] = Field(default=None, description="Количество обезличенного товара, шт", alias="depersonalizedQuantity")
-    __properties: ClassVar[List[str]] = ["phone", "statusID", "virtualTypeID", "boxTypeID", "createDate", "supplyDate", "factDate", "updatedDate", "warehouseID", "warehouseName", "actualWarehouseID", "actualWarehouseName", "transitWarehouseID", "transitWarehouseName", "acceptanceCost", "paidAcceptanceCoefficient", "rejectReason", "supplierAssignName", "storageCoef", "deliveryCoef", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity", "depersonalizedQuantity"]
+    is_box_on_pallet: Optional[StrictBool] = Field(default=None, description="Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` ", alias="isBoxOnPallet")
+    __properties: ClassVar[List[str]] = ["phone", "statusID", "virtualTypeID", "boxTypeID", "createDate", "supplyDate", "factDate", "updatedDate", "warehouseID", "warehouseName", "actualWarehouseID", "actualWarehouseName", "transitWarehouseID", "transitWarehouseName", "acceptanceCost", "paidAcceptanceCoefficient", "rejectReason", "supplierAssignName", "storageCoef", "deliveryCoef", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity", "depersonalizedQuantity", "isBoxOnPallet"]
 
     @field_validator('status_id')
     def status_id_validate_enum(cls, value):
@@ -77,8 +79,7 @@ class ModelsSupplyDetails(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -194,7 +195,8 @@ class ModelsSupplyDetails(BaseModel):
             "readyForSaleQuantity": obj.get("readyForSaleQuantity"),
             "acceptedQuantity": obj.get("acceptedQuantity"),
             "unloadingQuantity": obj.get("unloadingQuantity"),
-            "depersonalizedQuantity": obj.get("depersonalizedQuantity")
+            "depersonalizedQuantity": obj.get("depersonalizedQuantity"),
+            "isBoxOnPallet": obj.get("isBoxOnPallet")
         })
         return _obj
 

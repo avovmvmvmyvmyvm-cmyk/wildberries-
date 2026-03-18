@@ -13,10 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiBatchErrorResponse {
-    /// Код ошибки
+    /// Код ошибки:   - `404`   - `409` 
     #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
     pub code: Option<i32>,
-    /// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания 
+    /// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI 
     #[serde(rename = "detail", skip_serializing_if = "Option::is_none")]
     pub detail: Option<String>,
 }

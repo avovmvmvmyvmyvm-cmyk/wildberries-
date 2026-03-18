@@ -9,7 +9,7 @@ info:
       1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)
       2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)
       3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)
-      4. [Платной приёмке](/openapi/reports#tag/Platnaya-priyomka)
+      4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)
       5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)
       6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)
       7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)
@@ -32,7 +32,7 @@ tags:
 - description: ""
   name: Отчёты об удержаниях
 - description: ""
-  name: Платная приёмка
+  name: Операции при приёмке
 - description: ""
   name: Платное хранение
 - description: ""
@@ -44,114 +44,6 @@ tags:
 - description: ""
   name: Отчёт о возвратах и перемещении товаров
 paths:
-  /api/v1/supplier/incomes:
-    get:
-      deprecated: true
-      description: |
-        Данный метод устарел. Он будет удалён [11 марта](https://dev.wildberries.ru/release-notes?id=431)
-      parameters:
-      - description: |
-          Дата и время последнего изменения по поставке. <br>
-          Дата в формате RFC3339. Можно передать дату или дату со временем.
-          Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. <br>
-          Время передаётся в часовом поясе Москва (UTC+3).
-          <br>Примеры:
-            - `2019-06-20`
-            - `2019-06-20T23:59:59`
-            - `2019-06-20T00:00:00.12345`
-            - `2017-03-25T00:00:00`
-        explode: true
-        in: query
-        name: dateFrom
-        required: true
-        schema:
-          format: date-time
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-              - incomeId: 12345
-                number: ""
-                date: 2022-05-08T00:00:54
-                lastChangeDate: 2022-05-08T00:44:15.5
-                supplierArticle: ABCDEF
-                techSize: "0"
-                barcode: "2000328074123"
-                quantity: 3
-                totalPrice: 0
-                dateClose: 2022-05-08T00:00:00
-                warehouseName: Подольск
-                nmId: 1234567
-                status: Принято
-              schema:
-                items:
-                  $ref: "#/components/schemas/IncomesItem"
-                type: array
-          description: Успешно
-        "400":
-          content:
-            application/json:
-              examples:
-                DateFromFieldRequired:
-                  $ref: "#/components/examples/DateFromFieldRequired"
-                DateFromValueNotValidated:
-                  $ref: "#/components/examples/DateFromValueNotValidated"
-              schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_400_response"
-          description: Неправильный запрос
-        "401":
-          content:
-            application/problem+json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
-          description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
-          description: Требуется платёж
-        "429":
-          content:
-            application/problem+json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
-          description: Слишком много запросов
-      security:
-      - HeaderApiKey: []
-      summary: Поставки
-      tags:
-      - Основные отчёты
-      x-readonly-method: true
-      x-category: statistics
-    servers:
-    - url: https://statistics-api.wildberries.ru
   /api/v1/supplier/stocks:
     get:
       description: |
@@ -232,7 +124,7 @@ paths:
                 DateFromValueNotValidated:
                   $ref: "#/components/examples/DateFromValueNotValidated"
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_400_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -248,7 +140,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -258,7 +150,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -273,7 +165,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -392,7 +284,7 @@ paths:
                 DateFromValueNotValidated:
                   $ref: "#/components/examples/DateFromValueNotValidated"
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_400_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -408,7 +300,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -418,7 +310,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -433,7 +325,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -557,7 +449,7 @@ paths:
                 DateFromValueNotValidated:
                   $ref: "#/components/examples/DateFromValueNotValidated"
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_400_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -573,7 +465,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -583,7 +475,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -598,7 +490,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -684,7 +576,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -694,7 +586,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -709,7 +601,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       summary: Получить отчёт
       tags:
@@ -872,7 +764,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -882,7 +774,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -897,7 +789,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -968,7 +860,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "404":
           content:
@@ -994,7 +886,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1085,7 +977,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1095,7 +987,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "404":
           content:
@@ -1121,7 +1013,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1218,7 +1110,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "403":
           content:
@@ -1239,7 +1131,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1336,7 +1228,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "403":
           content:
@@ -1357,7 +1249,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1485,7 +1377,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "403":
           content:
@@ -1506,7 +1398,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1576,7 +1468,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1586,7 +1478,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1601,7 +1493,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1703,7 +1595,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1713,7 +1605,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1728,7 +1620,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1742,7 +1634,7 @@ paths:
   /api/v1/acceptance_report:
     get:
       description: |
-        Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+        Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>
 
         Можно получить отчёт максимум за 31 день.
 
@@ -1817,7 +1709,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1827,7 +1719,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1842,13 +1734,13 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
       summary: Создать отчёт
       tags:
-      - Платная приёмка
+      - Операции при приёмке
       x-readonly-method: true
       x-category: contentanalytics
     servers:
@@ -1856,7 +1748,7 @@ paths:
   /api/v1/acceptance_report/tasks/{task_id}/status:
     get:
       description: |
-        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).
+        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1913,7 +1805,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "404":
           content:
@@ -1939,13 +1831,13 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
       summary: Проверить статус
       tags:
-      - Платная приёмка
+      - Операции при приёмке
       x-readonly-method: true
       x-category: contentanalytics
     servers:
@@ -1953,7 +1845,7 @@ paths:
   /api/v1/acceptance_report/tasks/{task_id}/download:
     get:
       description: |
-        Метод возвращает отчёт о [платной приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get).
+        Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2011,7 +1903,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2021,7 +1913,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "404":
           content:
@@ -2047,13 +1939,13 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
       summary: Получить отчёт
       tags:
-      - Платная приёмка
+      - Операции при приёмке
       x-readonly-method: true
       x-category: contentanalytics
     servers:
@@ -2146,7 +2038,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2156,7 +2048,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2171,7 +2063,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2242,7 +2134,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "404":
           content:
@@ -2268,7 +2160,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2362,7 +2254,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2372,7 +2264,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "404":
           content:
@@ -2398,7 +2290,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2484,7 +2376,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2494,7 +2386,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2509,7 +2401,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2557,7 +2449,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2567,7 +2459,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2582,7 +2474,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2707,7 +2599,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2717,7 +2609,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2732,7 +2624,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2860,7 +2752,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2870,7 +2762,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2885,7 +2777,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2978,7 +2870,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2988,7 +2880,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -3003,7 +2895,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3096,7 +2988,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -3106,7 +2998,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -3121,7 +3013,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3207,7 +3099,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Не авторизован
         "402":
           content:
@@ -3217,7 +3109,7 @@ paths:
                 detail: please top up your balance in your company personal account
                   https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -3232,7 +3124,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+                $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3552,7 +3444,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+            $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
       description: Не авторизован
     "402":
       content:
@@ -3561,7 +3453,7 @@ components:
             title: payment required
             detail: please top up your balance in your company personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/_api_v1_supplier_incomes_get_402_response"
+            $ref: "#/components/schemas/_api_v1_supplier_stocks_get_402_response"
       description: Требуется платёж
     "429":
       content:
@@ -3576,7 +3468,7 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v1_supplier_incomes_get_401_response"
+            $ref: "#/components/schemas/_api_v1_supplier_stocks_get_401_response"
       description: Слишком много запросов
     SuccessRegionSaleResponse:
       content:
@@ -3661,74 +3553,6 @@ components:
             $ref: "#/components/schemas/_api_v1_analytics_brand_share_get_200_response"
       description: Успешно
   schemas:
-    IncomesItem:
-      example:
-        date: date
-        supplierArticle: supplierArticle
-        incomeId: 0
-        quantity: 6
-        totalPrice: 1.4658129805029452
-        lastChangeDate: lastChangeDate
-        nmId: 5
-        warehouseName: warehouseName
-        number: number
-        dateClose: dateClose
-        techSize: techSize
-        barcode: barcode
-        status: Принято
-      properties:
-        incomeId:
-          description: Номер поставки
-          type: integer
-        number:
-          description: Номер УПД
-          maxLength: 40
-          type: string
-        date:
-          description: "Дата поступления. Если часовой пояс не указан, то берётся\
-            \ Московское время UTC+3."
-          type: string
-        lastChangeDate:
-          description: "Дата и время обновления информации в сервисе. Это поле соо\
-            тветствует параметру `dateFrom` в запросе. Если часовой пояс не указан\
-            , то берётся Московское время UTC+3."
-          type: string
-        supplierArticle:
-          description: Артикул продавца
-          maxLength: 75
-          type: string
-        techSize:
-          description: Размер товара
-          maxLength: 30
-          type: string
-        barcode:
-          description: Баркод
-          maxLength: 30
-          type: string
-        quantity:
-          description: Количество
-          type: integer
-        totalPrice:
-          description: Цена из УПД
-          type: number
-        dateClose:
-          description: "Дата принятия (закрытия) в WB. Если часовой пояс не указан\
-            , то берётся Московское время UTC+3"
-          type: string
-        warehouseName:
-          description: Название склада
-          maxLength: 50
-          type: string
-        nmId:
-          description: Артикул WB
-          type: integer
-        status:
-          description: Текущий статус поставки
-          enum:
-          - Принято
-          maxLength: 50
-          type: string
-      type: object
     StocksItem:
       example:
         supplierArticle: supplierArticle
@@ -4446,11 +4270,11 @@ components:
           description: Заголовок ошибки
           type: string
       type: object
-    _api_v1_supplier_incomes_get_400_response:
+    _api_v1_supplier_stocks_get_400_response:
       oneOf:
       - $ref: "#/components/schemas/responseErrorStatistics"
       - $ref: "#/components/schemas/responseErrorStatistics2"
-    _api_v1_supplier_incomes_get_401_response:
+    _api_v1_supplier_stocks_get_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -4478,7 +4302,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v1_supplier_incomes_get_402_response:
+    _api_v1_supplier_stocks_get_402_response:
       properties:
         title:
           description: Заголовок ошибки

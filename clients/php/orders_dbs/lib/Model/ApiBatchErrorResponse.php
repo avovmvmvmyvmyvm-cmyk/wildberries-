@@ -309,7 +309,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets code
      *
-     * @param int|null $code Код ошибки
+     * @param int|null $code Код ошибки:   - `404`   - `409`
      *
      * @return self
      */
@@ -336,7 +336,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets detail
      *
-     * @param string|null $detail - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
+     * @param string|null $detail - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI
      *
      * @return self
      */

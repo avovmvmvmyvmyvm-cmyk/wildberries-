@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ModelsOptionsResultModelResultInnerWarehousesInner(BaseModel):
     """
@@ -30,7 +31,8 @@ class ModelsOptionsResultModelResultInnerWarehousesInner(BaseModel):
     can_box: Optional[StrictBool] = Field(default=None, description="Тип упаковки **Короб**:   - `true` — доступен   - `false` — недоступен ", alias="canBox")
     can_monopallet: Optional[StrictBool] = Field(default=None, description="Тип упаковки **Монопаллета**:   - `true` — доступен   - `false` — недоступен ", alias="canMonopallet")
     can_supersafe: Optional[StrictBool] = Field(default=None, description="Тип упаковки **Суперсейф**:   - `true` — доступен   - `false` — недоступен ", alias="canSupersafe")
-    __properties: ClassVar[List[str]] = ["warehouseID", "canBox", "canMonopallet", "canSupersafe"]
+    is_box_on_pallet: Optional[StrictBool] = Field(default=None, description="Тип поставки **Поштучная палета**:   - `true` — доступен   - `false` — недоступен ", alias="isBoxOnPallet")
+    __properties: ClassVar[List[str]] = ["warehouseID", "canBox", "canMonopallet", "canSupersafe", "isBoxOnPallet"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -46,8 +48,7 @@ class ModelsOptionsResultModelResultInnerWarehousesInner(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -87,7 +88,8 @@ class ModelsOptionsResultModelResultInnerWarehousesInner(BaseModel):
             "warehouseID": obj.get("warehouseID"),
             "canBox": obj.get("canBox"),
             "canMonopallet": obj.get("canMonopallet"),
-            "canSupersafe": obj.get("canSupersafe")
+            "canSupersafe": obj.get("canSupersafe"),
+            "isBoxOnPallet": obj.get("isBoxOnPallet")
         })
         return _obj
 

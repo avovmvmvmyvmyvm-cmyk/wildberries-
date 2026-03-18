@@ -14,21 +14,21 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V0GetNormQueryMinusResponseItem {
     /// ID кампании
-    #[serde(rename = "advert_id")]
-    pub advert_id: i32,
+    #[serde(rename = "advert_id", skip_serializing_if = "Option::is_none")]
+    pub advert_id: Option<i32>,
     /// Артикул WB
-    #[serde(rename = "nm_id")]
-    pub nm_id: i32,
+    #[serde(rename = "nm_id", skip_serializing_if = "Option::is_none")]
+    pub nm_id: Option<i32>,
     /// Список минус-фраз
     #[serde(rename = "norm_queries", skip_serializing_if = "Option::is_none")]
     pub norm_queries: Option<Vec<String>>,
 }
 
 impl V0GetNormQueryMinusResponseItem {
-    pub fn new(advert_id: i32, nm_id: i32) -> V0GetNormQueryMinusResponseItem {
+    pub fn new() -> V0GetNormQueryMinusResponseItem {
         V0GetNormQueryMinusResponseItem {
-            advert_id,
-            nm_id,
+            advert_id: None,
+            nm_id: None,
             norm_queries: None,
         }
     }

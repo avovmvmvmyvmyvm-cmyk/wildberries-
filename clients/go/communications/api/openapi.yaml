@@ -10,6 +10,10 @@ info:
       2. [Закреплёнными отзывами](/openapi/user-communication#tag/Zakreplyonnye-otzyvy)
       3. [Чатами с покупателями](/openapi/user-communication#tag/Chat-s-pokupatelyami)
       4. [Заявками покупателей на возврат](/openapi/user-communication#tag/Vozvraty-pokupatelyami)
+
+      <div class="description_ref">
+        Узнать, как использовать методы в бизнес-кейсах, можно в <a href="https://dev.wildberries.ru/news/278">инструкции по работе с разделом Общение с покупателями</a>
+      </div>
   title: Общение с покупателями
   version: communication
   x-file-name: communications

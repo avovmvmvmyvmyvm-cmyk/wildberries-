@@ -2089,6 +2089,11 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                MissingRequiredCharacteristics:
+                  $ref: "#/components/examples/MissingRequiredCharacteristics"
+                NonUniqueCharacteristicsInOneGroupAdd:
+                  $ref: "#/components/examples/NonUniqueCharacteristicsInOneGroupAdd"
               schema:
                 $ref: "#/components/schemas/responseBodyContentError400"
           description: Неправильный запрос
@@ -2949,6 +2954,10 @@ paths:
                   $ref: "#/components/examples/CardsVendorCodeUsedInOtherCards"
                 ThisCategoryDoesNotExist:
                   $ref: "#/components/examples/ThisCategoryDoesNotExist"
+                MissingRequiredCharacteristics:
+                  $ref: "#/components/examples/MissingRequiredCharacteristics"
+                NonUniqueCharacteristicsInOneGroupCreate:
+                  $ref: "#/components/examples/NonUniqueCharacteristicsInOneGroupCreate"
               schema:
                 $ref: "#/components/schemas/responseBodyContentError400"
           description: Неправильный запрос
@@ -3108,6 +3117,10 @@ paths:
                   $ref: "#/components/examples/CardsVendorCodeUsedInOtherCards"
                 ThisCategoryDoesNotExist:
                   $ref: "#/components/examples/ThisCategoryDoesNotExist"
+                MissingRequiredCharacteristics:
+                  $ref: "#/components/examples/MissingRequiredCharacteristics"
+                NonUniqueCharacteristicsInOneGroupAdd:
+                  $ref: "#/components/examples/NonUniqueCharacteristicsInOneGroupAdd"
               schema:
                 $ref: "#/components/schemas/responseBodyContentError400"
           description: Неправильный запрос
@@ -6169,6 +6182,36 @@ components:
         errorText: This category does not exist
         additionalErrors:
           id: "342342"
+    MissingRequiredCharacteristics:
+      description: "Не указаны характеристики, обязательные для [объединённых](https://dev.wildberries.ru/release-notes?id=489)\
+        \ карточек товаров"
+      value:
+        data: null
+        error: true
+        errorText: some products lacks required characteristics. please fill them
+          and try again.
+        additionalErrors:
+          vendor_code_1: "missing required characteristics with ids: {1}, {2}"
+          vendor_code_2: "missing required characteristics with ids: {1}, {2}"
+    NonUniqueCharacteristicsInOneGroupCreate:
+      description: "Неуникальные характеристики в одной группе [объединённых](https://dev.wildberries.ru/release-notes?id=489)\
+        \ карточек товаров"
+      value:
+        data: null
+        error: true
+        errorText: non unique characteristics in one group
+        additionalErrors:
+          vendor_code_1: "non unique characteristics in group with ids: {1}, {2}"
+    NonUniqueCharacteristicsInOneGroupAdd:
+      description: "Неуникальные характеристики в одной группе [объединённых](https://dev.wildberries.ru/release-notes?id=489)\
+        \ карточек товаров"
+      value:
+        data: null
+        error: true
+        errorText: non unique characteristics in one group
+        additionalErrors:
+          vendor_code_1: "non unique characteristics in group id: {imt_id} with characteristic\
+            \ ids: {1}, {2}"
     responseBodyContentError400:
       description: Неправильный запрос
       value:

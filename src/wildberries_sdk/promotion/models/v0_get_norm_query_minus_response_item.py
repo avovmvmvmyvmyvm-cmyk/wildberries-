@@ -21,13 +21,14 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class V0GetNormQueryMinusResponseItem(BaseModel):
     """
     V0GetNormQueryMinusResponseItem
     """ # noqa: E501
-    advert_id: StrictInt = Field(description="ID кампании")
-    nm_id: StrictInt = Field(description="Артикул WB")
+    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании")
+    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
     norm_queries: Optional[List[StrictStr]] = Field(default=None, description="Список минус-фраз")
     __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "norm_queries"]
 
@@ -45,8 +46,7 @@ class V0GetNormQueryMinusResponseItem(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

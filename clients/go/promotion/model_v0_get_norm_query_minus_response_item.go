@@ -12,8 +12,6 @@ package promotion
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the V0GetNormQueryMinusResponseItem type satisfies the MappedNullable interface at compile time
@@ -22,23 +20,19 @@ var _ MappedNullable = &V0GetNormQueryMinusResponseItem{}
 // V0GetNormQueryMinusResponseItem struct for V0GetNormQueryMinusResponseItem
 type V0GetNormQueryMinusResponseItem struct {
 	// ID кампании
-	AdvertId int32 `json:"advert_id"`
+	AdvertId *int32 `json:"advert_id,omitempty"`
 	// Артикул WB
-	NmId int32 `json:"nm_id"`
+	NmId *int32 `json:"nm_id,omitempty"`
 	// Список минус-фраз
 	NormQueries []string `json:"norm_queries,omitempty"`
 }
-
-type _V0GetNormQueryMinusResponseItem V0GetNormQueryMinusResponseItem
 
 // NewV0GetNormQueryMinusResponseItem instantiates a new V0GetNormQueryMinusResponseItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0GetNormQueryMinusResponseItem(advertId int32, nmId int32) *V0GetNormQueryMinusResponseItem {
+func NewV0GetNormQueryMinusResponseItem() *V0GetNormQueryMinusResponseItem {
 	this := V0GetNormQueryMinusResponseItem{}
-	this.AdvertId = advertId
-	this.NmId = nmId
 	return &this
 }
 
@@ -50,52 +44,68 @@ func NewV0GetNormQueryMinusResponseItemWithDefaults() *V0GetNormQueryMinusRespon
 	return &this
 }
 
-// GetAdvertId returns the AdvertId field value
+// GetAdvertId returns the AdvertId field value if set, zero value otherwise.
 func (o *V0GetNormQueryMinusResponseItem) GetAdvertId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		var ret int32
 		return ret
 	}
-
-	return o.AdvertId
+	return *o.AdvertId
 }
 
-// GetAdvertIdOk returns a tuple with the AdvertId field value
+// GetAdvertIdOk returns a tuple with the AdvertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryMinusResponseItem) GetAdvertIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AdvertId) {
 		return nil, false
 	}
-	return &o.AdvertId, true
+	return o.AdvertId, true
 }
 
-// SetAdvertId sets field value
+// HasAdvertId returns a boolean if a field has been set.
+func (o *V0GetNormQueryMinusResponseItem) HasAdvertId() bool {
+	if o != nil && !IsNil(o.AdvertId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdvertId gets a reference to the given int32 and assigns it to the AdvertId field.
 func (o *V0GetNormQueryMinusResponseItem) SetAdvertId(v int32) {
-	o.AdvertId = v
+	o.AdvertId = &v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *V0GetNormQueryMinusResponseItem) GetNmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V0GetNormQueryMinusResponseItem) GetNmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NmId) {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *V0GetNormQueryMinusResponseItem) HasNmId() bool {
+	if o != nil && !IsNil(o.NmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int32 and assigns it to the NmId field.
 func (o *V0GetNormQueryMinusResponseItem) SetNmId(v int32) {
-	o.NmId = v
+	o.NmId = &v
 }
 
 // GetNormQueries returns the NormQueries field value if set, zero value otherwise.
@@ -140,50 +150,16 @@ func (o V0GetNormQueryMinusResponseItem) MarshalJSON() ([]byte, error) {
 
 func (o V0GetNormQueryMinusResponseItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["advert_id"] = o.AdvertId
-	toSerialize["nm_id"] = o.NmId
+	if !IsNil(o.AdvertId) {
+		toSerialize["advert_id"] = o.AdvertId
+	}
+	if !IsNil(o.NmId) {
+		toSerialize["nm_id"] = o.NmId
+	}
 	if !IsNil(o.NormQueries) {
 		toSerialize["norm_queries"] = o.NormQueries
 	}
 	return toSerialize, nil
-}
-
-func (o *V0GetNormQueryMinusResponseItem) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"advert_id",
-		"nm_id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV0GetNormQueryMinusResponseItem := _V0GetNormQueryMinusResponseItem{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV0GetNormQueryMinusResponseItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V0GetNormQueryMinusResponseItem(varV0GetNormQueryMinusResponseItem)
-
-	return err
 }
 
 type NullableV0GetNormQueryMinusResponseItem struct {

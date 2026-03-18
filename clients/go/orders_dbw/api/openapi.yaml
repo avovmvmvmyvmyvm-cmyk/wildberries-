@@ -319,6 +319,89 @@ paths:
       x-category: marketplace
     servers:
     - url: https://marketplace-api.wildberries.ru
+  /api/marketplace/v3/dbw/orders/client:
+    post:
+      description: "Метод возвращает информацию о покупателях по ID сборочных зада\
+        ний.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
+        <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\
+        ние и удаление метаданных</li>\n    <li>методы сборочных заданий</li>\n</ul>\
+        \ \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n\
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодом отв\
+        ета <code>409</code> учитывается как 10 запросов\n</div>\n"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrdersRequestAPI"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClientInfoResp"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              examples:
+                IncorrectRequest:
+                  $ref: "#/components/examples/IncorrectRequest1"
+                IncorrectRequestBody:
+                  $ref: "#/components/examples/IncorrectRequestBody"
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: s2s-api-auth-catalog
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+          description: Не авторизован
+        "403":
+          content:
+            application/json:
+              example:
+                code: AccessDenied
+                message: ""
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Доступ запрещён
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: s2s-api-auth-catalog
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Информация о покупателе
+      tags:
+      - Сборочные задания DBW
+      x-readonly-method: true
+      x-category: marketplace
+    servers:
+    - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/status:
     post:
       description: "Метод возвращает статусы сборочных заданий по их ID.\n<br><br>\n\
@@ -1855,6 +1938,110 @@ components:
             $ref: "#/components/schemas/Error"
       description: Доступ запрещён
   schemas:
+    ClientInfo:
+      example:
+        firstName: Иван
+        phone: "+79871234567"
+        orderId: 1345678910
+        additionalPhones:
+        - "1234554321"
+        fullName: Иванов Иван Иванович
+        phoneCode: 0
+        replacementPhone: "79871234567"
+        additionalPhoneCodes:
+        - 12345
+      properties:
+        replacementPhone:
+          description: |
+            Подменный номер для связи с покупателем. <br>
+            Пустое значение `""` указывает, что номер ещё не назначен
+          example: "79871234567"
+          nullable: false
+          type: string
+        phone:
+          description: |
+            Номер телефона для связи с покупателем:
+              - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`
+              - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду
+          example: "+79871234567"
+          nullable: false
+          type: string
+        firstName:
+          description: Имя покупателя
+          example: Иван
+          nullable: false
+          type: string
+        fullName:
+          description: "Полное имя покупателя, используется для оформления докумен\
+            тов"
+          example: Иванов Иван Иванович
+          nullable: false
+          type: string
+        additionalPhones:
+          description: |
+            Дополнительные номера телефонов для связи с покупателем. <br>
+            Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>
+            Пустое значение означает, что номер не указан
+          example:
+          - "1234554321"
+          items:
+            type: string
+          nullable: false
+          type: array
+        additionalPhoneCodes:
+          description: |
+            Дополнительные добавочные коды. <br>
+            Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br>
+            Пустое значение указывает, коды ещё не назначены
+          example:
+          - 12345
+          items:
+            type: integer
+          nullable: false
+          type: array
+        orderId:
+          description: ID сборочного задания
+          example: 1345678910
+          type: integer
+        phoneCode:
+          description: |
+            Добавочный код. <br>
+            Используйте, чтобы связаться с покупателем по номеру из `phone`.<br>
+            Если код не указан, вы можете связаться с покупателем без кода
+          example: 0
+          nullable: false
+          type: integer
+      type: object
+    ClientInfoResp:
+      example:
+        orders:
+        - firstName: Иван
+          phone: "+79871234567"
+          orderId: 1345678910
+          additionalPhones:
+          - "1234554321"
+          fullName: Иванов Иван Иванович
+          phoneCode: 0
+          replacementPhone: "79871234567"
+          additionalPhoneCodes:
+          - 12345
+        - firstName: Иван
+          phone: "+79871234567"
+          orderId: 1345678910
+          additionalPhones:
+          - "1234554321"
+          fullName: Иванов Иван Иванович
+          phoneCode: 0
+          replacementPhone: "79871234567"
+          additionalPhoneCodes:
+          - 12345
+      properties:
+        orders:
+          description: Информация о покупателях
+          items:
+            $ref: "#/components/schemas/ClientInfo"
+          type: array
+      type: object
     OrderCourierInfo:
       example:
         orderID: 2876979713
@@ -1951,7 +2138,7 @@ components:
           nullable: false
           type: string
         data:
-          description: "Дополнительные данные, обогащающие ошибку"
+          description: Дополнительные данные ошибки
           nullable: true
           type: object
       type: object

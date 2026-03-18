@@ -35,6 +35,10 @@ type ModelsSupply struct {
 	UpdatedDate NullableString `json:"updatedDate,omitempty"`
 	// ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах 
 	StatusID *int32 `json:"statusID,omitempty"`
+	// ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф 
+	BoxTypeID interface{} `json:"boxTypeID,omitempty"`
+	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` 
+	IsBoxOnPallet *bool `json:"isBoxOnPallet,omitempty"`
 }
 
 // NewModelsSupply instantiates a new ModelsSupply object
@@ -350,6 +354,71 @@ func (o *ModelsSupply) SetStatusID(v int32) {
 	o.StatusID = &v
 }
 
+// GetBoxTypeID returns the BoxTypeID field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelsSupply) GetBoxTypeID() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.BoxTypeID
+}
+
+// GetBoxTypeIDOk returns a tuple with the BoxTypeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelsSupply) GetBoxTypeIDOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.BoxTypeID) {
+		return nil, false
+	}
+	return &o.BoxTypeID, true
+}
+
+// HasBoxTypeID returns a boolean if a field has been set.
+func (o *ModelsSupply) HasBoxTypeID() bool {
+	if o != nil && !IsNil(o.BoxTypeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetBoxTypeID gets a reference to the given interface{} and assigns it to the BoxTypeID field.
+func (o *ModelsSupply) SetBoxTypeID(v interface{}) {
+	o.BoxTypeID = v
+}
+
+// GetIsBoxOnPallet returns the IsBoxOnPallet field value if set, zero value otherwise.
+func (o *ModelsSupply) GetIsBoxOnPallet() bool {
+	if o == nil || IsNil(o.IsBoxOnPallet) {
+		var ret bool
+		return ret
+	}
+	return *o.IsBoxOnPallet
+}
+
+// GetIsBoxOnPalletOk returns a tuple with the IsBoxOnPallet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsSupply) GetIsBoxOnPalletOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsBoxOnPallet) {
+		return nil, false
+	}
+	return o.IsBoxOnPallet, true
+}
+
+// HasIsBoxOnPallet returns a boolean if a field has been set.
+func (o *ModelsSupply) HasIsBoxOnPallet() bool {
+	if o != nil && !IsNil(o.IsBoxOnPallet) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsBoxOnPallet gets a reference to the given bool and assigns it to the IsBoxOnPallet field.
+func (o *ModelsSupply) SetIsBoxOnPallet(v bool) {
+	o.IsBoxOnPallet = &v
+}
+
 func (o ModelsSupply) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -383,6 +452,12 @@ func (o ModelsSupply) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.StatusID) {
 		toSerialize["statusID"] = o.StatusID
+	}
+	if o.BoxTypeID != nil {
+		toSerialize["boxTypeID"] = o.BoxTypeID
+	}
+	if !IsNil(o.IsBoxOnPallet) {
+		toSerialize["isBoxOnPallet"] = o.IsBoxOnPallet
 	}
 	return toSerialize, nil
 }

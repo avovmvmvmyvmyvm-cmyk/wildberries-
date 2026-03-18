@@ -141,6 +141,7 @@
 - `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры коробов поставки
 
 ### Заказы DBW (`04-orders-dbw.yaml`)
+- `POST /api/marketplace/v3/dbw/orders/client` — Информация о покупателе
 - `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях
 - `POST /api/v3/dbw/orders/courier` — Информация о курьере
 - `POST /api/v3/dbw/orders/delivery-date` — Дата и время доставки
@@ -260,6 +261,7 @@
 - `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `GET /adv/v3/fullstats` — Статистика кампаний
+- `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
 - `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
 - `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
 - `GET /api/advert/v2/adverts` — Информация о кампаниях
@@ -340,7 +342,6 @@
 - `GET /api/v1/paid_storage` — Создать отчёт
 - `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
 - `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
-- `GET /api/v1/supplier/incomes` — Поставки
 - `GET /api/v1/supplier/orders` — Заказы
 - `GET /api/v1/supplier/sales` — Продажи
 - `GET /api/v1/supplier/stocks` — Склады
@@ -355,28 +356,4 @@
 - `POST /api/v1/documents/download/all` — Получить документы
 - `GET /api/v1/documents/list` — Список документов
 - `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
-
-### Wildberries Цифровой (`14-wbd.yaml`)
-- `GET /api/v1/catalog` — Получить категории и их подкатегории (GetCatalog)
-- `GET /api/v1/content/author` — Получить список своего контента (contentAuthorGet)
-- `GET /api/v1/content/author/{content_id}` — Получить информацию о контенте (contentIdGet)
-- `POST /api/v1/content/author/{content_id}` — Редактировать контент (contentUpdate)
-- `POST /api/v1/content/delete` — Удалить контент (contentDelete)
-- `GET /api/v1/content/download/{uri}` — Скачать контент (contentDownloadGet)
-- `POST /api/v1/content/gallery` — Загрузить медиафайлы для предложения (contentGallery)
-- `POST /api/v1/content/illustration` — Загрузить обложку контента (contentUploadIllustration)
-- `POST /api/v1/content/upload/chunk` — Загрузить контент (файл) (contentUploadChunk)
-- `POST /api/v1/content/upload/init` — Инициализировать новый контент (contentUploadInit)
-- `POST /api/v1/keys-api/keys` — Добавить ключи активации (LoadKeys)
-- `DELETE /api/v1/keys-api/keys` — Удалить ключи активации (DeleteKeysByIDs)
-- `GET /api/v1/keys-api/keys/redeemed` — Получить купленные ключи (GetRedeemedKeys)
-- `GET /api/v1/offer/keys/{offer_id}` — Получить количество ключей для предложения (offerKeysCountGet)
-- `GET /api/v1/offer/keys/{offer_id}/list` — Получить список ключей (offerKeysGet)
-- `POST /api/v1/offer/price/{offer_id}` — Обновить цену (offerUpdatePrice)
-- `POST /api/v1/offer/{offer_id}` — Обновить статус (offerUpdateStatus)
-- `POST /api/v1/offers` — Создать новое предложение (offerCreate)
-- `GET /api/v1/offers/author` — Получить список своих предложений (offersAuthorGet)
-- `POST /api/v1/offers/thumb` — Добавить или обновить обложку предложения (offersUploadThumbnail)
-- `GET /api/v1/offers/{offer_id}` — Получить информацию о предложении (offerGet)
-- `POST /api/v1/offers/{offer_id}` — Редактировать предложение (offerUpdate)
 <!-- METHODS_LIST_END -->

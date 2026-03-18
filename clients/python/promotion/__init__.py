@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.52"
+__version__ = "0.1.53"
 
 # Define package exports
 __all__ = [
@@ -125,6 +125,15 @@ __all__ = [
     "StatsBlok1",
     "StatsBlok2",
     "Timestamps",
+    "V0BidRecommendationBase",
+    "V0BidRecommendationBaseBidCompetitiveBid",
+    "V0BidRecommendationBaseBidLeadersBid",
+    "V0BidRecommendationBaseBidTop2",
+    "V0BidRecommendationNormQuery",
+    "V0BidRecommendationReachMax",
+    "V0BidRecommendationReachMedium",
+    "V0BidRecommendationReachMin",
+    "V0BidsRecommendationsResponse",
     "V0GetNormQueryBidsItem",
     "V0GetNormQueryBidsRequest",
     "V0GetNormQueryBidsRequestItem",
@@ -266,6 +275,15 @@ from wildberries_sdk.promotion.models.stats2_inner import Stats2Inner as Stats2I
 from wildberries_sdk.promotion.models.stats_blok1 import StatsBlok1 as StatsBlok1
 from wildberries_sdk.promotion.models.stats_blok2 import StatsBlok2 as StatsBlok2
 from wildberries_sdk.promotion.models.timestamps import Timestamps as Timestamps
+from wildberries_sdk.promotion.models.v0_bid_recommendation_base import V0BidRecommendationBase as V0BidRecommendationBase
+from wildberries_sdk.promotion.models.v0_bid_recommendation_base_bid_competitive_bid import V0BidRecommendationBaseBidCompetitiveBid as V0BidRecommendationBaseBidCompetitiveBid
+from wildberries_sdk.promotion.models.v0_bid_recommendation_base_bid_leaders_bid import V0BidRecommendationBaseBidLeadersBid as V0BidRecommendationBaseBidLeadersBid
+from wildberries_sdk.promotion.models.v0_bid_recommendation_base_bid_top2 import V0BidRecommendationBaseBidTop2 as V0BidRecommendationBaseBidTop2
+from wildberries_sdk.promotion.models.v0_bid_recommendation_norm_query import V0BidRecommendationNormQuery as V0BidRecommendationNormQuery
+from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_max import V0BidRecommendationReachMax as V0BidRecommendationReachMax
+from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_medium import V0BidRecommendationReachMedium as V0BidRecommendationReachMedium
+from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_min import V0BidRecommendationReachMin as V0BidRecommendationReachMin
+from wildberries_sdk.promotion.models.v0_bids_recommendations_response import V0BidsRecommendationsResponse as V0BidsRecommendationsResponse
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_item import V0GetNormQueryBidsItem as V0GetNormQueryBidsItem
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_request import V0GetNormQueryBidsRequest as V0GetNormQueryBidsRequest
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_request_item import V0GetNormQueryBidsRequestItem as V0GetNormQueryBidsRequestItem

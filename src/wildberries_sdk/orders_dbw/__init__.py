@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.52"
+__version__ = "0.1.53"
 
 # Define package exports
 __all__ = [
@@ -43,6 +43,8 @@ __all__ = [
     "ApiV3DbwOrdersStickersPost200Response",
     "ApiV3DbwOrdersStickersPost200ResponseStickersInner",
     "ApiV3DbwOrdersStickersPostRequest",
+    "ClientInfo",
+    "ClientInfoResp",
     "CourierContactsResponse",
     "CourierInfo",
     "DeliveryDatesInfoResp",
@@ -93,6 +95,8 @@ from wildberries_sdk.orders_dbw.models.api_v3_dbw_orders_status_post_request imp
 from wildberries_sdk.orders_dbw.models.api_v3_dbw_orders_stickers_post200_response import ApiV3DbwOrdersStickersPost200Response as ApiV3DbwOrdersStickersPost200Response
 from wildberries_sdk.orders_dbw.models.api_v3_dbw_orders_stickers_post200_response_stickers_inner import ApiV3DbwOrdersStickersPost200ResponseStickersInner as ApiV3DbwOrdersStickersPost200ResponseStickersInner
 from wildberries_sdk.orders_dbw.models.api_v3_dbw_orders_stickers_post_request import ApiV3DbwOrdersStickersPostRequest as ApiV3DbwOrdersStickersPostRequest
+from wildberries_sdk.orders_dbw.models.client_info import ClientInfo as ClientInfo
+from wildberries_sdk.orders_dbw.models.client_info_resp import ClientInfoResp as ClientInfoResp
 from wildberries_sdk.orders_dbw.models.courier_contacts_response import CourierContactsResponse as CourierContactsResponse
 from wildberries_sdk.orders_dbw.models.courier_info import CourierInfo as CourierInfo
 from wildberries_sdk.orders_dbw.models.delivery_dates_info_resp import DeliveryDatesInfoResp as DeliveryDatesInfoResp

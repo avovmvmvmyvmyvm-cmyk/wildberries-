@@ -311,6 +311,16 @@ pub enum AdvV3FullstatsGetError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`api_advert_v0_bids_recommendations_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiAdvertV0BidsRecommendationsGetError {
+    Status400(String),
+    Status401(models::AdvV1PromotionCountGet401Response),
+    Status429(models::AdvV1PromotionCountGet401Response),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`api_advert_v1_bids_min_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -1648,6 +1658,54 @@ pub async fn adv_v3_fullstats_get(configuration: &configuration::Configuration, 
     } else {
         let content = resp.text().await?;
         let entity: Option<AdvV3FullstatsGetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Только для кампаний с типом оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 5 запросов | 12 сек | 5 запросов | </div> 
+pub async fn api_advert_v0_bids_recommendations_get(configuration: &configuration::Configuration, nm_id: i64, advert_id: i64) -> Result<models::V0BidsRecommendationsResponse, Error<ApiAdvertV0BidsRecommendationsGetError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_nm_id = nm_id;
+    let p_query_advert_id = advert_id;
+
+    let uri_str = format!("{}/api/advert/v0/bids/recommendations", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("nmId", &p_query_nm_id.to_string())]);
+    req_builder = req_builder.query(&[("advertId", &p_query_advert_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V0BidsRecommendationsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V0BidsRecommendationsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ApiAdvertV0BidsRecommendationsGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

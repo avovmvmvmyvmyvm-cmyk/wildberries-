@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Отчёты
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Платной приёмке](/openapi/reports#tag/Platnaya-priyomka)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -15,17 +15,17 @@
 
 import * as runtime from '../runtime';
 import type {
-  ApiV1SupplierIncomesGet401Response,
-  ApiV1SupplierIncomesGet402Response,
+  ApiV1SupplierStocksGet401Response,
+  ApiV1SupplierStocksGet402Response,
   ExciseReportRequest,
   ExciseReportResponse,
   Model4xxResponse,
 } from '../models/index';
 import {
-    ApiV1SupplierIncomesGet401ResponseFromJSON,
-    ApiV1SupplierIncomesGet401ResponseToJSON,
-    ApiV1SupplierIncomesGet402ResponseFromJSON,
-    ApiV1SupplierIncomesGet402ResponseToJSON,
+    ApiV1SupplierStocksGet401ResponseFromJSON,
+    ApiV1SupplierStocksGet401ResponseToJSON,
+    ApiV1SupplierStocksGet402ResponseFromJSON,
+    ApiV1SupplierStocksGet402ResponseToJSON,
     ExciseReportRequestFromJSON,
     ExciseReportRequestToJSON,
     ExciseReportResponseFromJSON,

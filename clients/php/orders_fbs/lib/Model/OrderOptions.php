@@ -58,7 +58,7 @@ class OrderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_b2b' => 'bool'
+        'is_b2_b' => 'bool'
     ];
 
     /**
@@ -69,7 +69,7 @@ class OrderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'is_b2b' => null
+        'is_b2_b' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class OrderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'is_b2b' => false
+        'is_b2_b' => false
     ];
 
     /**
@@ -167,7 +167,7 @@ class OrderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_b2b' => 'isB2b'
+        'is_b2_b' => 'isB2B'
     ];
 
     /**
@@ -176,7 +176,7 @@ class OrderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'is_b2b' => 'setIsB2b'
+        'is_b2_b' => 'setIsB2B'
     ];
 
     /**
@@ -185,7 +185,7 @@ class OrderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'is_b2b' => 'getIsB2b'
+        'is_b2_b' => 'getIsB2B'
     ];
 
     /**
@@ -245,7 +245,7 @@ class OrderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('is_b2b', $data ?? [], null);
+        $this->setIfExists('is_b2_b', $data ?? [], null);
     }
 
     /**
@@ -291,28 +291,28 @@ class OrderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets is_b2b
+     * Gets is_b2_b
      *
      * @return bool|null
      */
-    public function getIsB2b()
+    public function getIsB2B()
     {
-        return $this->container['is_b2b'];
+        return $this->container['is_b2_b'];
     }
 
     /**
-     * Sets is_b2b
+     * Sets is_b2_b
      *
-     * @param bool|null $is_b2b Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа
+     * @param bool|null $is_b2_b Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа
      *
      * @return self
      */
-    public function setIsB2b($is_b2b)
+    public function setIsB2B($is_b2_b)
     {
-        if (is_null($is_b2b)) {
-            throw new \InvalidArgumentException('non-nullable is_b2b cannot be null');
+        if (is_null($is_b2_b)) {
+            throw new \InvalidArgumentException('non-nullable is_b2_b cannot be null');
         }
-        $this->container['is_b2b'] = $is_b2b;
+        $this->container['is_b2_b'] = $is_b2_b;
 
         return $this;
     }

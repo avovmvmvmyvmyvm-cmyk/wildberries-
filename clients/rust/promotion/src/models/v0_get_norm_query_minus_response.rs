@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V0GetNormQueryMinusResponse {
-    #[serde(rename = "items")]
-    pub items: Vec<models::V0GetNormQueryMinusResponseItem>,
+    #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
+    pub items: Option<Vec<models::V0GetNormQueryMinusResponseItem>>,
 }
 
 impl V0GetNormQueryMinusResponse {
-    pub fn new(items: Vec<models::V0GetNormQueryMinusResponseItem>) -> V0GetNormQueryMinusResponse {
+    pub fn new() -> V0GetNormQueryMinusResponse {
         V0GetNormQueryMinusResponse {
-            items,
+            items: None,
         }
     }
 }

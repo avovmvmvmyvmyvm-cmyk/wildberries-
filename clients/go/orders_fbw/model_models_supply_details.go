@@ -69,6 +69,8 @@ type ModelsSupplyDetails struct {
 	UnloadingQuantity *int32 `json:"unloadingQuantity,omitempty"`
 	// Количество обезличенного товара, шт
 	DepersonalizedQuantity NullableInt32 `json:"depersonalizedQuantity,omitempty"`
+	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` 
+	IsBoxOnPallet *bool `json:"isBoxOnPallet,omitempty"`
 }
 
 // NewModelsSupplyDetails instantiates a new ModelsSupplyDetails object
@@ -998,6 +1000,38 @@ func (o *ModelsSupplyDetails) UnsetDepersonalizedQuantity() {
 	o.DepersonalizedQuantity.Unset()
 }
 
+// GetIsBoxOnPallet returns the IsBoxOnPallet field value if set, zero value otherwise.
+func (o *ModelsSupplyDetails) GetIsBoxOnPallet() bool {
+	if o == nil || IsNil(o.IsBoxOnPallet) {
+		var ret bool
+		return ret
+	}
+	return *o.IsBoxOnPallet
+}
+
+// GetIsBoxOnPalletOk returns a tuple with the IsBoxOnPallet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsSupplyDetails) GetIsBoxOnPalletOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsBoxOnPallet) {
+		return nil, false
+	}
+	return o.IsBoxOnPallet, true
+}
+
+// HasIsBoxOnPallet returns a boolean if a field has been set.
+func (o *ModelsSupplyDetails) HasIsBoxOnPallet() bool {
+	if o != nil && !IsNil(o.IsBoxOnPallet) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsBoxOnPallet gets a reference to the given bool and assigns it to the IsBoxOnPallet field.
+func (o *ModelsSupplyDetails) SetIsBoxOnPallet(v bool) {
+	o.IsBoxOnPallet = &v
+}
+
 func (o ModelsSupplyDetails) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1082,6 +1116,9 @@ func (o ModelsSupplyDetails) ToMap() (map[string]interface{}, error) {
 	}
 	if o.DepersonalizedQuantity.IsSet() {
 		toSerialize["depersonalizedQuantity"] = o.DepersonalizedQuantity.Get()
+	}
+	if !IsNil(o.IsBoxOnPallet) {
+		toSerialize["isBoxOnPallet"] = o.IsBoxOnPallet
 	}
 	return toSerialize, nil
 }

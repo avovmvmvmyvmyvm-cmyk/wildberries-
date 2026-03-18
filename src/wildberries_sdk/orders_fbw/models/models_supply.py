@@ -17,10 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ModelsSupply(BaseModel):
     """
@@ -34,7 +35,9 @@ class ModelsSupply(BaseModel):
     fact_date: Optional[StrictStr] = Field(default=None, description="Дата фактической отгрузки поставки", alias="factDate")
     updated_date: Optional[StrictStr] = Field(default=None, description="Дата изменения поставки", alias="updatedDate")
     status_id: Optional[StrictInt] = Field(default=None, description="ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах ", alias="statusID")
-    __properties: ClassVar[List[str]] = ["phone", "supplyID", "preorderID", "createDate", "supplyDate", "factDate", "updatedDate", "statusID"]
+    box_type_id: Optional[Any] = Field(default=None, description="ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф ", alias="boxTypeID")
+    is_box_on_pallet: Optional[StrictBool] = Field(default=None, description="Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` ", alias="isBoxOnPallet")
+    __properties: ClassVar[List[str]] = ["phone", "supplyID", "preorderID", "createDate", "supplyDate", "factDate", "updatedDate", "statusID", "boxTypeID", "isBoxOnPallet"]
 
     @field_validator('status_id')
     def status_id_validate_enum(cls, value):
@@ -60,8 +63,7 @@ class ModelsSupply(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -106,6 +108,11 @@ class ModelsSupply(BaseModel):
         if self.updated_date is None and "updated_date" in self.model_fields_set:
             _dict['updatedDate'] = None
 
+        # set to None if box_type_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.box_type_id is None and "box_type_id" in self.model_fields_set:
+            _dict['boxTypeID'] = None
+
         return _dict
 
     @classmethod
@@ -125,7 +132,9 @@ class ModelsSupply(BaseModel):
             "supplyDate": obj.get("supplyDate"),
             "factDate": obj.get("factDate"),
             "updatedDate": obj.get("updatedDate"),
-            "statusID": obj.get("statusID")
+            "statusID": obj.get("statusID"),
+            "boxTypeID": obj.get("boxTypeID"),
+            "isBoxOnPallet": obj.get("isBoxOnPallet")
         })
         return _obj
 

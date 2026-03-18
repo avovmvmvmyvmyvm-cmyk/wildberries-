@@ -60,7 +60,8 @@ class ModelsOptionsResultModelResultInnerWarehousesInner implements ModelInterfa
         'warehouse_id' => 'int',
         'can_box' => 'bool',
         'can_monopallet' => 'bool',
-        'can_supersafe' => 'bool'
+        'can_supersafe' => 'bool',
+        'is_box_on_pallet' => 'bool'
     ];
 
     /**
@@ -74,7 +75,8 @@ class ModelsOptionsResultModelResultInnerWarehousesInner implements ModelInterfa
         'warehouse_id' => null,
         'can_box' => null,
         'can_monopallet' => null,
-        'can_supersafe' => null
+        'can_supersafe' => null,
+        'is_box_on_pallet' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class ModelsOptionsResultModelResultInnerWarehousesInner implements ModelInterfa
         'warehouse_id' => false,
         'can_box' => false,
         'can_monopallet' => false,
-        'can_supersafe' => false
+        'can_supersafe' => false,
+        'is_box_on_pallet' => false
     ];
 
     /**
@@ -178,7 +181,8 @@ class ModelsOptionsResultModelResultInnerWarehousesInner implements ModelInterfa
         'warehouse_id' => 'warehouseID',
         'can_box' => 'canBox',
         'can_monopallet' => 'canMonopallet',
-        'can_supersafe' => 'canSupersafe'
+        'can_supersafe' => 'canSupersafe',
+        'is_box_on_pallet' => 'isBoxOnPallet'
     ];
 
     /**
@@ -190,7 +194,8 @@ class ModelsOptionsResultModelResultInnerWarehousesInner implements ModelInterfa
         'warehouse_id' => 'setWarehouseId',
         'can_box' => 'setCanBox',
         'can_monopallet' => 'setCanMonopallet',
-        'can_supersafe' => 'setCanSupersafe'
+        'can_supersafe' => 'setCanSupersafe',
+        'is_box_on_pallet' => 'setIsBoxOnPallet'
     ];
 
     /**
@@ -202,7 +207,8 @@ class ModelsOptionsResultModelResultInnerWarehousesInner implements ModelInterfa
         'warehouse_id' => 'getWarehouseId',
         'can_box' => 'getCanBox',
         'can_monopallet' => 'getCanMonopallet',
-        'can_supersafe' => 'getCanSupersafe'
+        'can_supersafe' => 'getCanSupersafe',
+        'is_box_on_pallet' => 'getIsBoxOnPallet'
     ];
 
     /**
@@ -266,6 +272,7 @@ class ModelsOptionsResultModelResultInnerWarehousesInner implements ModelInterfa
         $this->setIfExists('can_box', $data ?? [], null);
         $this->setIfExists('can_monopallet', $data ?? [], null);
         $this->setIfExists('can_supersafe', $data ?? [], null);
+        $this->setIfExists('is_box_on_pallet', $data ?? [], null);
     }
 
     /**
@@ -414,6 +421,33 @@ class ModelsOptionsResultModelResultInnerWarehousesInner implements ModelInterfa
             throw new \InvalidArgumentException('non-nullable can_supersafe cannot be null');
         }
         $this->container['can_supersafe'] = $can_supersafe;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_box_on_pallet
+     *
+     * @return bool|null
+     */
+    public function getIsBoxOnPallet()
+    {
+        return $this->container['is_box_on_pallet'];
+    }
+
+    /**
+     * Sets is_box_on_pallet
+     *
+     * @param bool|null $is_box_on_pallet Тип поставки **Поштучная палета**:   - `true` — доступен   - `false` — недоступен
+     *
+     * @return self
+     */
+    public function setIsBoxOnPallet($is_box_on_pallet)
+    {
+        if (is_null($is_box_on_pallet)) {
+            throw new \InvalidArgumentException('non-nullable is_box_on_pallet cannot be null');
+        }
+        $this->container['is_box_on_pallet'] = $is_box_on_pallet;
 
         return $this;
     }

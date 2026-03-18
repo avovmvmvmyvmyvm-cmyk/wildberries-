@@ -27,7 +27,7 @@ export interface OrderOptions {
      * @type {boolean}
      * @memberof OrderOptions
      */
-    isB2b?: boolean;
+    isB2B?: boolean;
 }
 
 /**
@@ -47,7 +47,7 @@ export function OrderOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'isB2b': json['isB2b'] == null ? undefined : json['isB2b'],
+        'isB2B': json['isB2B'] == null ? undefined : json['isB2B'],
     };
 }
 
@@ -62,7 +62,7 @@ export function OrderOptionsToJSONTyped(value?: OrderOptions | null, ignoreDiscr
 
     return {
         
-        'isB2b': value['isB2b'],
+        'isB2B': value['isB2B'],
     };
 }
 

@@ -37,6 +37,12 @@ pub struct ModelsSupply {
     /// ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах 
     #[serde(rename = "statusID", skip_serializing_if = "Option::is_none")]
     pub status_id: Option<StatusId>,
+    /// ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф 
+    #[serde(rename = "boxTypeID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub box_type_id: Option<Option<serde_json::Value>>,
+    /// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` 
+    #[serde(rename = "isBoxOnPallet", skip_serializing_if = "Option::is_none")]
+    pub is_box_on_pallet: Option<bool>,
 }
 
 impl ModelsSupply {
@@ -50,6 +56,8 @@ impl ModelsSupply {
             fact_date: None,
             updated_date: None,
             status_id: None,
+            box_type_id: None,
+            is_box_on_pallet: None,
         }
     }
 }

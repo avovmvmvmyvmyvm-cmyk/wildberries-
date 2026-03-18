@@ -133,6 +133,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_fbs.FBSAPIService.ApiV3SuppliesSupplyIdTrbxStickersPost` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры коробов поставки
 
 ### orders_dbw (`orders_dbw`)
+- `orders_dbw.DBWAPIService.ApiMarketplaceV3DbwOrdersClientPost` — `POST /api/marketplace/v3/dbw/orders/client` — Информация о покупателе
 - `orders_dbw.DBWAPIService.ApiV3DbwOrdersCourierPost` — `POST /api/v3/dbw/orders/courier` — Информация о курьере
 - `orders_dbw.DBWAPIService.ApiV3DbwOrdersDeliveryDatePost` — `POST /api/v3/dbw/orders/delivery-date` — Дата и время доставки
 - `orders_dbw.DBWAPIService.ApiV3DbwOrdersGet` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях
@@ -252,6 +253,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.AdvV2SeacatSaveAdPost` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `promotion.DefaultApiService.AdvV2SupplierNmsPost` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `promotion.DefaultApiService.AdvV3FullstatsGet` — `GET /adv/v3/fullstats` — Статистика кампаний
+- `promotion.DefaultApiService.ApiAdvertV0BidsRecommendationsGet` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
 - `promotion.DefaultApiService.ApiAdvertV1BidsMinPost` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
 - `promotion.DefaultApiService.ApiAdvertV1BidsPatch` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
 - `promotion.DefaultApiService.ApiAdvertV2AdvertsGet` — `GET /api/advert/v2/adverts` — Информация о кампаниях
@@ -328,7 +330,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `reports.DefaultApiService.ApiV1PaidStorageGet` — `GET /api/v1/paid_storage` — Создать отчёт
 - `reports.DefaultApiService.ApiV1PaidStorageTasksTaskIdDownloadGet` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApiService.ApiV1PaidStorageTasksTaskIdStatusGet` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApiService.ApiV1SupplierIncomesGet` — `GET /api/v1/supplier/incomes` — Поставки
 - `reports.DefaultApiService.ApiV1SupplierOrdersGet` — `GET /api/v1/supplier/orders` — Заказы
 - `reports.DefaultApiService.ApiV1SupplierSalesGet` — `GET /api/v1/supplier/sales` — Продажи
 - `reports.DefaultApiService.ApiV1SupplierStocksGet` — `GET /api/v1/supplier/stocks` — Склады
@@ -347,28 +348,4 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `finances.DefaultApiService.ApiV1DocumentsDownloadGet` — `GET /api/v1/documents/download` — Получить документ
 - `finances.DefaultApiService.ApiV1DocumentsListGet` — `GET /api/v1/documents/list` — Список документов
 - `finances.DefaultApiService.ApiV5SupplierReportDetailByPeriodGet` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
-
-### wbd (`wbd`)
-- `wbd.DefaultApiService.ContentAuthorGet` — `GET /api/v1/content/author` — Получить список своего контента
-- `wbd.DefaultApiService.ContentDelete` — `POST /api/v1/content/delete` — Удалить контент
-- `wbd.DefaultApiService.ContentDownloadGet` — `GET /api/v1/content/download/{uri}` — Скачать контент
-- `wbd.DefaultApiService.ContentGallery` — `POST /api/v1/content/gallery` — Загрузить медиафайлы для предложения
-- `wbd.DefaultApiService.ContentIdGet` — `GET /api/v1/content/author/{content_id}` — Получить информацию о контенте
-- `wbd.DefaultApiService.ContentUpdate` — `POST /api/v1/content/author/{content_id}` — Редактировать контент
-- `wbd.DefaultApiService.ContentUploadChunk` — `POST /api/v1/content/upload/chunk` — Загрузить контент (файл)
-- `wbd.DefaultApiService.ContentUploadIllustration` — `POST /api/v1/content/illustration` — Загрузить обложку контента
-- `wbd.DefaultApiService.ContentUploadInit` — `POST /api/v1/content/upload/init` — Инициализировать новый контент
-- `wbd.DefaultApiService.DeleteKeysByIDs` — `DELETE /api/v1/keys-api/keys` — Удалить ключи активации
-- `wbd.DefaultApiService.GetCatalog` — `GET /api/v1/catalog` — Получить категории и их подкатегории
-- `wbd.DefaultApiService.GetRedeemedKeys` — `GET /api/v1/keys-api/keys/redeemed` — Получить купленные ключи
-- `wbd.DefaultApiService.LoadKeys` — `POST /api/v1/keys-api/keys` — Добавить ключи активации
-- `wbd.DefaultApiService.OfferCreate` — `POST /api/v1/offers` — Создать новое предложение
-- `wbd.DefaultApiService.OfferGet` — `GET /api/v1/offers/{offer_id}` — Получить информацию о предложении
-- `wbd.DefaultApiService.OfferKeysCountGet` — `GET /api/v1/offer/keys/{offer_id}` — Получить количество ключей для предложения
-- `wbd.DefaultApiService.OfferKeysGet` — `GET /api/v1/offer/keys/{offer_id}/list` — Получить список ключей
-- `wbd.DefaultApiService.OfferUpdate` — `POST /api/v1/offers/{offer_id}` — Редактировать предложение
-- `wbd.DefaultApiService.OfferUpdatePrice` — `POST /api/v1/offer/price/{offer_id}` — Обновить цену
-- `wbd.DefaultApiService.OfferUpdateStatus` — `POST /api/v1/offer/{offer_id}` — Обновить статус
-- `wbd.DefaultApiService.OffersAuthorGet` — `GET /api/v1/offers/author` — Получить список своих предложений
-- `wbd.DefaultApiService.OffersUploadThumbnail` — `POST /api/v1/offers/thumb` — Добавить или обновить обложку предложения
 <!-- GO_METHODS_LIST_END -->

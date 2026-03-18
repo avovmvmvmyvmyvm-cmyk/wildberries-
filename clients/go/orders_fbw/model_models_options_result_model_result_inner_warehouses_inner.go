@@ -27,6 +27,8 @@ type ModelsOptionsResultModelResultInnerWarehousesInner struct {
 	CanMonopallet *bool `json:"canMonopallet,omitempty"`
 	// Тип упаковки **Суперсейф**:   - `true` — доступен   - `false` — недоступен 
 	CanSupersafe *bool `json:"canSupersafe,omitempty"`
+	// Тип поставки **Поштучная палета**:   - `true` — доступен   - `false` — недоступен 
+	IsBoxOnPallet *bool `json:"isBoxOnPallet,omitempty"`
 }
 
 // NewModelsOptionsResultModelResultInnerWarehousesInner instantiates a new ModelsOptionsResultModelResultInnerWarehousesInner object
@@ -174,6 +176,38 @@ func (o *ModelsOptionsResultModelResultInnerWarehousesInner) SetCanSupersafe(v b
 	o.CanSupersafe = &v
 }
 
+// GetIsBoxOnPallet returns the IsBoxOnPallet field value if set, zero value otherwise.
+func (o *ModelsOptionsResultModelResultInnerWarehousesInner) GetIsBoxOnPallet() bool {
+	if o == nil || IsNil(o.IsBoxOnPallet) {
+		var ret bool
+		return ret
+	}
+	return *o.IsBoxOnPallet
+}
+
+// GetIsBoxOnPalletOk returns a tuple with the IsBoxOnPallet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsOptionsResultModelResultInnerWarehousesInner) GetIsBoxOnPalletOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsBoxOnPallet) {
+		return nil, false
+	}
+	return o.IsBoxOnPallet, true
+}
+
+// HasIsBoxOnPallet returns a boolean if a field has been set.
+func (o *ModelsOptionsResultModelResultInnerWarehousesInner) HasIsBoxOnPallet() bool {
+	if o != nil && !IsNil(o.IsBoxOnPallet) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsBoxOnPallet gets a reference to the given bool and assigns it to the IsBoxOnPallet field.
+func (o *ModelsOptionsResultModelResultInnerWarehousesInner) SetIsBoxOnPallet(v bool) {
+	o.IsBoxOnPallet = &v
+}
+
 func (o ModelsOptionsResultModelResultInnerWarehousesInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -195,6 +229,9 @@ func (o ModelsOptionsResultModelResultInnerWarehousesInner) ToMap() (map[string]
 	}
 	if !IsNil(o.CanSupersafe) {
 		toSerialize["canSupersafe"] = o.CanSupersafe
+	}
+	if !IsNil(o.IsBoxOnPallet) {
+		toSerialize["isBoxOnPallet"] = o.IsBoxOnPallet
 	}
 	return toSerialize, nil
 }

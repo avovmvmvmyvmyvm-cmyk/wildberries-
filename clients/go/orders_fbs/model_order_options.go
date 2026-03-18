@@ -20,7 +20,7 @@ var _ MappedNullable = &OrderOptions{}
 // OrderOptions Опции заказа
 type OrderOptions struct {
 	// Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа 
-	IsB2b *bool `json:"isB2b,omitempty"`
+	IsB2B *bool `json:"isB2B,omitempty"`
 }
 
 // NewOrderOptions instantiates a new OrderOptions object
@@ -40,36 +40,36 @@ func NewOrderOptionsWithDefaults() *OrderOptions {
 	return &this
 }
 
-// GetIsB2b returns the IsB2b field value if set, zero value otherwise.
-func (o *OrderOptions) GetIsB2b() bool {
-	if o == nil || IsNil(o.IsB2b) {
+// GetIsB2B returns the IsB2B field value if set, zero value otherwise.
+func (o *OrderOptions) GetIsB2B() bool {
+	if o == nil || IsNil(o.IsB2B) {
 		var ret bool
 		return ret
 	}
-	return *o.IsB2b
+	return *o.IsB2B
 }
 
-// GetIsB2bOk returns a tuple with the IsB2b field value if set, nil otherwise
+// GetIsB2BOk returns a tuple with the IsB2B field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderOptions) GetIsB2bOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsB2b) {
+func (o *OrderOptions) GetIsB2BOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsB2B) {
 		return nil, false
 	}
-	return o.IsB2b, true
+	return o.IsB2B, true
 }
 
-// HasIsB2b returns a boolean if a field has been set.
-func (o *OrderOptions) HasIsB2b() bool {
-	if o != nil && !IsNil(o.IsB2b) {
+// HasIsB2B returns a boolean if a field has been set.
+func (o *OrderOptions) HasIsB2B() bool {
+	if o != nil && !IsNil(o.IsB2B) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsB2b gets a reference to the given bool and assigns it to the IsB2b field.
-func (o *OrderOptions) SetIsB2b(v bool) {
-	o.IsB2b = &v
+// SetIsB2B gets a reference to the given bool and assigns it to the IsB2B field.
+func (o *OrderOptions) SetIsB2B(v bool) {
+	o.IsB2B = &v
 }
 
 func (o OrderOptions) MarshalJSON() ([]byte, error) {
@@ -82,8 +82,8 @@ func (o OrderOptions) MarshalJSON() ([]byte, error) {
 
 func (o OrderOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.IsB2b) {
-		toSerialize["isB2b"] = o.IsB2b
+	if !IsNil(o.IsB2B) {
+		toSerialize["isB2B"] = o.IsB2B
 	}
 	return toSerialize, nil
 }

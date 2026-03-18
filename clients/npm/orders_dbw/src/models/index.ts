@@ -15,6 +15,8 @@ export * from './ApiV3DbwOrdersStatusPostRequest';
 export * from './ApiV3DbwOrdersStickersPost200Response';
 export * from './ApiV3DbwOrdersStickersPost200ResponseStickersInner';
 export * from './ApiV3DbwOrdersStickersPostRequest';
+export * from './ClientInfo';
+export * from './ClientInfoResp';
 export * from './CourierContactsResponse';
 export * from './CourierInfo';
 export * from './DeliveryDatesInfoResp';

@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class Error(BaseModel):
     """
@@ -28,7 +29,7 @@ class Error(BaseModel):
     """ # noqa: E501
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
     message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
-    data: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные данные, обогащающие ошибку")
+    data: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные данные ошибки")
     __properties: ClassVar[List[str]] = ["code", "message", "data"]
 
     model_config = ConfigDict(
@@ -45,8 +46,7 @@ class Error(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

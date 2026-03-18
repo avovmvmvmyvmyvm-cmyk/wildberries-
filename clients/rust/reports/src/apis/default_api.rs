@@ -1,7 +1,7 @@
 /*
  * Отчёты
  *
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Платной приёмке](/openapi/reports#tag/Platnaya-priyomka)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -20,9 +20,9 @@ use super::{Error, configuration, ContentType};
 #[serde(untagged)]
 pub enum ApiV1AcceptanceReportGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -31,10 +31,10 @@ pub enum ApiV1AcceptanceReportGetError {
 #[serde(untagged)]
 pub enum ApiV1AcceptanceReportTasksTaskIdDownloadGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -43,9 +43,9 @@ pub enum ApiV1AcceptanceReportTasksTaskIdDownloadGetError {
 #[serde(untagged)]
 pub enum ApiV1AcceptanceReportTasksTaskIdStatusGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -54,9 +54,9 @@ pub enum ApiV1AcceptanceReportTasksTaskIdStatusGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsAntifraudDetailsGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,9 +65,9 @@ pub enum ApiV1AnalyticsAntifraudDetailsGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBannedProductsBlockedGetError {
     Status400(models::ApiV1AnalyticsBannedProductsBlockedGet400Response),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -76,9 +76,9 @@ pub enum ApiV1AnalyticsBannedProductsBlockedGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBannedProductsShadowedGetError {
     Status400(models::ApiV1AnalyticsBannedProductsBlockedGet400Response),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,9 +86,9 @@ pub enum ApiV1AnalyticsBannedProductsShadowedGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBrandShareBrandsGetError {
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,9 +97,9 @@ pub enum ApiV1AnalyticsBrandShareBrandsGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBrandShareGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,9 +108,9 @@ pub enum ApiV1AnalyticsBrandShareGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBrandShareParentSubjectsGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -119,9 +119,9 @@ pub enum ApiV1AnalyticsBrandShareParentSubjectsGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsGoodsLabelingGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,9 +130,9 @@ pub enum ApiV1AnalyticsGoodsLabelingGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsGoodsReturnGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -141,9 +141,9 @@ pub enum ApiV1AnalyticsGoodsReturnGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsRegionSaleGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -152,9 +152,9 @@ pub enum ApiV1AnalyticsRegionSaleGetError {
 #[serde(untagged)]
 pub enum ApiV1PaidStorageGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -163,10 +163,10 @@ pub enum ApiV1PaidStorageGetError {
 #[serde(untagged)]
 pub enum ApiV1PaidStorageTasksTaskIdDownloadGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -175,20 +175,9 @@ pub enum ApiV1PaidStorageTasksTaskIdDownloadGetError {
 #[serde(untagged)]
 pub enum ApiV1PaidStorageTasksTaskIdStatusGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v1_supplier_incomes_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV1SupplierIncomesGetError {
-    Status400(models::ApiV1SupplierIncomesGet400Response),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -196,10 +185,10 @@ pub enum ApiV1SupplierIncomesGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1SupplierOrdersGetError {
-    Status400(models::ApiV1SupplierIncomesGet400Response),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status400(models::ApiV1SupplierStocksGet400Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -207,10 +196,10 @@ pub enum ApiV1SupplierOrdersGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1SupplierSalesGetError {
-    Status400(models::ApiV1SupplierIncomesGet400Response),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status400(models::ApiV1SupplierStocksGet400Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -218,10 +207,10 @@ pub enum ApiV1SupplierSalesGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1SupplierStocksGetError {
-    Status400(models::ApiV1SupplierIncomesGet400Response),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status400(models::ApiV1SupplierStocksGet400Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -230,9 +219,9 @@ pub enum ApiV1SupplierStocksGetError {
 #[serde(untagged)]
 pub enum ApiV1WarehouseRemainsGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -241,10 +230,10 @@ pub enum ApiV1WarehouseRemainsGetError {
 #[serde(untagged)]
 pub enum ApiV1WarehouseRemainsTasksTaskIdDownloadGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -253,9 +242,9 @@ pub enum ApiV1WarehouseRemainsTasksTaskIdDownloadGetError {
 #[serde(untagged)]
 pub enum ApiV1WarehouseRemainsTasksTaskIdStatusGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -264,9 +253,9 @@ pub enum ApiV1WarehouseRemainsTasksTaskIdStatusGetError {
 #[serde(untagged)]
 pub enum GetDeductionsError {
     Status400(models::Response400Retentions),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
     Status403(models::Response403Retentions),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -275,9 +264,9 @@ pub enum GetDeductionsError {
 #[serde(untagged)]
 pub enum GetMeasurementPenaltiesError {
     Status400(models::Response400Retentions),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
     Status403(models::Response403Retentions),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -286,14 +275,14 @@ pub enum GetMeasurementPenaltiesError {
 #[serde(untagged)]
 pub enum GetWarehouseMeasurementsError {
     Status400(models::Response400Retentions),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
     Status403(models::Response403Retentions),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+/// Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn api_v1_acceptance_report_get(configuration: &configuration::Configuration, date_from: &str, date_to: &str) -> Result<models::CreateTaskResponse, Error<ApiV1AcceptanceReportGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_date_from = date_from;
@@ -341,7 +330,7 @@ pub async fn api_v1_acceptance_report_get(configuration: &configuration::Configu
     }
 }
 
-/// Метод возвращает отчёт о [платной приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+/// Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn api_v1_acceptance_report_tasks_task_id_download_get(configuration: &configuration::Configuration, task_id: &str) -> Result<Vec<models::ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner>, Error<ApiV1AcceptanceReportTasksTaskIdDownloadGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_task_id = task_id;
@@ -386,7 +375,7 @@ pub async fn api_v1_acceptance_report_tasks_task_id_download_get(configuration: 
     }
 }
 
-/// Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 5 сек | 1 запрос | 5 сек | 1 запрос | </div> 
+/// Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 5 сек | 1 запрос | 5 сек | 1 запрос | </div> 
 pub async fn api_v1_acceptance_report_tasks_task_id_status_get(configuration: &configuration::Configuration, task_id: &str) -> Result<models::GetTasksResponse, Error<ApiV1AcceptanceReportTasksTaskIdStatusGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_task_id = task_id;
@@ -1002,53 +991,6 @@ pub async fn api_v1_paid_storage_tasks_task_id_status_get(configuration: &config
     } else {
         let content = resp.text().await?;
         let entity: Option<ApiV1PaidStorageTasksTaskIdStatusGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Данный метод устарел. Он будет удалён [11 марта](https://dev.wildberries.ru/release-notes?id=431) 
-#[deprecated]
-pub async fn api_v1_supplier_incomes_get(configuration: &configuration::Configuration, date_from: String) -> Result<Vec<models::IncomesItem>, Error<ApiV1SupplierIncomesGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_date_from = date_from;
-
-    let uri_str = format!("{}/api/v1/supplier/incomes", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("dateFrom", &p_query_date_from.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::IncomesItem&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::IncomesItem&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV1SupplierIncomesGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

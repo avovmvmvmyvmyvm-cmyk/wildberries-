@@ -146,6 +146,7 @@ var_dump($response);
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxStickersPost` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры коробов поставки
 
 ### orders_dbw (`orders_dbw`)
+- `orders_dbw.DBWApi.apiMarketplaceV3DbwOrdersClientPost` — `POST /api/marketplace/v3/dbw/orders/client` — Информация о покупателе
 - `orders_dbw.DBWApi.apiV3DbwOrdersCourierPost` — `POST /api/v3/dbw/orders/courier` — Информация о курьере
 - `orders_dbw.DBWApi.apiV3DbwOrdersDeliveryDatePost` — `POST /api/v3/dbw/orders/delivery-date` — Дата и время доставки
 - `orders_dbw.DBWApi.apiV3DbwOrdersGet` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях
@@ -265,6 +266,7 @@ var_dump($response);
 - `promotion.DefaultApi.advV2SeacatSaveAdPost` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
 - `promotion.DefaultApi.advV2SupplierNmsPost` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
 - `promotion.DefaultApi.advV3FullstatsGet` — `GET /adv/v3/fullstats` — Статистика кампаний
+- `promotion.DefaultApi.apiAdvertV0BidsRecommendationsGet` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
 - `promotion.DefaultApi.apiAdvertV1BidsMinPost` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
 - `promotion.DefaultApi.apiAdvertV1BidsPatch` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
 - `promotion.DefaultApi.apiAdvertV2AdvertsGet` — `GET /api/advert/v2/adverts` — Информация о кампаниях
@@ -342,7 +344,6 @@ var_dump($response);
 - `reports.DefaultApi.apiV1PaidStorageGet` — `GET /api/v1/paid_storage` — Создать отчёт
 - `reports.DefaultApi.apiV1PaidStorageTasksTaskIdDownloadGet` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.apiV1PaidStorageTasksTaskIdStatusGet` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApi.apiV1SupplierIncomesGet` — `GET /api/v1/supplier/incomes` — Поставки
 - `reports.DefaultApi.apiV1SupplierOrdersGet` — `GET /api/v1/supplier/orders` — Заказы
 - `reports.DefaultApi.apiV1SupplierSalesGet` — `GET /api/v1/supplier/sales` — Продажи
 - `reports.DefaultApi.apiV1SupplierStocksGet` — `GET /api/v1/supplier/stocks` — Склады
@@ -360,28 +361,4 @@ var_dump($response);
 - `finances.DefaultApi.apiV1DocumentsDownloadGet` — `GET /api/v1/documents/download` — Получить документ
 - `finances.DefaultApi.apiV1DocumentsListGet` — `GET /api/v1/documents/list` — Список документов
 - `finances.DefaultApi.apiV5SupplierReportDetailByPeriodGet` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
-
-### wbd (`wbd`)
-- `wbd.DefaultApi.contentAuthorGet` — `GET /api/v1/content/author` — Получить список своего контента
-- `wbd.DefaultApi.contentDelete` — `POST /api/v1/content/delete` — Удалить контент
-- `wbd.DefaultApi.contentDownloadGet` — `GET /api/v1/content/download/{uri}` — Скачать контент
-- `wbd.DefaultApi.contentGallery` — `POST /api/v1/content/gallery` — Загрузить медиафайлы для предложения
-- `wbd.DefaultApi.contentIdGet` — `GET /api/v1/content/author/{content_id}` — Получить информацию о контенте
-- `wbd.DefaultApi.contentUpdate` — `POST /api/v1/content/author/{content_id}` — Редактировать контент
-- `wbd.DefaultApi.contentUploadChunk` — `POST /api/v1/content/upload/chunk` — Загрузить контент (файл)
-- `wbd.DefaultApi.contentUploadIllustration` — `POST /api/v1/content/illustration` — Загрузить обложку контента
-- `wbd.DefaultApi.contentUploadInit` — `POST /api/v1/content/upload/init` — Инициализировать новый контент
-- `wbd.DefaultApi.deleteKeysByIDs` — `DELETE /api/v1/keys-api/keys` — Удалить ключи активации
-- `wbd.DefaultApi.getCatalog` — `GET /api/v1/catalog` — Получить категории и их подкатегории
-- `wbd.DefaultApi.getRedeemedKeys` — `GET /api/v1/keys-api/keys/redeemed` — Получить купленные ключи
-- `wbd.DefaultApi.loadKeys` — `POST /api/v1/keys-api/keys` — Добавить ключи активации
-- `wbd.DefaultApi.offerCreate` — `POST /api/v1/offers` — Создать новое предложение
-- `wbd.DefaultApi.offerGet` — `GET /api/v1/offers/{offer_id}` — Получить информацию о предложении
-- `wbd.DefaultApi.offerKeysCountGet` — `GET /api/v1/offer/keys/{offer_id}` — Получить количество ключей для предложения
-- `wbd.DefaultApi.offerKeysGet` — `GET /api/v1/offer/keys/{offer_id}/list` — Получить список ключей
-- `wbd.DefaultApi.offerUpdate` — `POST /api/v1/offers/{offer_id}` — Редактировать предложение
-- `wbd.DefaultApi.offerUpdatePrice` — `POST /api/v1/offer/price/{offer_id}` — Обновить цену
-- `wbd.DefaultApi.offerUpdateStatus` — `POST /api/v1/offer/{offer_id}` — Обновить статус
-- `wbd.DefaultApi.offersAuthorGet` — `GET /api/v1/offers/author` — Получить список своих предложений
-- `wbd.DefaultApi.offersUploadThumbnail` — `POST /api/v1/offers/thumb` — Добавить или обновить обложку предложения
 <!-- PHP_METHODS_LIST_END -->

@@ -1,7 +1,7 @@
 /*
 Отчёты
 
-<div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Платной приёмке](/openapi/reports#tag/Platnaya-priyomka)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
+<div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
 
 API version: reports
 */
@@ -50,7 +50,7 @@ func (r ApiApiV1AcceptanceReportGetRequest) Execute() (*CreateTaskResponse, *htt
 /*
 ApiV1AcceptanceReportGet Создать отчёт
 
-Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>
 
 Можно получить отчёт максимум за 31 день.
 
@@ -167,7 +167,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1Acceptance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -178,7 +178,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1Acceptance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -189,7 +189,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1Acceptance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -226,7 +226,7 @@ func (r ApiApiV1AcceptanceReportTasksTaskIdDownloadGetRequest) Execute() ([]ApiV
 /*
 ApiV1AcceptanceReportTasksTaskIdDownloadGet Получить отчёт
 
-Метод возвращает отчёт о [платной приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get).
+Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -336,7 +336,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -347,7 +347,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -369,7 +369,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -406,7 +406,7 @@ func (r ApiApiV1AcceptanceReportTasksTaskIdStatusGetRequest) Execute() (*GetTask
 /*
 ApiV1AcceptanceReportTasksTaskIdStatusGet Проверить статус
 
-Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report/get) отчёта о [платной приёмке](/openapi/reports#tag/Platnaya-priyomka/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).
+Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -516,7 +516,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -538,7 +538,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -695,7 +695,7 @@ func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -706,7 +706,7 @@ func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -717,7 +717,7 @@ func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -882,7 +882,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -893,7 +893,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -904,7 +904,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1069,7 +1069,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1080,7 +1080,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1091,7 +1091,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1227,7 +1227,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareBrandsGetExecute(r ApiApiV1A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1238,7 +1238,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareBrandsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1249,7 +1249,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareBrandsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1438,7 +1438,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1449,7 +1449,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1460,7 +1460,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1652,7 +1652,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1663,7 +1663,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1674,7 +1674,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1843,7 +1843,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGetExecute(r ApiApiV1Anal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1854,7 +1854,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGetExecute(r ApiApiV1Anal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1865,7 +1865,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGetExecute(r ApiApiV1Anal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2032,7 +2032,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGetExecute(r ApiApiV1Analyt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2043,7 +2043,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGetExecute(r ApiApiV1Analyt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2054,7 +2054,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGetExecute(r ApiApiV1Analyt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2221,7 +2221,7 @@ func (a *DefaultApiService) ApiV1AnalyticsRegionSaleGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2232,7 +2232,7 @@ func (a *DefaultApiService) ApiV1AnalyticsRegionSaleGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2243,7 +2243,7 @@ func (a *DefaultApiService) ApiV1AnalyticsRegionSaleGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2410,7 +2410,7 @@ func (a *DefaultApiService) ApiV1PaidStorageGetExecute(r ApiApiV1PaidStorageGetR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2421,7 +2421,7 @@ func (a *DefaultApiService) ApiV1PaidStorageGetExecute(r ApiApiV1PaidStorageGetR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2432,7 +2432,7 @@ func (a *DefaultApiService) ApiV1PaidStorageGetExecute(r ApiApiV1PaidStorageGetR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2579,7 +2579,7 @@ func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdDownloadGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2590,7 +2590,7 @@ func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdDownloadGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2612,7 +2612,7 @@ func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdDownloadGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2759,7 +2759,7 @@ func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdStatusGetExecute(r ApiApi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2781,178 +2781,7 @@ func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdStatusGetExecute(r ApiApi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1SupplierIncomesGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	dateFrom *time.Time
-}
-
-// Дата и время последнего изменения по поставке. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
-func (r ApiApiV1SupplierIncomesGetRequest) DateFrom(dateFrom time.Time) ApiApiV1SupplierIncomesGetRequest {
-	r.dateFrom = &dateFrom
-	return r
-}
-
-func (r ApiApiV1SupplierIncomesGetRequest) Execute() ([]IncomesItem, *http.Response, error) {
-	return r.ApiService.ApiV1SupplierIncomesGetExecute(r)
-}
-
-/*
-ApiV1SupplierIncomesGet Поставки
-
-Данный метод устарел. Он будет удалён [11 марта](https://dev.wildberries.ru/release-notes?id=431)
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1SupplierIncomesGetRequest
-
-Deprecated
-*/
-func (a *DefaultApiService) ApiV1SupplierIncomesGet(ctx context.Context) ApiApiV1SupplierIncomesGetRequest {
-	return ApiApiV1SupplierIncomesGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []IncomesItem
-// Deprecated
-func (a *DefaultApiService) ApiV1SupplierIncomesGetExecute(r ApiApiV1SupplierIncomesGetRequest) ([]IncomesItem, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []IncomesItem
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1SupplierIncomesGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/supplier/incomes"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.dateFrom == nil {
-		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1SupplierIncomesGet400Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3122,7 +2951,7 @@ func (a *DefaultApiService) ApiV1SupplierOrdersGetExecute(r ApiApiV1SupplierOrde
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1SupplierIncomesGet400Response
+			var v ApiV1SupplierStocksGet400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3133,7 +2962,7 @@ func (a *DefaultApiService) ApiV1SupplierOrdersGetExecute(r ApiApiV1SupplierOrde
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3144,7 +2973,7 @@ func (a *DefaultApiService) ApiV1SupplierOrdersGetExecute(r ApiApiV1SupplierOrde
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3155,7 +2984,7 @@ func (a *DefaultApiService) ApiV1SupplierOrdersGetExecute(r ApiApiV1SupplierOrde
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3329,7 +3158,7 @@ func (a *DefaultApiService) ApiV1SupplierSalesGetExecute(r ApiApiV1SupplierSales
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1SupplierIncomesGet400Response
+			var v ApiV1SupplierStocksGet400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3340,7 +3169,7 @@ func (a *DefaultApiService) ApiV1SupplierSalesGetExecute(r ApiApiV1SupplierSales
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3351,7 +3180,7 @@ func (a *DefaultApiService) ApiV1SupplierSalesGetExecute(r ApiApiV1SupplierSales
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3362,7 +3191,7 @@ func (a *DefaultApiService) ApiV1SupplierSalesGetExecute(r ApiApiV1SupplierSales
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3515,7 +3344,7 @@ func (a *DefaultApiService) ApiV1SupplierStocksGetExecute(r ApiApiV1SupplierStoc
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1SupplierIncomesGet400Response
+			var v ApiV1SupplierStocksGet400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3526,7 +3355,7 @@ func (a *DefaultApiService) ApiV1SupplierStocksGetExecute(r ApiApiV1SupplierStoc
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3537,7 +3366,7 @@ func (a *DefaultApiService) ApiV1SupplierStocksGetExecute(r ApiApiV1SupplierStoc
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3548,7 +3377,7 @@ func (a *DefaultApiService) ApiV1SupplierStocksGetExecute(r ApiApiV1SupplierStoc
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3819,7 +3648,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsGetExecute(r ApiApiV1WarehouseR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3830,7 +3659,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsGetExecute(r ApiApiV1WarehouseR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3841,7 +3670,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsGetExecute(r ApiApiV1WarehouseR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3988,7 +3817,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3999,7 +3828,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierIncomesGet402Response
+			var v ApiV1SupplierStocksGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4021,7 +3850,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4168,7 +3997,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdStatusGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4190,7 +4019,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdStatusGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4410,7 +4239,7 @@ func (a *DefaultApiService) GetDeductionsExecute(r ApiGetDeductionsRequest) (*Ge
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4432,7 +4261,7 @@ func (a *DefaultApiService) GetDeductionsExecute(r ApiGetDeductionsRequest) (*Ge
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4624,7 +4453,7 @@ func (a *DefaultApiService) GetMeasurementPenaltiesExecute(r ApiGetMeasurementPe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4646,7 +4475,7 @@ func (a *DefaultApiService) GetMeasurementPenaltiesExecute(r ApiGetMeasurementPe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4838,7 +4667,7 @@ func (a *DefaultApiService) GetWarehouseMeasurementsExecute(r ApiGetWarehouseMea
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4860,7 +4689,7 @@ func (a *DefaultApiService) GetWarehouseMeasurementsExecute(r ApiGetWarehouseMea
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierIncomesGet401Response
+			var v ApiV1SupplierStocksGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

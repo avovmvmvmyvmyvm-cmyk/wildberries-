@@ -24,13 +24,13 @@ export interface V0GetNormQueryMinusResponseItem {
      * @type {number}
      * @memberof V0GetNormQueryMinusResponseItem
      */
-    advertId: number;
+    advertId?: number;
     /**
      * Артикул WB
      * @type {number}
      * @memberof V0GetNormQueryMinusResponseItem
      */
-    nmId: number;
+    nmId?: number;
     /**
      * Список минус-фраз
      * @type {Array<string>}
@@ -43,8 +43,6 @@ export interface V0GetNormQueryMinusResponseItem {
  * Check if a given object implements the V0GetNormQueryMinusResponseItem interface.
  */
 export function instanceOfV0GetNormQueryMinusResponseItem(value: object): value is V0GetNormQueryMinusResponseItem {
-    if (!('advertId' in value) || value['advertId'] === undefined) return false;
-    if (!('nmId' in value) || value['nmId'] === undefined) return false;
     return true;
 }
 
@@ -58,8 +56,8 @@ export function V0GetNormQueryMinusResponseItemFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'advertId': json['advert_id'],
-        'nmId': json['nm_id'],
+        'advertId': json['advert_id'] == null ? undefined : json['advert_id'],
+        'nmId': json['nm_id'] == null ? undefined : json['nm_id'],
         'normQueries': json['norm_queries'] == null ? undefined : json['norm_queries'],
     };
 }

@@ -23,6 +23,7 @@ from wildberries_sdk.orders_dbs.models.api_b2b_client_info import ApiB2bClientIn
 from wildberries_sdk.orders_dbs.models.api_b2b_client_info_response_errors_inner import ApiB2bClientInfoResponseErrorsInner
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ApiB2bClientInfoResponse(BaseModel):
     """
@@ -48,8 +49,7 @@ class ApiB2bClientInfoResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

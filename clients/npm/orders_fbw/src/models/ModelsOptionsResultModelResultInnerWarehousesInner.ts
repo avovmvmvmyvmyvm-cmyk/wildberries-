@@ -52,6 +52,15 @@ export interface ModelsOptionsResultModelResultInnerWarehousesInner {
      * @memberof ModelsOptionsResultModelResultInnerWarehousesInner
      */
     canSupersafe?: boolean;
+    /**
+     * Тип поставки **Поштучная палета**:
+     *   - `true` — доступен
+     *   - `false` — недоступен
+     * 
+     * @type {boolean}
+     * @memberof ModelsOptionsResultModelResultInnerWarehousesInner
+     */
+    isBoxOnPallet?: boolean;
 }
 
 /**
@@ -75,6 +84,7 @@ export function ModelsOptionsResultModelResultInnerWarehousesInnerFromJSONTyped(
         'canBox': json['canBox'] == null ? undefined : json['canBox'],
         'canMonopallet': json['canMonopallet'] == null ? undefined : json['canMonopallet'],
         'canSupersafe': json['canSupersafe'] == null ? undefined : json['canSupersafe'],
+        'isBoxOnPallet': json['isBoxOnPallet'] == null ? undefined : json['isBoxOnPallet'],
     };
 }
 
@@ -93,6 +103,7 @@ export function ModelsOptionsResultModelResultInnerWarehousesInnerToJSONTyped(va
         'canBox': value['canBox'],
         'canMonopallet': value['canMonopallet'],
         'canSupersafe': value['canSupersafe'],
+        'isBoxOnPallet': value['isBoxOnPallet'],
     };
 }
 

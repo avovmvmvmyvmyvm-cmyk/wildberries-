@@ -187,6 +187,17 @@ export interface ModelsSupplyDetails {
      * @memberof ModelsSupplyDetails
      */
     depersonalizedQuantity?: number | null;
+    /**
+     * Тип поставки — **Поштучная палета**:
+     *   - `true` — да
+     *   - `false` — нет
+     * 
+     *   Поле возвращается только при `"boxTypeID": 2`
+     * 
+     * @type {boolean}
+     * @memberof ModelsSupplyDetails
+     */
+    isBoxOnPallet?: boolean;
 }
 
 
@@ -246,6 +257,7 @@ export function ModelsSupplyDetailsFromJSONTyped(json: any, ignoreDiscriminator:
         'acceptedQuantity': json['acceptedQuantity'] == null ? undefined : json['acceptedQuantity'],
         'unloadingQuantity': json['unloadingQuantity'] == null ? undefined : json['unloadingQuantity'],
         'depersonalizedQuantity': json['depersonalizedQuantity'] == null ? undefined : json['depersonalizedQuantity'],
+        'isBoxOnPallet': json['isBoxOnPallet'] == null ? undefined : json['isBoxOnPallet'],
     };
 }
 
@@ -285,6 +297,7 @@ export function ModelsSupplyDetailsToJSONTyped(value?: ModelsSupplyDetails | nul
         'acceptedQuantity': value['acceptedQuantity'],
         'unloadingQuantity': value['unloadingQuantity'],
         'depersonalizedQuantity': value['depersonalizedQuantity'],
+        'isBoxOnPallet': value['isBoxOnPallet'],
     };
 }
 

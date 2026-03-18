@@ -1,7 +1,7 @@
 /*
  * Отчёты
  *
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Платной приёмке](/openapi/reports#tag/Platnaya-priyomka)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  С помощью этих методов вы можете получить [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov) 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -20,9 +20,9 @@ use super::{Error, configuration, ContentType};
 #[serde(untagged)]
 pub enum ApiV1AnalyticsExciseReportPostError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierIncomesGet401Response),
-    Status402(models::ApiV1SupplierIncomesGet402Response),
-    Status429(models::ApiV1SupplierIncomesGet401Response),
+    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status429(models::ApiV1SupplierStocksGet401Response),
     UnknownValue(serde_json::Value),
 }
 

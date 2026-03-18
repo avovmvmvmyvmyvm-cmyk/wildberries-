@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.promotion.models.adv_v1_balance_get200_response_cashbacks_inner import AdvV1BalanceGet200ResponseCashbacksInner
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AdvV1BalanceGet200Response(BaseModel):
     """
@@ -47,8 +48,7 @@ class AdvV1BalanceGet200Response(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

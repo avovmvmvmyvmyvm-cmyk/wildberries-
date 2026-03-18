@@ -81,7 +81,8 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'ready_for_sale_quantity' => 'int',
         'accepted_quantity' => 'int',
         'unloading_quantity' => 'int',
-        'depersonalized_quantity' => 'int'
+        'depersonalized_quantity' => 'int',
+        'is_box_on_pallet' => 'bool'
     ];
 
     /**
@@ -116,7 +117,8 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'ready_for_sale_quantity' => null,
         'accepted_quantity' => null,
         'unloading_quantity' => null,
-        'depersonalized_quantity' => null
+        'depersonalized_quantity' => null,
+        'is_box_on_pallet' => null
     ];
 
     /**
@@ -149,7 +151,8 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'ready_for_sale_quantity' => false,
         'accepted_quantity' => false,
         'unloading_quantity' => false,
-        'depersonalized_quantity' => true
+        'depersonalized_quantity' => true,
+        'is_box_on_pallet' => false
     ];
 
     /**
@@ -262,7 +265,8 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'ready_for_sale_quantity' => 'readyForSaleQuantity',
         'accepted_quantity' => 'acceptedQuantity',
         'unloading_quantity' => 'unloadingQuantity',
-        'depersonalized_quantity' => 'depersonalizedQuantity'
+        'depersonalized_quantity' => 'depersonalizedQuantity',
+        'is_box_on_pallet' => 'isBoxOnPallet'
     ];
 
     /**
@@ -295,7 +299,8 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'ready_for_sale_quantity' => 'setReadyForSaleQuantity',
         'accepted_quantity' => 'setAcceptedQuantity',
         'unloading_quantity' => 'setUnloadingQuantity',
-        'depersonalized_quantity' => 'setDepersonalizedQuantity'
+        'depersonalized_quantity' => 'setDepersonalizedQuantity',
+        'is_box_on_pallet' => 'setIsBoxOnPallet'
     ];
 
     /**
@@ -328,7 +333,8 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'ready_for_sale_quantity' => 'getReadyForSaleQuantity',
         'accepted_quantity' => 'getAcceptedQuantity',
         'unloading_quantity' => 'getUnloadingQuantity',
-        'depersonalized_quantity' => 'getDepersonalizedQuantity'
+        'depersonalized_quantity' => 'getDepersonalizedQuantity',
+        'is_box_on_pallet' => 'getIsBoxOnPallet'
     ];
 
     /**
@@ -436,6 +442,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('accepted_quantity', $data ?? [], null);
         $this->setIfExists('unloading_quantity', $data ?? [], null);
         $this->setIfExists('depersonalized_quantity', $data ?? [], null);
+        $this->setIfExists('is_box_on_pallet', $data ?? [], null);
     }
 
     /**
@@ -1247,6 +1254,33 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['depersonalized_quantity'] = $depersonalized_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_box_on_pallet
+     *
+     * @return bool|null
+     */
+    public function getIsBoxOnPallet()
+    {
+        return $this->container['is_box_on_pallet'];
+    }
+
+    /**
+     * Sets is_box_on_pallet
+     *
+     * @param bool|null $is_box_on_pallet Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2`
+     *
+     * @return self
+     */
+    public function setIsBoxOnPallet($is_box_on_pallet)
+    {
+        if (is_null($is_box_on_pallet)) {
+            throw new \InvalidArgumentException('non-nullable is_box_on_pallet cannot be null');
+        }
+        $this->container['is_box_on_pallet'] = $is_box_on_pallet;
 
         return $this;
     }

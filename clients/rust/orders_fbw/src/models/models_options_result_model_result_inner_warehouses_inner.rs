@@ -25,6 +25,9 @@ pub struct ModelsOptionsResultModelResultInnerWarehousesInner {
     /// Тип упаковки **Суперсейф**:   - `true` — доступен   - `false` — недоступен 
     #[serde(rename = "canSupersafe", skip_serializing_if = "Option::is_none")]
     pub can_supersafe: Option<bool>,
+    /// Тип поставки **Поштучная палета**:   - `true` — доступен   - `false` — недоступен 
+    #[serde(rename = "isBoxOnPallet", skip_serializing_if = "Option::is_none")]
+    pub is_box_on_pallet: Option<bool>,
 }
 
 impl ModelsOptionsResultModelResultInnerWarehousesInner {
@@ -34,6 +37,7 @@ impl ModelsOptionsResultModelResultInnerWarehousesInner {
             can_box: None,
             can_monopallet: None,
             can_supersafe: None,
+            is_box_on_pallet: None,
         }
     }
 }

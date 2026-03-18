@@ -19,9 +19,9 @@ var _ MappedNullable = &ApiBatchErrorResponse{}
 
 // ApiBatchErrorResponse struct for ApiBatchErrorResponse
 type ApiBatchErrorResponse struct {
-	// Код ошибки
+	// Код ошибки:   - `404`   - `409` 
 	Code *int32 `json:"code,omitempty"`
-	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания 
+	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI 
 	Detail *string `json:"detail,omitempty"`
 }
 

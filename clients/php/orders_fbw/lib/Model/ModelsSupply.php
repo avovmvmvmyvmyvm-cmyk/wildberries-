@@ -64,7 +64,9 @@ class ModelsSupply implements ModelInterface, ArrayAccess, \JsonSerializable
         'supply_date' => 'string',
         'fact_date' => 'string',
         'updated_date' => 'string',
-        'status_id' => 'int'
+        'status_id' => 'int',
+        'box_type_id' => 'mixed',
+        'is_box_on_pallet' => 'bool'
     ];
 
     /**
@@ -82,7 +84,9 @@ class ModelsSupply implements ModelInterface, ArrayAccess, \JsonSerializable
         'supply_date' => null,
         'fact_date' => null,
         'updated_date' => null,
-        'status_id' => null
+        'status_id' => null,
+        'box_type_id' => null,
+        'is_box_on_pallet' => null
     ];
 
     /**
@@ -98,7 +102,9 @@ class ModelsSupply implements ModelInterface, ArrayAccess, \JsonSerializable
         'supply_date' => true,
         'fact_date' => true,
         'updated_date' => true,
-        'status_id' => false
+        'status_id' => false,
+        'box_type_id' => true,
+        'is_box_on_pallet' => false
     ];
 
     /**
@@ -194,7 +200,9 @@ class ModelsSupply implements ModelInterface, ArrayAccess, \JsonSerializable
         'supply_date' => 'supplyDate',
         'fact_date' => 'factDate',
         'updated_date' => 'updatedDate',
-        'status_id' => 'statusID'
+        'status_id' => 'statusID',
+        'box_type_id' => 'boxTypeID',
+        'is_box_on_pallet' => 'isBoxOnPallet'
     ];
 
     /**
@@ -210,7 +218,9 @@ class ModelsSupply implements ModelInterface, ArrayAccess, \JsonSerializable
         'supply_date' => 'setSupplyDate',
         'fact_date' => 'setFactDate',
         'updated_date' => 'setUpdatedDate',
-        'status_id' => 'setStatusId'
+        'status_id' => 'setStatusId',
+        'box_type_id' => 'setBoxTypeId',
+        'is_box_on_pallet' => 'setIsBoxOnPallet'
     ];
 
     /**
@@ -226,7 +236,9 @@ class ModelsSupply implements ModelInterface, ArrayAccess, \JsonSerializable
         'supply_date' => 'getSupplyDate',
         'fact_date' => 'getFactDate',
         'updated_date' => 'getUpdatedDate',
-        'status_id' => 'getStatusId'
+        'status_id' => 'getStatusId',
+        'box_type_id' => 'getBoxTypeId',
+        'is_box_on_pallet' => 'getIsBoxOnPallet'
     ];
 
     /**
@@ -317,6 +329,8 @@ class ModelsSupply implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('fact_date', $data ?? [], null);
         $this->setIfExists('updated_date', $data ?? [], null);
         $this->setIfExists('status_id', $data ?? [], null);
+        $this->setIfExists('box_type_id', $data ?? [], null);
+        $this->setIfExists('is_box_on_pallet', $data ?? [], null);
     }
 
     /**
@@ -620,6 +634,67 @@ class ModelsSupply implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['status_id'] = $status_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets box_type_id
+     *
+     * @return mixed|null
+     */
+    public function getBoxTypeId()
+    {
+        return $this->container['box_type_id'];
+    }
+
+    /**
+     * Sets box_type_id
+     *
+     * @param mixed|null $box_type_id ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф
+     *
+     * @return self
+     */
+    public function setBoxTypeId($box_type_id)
+    {
+        if (is_null($box_type_id)) {
+            array_push($this->openAPINullablesSetToNull, 'box_type_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('box_type_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['box_type_id'] = $box_type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_box_on_pallet
+     *
+     * @return bool|null
+     */
+    public function getIsBoxOnPallet()
+    {
+        return $this->container['is_box_on_pallet'];
+    }
+
+    /**
+     * Sets is_box_on_pallet
+     *
+     * @param bool|null $is_box_on_pallet Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2`
+     *
+     * @return self
+     */
+    public function setIsBoxOnPallet($is_box_on_pallet)
+    {
+        if (is_null($is_box_on_pallet)) {
+            throw new \InvalidArgumentException('non-nullable is_box_on_pallet cannot be null');
+        }
+        $this->container['is_box_on_pallet'] = $is_box_on_pallet;
 
         return $this;
     }
