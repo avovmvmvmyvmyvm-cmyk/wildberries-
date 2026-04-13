@@ -288,8 +288,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
           description: Требуется платёж
@@ -1052,7 +1052,8 @@ components:
         application/problem+json:
           example:
             title: payment required
-            detail: please top up your balance in your company personal account https://dev.wildberries.ru/company
+            detail: "please top up your balance in your company personal account https://dev.{{\
+              \ .baseDomain }}/company"
           schema:
             $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
       description: Требуется платёж
@@ -1211,7 +1212,7 @@ components:
         inviteID: 741b8aa6-08ac-4782-8a9d-d931bcbbf608
         expiredAt: 2025-10-06T10:56:04.335060746Z
         isSuccess: true
-        inviteUrl: https://seller.wildberries.ru/supplier-settings/supplier-card?inviteId=e5a813c7-65e0-4599-a550-a6b3d85661ed
+        inviteUrl: "https://seller.{{ .baseDomain }}/supplier-settings/supplier-card?inviteId=e5a813c7-65e0-4599-a550-a6b3d85661ed"
       properties:
         inviteID:
           description: ID приглашения

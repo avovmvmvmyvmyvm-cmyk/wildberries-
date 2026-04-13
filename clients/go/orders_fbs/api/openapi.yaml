@@ -155,8 +155,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -245,8 +245,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -341,8 +341,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -453,8 +453,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -548,8 +548,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -680,8 +680,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -806,8 +806,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -901,8 +901,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -997,8 +997,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -1165,8 +1165,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -1389,8 +1389,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -1507,8 +1507,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -1634,8 +1634,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -1752,8 +1752,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -1870,8 +1870,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -1993,8 +1993,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -2252,8 +2252,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -2339,8 +2339,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -2445,8 +2445,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -2567,8 +2567,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -2665,8 +2665,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -2888,8 +2888,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -3002,8 +3002,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -3109,8 +3109,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -3219,8 +3219,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -3359,8 +3359,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -3479,8 +3479,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -3584,8 +3584,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -3699,8 +3699,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -3831,8 +3831,8 @@ paths:
             application/problem+json:
               example:
                 title: payment required
-                detail: please top up your balance in your company personal account
-                  https://dev.wildberries.ru/company
+                detail: "please top up your balance in your company personal account\
+                  \ https://dev.{{ .baseDomain }}/company"
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_get_402_response"
           description: Требуется платёж
@@ -4027,7 +4027,8 @@ components:
         application/problem+json:
           example:
             title: payment required
-            detail: please top up your balance in your company personal account https://dev.wildberries.ru/company
+            detail: "please top up your balance in your company personal account https://dev.{{\
+              \ .baseDomain }}/company"
           schema:
             $ref: "#/components/schemas/_api_v3_passes_get_402_response"
       description: Требуется платёж
