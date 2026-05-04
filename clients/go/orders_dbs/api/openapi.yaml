@@ -1467,7 +1467,7 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/delete:
     post:
       description: |
-        Метод удаляет значение указанных [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) для нескольких сборочных заданий.
+        Метод удаляет значение указанных [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) для нескольких сборочных заданий.
         <br><br>
         В одном запросе можно удалить метаданные только одного типа. Укажите тип метаданных в запросе:
           - `imei` — [IMEI](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
@@ -1568,10 +1568,10 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/sgtin:
     post:
       description: |
-        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) нескольких сборочных заданий.<br>
-        Закрепить код маркировки Честного знака можно, только если в [метаданных сборочного задания](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm` — на сборке.
+        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
+        Закрепить код маркировки Честного знака можно, только если в [метаданных сборочного задания](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm` — на сборке.
         <br><br>
-        Получить загруженные маркировки можно в [метаданных сборочного задания](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post).
+        Получить загруженные маркировки можно в [метаданных сборочного задания](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:
@@ -1668,7 +1668,7 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/uin:
     post:
       description: |
-        Метод обновляет УИН, уникальный идентификационный номер, в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post).<br>
+        Метод обновляет УИН, уникальный идентификационный номер, в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).<br>
         У одного сборочного задания может быть только один УИН.
         Добавлять УИН можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.
 
@@ -1764,7 +1764,7 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/imei:
     post:
       description: |
-        Метод обновляет IMEI в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) нескольких сборочных заданий.<br>
+        Метод обновляет IMEI в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
         У одного сборочного задания может быть только один IMEI.
         Добавлять IMEI можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.<br>
 
@@ -1860,7 +1860,7 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/gtin:
     post:
       description: |
-        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) нескольких сборочных заданий.<br>
+        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
         У одного сборочного задания может быть только один GTIN.
         Добавлять GTIN можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.<br>
 
@@ -1956,7 +1956,7 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/customs-declaration:
     post:
       description: |
-        Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post).
+        Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
         <br><br>
         У одного сборочного задания может быть только один ГТД.
 

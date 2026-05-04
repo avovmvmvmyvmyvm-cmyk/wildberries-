@@ -220,7 +220,7 @@ func (r ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) Execute()
 /*
 ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost Закрепить за сборочными заданиями номер ГТД
 
-Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post).
+Метод обновляет номер ГТД — грузовой таможенной декларации — в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
 <br><br>
 У одного сборочного задания может быть только один ГТД.
 
@@ -410,7 +410,7 @@ func (r ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest) Execute() (*ApiStatus
 /*
 ApiMarketplaceV3DbsOrdersMetaDeletePost Удалить метаданные сборочных заданий
 
-Метод удаляет значение указанных [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) для нескольких сборочных заданий.
+Метод удаляет значение указанных [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) для нескольких сборочных заданий.
 <br><br>
 В одном запросе можно удалить метаданные только одного типа. Укажите тип метаданных в запросе:
   - `imei` — [IMEI](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
@@ -786,7 +786,7 @@ func (r ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest) Execute() (*ApiStatusSe
 /*
 ApiMarketplaceV3DbsOrdersMetaGtinPost Закрепить GTIN за сборочными заданиями
 
-Метод обновляет GTIN, уникальный ID товара в Беларуси, в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) нескольких сборочных заданий.<br>
+Метод обновляет GTIN, уникальный ID товара в Беларуси, в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
 У одного сборочного задания может быть только один GTIN.
 Добавлять GTIN можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.<br>
 
@@ -974,7 +974,7 @@ func (r ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest) Execute() (*ApiStatusSe
 /*
 ApiMarketplaceV3DbsOrdersMetaImeiPost Закрепить IMEI за сборочными заданиями
 
-Метод обновляет IMEI в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) нескольких сборочных заданий.<br>
+Метод обновляет IMEI в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
 У одного сборочного задания может быть только один IMEI.
 Добавлять IMEI можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.<br>
 
@@ -1340,10 +1340,10 @@ func (r ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest) Execute() (*ApiStatusS
 /*
 ApiMarketplaceV3DbsOrdersMetaSgtinPost Закрепить коды маркировки Честного знака за сборочными заданиями
 
-Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) нескольких сборочных заданий.<br>
-Закрепить код маркировки Честного знака можно, только если в [метаданных сборочного задания](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm` — на сборке.
+Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [метаданных](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
+Закрепить код маркировки Честного знака можно, только если в [метаданных сборочного задания](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm` — на сборке.
 <br><br>
-Получить загруженные маркировки можно в [метаданных сборочного задания](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post).
+Получить загруженные маркировки можно в [метаданных сборочного задания](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных DBS</strong>:
@@ -1532,7 +1532,7 @@ func (r ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest) Execute() (*ApiStatusSet
 /*
 ApiMarketplaceV3DbsOrdersMetaUinPost Закрепить УИН за сборочными заданиями
 
-Метод обновляет УИН, уникальный идентификационный номер, в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1info/post).<br>
+Метод обновляет УИН, уникальный идентификационный номер, в [метаданных сборочных заданий](/openapi/orders-dbs#tag/Metadannye-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).<br>
 У одного сборочного задания может быть только один УИН.
 Добавлять УИН можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.
 
