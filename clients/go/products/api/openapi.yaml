@@ -4888,6 +4888,8 @@ paths:
                   $ref: "#/components/examples/IncorrectRequest"
                 IncorrectParameter:
                   $ref: "#/components/examples/IncorrectParameter"
+                IncorrectSkuParameter:
+                  $ref: "#/components/examples/SKUUploadDisabled"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -5016,6 +5018,8 @@ paths:
                   $ref: "#/components/examples/IncorrectRequest"
                 IncorrectParameter:
                   $ref: "#/components/examples/IncorrectParameter"
+                IncorrectSkuParameter:
+                  $ref: "#/components/examples/SKUUploadDisabled"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -5131,6 +5135,8 @@ paths:
                   $ref: "#/components/examples/IncorrectRequest"
                 IncorrectParameter:
                   $ref: "#/components/examples/IncorrectParameter"
+                SKUUploadDisabled:
+                  $ref: "#/components/examples/SKUUploadDisabled"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -6021,6 +6027,11 @@ components:
       value:
         code: IncorrectParameter
         message: IncorrectParameter
+    SKUUploadDisabled:
+      value:
+        code: SKUUploadDisabled
+        message: Uploading stock is not allowed by 'sku'. Please use the 'chrtId'
+          key
     creatingOneCard:
       description: ""
       value:
