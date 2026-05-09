@@ -2783,7 +2783,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_delete(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[Optional[StrictStr], Field(description="Название метаданных для удаления (`imei`, `uin`, `gtin`, `sgtin`, `customsDeclaration`). Передается только одно значение.")] = None,
+        key: Annotated[Optional[StrictStr], Field(description="Название метаданных для удаления. Передается только одно значение.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2803,7 +2803,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param key: Название метаданных для удаления (`imei`, `uin`, `gtin`, `sgtin`, `customsDeclaration`). Передается только одно значение.
+        :param key: Название метаданных для удаления. Передается только одно значение.
         :type key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2860,7 +2860,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_delete_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[Optional[StrictStr], Field(description="Название метаданных для удаления (`imei`, `uin`, `gtin`, `sgtin`, `customsDeclaration`). Передается только одно значение.")] = None,
+        key: Annotated[Optional[StrictStr], Field(description="Название метаданных для удаления. Передается только одно значение.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2880,7 +2880,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param key: Название метаданных для удаления (`imei`, `uin`, `gtin`, `sgtin`, `customsDeclaration`). Передается только одно значение.
+        :param key: Название метаданных для удаления. Передается только одно значение.
         :type key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2937,7 +2937,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_delete_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[Optional[StrictStr], Field(description="Название метаданных для удаления (`imei`, `uin`, `gtin`, `sgtin`, `customsDeclaration`). Передается только одно значение.")] = None,
+        key: Annotated[Optional[StrictStr], Field(description="Название метаданных для удаления. Передается только одно значение.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2957,7 +2957,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param key: Название метаданных для удаления (`imei`, `uin`, `gtin`, `sgtin`, `customsDeclaration`). Передается только одно значение.
+        :param key: Название метаданных для удаления. Передается только одно значение.
         :type key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

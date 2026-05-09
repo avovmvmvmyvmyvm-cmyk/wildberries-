@@ -17,7 +17,7 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 pub struct OrderNew {
     #[serde(rename = "address", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub address: Option<Option<Box<models::OrderAddress>>>,
-    /// Планируемая дата доставки.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 
+    /// Планируемая дата доставки заказа покупателю.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 
     #[serde(rename = "ddate", skip_serializing_if = "Option::is_none")]
     pub ddate: Option<String>,
     /// Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. <br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 

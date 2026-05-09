@@ -135,7 +135,7 @@ export function instanceOfFullStatsItem(value: object): value is FullStatsItem {
     if (!('orders' in value) || value['orders'] === undefined) return false;
     if (!('shks' in value) || value['shks'] === undefined) return false;
     if (!('sum' in value) || value['sum'] === undefined) return false;
-    if (!('sumPrice' in value) || value['sumPrice'] === undefined) return false;
+    if ((!('sumPrice' in value) && !('sum_price' in value)) || (value['sumPrice'] === undefined && value['sum_price'] === undefined)) return false;
     if (!('views' in value) || value['views'] === undefined) return false;
     return true;
 }

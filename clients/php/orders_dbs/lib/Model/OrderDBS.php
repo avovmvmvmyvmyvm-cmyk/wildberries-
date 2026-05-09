@@ -64,7 +64,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'group_id' => 'string',
         'article' => 'string',
         'color_code' => 'string',
-        'rid' => 'string',
+        'rid' => 'mixed',
         'created_at' => '\DateTime',
         'skus' => 'string[]',
         'id' => 'int',
@@ -132,7 +132,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
         'group_id' => false,
         'article' => false,
         'color_code' => false,
-        'rid' => false,
+        'rid' => true,
         'created_at' => false,
         'skus' => false,
         'id' => false,
@@ -686,7 +686,7 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets rid
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getRid()
     {
@@ -696,14 +696,21 @@ class OrderDBS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rid
      *
-     * @param string|null $rid Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)   - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)   - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)   - [Отчет о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)   - [Отчет о продажах по реализации](./financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get)
+     * @param mixed|null $rid Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)   - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)   - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)   - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailed)
      *
      * @return self
      */
     public function setRid($rid)
     {
         if (is_null($rid)) {
-            throw new \InvalidArgumentException('non-nullable rid cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rid'] = $rid;
 

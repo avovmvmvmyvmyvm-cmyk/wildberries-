@@ -45,8 +45,8 @@ export interface ApiAdvertV1BidsPatch200ResponseBidsInner {
  * Check if a given object implements the ApiAdvertV1BidsPatch200ResponseBidsInner interface.
  */
 export function instanceOfApiAdvertV1BidsPatch200ResponseBidsInner(value: object): value is ApiAdvertV1BidsPatch200ResponseBidsInner {
-    if (!('advertId' in value) || value['advertId'] === undefined) return false;
-    if (!('nmBids' in value) || value['nmBids'] === undefined) return false;
+    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
+    if ((!('nmBids' in value) && !('nm_bids' in value)) || (value['nmBids'] === undefined && value['nm_bids'] === undefined)) return false;
     return true;
 }
 

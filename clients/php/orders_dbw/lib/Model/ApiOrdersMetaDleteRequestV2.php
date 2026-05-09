@@ -234,6 +234,25 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
+    public const KEY_IMEI = 'imei';
+    public const KEY_UIN = 'uin';
+    public const KEY_GTIN = 'gtin';
+    public const KEY_SGTIN = 'sgtin';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getKeyAllowableValues()
+    {
+        return [
+            self::KEY_IMEI,
+            self::KEY_UIN,
+            self::KEY_GTIN,
+            self::KEY_SGTIN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -281,6 +300,15 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getKeyAllowableValues();
+        if (!is_null($this->container['key']) && !in_array($this->container['key'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'key', must be one of '%s'",
+                $this->container['key'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if (!is_null($this->container['orders_ids']) && (count($this->container['orders_ids']) > 1000)) {
             $invalidProperties[] = "invalid value for 'orders_ids', number of items must be less than or equal to 1000.";
         }
@@ -313,7 +341,7 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets key
      *
-     * @param string|null $key Название метаданных для удаления (imei, uin, gtin, sgtin). Передаётся только одно значение
+     * @param string|null $key Название метаданных для удаления. Передаётся только одно значение
      *
      * @return self
      */
@@ -321,6 +349,16 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
     {
         if (is_null($key)) {
             throw new \InvalidArgumentException('non-nullable key cannot be null');
+        }
+        $allowedValues = $this->getKeyAllowableValues();
+        if (!in_array($key, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'key', must be one of '%s'",
+                    $key,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['key'] = $key;
 

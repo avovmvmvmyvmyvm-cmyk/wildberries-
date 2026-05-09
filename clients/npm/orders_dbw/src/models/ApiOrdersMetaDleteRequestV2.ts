@@ -20,11 +20,11 @@ import { mapValues } from '../runtime';
  */
 export interface ApiOrdersMetaDleteRequestV2 {
     /**
-     * Название метаданных для удаления (imei, uin, gtin, sgtin). Передаётся только одно значение
-     * @type {string}
+     * Название метаданных для удаления. Передаётся только одно значение
+     * @type {ApiOrdersMetaDleteRequestV2KeyEnum}
      * @memberof ApiOrdersMetaDleteRequestV2
      */
-    key?: string;
+    key?: ApiOrdersMetaDleteRequestV2KeyEnum;
     /**
      * Список ID сборочных заданий
      * @type {Array<number>}
@@ -32,6 +32,19 @@ export interface ApiOrdersMetaDleteRequestV2 {
      */
     ordersIds?: Array<number>;
 }
+
+
+/**
+ * @export
+ */
+export const ApiOrdersMetaDleteRequestV2KeyEnum = {
+    Imei: 'imei',
+    Uin: 'uin',
+    Gtin: 'gtin',
+    Sgtin: 'sgtin'
+} as const;
+export type ApiOrdersMetaDleteRequestV2KeyEnum = typeof ApiOrdersMetaDleteRequestV2KeyEnum[keyof typeof ApiOrdersMetaDleteRequestV2KeyEnum];
+
 
 /**
  * Check if a given object implements the ApiOrdersMetaDleteRequestV2 interface.

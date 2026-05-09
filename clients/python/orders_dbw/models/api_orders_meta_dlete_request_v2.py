@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -28,9 +28,19 @@ class ApiOrdersMetaDleteRequestV2(BaseModel):
     """
     ApiOrdersMetaDleteRequestV2
     """ # noqa: E501
-    key: Optional[StrictStr] = Field(default=None, description="Название метаданных для удаления (imei, uin, gtin, sgtin). Передаётся только одно значение", json_schema_extra={"examples": ["sgtin"]})
+    key: Optional[StrictStr] = Field(default=None, description="Название метаданных для удаления. Передаётся только одно значение", json_schema_extra={"examples": ["sgtin"]})
     orders_ids: Optional[Annotated[List[StrictInt], Field(max_length=1000)]] = Field(default=None, description="Список ID сборочных заданий", alias="ordersIds", json_schema_extra={"examples": [[123456789]]})
     __properties: ClassVar[List[str]] = ["key", "ordersIds"]
+
+    @field_validator('key')
+    def key_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['imei', 'uin', 'gtin', 'sgtin']):
+            raise ValueError("must be one of enum values ('imei', 'uin', 'gtin', 'sgtin')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

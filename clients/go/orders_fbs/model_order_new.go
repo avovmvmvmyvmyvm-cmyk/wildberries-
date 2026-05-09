@@ -21,7 +21,7 @@ var _ MappedNullable = &OrderNew{}
 // OrderNew struct for OrderNew
 type OrderNew struct {
 	Address NullableOrderAddress `json:"address,omitempty"`
-	// Планируемая дата доставки.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 
+	// Планируемая дата доставки заказа покупателю.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 
 	Ddate *string `json:"ddate,omitempty"`
 	// Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. <br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` 
 	SellerDate NullableString `json:"sellerDate,omitempty"`

@@ -1314,7 +1314,7 @@ class DefaultApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/problem+json', ],
+            ['application/json', 'text/plain; charset=utf-8', 'application/problem+json', ],
             $contentType,
             $multipart
         );

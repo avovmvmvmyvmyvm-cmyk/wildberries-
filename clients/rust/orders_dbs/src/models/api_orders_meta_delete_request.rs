@@ -13,20 +13,40 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrdersMetaDeleteRequest {
-    /// Название метаданных для удаления (**imei**, **uin**, **gtin**, **sgtin**). Передаётся только одно значение
+    /// Название метаданных для удаления. Передаётся только одно значение
     #[serde(rename = "key")]
-    pub key: String,
+    pub key: Key,
     /// Список ID сборочных заданий
     #[serde(rename = "orderIds")]
     pub order_ids: Vec<i32>,
 }
 
 impl ApiOrdersMetaDeleteRequest {
-    pub fn new(key: String, order_ids: Vec<i32>) -> ApiOrdersMetaDeleteRequest {
+    pub fn new(key: Key, order_ids: Vec<i32>) -> ApiOrdersMetaDeleteRequest {
         ApiOrdersMetaDeleteRequest {
             key,
             order_ids,
         }
+    }
+}
+/// Название метаданных для удаления. Передаётся только одно значение
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Key {
+    #[serde(rename = "imei")]
+    Imei,
+    #[serde(rename = "uin")]
+    Uin,
+    #[serde(rename = "gtin")]
+    Gtin,
+    #[serde(rename = "sgtin")]
+    Sgtin,
+    #[serde(rename = "customsDeclaration")]
+    CustomsDeclaration,
+}
+
+impl Default for Key {
+    fn default() -> Key {
+        Self::Imei
     }
 }
 

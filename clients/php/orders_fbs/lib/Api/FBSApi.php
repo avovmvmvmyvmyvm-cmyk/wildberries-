@@ -3767,7 +3767,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название метаданных для удаления (&#x60;imei&#x60;, &#x60;uin&#x60;, &#x60;gtin&#x60;, &#x60;sgtin&#x60;, &#x60;customsDeclaration&#x60;). Передается только одно значение. (optional)
+     * @param  string|null $key Название метаданных для удаления. Передается только одно значение. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -3791,7 +3791,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название метаданных для удаления (&#x60;imei&#x60;, &#x60;uin&#x60;, &#x60;gtin&#x60;, &#x60;sgtin&#x60;, &#x60;customsDeclaration&#x60;). Передается только одно значение. (optional)
+     * @param  string|null $key Название метаданных для удаления. Передается только одно значение. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -3895,7 +3895,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название метаданных для удаления (&#x60;imei&#x60;, &#x60;uin&#x60;, &#x60;gtin&#x60;, &#x60;sgtin&#x60;, &#x60;customsDeclaration&#x60;). Передается только одно значение. (optional)
+     * @param  string|null $key Название метаданных для удаления. Передается только одно значение. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -3923,7 +3923,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название метаданных для удаления (&#x60;imei&#x60;, &#x60;uin&#x60;, &#x60;gtin&#x60;, &#x60;sgtin&#x60;, &#x60;customsDeclaration&#x60;). Передается только одно значение. (optional)
+     * @param  string|null $key Название метаданных для удаления. Передается только одно значение. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -3967,7 +3967,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название метаданных для удаления (&#x60;imei&#x60;, &#x60;uin&#x60;, &#x60;gtin&#x60;, &#x60;sgtin&#x60;, &#x60;customsDeclaration&#x60;). Передается только одно значение. (optional)
+     * @param  string|null $key Название метаданных для удаления. Передается только одно значение. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation

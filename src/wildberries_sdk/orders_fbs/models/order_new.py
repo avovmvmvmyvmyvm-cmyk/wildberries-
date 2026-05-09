@@ -32,7 +32,7 @@ class OrderNew(BaseModel):
     OrderNew
     """ # noqa: E501
     address: Optional[OrderAddress] = None
-    ddate: Optional[StrictStr] = Field(default=None, description="Планируемая дата доставки.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` ", json_schema_extra={"examples": ["17.05.2024"]})
+    ddate: Optional[StrictStr] = Field(default=None, description="Планируемая дата доставки заказа покупателю.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` ", json_schema_extra={"examples": ["17.05.2024"]})
     seller_date: Optional[StrictStr] = Field(default=None, description="Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. <br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` ", alias="sellerDate", json_schema_extra={"examples": ["02.06.2025"]})
     sale_price: Optional[StrictInt] = Field(default=None, description="Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях ", alias="salePrice", json_schema_extra={"examples": [504600]})
     required_meta: Optional[List[StrictStr]] = Field(default=None, description="Список метаданных, которые необходимо добавить в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку ", alias="requiredMeta", json_schema_extra={"examples": [["uin"]]})

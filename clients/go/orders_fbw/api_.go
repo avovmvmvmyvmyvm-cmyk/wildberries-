@@ -525,7 +525,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGoodsGetExecute(r ApiApiV1SuppliesIDG
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/plain; charset=utf-8", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

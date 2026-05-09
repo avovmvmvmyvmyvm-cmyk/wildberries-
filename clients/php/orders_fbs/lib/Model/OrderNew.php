@@ -622,7 +622,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ddate
      *
-     * @param string|null $ddate Планируемая дата доставки.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
+     * @param string|null $ddate Планируемая дата доставки заказа покупателю.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
      *
      * @return self
      */

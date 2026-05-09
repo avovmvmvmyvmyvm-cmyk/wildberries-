@@ -1855,7 +1855,7 @@ type ApiApiV3OrdersOrderIdMetaDeleteRequest struct {
 	key *string
 }
 
-// Название метаданных для удаления (&#x60;imei&#x60;, &#x60;uin&#x60;, &#x60;gtin&#x60;, &#x60;sgtin&#x60;, &#x60;customsDeclaration&#x60;). Передается только одно значение.
+// Название метаданных для удаления. Передается только одно значение.
 func (r ApiApiV3OrdersOrderIdMetaDeleteRequest) Key(key string) ApiApiV3OrdersOrderIdMetaDeleteRequest {
 	r.key = &key
 	return r

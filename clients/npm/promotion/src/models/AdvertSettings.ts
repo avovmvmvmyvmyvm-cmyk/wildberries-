@@ -65,7 +65,7 @@ export type AdvertSettingsPaymentTypeEnum = typeof AdvertSettingsPaymentTypeEnum
  * Check if a given object implements the AdvertSettings interface.
  */
 export function instanceOfAdvertSettings(value: object): value is AdvertSettings {
-    if (!('paymentType' in value) || value['paymentType'] === undefined) return false;
+    if ((!('paymentType' in value) && !('payment_type' in value)) || (value['paymentType'] === undefined && value['payment_type'] === undefined)) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('placements' in value) || value['placements'] === undefined) return false;
     return true;

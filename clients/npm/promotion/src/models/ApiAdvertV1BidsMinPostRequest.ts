@@ -77,10 +77,10 @@ export type ApiAdvertV1BidsMinPostRequestPlacementTypesEnum = typeof ApiAdvertV1
  * Check if a given object implements the ApiAdvertV1BidsMinPostRequest interface.
  */
 export function instanceOfApiAdvertV1BidsMinPostRequest(value: object): value is ApiAdvertV1BidsMinPostRequest {
-    if (!('advertId' in value) || value['advertId'] === undefined) return false;
-    if (!('nmIds' in value) || value['nmIds'] === undefined) return false;
-    if (!('paymentType' in value) || value['paymentType'] === undefined) return false;
-    if (!('placementTypes' in value) || value['placementTypes'] === undefined) return false;
+    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
+    if ((!('nmIds' in value) && !('nm_ids' in value)) || (value['nmIds'] === undefined && value['nm_ids'] === undefined)) return false;
+    if ((!('paymentType' in value) && !('payment_type' in value)) || (value['paymentType'] === undefined && value['payment_type'] === undefined)) return false;
+    if ((!('placementTypes' in value) && !('placement_types' in value)) || (value['placementTypes'] === undefined && value['placement_types'] === undefined)) return false;
     return true;
 }
 

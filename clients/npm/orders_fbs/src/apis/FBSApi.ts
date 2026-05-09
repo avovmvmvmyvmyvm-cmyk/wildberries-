@@ -281,7 +281,7 @@ export interface ApiV3OrdersOrderIdCancelPatchRequest {
 
 export interface ApiV3OrdersOrderIdMetaDeleteRequest {
     orderId: number;
-    key?: string;
+    key?: ApiV3OrdersOrderIdMetaDeleteKeyEnum;
 }
 
 export interface ApiV3OrdersOrderIdMetaExpirationPutOperationRequest {
@@ -2292,6 +2292,17 @@ export class FBSApi extends runtime.BaseAPI {
 
 }
 
+/**
+ * @export
+ */
+export const ApiV3OrdersOrderIdMetaDeleteKeyEnum = {
+    Imei: 'imei',
+    Uin: 'uin',
+    Gtin: 'gtin',
+    Sgtin: 'sgtin',
+    CustomsDeclaration: 'customsDeclaration'
+} as const;
+export type ApiV3OrdersOrderIdMetaDeleteKeyEnum = typeof ApiV3OrdersOrderIdMetaDeleteKeyEnum[keyof typeof ApiV3OrdersOrderIdMetaDeleteKeyEnum];
 /**
  * @export
  */

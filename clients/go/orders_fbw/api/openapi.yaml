@@ -600,7 +600,7 @@ paths:
           description: Успешно
         "400":
           content:
-            application/json:
+            text/plain; charset=utf-8:
               examples:
                 BadOffsetFormat:
                   $ref: "#/components/examples/BadOffsetFormat"

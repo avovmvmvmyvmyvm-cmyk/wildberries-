@@ -957,6 +957,7 @@ class DefaultApi:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json', 
+                    'text/plain; charset=utf-8', 
                     'application/problem+json'
                 ]
             )

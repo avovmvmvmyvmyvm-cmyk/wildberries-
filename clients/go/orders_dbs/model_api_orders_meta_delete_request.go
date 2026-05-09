@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiOrdersMetaDeleteRequest{}
 
 // ApiOrdersMetaDeleteRequest struct for ApiOrdersMetaDeleteRequest
 type ApiOrdersMetaDeleteRequest struct {
-	// Название метаданных для удаления (**imei**, **uin**, **gtin**, **sgtin**). Передаётся только одно значение
+	// Название метаданных для удаления. Передаётся только одно значение
 	Key string `json:"key"`
 	// Список ID сборочных заданий
 	OrderIds []int32 `json:"orderIds"`

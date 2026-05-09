@@ -45,7 +45,7 @@ export interface AdvV0AuctionNmsPatch200ResponseNmsInner {
  * Check if a given object implements the AdvV0AuctionNmsPatch200ResponseNmsInner interface.
  */
 export function instanceOfAdvV0AuctionNmsPatch200ResponseNmsInner(value: object): value is AdvV0AuctionNmsPatch200ResponseNmsInner {
-    if (!('advertId' in value) || value['advertId'] === undefined) return false;
+    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
     if (!('nms' in value) || value['nms'] === undefined) return false;
     return true;
 }

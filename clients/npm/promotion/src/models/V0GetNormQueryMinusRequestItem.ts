@@ -37,8 +37,8 @@ export interface V0GetNormQueryMinusRequestItem {
  * Check if a given object implements the V0GetNormQueryMinusRequestItem interface.
  */
 export function instanceOfV0GetNormQueryMinusRequestItem(value: object): value is V0GetNormQueryMinusRequestItem {
-    if (!('advertId' in value) || value['advertId'] === undefined) return false;
-    if (!('nmId' in value) || value['nmId'] === undefined) return false;
+    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
+    if ((!('nmId' in value) && !('nm_id' in value)) || (value['nmId'] === undefined && value['nm_id'] === undefined)) return false;
     return true;
 }
 

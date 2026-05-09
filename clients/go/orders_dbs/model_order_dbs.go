@@ -32,8 +32,8 @@ type OrderDBS struct {
 	Article *string `json:"article,omitempty"`
 	// Код цвета (только для колеруемых товаров)
 	ColorCode *string `json:"colorCode,omitempty"`
-	// Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)   - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)   - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)   - [Отчет о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)   - [Отчет о продажах по реализации](./financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get) 
-	Rid *string `json:"rid,omitempty"`
+	// Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:   - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)   - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)   - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)   - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailed) 
+	Rid interface{} `json:"rid,omitempty"`
 	// Дата создания сборочного задания
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	// Массив баркодов товара
@@ -321,22 +321,23 @@ func (o *OrderDBS) SetColorCode(v string) {
 	o.ColorCode = &v
 }
 
-// GetRid returns the Rid field value if set, zero value otherwise.
-func (o *OrderDBS) GetRid() string {
-	if o == nil || IsNil(o.Rid) {
-		var ret string
+// GetRid returns the Rid field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *OrderDBS) GetRid() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Rid
+	return o.Rid
 }
 
 // GetRidOk returns a tuple with the Rid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderDBS) GetRidOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *OrderDBS) GetRidOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Rid) {
 		return nil, false
 	}
-	return o.Rid, true
+	return &o.Rid, true
 }
 
 // HasRid returns a boolean if a field has been set.
@@ -348,9 +349,9 @@ func (o *OrderDBS) HasRid() bool {
 	return false
 }
 
-// SetRid gets a reference to the given string and assigns it to the Rid field.
-func (o *OrderDBS) SetRid(v string) {
-	o.Rid = &v
+// SetRid gets a reference to the given interface{} and assigns it to the Rid field.
+func (o *OrderDBS) SetRid(v interface{}) {
+	o.Rid = v
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
@@ -938,7 +939,7 @@ func (o OrderDBS) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ColorCode) {
 		toSerialize["colorCode"] = o.ColorCode
 	}
-	if !IsNil(o.Rid) {
+	if o.Rid != nil {
 		toSerialize["rid"] = o.Rid
 	}
 	if !IsNil(o.CreatedAt) {

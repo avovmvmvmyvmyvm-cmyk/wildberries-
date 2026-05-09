@@ -108,9 +108,9 @@ export type GetAdvertsAdvertsInnerStatusEnum = typeof GetAdvertsAdvertsInnerStat
  * Check if a given object implements the GetAdvertsAdvertsInner interface.
  */
 export function instanceOfGetAdvertsAdvertsInner(value: object): value is GetAdvertsAdvertsInner {
-    if (!('bidType' in value) || value['bidType'] === undefined) return false;
+    if ((!('bidType' in value) && !('bid_type' in value)) || (value['bidType'] === undefined && value['bid_type'] === undefined)) return false;
     if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('nmSettings' in value) || value['nmSettings'] === undefined) return false;
+    if ((!('nmSettings' in value) && !('nm_settings' in value)) || (value['nmSettings'] === undefined && value['nm_settings'] === undefined)) return false;
     if (!('settings' in value) || value['settings'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('timestamps' in value) || value['timestamps'] === undefined) return false;

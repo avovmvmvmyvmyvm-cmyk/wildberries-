@@ -57,7 +57,7 @@ export interface StandardizedBatchError {
 export function instanceOfStandardizedBatchError(value: object): value is StandardizedBatchError {
     if (!('detail' in value) || value['detail'] === undefined) return false;
     if (!('origin' in value) || value['origin'] === undefined) return false;
-    if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if ((!('requestId' in value) && !('request_id' in value)) || (value['requestId'] === undefined && value['request_id'] === undefined)) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     return true;
