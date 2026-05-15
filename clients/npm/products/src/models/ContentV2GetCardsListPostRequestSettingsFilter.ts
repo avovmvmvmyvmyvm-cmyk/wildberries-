@@ -21,14 +21,14 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsListPostRequestSettingsFilter {
     /**
      * Фильтр по фото:
-     *   * `0` — только карточки без фото
+     *   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров
      *   * `1` — только карточки с фото
-     *   * `-1` — все карточки товара
+     *   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото
      * 
-     * @type {number}
+     * @type {ContentV2GetCardsListPostRequestSettingsFilterWithPhotoEnum}
      * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */
-    withPhoto?: number;
+    withPhoto?: ContentV2GetCardsListPostRequestSettingsFilterWithPhotoEnum;
     /**
      * Поиск по артикулу продавца, артикулу WB, баркоду
      * @type {string}
@@ -71,6 +71,18 @@ export interface ContentV2GetCardsListPostRequestSettingsFilter {
      */
     imtID?: number;
 }
+
+
+/**
+ * @export
+ */
+export const ContentV2GetCardsListPostRequestSettingsFilterWithPhotoEnum = {
+    NUMBER_0: 0,
+    NUMBER_1: 1,
+    NUMBER_MINUS_1: -1
+} as const;
+export type ContentV2GetCardsListPostRequestSettingsFilterWithPhotoEnum = typeof ContentV2GetCardsListPostRequestSettingsFilterWithPhotoEnum[keyof typeof ContentV2GetCardsListPostRequestSettingsFilterWithPhotoEnum];
+
 
 /**
  * Check if a given object implements the ContentV2GetCardsListPostRequestSettingsFilter interface.

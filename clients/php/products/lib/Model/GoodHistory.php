@@ -97,7 +97,7 @@ class GoodHistory implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'nm_id' => false,
         'vendor_code' => false,
-        'size_id' => false,
+        'size_id' => true,
         'tech_size_name' => false,
         'price' => false,
         'currency_iso_code4217' => false,
@@ -426,7 +426,14 @@ class GoodHistory implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSizeId($size_id)
     {
         if (is_null($size_id)) {
-            throw new \InvalidArgumentException('non-nullable size_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'size_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('size_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['size_id'] = $size_id;
 

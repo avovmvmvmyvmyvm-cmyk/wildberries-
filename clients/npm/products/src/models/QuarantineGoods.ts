@@ -48,7 +48,7 @@ export interface QuarantineGoods {
      * @type {number}
      * @memberof QuarantineGoods
      */
-    newPrice?: number;
+    newPrice?: number | null;
     /**
      * Текущая цена продавца до скидки
      * @type {number}
@@ -60,7 +60,7 @@ export interface QuarantineGoods {
      * @type {number}
      * @memberof QuarantineGoods
      */
-    newDiscount?: number;
+    newDiscount?: number | null;
     /**
      * Текущая скидка продавца, %
      * @type {number}

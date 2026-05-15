@@ -649,7 +649,7 @@ class ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner implements ModelInte
     /**
      * Sets is_variable
      *
-     * @param bool|null $is_variable Признак меняющейся характеристики. Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара могут отличаться по этой характеристике   -  `false` — варианты товара не могут отличаться по этой характеристике
+     * @param bool|null $is_variable Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара отличаются по этой характеристике   -  `false` — варианты товара не отличаются по этой характеристике
      *
      * @return self
      */

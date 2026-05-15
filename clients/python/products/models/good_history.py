@@ -78,6 +78,11 @@ class GoodHistory(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if size_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.size_id is None and "size_id" in self.model_fields_set:
+            _dict['sizeID'] = None
+
         # set to None if club_discount (nullable) is None
         # and model_fields_set contains the field
         if self.club_discount is None and "club_discount" in self.model_fields_set:

@@ -74,6 +74,11 @@ class AdvV1CountGet200Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of adverts
         if self.adverts:
             _dict['adverts'] = self.adverts.to_dict()
+        # set to None if adverts (nullable) is None
+        # and model_fields_set contains the field
+        if self.adverts is None and "adverts" in self.model_fields_set:
+            _dict['adverts'] = None
+
         return _dict
 
     @classmethod

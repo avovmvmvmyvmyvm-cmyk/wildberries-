@@ -265,6 +265,23 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
         return self::$openAPIModelName;
     }
 
+    public const WITH_PHOTO_NUMBER_0 = 0;
+    public const WITH_PHOTO_NUMBER_1 = 1;
+    public const WITH_PHOTO_MINUS_1 = -1;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getWithPhotoAllowableValues()
+    {
+        return [
+            self::WITH_PHOTO_NUMBER_0,
+            self::WITH_PHOTO_NUMBER_1,
+            self::WITH_PHOTO_MINUS_1,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -281,7 +298,7 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('with_photo', $data ?? [], 0);
+        $this->setIfExists('with_photo', $data ?? [], WITH_PHOTO::NUMBER_0);
         $this->setIfExists('text_search', $data ?? [], null);
         $this->setIfExists('tag_ids', $data ?? [], null);
         $this->setIfExists('allowed_categories_only', $data ?? [], null);
@@ -317,6 +334,15 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getWithPhotoAllowableValues();
+        if (!is_null($this->container['with_photo']) && !in_array($this->container['with_photo'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'with_photo', must be one of '%s'",
+                $this->container['with_photo'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -345,7 +371,7 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
     /**
      * Sets with_photo
      *
-     * @param int|null $with_photo Фильтр по фото:   * `0` — только карточки без фото   * `1` — только карточки с фото   * `-1` — все карточки товара
+     * @param int|null $with_photo Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото
      *
      * @return self
      */
@@ -353,6 +379,16 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
     {
         if (is_null($with_photo)) {
             throw new \InvalidArgumentException('non-nullable with_photo cannot be null');
+        }
+        $allowedValues = $this->getWithPhotoAllowableValues();
+        if (!in_array($with_photo, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'with_photo', must be one of '%s'",
+                    $with_photo,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['with_photo'] = $with_photo;
 

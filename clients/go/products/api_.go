@@ -7368,7 +7368,7 @@ ContentV2GetCardsListPost Список карточек товаров
               "limit": 100
             },
             "filter": {
-              "withPhoto": -1
+              "withPhoto": 0
             }
           }
         }</pre>

@@ -21,7 +21,7 @@ var _ MappedNullable = &AdvV1CountGet200Response{}
 type AdvV1CountGet200Response struct {
 	// Общее количество медиакампаний всех статусов и типов
 	All *int32 `json:"all,omitempty"`
-	Adverts *AdvV1CountGet200ResponseAdverts `json:"adverts,omitempty"`
+	Adverts NullableAdvV1CountGet200ResponseAdverts `json:"adverts,omitempty"`
 }
 
 // NewAdvV1CountGet200Response instantiates a new AdvV1CountGet200Response object
@@ -73,36 +73,46 @@ func (o *AdvV1CountGet200Response) SetAll(v int32) {
 	o.All = &v
 }
 
-// GetAdverts returns the Adverts field value if set, zero value otherwise.
+// GetAdverts returns the Adverts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdvV1CountGet200Response) GetAdverts() AdvV1CountGet200ResponseAdverts {
-	if o == nil || IsNil(o.Adverts) {
+	if o == nil || IsNil(o.Adverts.Get()) {
 		var ret AdvV1CountGet200ResponseAdverts
 		return ret
 	}
-	return *o.Adverts
+	return *o.Adverts.Get()
 }
 
 // GetAdvertsOk returns a tuple with the Adverts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdvV1CountGet200Response) GetAdvertsOk() (*AdvV1CountGet200ResponseAdverts, bool) {
-	if o == nil || IsNil(o.Adverts) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Adverts, true
+	return o.Adverts.Get(), o.Adverts.IsSet()
 }
 
 // HasAdverts returns a boolean if a field has been set.
 func (o *AdvV1CountGet200Response) HasAdverts() bool {
-	if o != nil && !IsNil(o.Adverts) {
+	if o != nil && o.Adverts.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAdverts gets a reference to the given AdvV1CountGet200ResponseAdverts and assigns it to the Adverts field.
+// SetAdverts gets a reference to the given NullableAdvV1CountGet200ResponseAdverts and assigns it to the Adverts field.
 func (o *AdvV1CountGet200Response) SetAdverts(v AdvV1CountGet200ResponseAdverts) {
-	o.Adverts = &v
+	o.Adverts.Set(&v)
+}
+// SetAdvertsNil sets the value for Adverts to be an explicit nil
+func (o *AdvV1CountGet200Response) SetAdvertsNil() {
+	o.Adverts.Set(nil)
+}
+
+// UnsetAdverts ensures that no value is present for Adverts, not even an explicit nil
+func (o *AdvV1CountGet200Response) UnsetAdverts() {
+	o.Adverts.Unset()
 }
 
 func (o AdvV1CountGet200Response) MarshalJSON() ([]byte, error) {
@@ -118,8 +128,8 @@ func (o AdvV1CountGet200Response) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.All) {
 		toSerialize["all"] = o.All
 	}
-	if !IsNil(o.Adverts) {
-		toSerialize["adverts"] = o.Adverts
+	if o.Adverts.IsSet() {
+		toSerialize["adverts"] = o.Adverts.Get()
 	}
 	return toSerialize, nil
 }

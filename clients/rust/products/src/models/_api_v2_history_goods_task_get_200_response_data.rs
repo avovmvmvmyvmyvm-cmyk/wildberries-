@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiV2HistoryGoodsTaskGet200ResponseData {
     /// ID загрузки
-    #[serde(rename = "uploadID", skip_serializing_if = "Option::is_none")]
-    pub upload_id: Option<i32>,
+    #[serde(rename = "uploadID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub upload_id: Option<Option<i32>>,
     /// Информация о товарах в загрузке
-    #[serde(rename = "historyGoods", skip_serializing_if = "Option::is_none")]
-    pub history_goods: Option<Vec<models::GoodHistory>>,
+    #[serde(rename = "historyGoods", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub history_goods: Option<Option<Vec<models::GoodHistory>>>,
 }
 
 impl ApiV2HistoryGoodsTaskGet200ResponseData {

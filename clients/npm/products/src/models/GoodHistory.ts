@@ -36,7 +36,7 @@ export interface GoodHistory {
      * @type {number}
      * @memberof GoodHistory
      */
-    sizeID?: number;
+    sizeID?: number | null;
     /**
      * Размер
      * @type {string}

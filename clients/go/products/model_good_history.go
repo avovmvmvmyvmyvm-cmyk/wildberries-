@@ -24,7 +24,7 @@ type GoodHistory struct {
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// ID размера. В методах Контента это поле `chrtID`
-	SizeID *int32 `json:"sizeID,omitempty"`
+	SizeID NullableInt32 `json:"sizeID,omitempty"`
 	// Размер
 	TechSizeName *string `json:"techSizeName,omitempty"`
 	// Цена
@@ -122,36 +122,46 @@ func (o *GoodHistory) SetVendorCode(v string) {
 	o.VendorCode = &v
 }
 
-// GetSizeID returns the SizeID field value if set, zero value otherwise.
+// GetSizeID returns the SizeID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GoodHistory) GetSizeID() int32 {
-	if o == nil || IsNil(o.SizeID) {
+	if o == nil || IsNil(o.SizeID.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.SizeID
+	return *o.SizeID.Get()
 }
 
 // GetSizeIDOk returns a tuple with the SizeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GoodHistory) GetSizeIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.SizeID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SizeID, true
+	return o.SizeID.Get(), o.SizeID.IsSet()
 }
 
 // HasSizeID returns a boolean if a field has been set.
 func (o *GoodHistory) HasSizeID() bool {
-	if o != nil && !IsNil(o.SizeID) {
+	if o != nil && o.SizeID.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSizeID gets a reference to the given int32 and assigns it to the SizeID field.
+// SetSizeID gets a reference to the given NullableInt32 and assigns it to the SizeID field.
 func (o *GoodHistory) SetSizeID(v int32) {
-	o.SizeID = &v
+	o.SizeID.Set(&v)
+}
+// SetSizeIDNil sets the value for SizeID to be an explicit nil
+func (o *GoodHistory) SetSizeIDNil() {
+	o.SizeID.Set(nil)
+}
+
+// UnsetSizeID ensures that no value is present for SizeID, not even an explicit nil
+func (o *GoodHistory) UnsetSizeID() {
+	o.SizeID.Unset()
 }
 
 // GetTechSizeName returns the TechSizeName field value if set, zero value otherwise.
@@ -404,8 +414,8 @@ func (o GoodHistory) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.VendorCode) {
 		toSerialize["vendorCode"] = o.VendorCode
 	}
-	if !IsNil(o.SizeID) {
-		toSerialize["sizeID"] = o.SizeID
+	if o.SizeID.IsSet() {
+		toSerialize["sizeID"] = o.SizeID.Get()
 	}
 	if !IsNil(o.TechSizeName) {
 		toSerialize["techSizeName"] = o.TechSizeName

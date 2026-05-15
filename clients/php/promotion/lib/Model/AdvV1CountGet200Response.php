@@ -80,7 +80,7 @@ class AdvV1CountGet200Response implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static array $openAPINullables = [
         'all' => false,
-        'adverts' => false
+        'adverts' => true
     ];
 
     /**
@@ -343,7 +343,14 @@ class AdvV1CountGet200Response implements ModelInterface, ArrayAccess, \JsonSeri
     public function setAdverts($adverts)
     {
         if (is_null($adverts)) {
-            throw new \InvalidArgumentException('non-nullable adverts cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'adverts');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('adverts', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['adverts'] = $adverts;
 

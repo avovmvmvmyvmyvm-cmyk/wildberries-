@@ -7786,6 +7786,7 @@ components:
         type: 6
         status: 1
         count: 5
+      nullable: true
       properties:
         type:
           description: |

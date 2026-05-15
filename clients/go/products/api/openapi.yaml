@@ -1667,7 +1667,7 @@ paths:
                       "limit": 100
                     },
                     "filter": {
-                      "withPhoto": -1
+                      "withPhoto": 0
                     }
                   }
                 }</pre>
@@ -1735,7 +1735,7 @@ paths:
                   - уллу
                   - EkkE
                   imtID: 328632
-                  withPhoto: -1
+                  withPhoto: 0
                 cursor:
                   updatedAt: 2023-12-06T11:17:00.96577Z
                   nmID: 370870300
@@ -7359,6 +7359,7 @@ components:
         sizeID:
           description: ID размера. В методах Контента это поле `chrtID`
           example: 54483342
+          nullable: true
           type: integer
         techSizeName:
           description: Размер
@@ -7566,6 +7567,7 @@ components:
           description: Новая цена продавца до скидки
           example: 134
           format: float
+          nullable: true
           type: number
         oldPrice:
           description: Текущая цена продавца до скидки
@@ -7575,6 +7577,7 @@ components:
         newDiscount:
           description: "Новая скидка продавца, %"
           example: 25
+          nullable: true
           type: integer
         oldDiscount:
           description: "Текущая скидка продавца, %"
@@ -8197,9 +8200,9 @@ components:
           type: boolean
         isVariable:
           description: |
-            Признак меняющейся характеристики. Значение размечает характеристики, по которым варианты отличаются друг от друга:
-              -  `true` — варианты товара могут отличаться по этой характеристике
-              -  `false` — варианты товара не могут отличаться по этой характеристике
+            Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:
+              -  `true` — варианты товара отличаются по этой характеристике
+              -  `false` — варианты товара не отличаются по этой характеристике
           type: boolean
         existNamedField:
           description: |
@@ -8575,9 +8578,13 @@ components:
           default: 0
           description: |
             Фильтр по фото:
-              * `0` — только карточки без фото
+              * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров
               * `1` — только карточки с фото
-              * `-1` — все карточки товара
+              * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото
+          enum:
+          - 0
+          - 1
+          - -1
           type: integer
         textSearch:
           description: "Поиск по артикулу продавца, артикулу WB, баркоду"
@@ -9984,11 +9991,13 @@ components:
         uploadID:
           description: ID загрузки
           example: 3235236546
+          nullable: true
           type: integer
         historyGoods:
           description: Информация о товарах в загрузке
           items:
             $ref: "#/components/schemas/GoodHistory"
+          nullable: true
           type: array
       type: object
     _api_v2_history_goods_task_get_200_response:

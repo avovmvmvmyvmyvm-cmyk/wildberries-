@@ -80,8 +80,8 @@ class ApiV2HistoryGoodsTaskGet200ResponseData implements ModelInterface, ArrayAc
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'upload_id' => false,
-        'history_goods' => false
+        'upload_id' => true,
+        'history_goods' => true
     ];
 
     /**
@@ -317,7 +317,14 @@ class ApiV2HistoryGoodsTaskGet200ResponseData implements ModelInterface, ArrayAc
     public function setUploadId($upload_id)
     {
         if (is_null($upload_id)) {
-            throw new \InvalidArgumentException('non-nullable upload_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'upload_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('upload_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['upload_id'] = $upload_id;
 
@@ -344,7 +351,14 @@ class ApiV2HistoryGoodsTaskGet200ResponseData implements ModelInterface, ArrayAc
     public function setHistoryGoods($history_goods)
     {
         if (is_null($history_goods)) {
-            throw new \InvalidArgumentException('non-nullable history_goods cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'history_goods');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('history_goods', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['history_goods'] = $history_goods;
 

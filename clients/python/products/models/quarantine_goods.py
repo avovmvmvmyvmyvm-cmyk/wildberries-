@@ -82,6 +82,16 @@ class QuarantineGoods(BaseModel):
         if self.size_id is None and "size_id" in self.model_fields_set:
             _dict['sizeID'] = None
 
+        # set to None if new_price (nullable) is None
+        # and model_fields_set contains the field
+        if self.new_price is None and "new_price" in self.model_fields_set:
+            _dict['newPrice'] = None
+
+        # set to None if new_discount (nullable) is None
+        # and model_fields_set contains the field
+        if self.new_discount is None and "new_discount" in self.model_fields_set:
+            _dict['newDiscount'] = None
+
         return _dict
 
     @classmethod

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class ContentV2GetCardsListPostRequestSettingsFilter(BaseModel):
     """
     Параметры фильтрации
     """ # noqa: E501
-    with_photo: Optional[StrictInt] = Field(default=0, description="Фильтр по фото:   * `0` — только карточки без фото   * `1` — только карточки с фото   * `-1` — все карточки товара ", alias="withPhoto")
+    with_photo: Optional[StrictInt] = Field(default=0, description="Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото ", alias="withPhoto")
     text_search: Optional[StrictStr] = Field(default=None, description="Поиск по артикулу продавца, артикулу WB, баркоду", alias="textSearch")
     tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Поиск по ID ярлыков", alias="tagIDs")
     allowed_categories_only: Optional[StrictBool] = Field(default=None, description="Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице ", alias="allowedCategoriesOnly")
@@ -35,6 +35,16 @@ class ContentV2GetCardsListPostRequestSettingsFilter(BaseModel):
     brands: Optional[List[StrictStr]] = Field(default=None, description="Поиск по брендам")
     imt_id: Optional[StrictInt] = Field(default=None, description="Поиск по [ID для объединённых карточек товаров](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)", alias="imtID")
     __properties: ClassVar[List[str]] = ["withPhoto", "textSearch", "tagIDs", "allowedCategoriesOnly", "objectIDs", "brands", "imtID"]
+
+    @field_validator('with_photo')
+    def with_photo_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set([0, 1, -1]):
+            raise ValueError("must be one of enum values (0, 1, -1)")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

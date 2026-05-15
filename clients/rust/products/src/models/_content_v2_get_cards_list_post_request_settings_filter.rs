@@ -11,12 +11,14 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+use serde_repr::{Serialize_repr,Deserialize_repr};
+
 /// ContentV2GetCardsListPostRequestSettingsFilter : Параметры фильтрации
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContentV2GetCardsListPostRequestSettingsFilter {
-    /// Фильтр по фото:   * `0` — только карточки без фото   * `1` — только карточки с фото   * `-1` — все карточки товара 
+    /// Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото 
     #[serde(rename = "withPhoto", skip_serializing_if = "Option::is_none")]
-    pub with_photo: Option<i32>,
+    pub with_photo: Option<WithPhoto>,
     /// Поиск по артикулу продавца, артикулу WB, баркоду
     #[serde(rename = "textSearch", skip_serializing_if = "Option::is_none")]
     pub text_search: Option<String>,
@@ -49,6 +51,30 @@ impl ContentV2GetCardsListPostRequestSettingsFilter {
             brands: None,
             imt_id: None,
         }
+    }
+}
+/// Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото 
+#[repr(i64)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
+pub enum WithPhoto {
+    Variant0 = 0,
+    Variant1 = 1,
+    Variant12 = -1,
+}
+
+impl std::fmt::Display for WithPhoto {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", match self {
+            Self::Variant0 => "0",
+            Self::Variant1 => "1",
+            Self::Variant12 => "-1",
+        })
+    }
+}
+
+impl Default for WithPhoto {
+    fn default() -> WithPhoto {
+        Self::Variant0
     }
 }
 

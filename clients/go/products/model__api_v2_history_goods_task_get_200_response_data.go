@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiV2HistoryGoodsTaskGet200ResponseData{}
 // ApiV2HistoryGoodsTaskGet200ResponseData Данные ответа
 type ApiV2HistoryGoodsTaskGet200ResponseData struct {
 	// ID загрузки
-	UploadID *int32 `json:"uploadID,omitempty"`
+	UploadID NullableInt32 `json:"uploadID,omitempty"`
 	// Информация о товарах в загрузке
 	HistoryGoods []GoodHistory `json:"historyGoods,omitempty"`
 }
@@ -42,41 +42,51 @@ func NewApiV2HistoryGoodsTaskGet200ResponseDataWithDefaults() *ApiV2HistoryGoods
 	return &this
 }
 
-// GetUploadID returns the UploadID field value if set, zero value otherwise.
+// GetUploadID returns the UploadID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiV2HistoryGoodsTaskGet200ResponseData) GetUploadID() int32 {
-	if o == nil || IsNil(o.UploadID) {
+	if o == nil || IsNil(o.UploadID.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.UploadID
+	return *o.UploadID.Get()
 }
 
 // GetUploadIDOk returns a tuple with the UploadID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2HistoryGoodsTaskGet200ResponseData) GetUploadIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.UploadID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UploadID, true
+	return o.UploadID.Get(), o.UploadID.IsSet()
 }
 
 // HasUploadID returns a boolean if a field has been set.
 func (o *ApiV2HistoryGoodsTaskGet200ResponseData) HasUploadID() bool {
-	if o != nil && !IsNil(o.UploadID) {
+	if o != nil && o.UploadID.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUploadID gets a reference to the given int32 and assigns it to the UploadID field.
+// SetUploadID gets a reference to the given NullableInt32 and assigns it to the UploadID field.
 func (o *ApiV2HistoryGoodsTaskGet200ResponseData) SetUploadID(v int32) {
-	o.UploadID = &v
+	o.UploadID.Set(&v)
+}
+// SetUploadIDNil sets the value for UploadID to be an explicit nil
+func (o *ApiV2HistoryGoodsTaskGet200ResponseData) SetUploadIDNil() {
+	o.UploadID.Set(nil)
 }
 
-// GetHistoryGoods returns the HistoryGoods field value if set, zero value otherwise.
+// UnsetUploadID ensures that no value is present for UploadID, not even an explicit nil
+func (o *ApiV2HistoryGoodsTaskGet200ResponseData) UnsetUploadID() {
+	o.UploadID.Unset()
+}
+
+// GetHistoryGoods returns the HistoryGoods field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiV2HistoryGoodsTaskGet200ResponseData) GetHistoryGoods() []GoodHistory {
-	if o == nil || IsNil(o.HistoryGoods) {
+	if o == nil {
 		var ret []GoodHistory
 		return ret
 	}
@@ -85,6 +95,7 @@ func (o *ApiV2HistoryGoodsTaskGet200ResponseData) GetHistoryGoods() []GoodHistor
 
 // GetHistoryGoodsOk returns a tuple with the HistoryGoods field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2HistoryGoodsTaskGet200ResponseData) GetHistoryGoodsOk() ([]GoodHistory, bool) {
 	if o == nil || IsNil(o.HistoryGoods) {
 		return nil, false
@@ -116,10 +127,10 @@ func (o ApiV2HistoryGoodsTaskGet200ResponseData) MarshalJSON() ([]byte, error) {
 
 func (o ApiV2HistoryGoodsTaskGet200ResponseData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.UploadID) {
-		toSerialize["uploadID"] = o.UploadID
+	if o.UploadID.IsSet() {
+		toSerialize["uploadID"] = o.UploadID.Get()
 	}
-	if !IsNil(o.HistoryGoods) {
+	if o.HistoryGoods != nil {
 		toSerialize["historyGoods"] = o.HistoryGoods
 	}
 	return toSerialize, nil

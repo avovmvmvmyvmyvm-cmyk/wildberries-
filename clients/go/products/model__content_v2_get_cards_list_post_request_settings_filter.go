@@ -19,7 +19,7 @@ var _ MappedNullable = &ContentV2GetCardsListPostRequestSettingsFilter{}
 
 // ContentV2GetCardsListPostRequestSettingsFilter Параметры фильтрации
 type ContentV2GetCardsListPostRequestSettingsFilter struct {
-	// Фильтр по фото:   * `0` — только карточки без фото   * `1` — только карточки с фото   * `-1` — все карточки товара 
+	// Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото 
 	WithPhoto *int32 `json:"withPhoto,omitempty"`
 	// Поиск по артикулу продавца, артикулу WB, баркоду
 	TextSearch *string `json:"textSearch,omitempty"`

@@ -38,7 +38,7 @@ export interface AdvV1CountGet200Response {
      * @type {AdvV1CountGet200ResponseAdverts}
      * @memberof AdvV1CountGet200Response
      */
-    adverts?: AdvV1CountGet200ResponseAdverts;
+    adverts?: AdvV1CountGet200ResponseAdverts | null;
 }
 
 /**

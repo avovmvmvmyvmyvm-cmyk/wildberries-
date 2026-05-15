@@ -78,6 +78,16 @@ class ApiV2HistoryGoodsTaskGet200ResponseData(BaseModel):
                 if _item_history_goods:
                     _items.append(_item_history_goods.to_dict())
             _dict['historyGoods'] = _items
+        # set to None if upload_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.upload_id is None and "upload_id" in self.model_fields_set:
+            _dict['uploadID'] = None
+
+        # set to None if history_goods (nullable) is None
+        # and model_fields_set contains the field
+        if self.history_goods is None and "history_goods" in self.model_fields_set:
+            _dict['historyGoods'] = None
+
         return _dict
 
     @classmethod

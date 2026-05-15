@@ -28,11 +28,11 @@ type QuarantineGoods struct {
 	// Валюта по стандарту ISO 4217
 	CurrencyIsoCode4217 *string `json:"currencyIsoCode4217,omitempty"`
 	// Новая цена продавца до скидки
-	NewPrice *float32 `json:"newPrice,omitempty"`
+	NewPrice NullableFloat32 `json:"newPrice,omitempty"`
 	// Текущая цена продавца до скидки
 	OldPrice *float32 `json:"oldPrice,omitempty"`
 	// Новая скидка продавца, %
-	NewDiscount *int32 `json:"newDiscount,omitempty"`
+	NewDiscount NullableInt32 `json:"newDiscount,omitempty"`
 	// Текущая скидка продавца, %
 	OldDiscount *int32 `json:"oldDiscount,omitempty"`
 	// Разница: `newPrice` * (1 - `newDiscount` / 100) - `oldPrice` * (1 - `oldDiscount` / 100)
@@ -194,36 +194,46 @@ func (o *QuarantineGoods) SetCurrencyIsoCode4217(v string) {
 	o.CurrencyIsoCode4217 = &v
 }
 
-// GetNewPrice returns the NewPrice field value if set, zero value otherwise.
+// GetNewPrice returns the NewPrice field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *QuarantineGoods) GetNewPrice() float32 {
-	if o == nil || IsNil(o.NewPrice) {
+	if o == nil || IsNil(o.NewPrice.Get()) {
 		var ret float32
 		return ret
 	}
-	return *o.NewPrice
+	return *o.NewPrice.Get()
 }
 
 // GetNewPriceOk returns a tuple with the NewPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *QuarantineGoods) GetNewPriceOk() (*float32, bool) {
-	if o == nil || IsNil(o.NewPrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewPrice, true
+	return o.NewPrice.Get(), o.NewPrice.IsSet()
 }
 
 // HasNewPrice returns a boolean if a field has been set.
 func (o *QuarantineGoods) HasNewPrice() bool {
-	if o != nil && !IsNil(o.NewPrice) {
+	if o != nil && o.NewPrice.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNewPrice gets a reference to the given float32 and assigns it to the NewPrice field.
+// SetNewPrice gets a reference to the given NullableFloat32 and assigns it to the NewPrice field.
 func (o *QuarantineGoods) SetNewPrice(v float32) {
-	o.NewPrice = &v
+	o.NewPrice.Set(&v)
+}
+// SetNewPriceNil sets the value for NewPrice to be an explicit nil
+func (o *QuarantineGoods) SetNewPriceNil() {
+	o.NewPrice.Set(nil)
+}
+
+// UnsetNewPrice ensures that no value is present for NewPrice, not even an explicit nil
+func (o *QuarantineGoods) UnsetNewPrice() {
+	o.NewPrice.Unset()
 }
 
 // GetOldPrice returns the OldPrice field value if set, zero value otherwise.
@@ -258,36 +268,46 @@ func (o *QuarantineGoods) SetOldPrice(v float32) {
 	o.OldPrice = &v
 }
 
-// GetNewDiscount returns the NewDiscount field value if set, zero value otherwise.
+// GetNewDiscount returns the NewDiscount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *QuarantineGoods) GetNewDiscount() int32 {
-	if o == nil || IsNil(o.NewDiscount) {
+	if o == nil || IsNil(o.NewDiscount.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NewDiscount
+	return *o.NewDiscount.Get()
 }
 
 // GetNewDiscountOk returns a tuple with the NewDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *QuarantineGoods) GetNewDiscountOk() (*int32, bool) {
-	if o == nil || IsNil(o.NewDiscount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewDiscount, true
+	return o.NewDiscount.Get(), o.NewDiscount.IsSet()
 }
 
 // HasNewDiscount returns a boolean if a field has been set.
 func (o *QuarantineGoods) HasNewDiscount() bool {
-	if o != nil && !IsNil(o.NewDiscount) {
+	if o != nil && o.NewDiscount.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNewDiscount gets a reference to the given int32 and assigns it to the NewDiscount field.
+// SetNewDiscount gets a reference to the given NullableInt32 and assigns it to the NewDiscount field.
 func (o *QuarantineGoods) SetNewDiscount(v int32) {
-	o.NewDiscount = &v
+	o.NewDiscount.Set(&v)
+}
+// SetNewDiscountNil sets the value for NewDiscount to be an explicit nil
+func (o *QuarantineGoods) SetNewDiscountNil() {
+	o.NewDiscount.Set(nil)
+}
+
+// UnsetNewDiscount ensures that no value is present for NewDiscount, not even an explicit nil
+func (o *QuarantineGoods) UnsetNewDiscount() {
+	o.NewDiscount.Unset()
 }
 
 // GetOldDiscount returns the OldDiscount field value if set, zero value otherwise.
@@ -376,14 +396,14 @@ func (o QuarantineGoods) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CurrencyIsoCode4217) {
 		toSerialize["currencyIsoCode4217"] = o.CurrencyIsoCode4217
 	}
-	if !IsNil(o.NewPrice) {
-		toSerialize["newPrice"] = o.NewPrice
+	if o.NewPrice.IsSet() {
+		toSerialize["newPrice"] = o.NewPrice.Get()
 	}
 	if !IsNil(o.OldPrice) {
 		toSerialize["oldPrice"] = o.OldPrice
 	}
-	if !IsNil(o.NewDiscount) {
-		toSerialize["newDiscount"] = o.NewDiscount
+	if o.NewDiscount.IsSet() {
+		toSerialize["newDiscount"] = o.NewDiscount.Get()
 	}
 	if !IsNil(o.OldDiscount) {
 		toSerialize["oldDiscount"] = o.OldDiscount

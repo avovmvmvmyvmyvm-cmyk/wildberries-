@@ -97,9 +97,9 @@ class QuarantineGoods implements ModelInterface, ArrayAccess, \JsonSerializable
         'size_id' => true,
         'tech_size_name' => false,
         'currency_iso_code4217' => false,
-        'new_price' => false,
+        'new_price' => true,
         'old_price' => false,
-        'new_discount' => false,
+        'new_discount' => true,
         'old_discount' => false,
         'price_diff' => false
     ];
@@ -480,7 +480,14 @@ class QuarantineGoods implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNewPrice($new_price)
     {
         if (is_null($new_price)) {
-            throw new \InvalidArgumentException('non-nullable new_price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'new_price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('new_price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['new_price'] = $new_price;
 
@@ -534,7 +541,14 @@ class QuarantineGoods implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNewDiscount($new_discount)
     {
         if (is_null($new_discount)) {
-            throw new \InvalidArgumentException('non-nullable new_discount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'new_discount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('new_discount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['new_discount'] = $new_discount;
 

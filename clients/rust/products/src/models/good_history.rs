@@ -20,8 +20,8 @@ pub struct GoodHistory {
     #[serde(rename = "vendorCode", skip_serializing_if = "Option::is_none")]
     pub vendor_code: Option<String>,
     /// ID размера. В методах Контента это поле `chrtID`
-    #[serde(rename = "sizeID", skip_serializing_if = "Option::is_none")]
-    pub size_id: Option<i32>,
+    #[serde(rename = "sizeID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub size_id: Option<Option<i32>>,
     /// Размер
     #[serde(rename = "techSizeName", skip_serializing_if = "Option::is_none")]
     pub tech_size_name: Option<String>,

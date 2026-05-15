@@ -26,14 +26,14 @@ pub struct QuarantineGoods {
     #[serde(rename = "currencyIsoCode4217", skip_serializing_if = "Option::is_none")]
     pub currency_iso_code4217: Option<String>,
     /// Новая цена продавца до скидки
-    #[serde(rename = "newPrice", skip_serializing_if = "Option::is_none")]
-    pub new_price: Option<f32>,
+    #[serde(rename = "newPrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub new_price: Option<Option<f32>>,
     /// Текущая цена продавца до скидки
     #[serde(rename = "oldPrice", skip_serializing_if = "Option::is_none")]
     pub old_price: Option<f32>,
     /// Новая скидка продавца, %
-    #[serde(rename = "newDiscount", skip_serializing_if = "Option::is_none")]
-    pub new_discount: Option<i32>,
+    #[serde(rename = "newDiscount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub new_discount: Option<Option<i32>>,
     /// Текущая скидка продавца, %
     #[serde(rename = "oldDiscount", skip_serializing_if = "Option::is_none")]
     pub old_discount: Option<i32>,

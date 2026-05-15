@@ -43,7 +43,7 @@ pub struct ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner {
     /// Ключевая характеристика. Является ли характеристика значимой для покупателей:   - `true` — да   - `false` — нет 
     #[serde(rename = "hasFilter", skip_serializing_if = "Option::is_none")]
     pub has_filter: Option<bool>,
-    /// Признак меняющейся характеристики. Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара могут отличаться по этой характеристике   -  `false` — варианты товара не могут отличаться по этой характеристике 
+    /// Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара отличаются по этой характеристике   -  `false` — варианты товара не отличаются по этой характеристике 
     #[serde(rename = "isVariable", skip_serializing_if = "Option::is_none")]
     pub is_variable: Option<bool>,
     /// Как передать характеристику в запросах на [cоздание](./work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post), [создание с присоединением](./work-with-products/#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post) и [редактирование](./work-with-products/#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post) карточек товара:   -  `true` — в соответствующем параметре запроса   -  `false` — внутри массива `characteristics` 

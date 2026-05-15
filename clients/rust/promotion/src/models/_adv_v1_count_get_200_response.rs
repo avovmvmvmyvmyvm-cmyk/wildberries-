@@ -16,8 +16,8 @@ pub struct AdvV1CountGet200Response {
     /// Общее количество медиакампаний всех статусов и типов
     #[serde(rename = "all", skip_serializing_if = "Option::is_none")]
     pub all: Option<i32>,
-    #[serde(rename = "adverts", skip_serializing_if = "Option::is_none")]
-    pub adverts: Option<Box<models::AdvV1CountGet200ResponseAdverts>>,
+    #[serde(rename = "adverts", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub adverts: Option<Option<Box<models::AdvV1CountGet200ResponseAdverts>>>,
 }
 
 impl AdvV1CountGet200Response {
