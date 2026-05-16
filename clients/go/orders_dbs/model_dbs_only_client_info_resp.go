@@ -40,9 +40,9 @@ func NewDbsOnlyClientInfoRespWithDefaults() *DbsOnlyClientInfoResp {
 	return &this
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DbsOnlyClientInfoResp) GetOrders() []DbsOnlyClientInfo {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []DbsOnlyClientInfo
 		return ret
 	}
@@ -51,6 +51,7 @@ func (o *DbsOnlyClientInfoResp) GetOrders() []DbsOnlyClientInfo {
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DbsOnlyClientInfoResp) GetOrdersOk() ([]DbsOnlyClientInfo, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
@@ -82,7 +83,7 @@ func (o DbsOnlyClientInfoResp) MarshalJSON() ([]byte, error) {
 
 func (o DbsOnlyClientInfoResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Orders) {
+	if o.Orders != nil {
 		toSerialize["orders"] = o.Orders
 	}
 	return toSerialize, nil

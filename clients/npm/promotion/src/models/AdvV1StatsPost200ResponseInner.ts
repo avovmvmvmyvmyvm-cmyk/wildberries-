@@ -19,6 +19,13 @@ import {
     StatFromJSONTyped,
     StatToJSON,
 } from './Stat';
+import type { StatCampaignNotFound } from './StatCampaignNotFound';
+import {
+    instanceOfStatCampaignNotFound,
+    StatCampaignNotFoundFromJSON,
+    StatCampaignNotFoundFromJSONTyped,
+    StatCampaignNotFoundToJSON,
+} from './StatCampaignNotFound';
 import type { StatDate } from './StatDate';
 import {
     instanceOfStatDate,
@@ -39,7 +46,7 @@ import {
  * 
  * @export
  */
-export type AdvV1StatsPost200ResponseInner = Stat | StatDate | StatInterval;
+export type AdvV1StatsPost200ResponseInner = Stat | StatCampaignNotFound | StatDate | StatInterval;
 
 export function AdvV1StatsPost200ResponseInnerFromJSON(json: any): AdvV1StatsPost200ResponseInner {
     return AdvV1StatsPost200ResponseInnerFromJSONTyped(json, false);
@@ -54,6 +61,9 @@ export function AdvV1StatsPost200ResponseInnerFromJSONTyped(json: any, ignoreDis
     }
     if (instanceOfStat(json)) {
         return StatFromJSONTyped(json, true);
+    }
+    if (instanceOfStatCampaignNotFound(json)) {
+        return StatCampaignNotFoundFromJSONTyped(json, true);
     }
     if (instanceOfStatDate(json)) {
         return StatDateFromJSONTyped(json, true);
@@ -77,6 +87,9 @@ export function AdvV1StatsPost200ResponseInnerToJSONTyped(value?: AdvV1StatsPost
     }
     if (instanceOfStat(value)) {
         return StatToJSON(value as Stat);
+    }
+    if (instanceOfStatCampaignNotFound(value)) {
+        return StatCampaignNotFoundToJSON(value as StatCampaignNotFound);
     }
     if (instanceOfStatDate(value)) {
         return StatDateToJSON(value as StatDate);

@@ -144,7 +144,7 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'acceptance_cost' => true,
         'paid_acceptance_coefficient' => true,
         'reject_reason' => true,
-        'supplier_assign_name' => false,
+        'supplier_assign_name' => true,
         'storage_coef' => true,
         'delivery_coef' => true,
         'quantity' => false,
@@ -1041,7 +1041,14 @@ class ModelsSupplyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setSupplierAssignName($supplier_assign_name)
     {
         if (is_null($supplier_assign_name)) {
-            throw new \InvalidArgumentException('non-nullable supplier_assign_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'supplier_assign_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('supplier_assign_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['supplier_assign_name'] = $supplier_assign_name;
 

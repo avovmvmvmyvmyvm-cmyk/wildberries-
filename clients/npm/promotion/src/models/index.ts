@@ -89,6 +89,7 @@ export * from './ResponseAdvError1';
 export * from './ResponseWithReturn';
 export * from './StandardizedBatchError';
 export * from './Stat';
+export * from './StatCampaignNotFound';
 export * from './StatDate';
 export * from './StatInterval';
 export * from './StatIntervalInterval';

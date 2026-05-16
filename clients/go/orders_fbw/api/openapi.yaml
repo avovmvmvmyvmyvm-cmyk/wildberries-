@@ -1273,6 +1273,7 @@ components:
           type: string
         supplierAssignName:
           description: Краткое название продавца
+          nullable: true
           type: string
         storageCoef:
           description: Коэффициент хранения

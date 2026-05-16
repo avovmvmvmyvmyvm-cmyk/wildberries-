@@ -144,6 +144,11 @@ class ModelsSupplyDetails(BaseModel):
         if self.reject_reason is None and "reject_reason" in self.model_fields_set:
             _dict['rejectReason'] = None
 
+        # set to None if supplier_assign_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.supplier_assign_name is None and "supplier_assign_name" in self.model_fields_set:
+            _dict['supplierAssignName'] = None
+
         # set to None if storage_coef (nullable) is None
         # and model_fields_set contains the field
         if self.storage_coef is None and "storage_coef" in self.model_fields_set:

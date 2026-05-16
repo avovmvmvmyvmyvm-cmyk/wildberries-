@@ -77,7 +77,7 @@ class DbsOnlyClientInfoResp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'orders' => false
+        'orders' => true
     ];
 
     /**
@@ -309,7 +309,14 @@ class DbsOnlyClientInfoResp implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setOrders($orders)
     {
         if (is_null($orders)) {
-            throw new \InvalidArgumentException('non-nullable orders cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'orders');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('orders', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['orders'] = $orders;
 

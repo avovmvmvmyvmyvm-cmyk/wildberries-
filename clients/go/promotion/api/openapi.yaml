@@ -3564,6 +3564,8 @@ paths:
                   $ref: "#/components/examples/RespStatMediaWithoutParam"
                 RespStatMediaAggregate:
                   $ref: "#/components/examples/RespStatMediaAggregate"
+                RespStatCampaignNotFound:
+                  $ref: "#/components/examples/RespStatCampaignNotFound"
               schema:
                 items:
                   $ref: "#/components/schemas/_adv_v1_stats_post_200_response_inner"
@@ -4574,6 +4576,11 @@ components:
           expenses: 175000
           cr1: 1.91
           cr2: 25
+    RespStatCampaignNotFound:
+      description: Ошибка в запросе
+      value:
+        advert_id: 111
+        error: кампания не найдена
     RequestWithDate:
       description: Запрос с датами
       value:
@@ -6396,6 +6403,19 @@ components:
       required:
       - dates
       type: object
+    StatCampaignNotFound:
+      additionalProperties: false
+      properties:
+        advert_id:
+          description: ID кампании
+          example: 111
+          format: int64
+          type: integer
+        error:
+          description: Описание ошибки
+          example: кампания не найдена
+          type: string
+      type: object
     Stat:
       additionalProperties: false
       properties:
@@ -8130,6 +8150,7 @@ components:
       - $ref: "#/components/schemas/StatInterval"
       - $ref: "#/components/schemas/StatDate"
       - $ref: "#/components/schemas/Stat"
+      - $ref: "#/components/schemas/StatCampaignNotFound"
     _api_v1_calendar_promotions_get_200_response_data_promotions_inner:
       example:
         id: 123

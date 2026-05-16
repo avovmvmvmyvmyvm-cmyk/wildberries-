@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.90"
+__version__ = "0.1.91"
 
 # Define package exports
 __all__ = [
@@ -117,6 +117,7 @@ __all__ = [
     "ResponseWithReturn",
     "StandardizedBatchError",
     "Stat",
+    "StatCampaignNotFound",
     "StatDate",
     "StatInterval",
     "StatIntervalInterval",
@@ -267,6 +268,7 @@ from wildberries_sdk.promotion.models.response_adv_error1 import ResponseAdvErro
 from wildberries_sdk.promotion.models.response_with_return import ResponseWithReturn as ResponseWithReturn
 from wildberries_sdk.promotion.models.standardized_batch_error import StandardizedBatchError as StandardizedBatchError
 from wildberries_sdk.promotion.models.stat import Stat as Stat
+from wildberries_sdk.promotion.models.stat_campaign_not_found import StatCampaignNotFound as StatCampaignNotFound
 from wildberries_sdk.promotion.models.stat_date import StatDate as StatDate
 from wildberries_sdk.promotion.models.stat_interval import StatInterval as StatInterval
 from wildberries_sdk.promotion.models.stat_interval_interval import StatIntervalInterval as StatIntervalInterval

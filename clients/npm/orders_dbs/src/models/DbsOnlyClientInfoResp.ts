@@ -32,7 +32,7 @@ export interface DbsOnlyClientInfoResp {
      * @type {Array<DbsOnlyClientInfo>}
      * @memberof DbsOnlyClientInfoResp
      */
-    orders?: Array<DbsOnlyClientInfo>;
+    orders?: Array<DbsOnlyClientInfo> | null;
 }
 
 /**

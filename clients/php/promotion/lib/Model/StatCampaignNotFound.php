@@ -1,6 +1,6 @@
 <?php
 /**
- * AdvV1StatsPost200ResponseInner
+ * StatCampaignNotFound
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Wildberries\Sdk\Promotion\ObjectSerializer;
 
 /**
- * AdvV1StatsPost200ResponseInner Class Doc Comment
+ * StatCampaignNotFound Class Doc Comment
  *
  * @category Class
  * @package  Wildberries\Sdk\Promotion
@@ -40,7 +40,7 @@ use \Wildberries\Sdk\Promotion\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class StatCampaignNotFound implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
      *
      * @var string
      */
-    protected static $openAPIModelName = '_adv_v1_stats_post_200_response_inner';
+    protected static $openAPIModelName = 'StatCampaignNotFound';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $openAPITypes = [
-        'interval' => '\Wildberries\Sdk\Promotion\Model\StatIntervalInterval',
-        'stats' => '\Wildberries\Sdk\Promotion\Model\StatsBlok1[]',
-        'dates' => '\DateTime[]',
         'advert_id' => 'int',
         'error' => 'string'
     ];
@@ -72,9 +69,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'interval' => null,
-        'stats' => null,
-        'dates' => 'date',
         'advert_id' => 'int64',
         'error' => null
     ];
@@ -85,9 +79,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'interval' => false,
-        'stats' => false,
-        'dates' => false,
         'advert_id' => false,
         'error' => false
     ];
@@ -178,9 +169,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'interval' => 'interval',
-        'stats' => 'stats',
-        'dates' => 'dates',
         'advert_id' => 'advert_id',
         'error' => 'error'
     ];
@@ -191,9 +179,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'interval' => 'setInterval',
-        'stats' => 'setStats',
-        'dates' => 'setDates',
         'advert_id' => 'setAdvertId',
         'error' => 'setError'
     ];
@@ -204,9 +189,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'interval' => 'getInterval',
-        'stats' => 'getStats',
-        'dates' => 'getDates',
         'advert_id' => 'getAdvertId',
         'error' => 'getError'
     ];
@@ -268,9 +250,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('interval', $data ?? [], null);
-        $this->setIfExists('stats', $data ?? [], null);
-        $this->setIfExists('dates', $data ?? [], null);
         $this->setIfExists('advert_id', $data ?? [], null);
         $this->setIfExists('error', $data ?? [], null);
     }
@@ -302,12 +281,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['interval'] === null) {
-            $invalidProperties[] = "'interval' can't be null";
-        }
-        if ($this->container['dates'] === null) {
-            $invalidProperties[] = "'dates' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -322,87 +295,6 @@ class AdvV1StatsPost200ResponseInner implements ModelInterface, ArrayAccess, \Js
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets interval
-     *
-     * @return \Wildberries\Sdk\Promotion\Model\StatIntervalInterval
-     */
-    public function getInterval()
-    {
-        return $this->container['interval'];
-    }
-
-    /**
-     * Sets interval
-     *
-     * @param \Wildberries\Sdk\Promotion\Model\StatIntervalInterval $interval interval
-     *
-     * @return self
-     */
-    public function setInterval($interval)
-    {
-        if (is_null($interval)) {
-            throw new \InvalidArgumentException('non-nullable interval cannot be null');
-        }
-        $this->container['interval'] = $interval;
-
-        return $this;
-    }
-
-    /**
-     * Gets stats
-     *
-     * @return \Wildberries\Sdk\Promotion\Model\StatsBlok1[]|null
-     */
-    public function getStats()
-    {
-        return $this->container['stats'];
-    }
-
-    /**
-     * Sets stats
-     *
-     * @param \Wildberries\Sdk\Promotion\Model\StatsBlok1[]|null $stats Блок статистики
-     *
-     * @return self
-     */
-    public function setStats($stats)
-    {
-        if (is_null($stats)) {
-            throw new \InvalidArgumentException('non-nullable stats cannot be null');
-        }
-        $this->container['stats'] = $stats;
-
-        return $this;
-    }
-
-    /**
-     * Gets dates
-     *
-     * @return \DateTime[]
-     */
-    public function getDates()
-    {
-        return $this->container['dates'];
-    }
-
-    /**
-     * Sets dates
-     *
-     * @param \DateTime[] $dates Даты, за которые нужно получить информацию
-     *
-     * @return self
-     */
-    public function setDates($dates)
-    {
-        if (is_null($dates)) {
-            throw new \InvalidArgumentException('non-nullable dates cannot be null');
-        }
-        $this->container['dates'] = $dates;
-
-        return $this;
-    }
 
     /**
      * Gets advert_id

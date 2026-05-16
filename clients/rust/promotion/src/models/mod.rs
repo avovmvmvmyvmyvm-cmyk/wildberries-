@@ -176,6 +176,8 @@ pub mod standardized_batch_error;
 pub use self::standardized_batch_error::StandardizedBatchError;
 pub mod stat;
 pub use self::stat::Stat;
+pub mod stat_campaign_not_found;
+pub use self::stat_campaign_not_found::StatCampaignNotFound;
 pub mod stat_date;
 pub use self::stat_date::StatDate;
 pub mod stat_interval;

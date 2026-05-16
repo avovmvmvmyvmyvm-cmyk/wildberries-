@@ -102,6 +102,7 @@ from wildberries_sdk.promotion.models.response_adv_error1 import ResponseAdvErro
 from wildberries_sdk.promotion.models.response_with_return import ResponseWithReturn
 from wildberries_sdk.promotion.models.standardized_batch_error import StandardizedBatchError
 from wildberries_sdk.promotion.models.stat import Stat
+from wildberries_sdk.promotion.models.stat_campaign_not_found import StatCampaignNotFound
 from wildberries_sdk.promotion.models.stat_date import StatDate
 from wildberries_sdk.promotion.models.stat_interval import StatInterval
 from wildberries_sdk.promotion.models.stat_interval_interval import StatIntervalInterval

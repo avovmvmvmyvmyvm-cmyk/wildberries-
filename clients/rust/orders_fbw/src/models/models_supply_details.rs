@@ -67,8 +67,8 @@ pub struct ModelsSupplyDetails {
     #[serde(rename = "rejectReason", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub reject_reason: Option<Option<String>>,
     /// Краткое название продавца
-    #[serde(rename = "supplierAssignName", skip_serializing_if = "Option::is_none")]
-    pub supplier_assign_name: Option<String>,
+    #[serde(rename = "supplierAssignName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub supplier_assign_name: Option<Option<String>>,
     /// Коэффициент хранения
     #[serde(rename = "storageCoef", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub storage_coef: Option<Option<String>>,

@@ -19,6 +19,7 @@ import (
 // AdvV1StatsPost200ResponseInner - struct for AdvV1StatsPost200ResponseInner
 type AdvV1StatsPost200ResponseInner struct {
 	Stat *Stat
+	StatCampaignNotFound *StatCampaignNotFound
 	StatDate *StatDate
 	StatInterval *StatInterval
 }
@@ -27,6 +28,13 @@ type AdvV1StatsPost200ResponseInner struct {
 func StatAsAdvV1StatsPost200ResponseInner(v *Stat) AdvV1StatsPost200ResponseInner {
 	return AdvV1StatsPost200ResponseInner{
 		Stat: v,
+	}
+}
+
+// StatCampaignNotFoundAsAdvV1StatsPost200ResponseInner is a convenience function that returns StatCampaignNotFound wrapped in AdvV1StatsPost200ResponseInner
+func StatCampaignNotFoundAsAdvV1StatsPost200ResponseInner(v *StatCampaignNotFound) AdvV1StatsPost200ResponseInner {
+	return AdvV1StatsPost200ResponseInner{
+		StatCampaignNotFound: v,
 	}
 }
 
@@ -66,6 +74,23 @@ func (dst *AdvV1StatsPost200ResponseInner) UnmarshalJSON(data []byte) error {
 		dst.Stat = nil
 	}
 
+	// try to unmarshal data into StatCampaignNotFound
+	err = newStrictDecoder(data).Decode(&dst.StatCampaignNotFound)
+	if err == nil {
+		jsonStatCampaignNotFound, _ := json.Marshal(dst.StatCampaignNotFound)
+		if string(jsonStatCampaignNotFound) == "{}" { // empty struct
+			dst.StatCampaignNotFound = nil
+		} else {
+			if err = validator.Validate(dst.StatCampaignNotFound); err != nil {
+				dst.StatCampaignNotFound = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.StatCampaignNotFound = nil
+	}
+
 	// try to unmarshal data into StatDate
 	err = newStrictDecoder(data).Decode(&dst.StatDate)
 	if err == nil {
@@ -103,6 +128,7 @@ func (dst *AdvV1StatsPost200ResponseInner) UnmarshalJSON(data []byte) error {
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.Stat = nil
+		dst.StatCampaignNotFound = nil
 		dst.StatDate = nil
 		dst.StatInterval = nil
 
@@ -118,6 +144,10 @@ func (dst *AdvV1StatsPost200ResponseInner) UnmarshalJSON(data []byte) error {
 func (src AdvV1StatsPost200ResponseInner) MarshalJSON() ([]byte, error) {
 	if src.Stat != nil {
 		return json.Marshal(&src.Stat)
+	}
+
+	if src.StatCampaignNotFound != nil {
+		return json.Marshal(&src.StatCampaignNotFound)
 	}
 
 	if src.StatDate != nil {
@@ -140,6 +170,10 @@ func (obj *AdvV1StatsPost200ResponseInner) GetActualInstance() (interface{}) {
 		return obj.Stat
 	}
 
+	if obj.StatCampaignNotFound != nil {
+		return obj.StatCampaignNotFound
+	}
+
 	if obj.StatDate != nil {
 		return obj.StatDate
 	}
@@ -156,6 +190,10 @@ func (obj *AdvV1StatsPost200ResponseInner) GetActualInstance() (interface{}) {
 func (obj AdvV1StatsPost200ResponseInner) GetActualInstanceValue() (interface{}) {
 	if obj.Stat != nil {
 		return *obj.Stat
+	}
+
+	if obj.StatCampaignNotFound != nil {
+		return *obj.StatCampaignNotFound
 	}
 
 	if obj.StatDate != nil {

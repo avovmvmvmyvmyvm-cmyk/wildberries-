@@ -18,13 +18,14 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from wildberries_sdk.promotion.models.stat import Stat
+from wildberries_sdk.promotion.models.stat_campaign_not_found import StatCampaignNotFound
 from wildberries_sdk.promotion.models.stat_date import StatDate
 from wildberries_sdk.promotion.models.stat_interval import StatInterval
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-ADVV1STATSPOST200RESPONSEINNER_ONE_OF_SCHEMAS = ["Stat", "StatDate", "StatInterval"]
+ADVV1STATSPOST200RESPONSEINNER_ONE_OF_SCHEMAS = ["Stat", "StatCampaignNotFound", "StatDate", "StatInterval"]
 
 class AdvV1StatsPost200ResponseInner(BaseModel):
     """
@@ -36,8 +37,10 @@ class AdvV1StatsPost200ResponseInner(BaseModel):
     oneof_schema_2_validator: Optional[StatDate] = None
     # data type: Stat
     oneof_schema_3_validator: Optional[Stat] = None
-    actual_instance: Optional[Union[Stat, StatDate, StatInterval]] = None
-    one_of_schemas: Set[str] = { "Stat", "StatDate", "StatInterval" }
+    # data type: StatCampaignNotFound
+    oneof_schema_4_validator: Optional[StatCampaignNotFound] = None
+    actual_instance: Optional[Union[Stat, StatCampaignNotFound, StatDate, StatInterval]] = None
+    one_of_schemas: Set[str] = { "Stat", "StatCampaignNotFound", "StatDate", "StatInterval" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -75,12 +78,17 @@ class AdvV1StatsPost200ResponseInner(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `Stat`")
         else:
             match += 1
+        # validate data type: StatCampaignNotFound
+        if not isinstance(v, StatCampaignNotFound):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `StatCampaignNotFound`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in AdvV1StatsPost200ResponseInner with oneOf schemas: Stat, StatDate, StatInterval. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in AdvV1StatsPost200ResponseInner with oneOf schemas: Stat, StatCampaignNotFound, StatDate, StatInterval. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in AdvV1StatsPost200ResponseInner with oneOf schemas: Stat, StatDate, StatInterval. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in AdvV1StatsPost200ResponseInner with oneOf schemas: Stat, StatCampaignNotFound, StatDate, StatInterval. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -113,13 +121,19 @@ class AdvV1StatsPost200ResponseInner(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into StatCampaignNotFound
+        try:
+            instance.actual_instance = StatCampaignNotFound.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into AdvV1StatsPost200ResponseInner with oneOf schemas: Stat, StatDate, StatInterval. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into AdvV1StatsPost200ResponseInner with oneOf schemas: Stat, StatCampaignNotFound, StatDate, StatInterval. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into AdvV1StatsPost200ResponseInner with oneOf schemas: Stat, StatDate, StatInterval. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into AdvV1StatsPost200ResponseInner with oneOf schemas: Stat, StatCampaignNotFound, StatDate, StatInterval. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -133,7 +147,7 @@ class AdvV1StatsPost200ResponseInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Stat, StatDate, StatInterval]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Stat, StatCampaignNotFound, StatDate, StatInterval]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

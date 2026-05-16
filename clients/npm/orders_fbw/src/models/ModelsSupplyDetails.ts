@@ -144,7 +144,7 @@ export interface ModelsSupplyDetails {
      * @type {string}
      * @memberof ModelsSupplyDetails
      */
-    supplierAssignName?: string;
+    supplierAssignName?: string | null;
     /**
      * Коэффициент хранения
      * @type {string}

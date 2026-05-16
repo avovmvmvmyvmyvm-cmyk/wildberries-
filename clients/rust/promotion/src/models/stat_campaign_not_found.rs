@@ -11,18 +11,22 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AdvV1StatsPost200ResponseInner {
-    StatInterval(Box<models::StatInterval>),
-    StatDate(Box<models::StatDate>),
-    Stat(Box<models::Stat>),
-    StatCampaignNotFound(Box<models::StatCampaignNotFound>),
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+pub struct StatCampaignNotFound {
+    /// ID кампании
+    #[serde(rename = "advert_id", skip_serializing_if = "Option::is_none")]
+    pub advert_id: Option<i64>,
+    /// Описание ошибки
+    #[serde(rename = "error", skip_serializing_if = "Option::is_none")]
+    pub error: Option<String>,
 }
 
-impl Default for AdvV1StatsPost200ResponseInner {
-    fn default() -> Self {
-        Self::StatInterval(Default::default())
+impl StatCampaignNotFound {
+    pub fn new() -> StatCampaignNotFound {
+        StatCampaignNotFound {
+            advert_id: None,
+            error: None,
+        }
     }
 }
 

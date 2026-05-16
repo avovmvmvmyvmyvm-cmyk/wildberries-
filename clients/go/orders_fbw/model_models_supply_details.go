@@ -54,7 +54,7 @@ type ModelsSupplyDetails struct {
 	// Причина, по которой поставка не может быть принята
 	RejectReason NullableString `json:"rejectReason,omitempty"`
 	// Краткое название продавца
-	SupplierAssignName *string `json:"supplierAssignName,omitempty"`
+	SupplierAssignName NullableString `json:"supplierAssignName,omitempty"`
 	// Коэффициент хранения
 	StorageCoef NullableString `json:"storageCoef,omitempty"`
 	// Коэффициент логистики
@@ -714,36 +714,46 @@ func (o *ModelsSupplyDetails) UnsetRejectReason() {
 	o.RejectReason.Unset()
 }
 
-// GetSupplierAssignName returns the SupplierAssignName field value if set, zero value otherwise.
+// GetSupplierAssignName returns the SupplierAssignName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModelsSupplyDetails) GetSupplierAssignName() string {
-	if o == nil || IsNil(o.SupplierAssignName) {
+	if o == nil || IsNil(o.SupplierAssignName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SupplierAssignName
+	return *o.SupplierAssignName.Get()
 }
 
 // GetSupplierAssignNameOk returns a tuple with the SupplierAssignName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModelsSupplyDetails) GetSupplierAssignNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SupplierAssignName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SupplierAssignName, true
+	return o.SupplierAssignName.Get(), o.SupplierAssignName.IsSet()
 }
 
 // HasSupplierAssignName returns a boolean if a field has been set.
 func (o *ModelsSupplyDetails) HasSupplierAssignName() bool {
-	if o != nil && !IsNil(o.SupplierAssignName) {
+	if o != nil && o.SupplierAssignName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSupplierAssignName gets a reference to the given string and assigns it to the SupplierAssignName field.
+// SetSupplierAssignName gets a reference to the given NullableString and assigns it to the SupplierAssignName field.
 func (o *ModelsSupplyDetails) SetSupplierAssignName(v string) {
-	o.SupplierAssignName = &v
+	o.SupplierAssignName.Set(&v)
+}
+// SetSupplierAssignNameNil sets the value for SupplierAssignName to be an explicit nil
+func (o *ModelsSupplyDetails) SetSupplierAssignNameNil() {
+	o.SupplierAssignName.Set(nil)
+}
+
+// UnsetSupplierAssignName ensures that no value is present for SupplierAssignName, not even an explicit nil
+func (o *ModelsSupplyDetails) UnsetSupplierAssignName() {
+	o.SupplierAssignName.Unset()
 }
 
 // GetStorageCoef returns the StorageCoef field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1093,8 +1103,8 @@ func (o ModelsSupplyDetails) ToMap() (map[string]interface{}, error) {
 	if o.RejectReason.IsSet() {
 		toSerialize["rejectReason"] = o.RejectReason.Get()
 	}
-	if !IsNil(o.SupplierAssignName) {
-		toSerialize["supplierAssignName"] = o.SupplierAssignName
+	if o.SupplierAssignName.IsSet() {
+		toSerialize["supplierAssignName"] = o.SupplierAssignName.Get()
 	}
 	if o.StorageCoef.IsSet() {
 		toSerialize["storageCoef"] = o.StorageCoef.Get()

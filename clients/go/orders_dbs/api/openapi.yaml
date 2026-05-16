@@ -2731,6 +2731,7 @@ components:
           description: Информация о покупателе
           items:
             $ref: "#/components/schemas/DbsOnlyClientInfo"
+          nullable: true
           type: array
       type: object
     DeliveryDatesInfoResp:
