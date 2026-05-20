@@ -57,7 +57,9 @@ class ApiOrderClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $openAPITypes = [
-        'orders' => '\Wildberries\Sdk\InStorePickup\Model\ApiOrderClientInfo[]'
+        'orders' => '\Wildberries\Sdk\InStorePickup\Model\ApiOrderClientInfo[]',
+        'supplier_status' => 'string',
+        'wb_status' => 'string'
     ];
 
     /**
@@ -68,7 +70,9 @@ class ApiOrderClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerial
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'orders' => null
+        'orders' => null,
+        'supplier_status' => null,
+        'wb_status' => null
     ];
 
     /**
@@ -77,7 +81,9 @@ class ApiOrderClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerial
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'orders' => false
+        'orders' => false,
+        'supplier_status' => false,
+        'wb_status' => false
     ];
 
     /**
@@ -166,7 +172,9 @@ class ApiOrderClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'orders' => 'orders'
+        'orders' => 'orders',
+        'supplier_status' => 'supplierStatus',
+        'wb_status' => 'wbStatus'
     ];
 
     /**
@@ -175,7 +183,9 @@ class ApiOrderClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'orders' => 'setOrders'
+        'orders' => 'setOrders',
+        'supplier_status' => 'setSupplierStatus',
+        'wb_status' => 'setWbStatus'
     ];
 
     /**
@@ -184,7 +194,9 @@ class ApiOrderClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'orders' => 'getOrders'
+        'orders' => 'getOrders',
+        'supplier_status' => 'getSupplierStatus',
+        'wb_status' => 'getWbStatus'
     ];
 
     /**
@@ -245,6 +257,8 @@ class ApiOrderClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(?array $data = null)
     {
         $this->setIfExists('orders', $data ?? [], null);
+        $this->setIfExists('supplier_status', $data ?? [], null);
+        $this->setIfExists('wb_status', $data ?? [], null);
     }
 
     /**
@@ -312,6 +326,60 @@ class ApiOrderClientInfoResp implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable orders cannot be null');
         }
         $this->container['orders'] = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Gets supplier_status
+     *
+     * @return string|null
+     */
+    public function getSupplierStatus()
+    {
+        return $this->container['supplier_status'];
+    }
+
+    /**
+     * Sets supplier_status
+     *
+     * @param string|null $supplier_status Статус сборочного задания, установленный продавцом
+     *
+     * @return self
+     */
+    public function setSupplierStatus($supplier_status)
+    {
+        if (is_null($supplier_status)) {
+            throw new \InvalidArgumentException('non-nullable supplier_status cannot be null');
+        }
+        $this->container['supplier_status'] = $supplier_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets wb_status
+     *
+     * @return string|null
+     */
+    public function getWbStatus()
+    {
+        return $this->container['wb_status'];
+    }
+
+    /**
+     * Sets wb_status
+     *
+     * @param string|null $wb_status Статус сборочного задания в системе WB
+     *
+     * @return self
+     */
+    public function setWbStatus($wb_status)
+    {
+        if (is_null($wb_status)) {
+            throw new \InvalidArgumentException('non-nullable wb_status cannot be null');
+        }
+        $this->container['wb_status'] = $wb_status;
 
         return $this;
     }

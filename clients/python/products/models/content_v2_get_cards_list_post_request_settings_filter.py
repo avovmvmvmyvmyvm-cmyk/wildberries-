@@ -27,7 +27,7 @@ class ContentV2GetCardsListPostRequestSettingsFilter(BaseModel):
     """
     Параметры фильтрации
     """ # noqa: E501
-    with_photo: Optional[StrictInt] = Field(default=0, description="Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото ", alias="withPhoto")
+    with_photo: Optional[StrictInt] = Field(default=0, description="Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) ", alias="withPhoto")
     text_search: Optional[StrictStr] = Field(default=None, description="Поиск по артикулу продавца, артикулу WB, баркоду", alias="textSearch")
     tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Поиск по ID ярлыков", alias="tagIDs")
     allowed_categories_only: Optional[StrictBool] = Field(default=None, description="Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице ", alias="allowedCategoriesOnly")
@@ -42,8 +42,8 @@ class ContentV2GetCardsListPostRequestSettingsFilter(BaseModel):
         if value is None:
             return value
 
-        if value not in set([0, 1, -1]):
-            raise ValueError("must be one of enum values (0, 1, -1)")
+        if value not in set([-1, 0, 1, 2]):
+            raise ValueError("must be one of enum values (-1, 0, 1, 2)")
         return value
 
     model_config = ConfigDict(

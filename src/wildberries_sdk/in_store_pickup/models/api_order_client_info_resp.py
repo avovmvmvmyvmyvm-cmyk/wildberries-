@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.in_store_pickup.models.api_order_client_info import ApiOrderClientInfo
 from typing import Optional, Set
@@ -29,7 +29,9 @@ class ApiOrderClientInfoResp(BaseModel):
     ApiOrderClientInfoResp
     """ # noqa: E501
     orders: Optional[List[ApiOrderClientInfo]] = None
-    __properties: ClassVar[List[str]] = ["orders"]
+    supplier_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания, установленный продавцом", alias="supplierStatus")
+    wb_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания в системе WB", alias="wbStatus")
+    __properties: ClassVar[List[str]] = ["orders", "supplierStatus", "wbStatus"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,7 +91,9 @@ class ApiOrderClientInfoResp(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "orders": [ApiOrderClientInfo.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
+            "orders": [ApiOrderClientInfo.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None,
+            "supplierStatus": obj.get("supplierStatus"),
+            "wbStatus": obj.get("wbStatus")
         })
         return _obj
 

@@ -216,18 +216,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersClientPost` — `POST /api/v3/click-collect/orders/client` — Информация о покупателе
 - `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersGet` — `GET /api/v3/click-collect/orders` — Получить информацию о завершённых сборочных заданиях
 - `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersNewGet` — `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdCancelPatch` — `PATCH /api/v3/click-collect/orders/{orderId}/cancel` — Отменить сборочное задание
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdConfirmPatch` — `PATCH /api/v3/click-collect/orders/{orderId}/confirm` — Перевести на сборку
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdMetaDelete` — `DELETE /api/v3/click-collect/orders/{orderId}/meta` — Удалить метаданные сборочного задания
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdMetaGet` — `GET /api/v3/click-collect/orders/{orderId}/meta` — Получить метаданные сборочного задания
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdMetaGtinPut` — `PUT /api/v3/click-collect/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdMetaImeiPut` — `PUT /api/v3/click-collect/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdMetaSgtinPut` — `PUT /api/v3/click-collect/orders/{orderId}/meta/sgtin` — Закрепить за сборочным заданием код маркировки товара
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdMetaUinPut` — `PUT /api/v3/click-collect/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdPreparePatch` — `PATCH /api/v3/click-collect/orders/{orderId}/prepare` — Сообщить, что сборочное задание готово к выдаче
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdReceivePatch` — `PATCH /api/v3/click-collect/orders/{orderId}/receive` — Сообщить, что заказ принят покупателем
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersOrderIdRejectPatch` — `PATCH /api/v3/click-collect/orders/{orderId}/reject` — Сообщить, что покупатель отказался от заказа
-- `in_store_pickup.DefaultApiService.ApiV3ClickCollectOrdersStatusPost` — `POST /api/v3/click-collect/orders/status` — Получить статусы сборочных заданий
 
 ### orders_fbw (`orders_fbw`)
 - `orders_fbw.DefaultApiService.ApiV1AcceptanceOptionsPost` — `POST /api/v1/acceptance/options` — Опции приёмки

@@ -228,18 +228,6 @@ print(feedbacks)
 - `in_store_pickup.DefaultApi.api_v3_click_collect_orders_client_post` — `POST /api/v3/click-collect/orders/client` — Информация о покупателе
 - `in_store_pickup.DefaultApi.api_v3_click_collect_orders_get` — `GET /api/v3/click-collect/orders` — Получить информацию о завершённых сборочных заданиях
 - `in_store_pickup.DefaultApi.api_v3_click_collect_orders_new_get` — `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_cancel_patch` — `PATCH /api/v3/click-collect/orders/{orderId}/cancel` — (Deprecated) Отменить сборочное задание
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_confirm_patch` — `PATCH /api/v3/click-collect/orders/{orderId}/confirm` — (Deprecated) Перевести на сборку
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_delete` — `DELETE /api/v3/click-collect/orders/{orderId}/meta` — (Deprecated) Удалить метаданные сборочного задания
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_get` — `GET /api/v3/click-collect/orders/{orderId}/meta` — (Deprecated) Получить метаданные сборочного задания
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_gtin_put` — `PUT /api/v3/click-collect/orders/{orderId}/meta/gtin` — (Deprecated) Закрепить за сборочным заданием GTIN
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_imei_put` — `PUT /api/v3/click-collect/orders/{orderId}/meta/imei` — (Deprecated) Закрепить за сборочным заданием IMEI
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_sgtin_put` — `PUT /api/v3/click-collect/orders/{orderId}/meta/sgtin` — (Deprecated) Закрепить за сборочным заданием код маркировки товара
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_uin_put` — `PUT /api/v3/click-collect/orders/{orderId}/meta/uin` — (Deprecated) Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_prepare_patch` — `PATCH /api/v3/click-collect/orders/{orderId}/prepare` — (Deprecated) Сообщить, что сборочное задание готово к выдаче
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_receive_patch` — `PATCH /api/v3/click-collect/orders/{orderId}/receive` — (Deprecated) Сообщить, что заказ принят покупателем
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_reject_patch` — `PATCH /api/v3/click-collect/orders/{orderId}/reject` — (Deprecated) Сообщить, что покупатель отказался от заказа
-- `in_store_pickup.DefaultApi.api_v3_click_collect_orders_status_post` — `POST /api/v3/click-collect/orders/status` — (Deprecated) Получить статусы сборочных заданий
 
 ### orders_fbw (`orders_fbw`)
 - `orders_fbw.DefaultApi.api_v1_acceptance_options_post` — `POST /api/v1/acceptance/options` — Опции приёмки

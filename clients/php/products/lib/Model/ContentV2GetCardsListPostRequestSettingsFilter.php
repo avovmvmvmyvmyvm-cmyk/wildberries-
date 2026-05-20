@@ -265,9 +265,10 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
         return self::$openAPIModelName;
     }
 
+    public const WITH_PHOTO_MINUS_1 = -1;
     public const WITH_PHOTO_NUMBER_0 = 0;
     public const WITH_PHOTO_NUMBER_1 = 1;
-    public const WITH_PHOTO_MINUS_1 = -1;
+    public const WITH_PHOTO_NUMBER_2 = 2;
 
     /**
      * Gets allowable values of the enum
@@ -277,9 +278,10 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
     public function getWithPhotoAllowableValues()
     {
         return [
+            self::WITH_PHOTO_MINUS_1,
             self::WITH_PHOTO_NUMBER_0,
             self::WITH_PHOTO_NUMBER_1,
-            self::WITH_PHOTO_MINUS_1,
+            self::WITH_PHOTO_NUMBER_2,
         ];
     }
 
@@ -371,7 +373,7 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
     /**
      * Sets with_photo
      *
-     * @param int|null $with_photo Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото
+     * @param int|null $with_photo Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531)
      *
      * @return self
      */

@@ -72,7 +72,7 @@ class DefaultApi:
     ) -> ApiV1AccountBalanceGet200Response:
         """Получить баланс продавца
 
-        Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -138,7 +138,7 @@ class DefaultApi:
     ) -> ApiResponse[ApiV1AccountBalanceGet200Response]:
         """Получить баланс продавца
 
-        Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -204,7 +204,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Получить баланс продавца
 
-        Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -332,7 +332,7 @@ class DefaultApi:
     ) -> GetCategories:
         """Категории документов
 
-        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -401,7 +401,7 @@ class DefaultApi:
     ) -> ApiResponse[GetCategories]:
         """Категории документов
 
-        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -470,7 +470,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Категории документов
 
-        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -605,7 +605,7 @@ class DefaultApi:
     ) -> GetDocs:
         """Получить документы
 
-        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param request_download:
         :type request_download: RequestDownload
@@ -676,7 +676,7 @@ class DefaultApi:
     ) -> ApiResponse[GetDocs]:
         """Получить документы
 
-        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param request_download:
         :type request_download: RequestDownload
@@ -747,7 +747,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Получить документы
 
-        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param request_download:
         :type request_download: RequestDownload
@@ -896,7 +896,7 @@ class DefaultApi:
     ) -> GetDoc:
         """Получить документ
 
-        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param service_name: Уникальный ID документа (required)
         :type service_name: str
@@ -971,7 +971,7 @@ class DefaultApi:
     ) -> ApiResponse[GetDoc]:
         """Получить документ
 
-        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param service_name: Уникальный ID документа (required)
         :type service_name: str
@@ -1046,7 +1046,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Получить документ
 
-        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param service_name: Уникальный ID документа (required)
         :type service_name: str
@@ -1199,7 +1199,7 @@ class DefaultApi:
     ) -> GetList:
         """Список документов
 
-        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -1302,7 +1302,7 @@ class DefaultApi:
     ) -> ApiResponse[GetList]:
         """Список документов
 
-        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -1405,7 +1405,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список документов
 
-        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 
         :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -1628,7 +1628,7 @@ class DefaultApi:
     ) -> List[DetailReportItem]:
         """(Deprecated) Отчёт о продажах по реализации
 
-        Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+        Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
         :param date_from: Начальная дата отчёта.<br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: datetime
@@ -1717,7 +1717,7 @@ class DefaultApi:
     ) -> ApiResponse[List[DetailReportItem]]:
         """(Deprecated) Отчёт о продажах по реализации
 
-        Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+        Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
         :param date_from: Начальная дата отчёта.<br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: datetime
@@ -1806,7 +1806,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """(Deprecated) Отчёт о продажах по реализации
 
-        Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+        Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
         :param date_from: Начальная дата отчёта.<br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
         :type date_from: datetime
@@ -1995,7 +1995,7 @@ class DefaultApi:
     ) -> List[AcquiringReportsDetailedRes]:
         """Детализации к отчётам об издержках на приём платежей за период
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param acquiring_reports_detailed_req: (required)
         :type acquiring_reports_detailed_req: AcquiringReportsDetailedReq
@@ -2066,7 +2066,7 @@ class DefaultApi:
     ) -> ApiResponse[List[AcquiringReportsDetailedRes]]:
         """Детализации к отчётам об издержках на приём платежей за период
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param acquiring_reports_detailed_req: (required)
         :type acquiring_reports_detailed_req: AcquiringReportsDetailedReq
@@ -2137,7 +2137,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Детализации к отчётам об издержках на приём платежей за период
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param acquiring_reports_detailed_req: (required)
         :type acquiring_reports_detailed_req: AcquiringReportsDetailedReq
@@ -2286,7 +2286,7 @@ class DefaultApi:
     ) -> List[AcquiringReportsDetailedRes]:
         """Детализации к отчётам об издержках на приём платежей по ID отчётов
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта (required)
         :type report_id: int
@@ -2361,7 +2361,7 @@ class DefaultApi:
     ) -> ApiResponse[List[AcquiringReportsDetailedRes]]:
         """Детализации к отчётам об издержках на приём платежей по ID отчётов
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта (required)
         :type report_id: int
@@ -2436,7 +2436,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Детализации к отчётам об издержках на приём платежей по ID отчётов
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта (required)
         :type report_id: int
@@ -2590,7 +2590,7 @@ class DefaultApi:
     ) -> List[AcquiringReportListRes]:
         """Список отчётов об издержках на приём платежей
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param acquiring_report_list_req: (required)
         :type acquiring_report_list_req: AcquiringReportListReq
@@ -2661,7 +2661,7 @@ class DefaultApi:
     ) -> ApiResponse[List[AcquiringReportListRes]]:
         """Список отчётов об издержках на приём платежей
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param acquiring_report_list_req: (required)
         :type acquiring_report_list_req: AcquiringReportListReq
@@ -2732,7 +2732,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список отчётов об издержках на приём платежей
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param acquiring_report_list_req: (required)
         :type acquiring_report_list_req: AcquiringReportListReq
@@ -2880,7 +2880,7 @@ class DefaultApi:
     ) -> List[SalesReportsDetailedRes]:
         """Детализации к отчётам реализации за период
 
-        Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+        Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
         :param sales_reports_detailed_req: (required)
         :type sales_reports_detailed_req: SalesReportsDetailedReq
@@ -2951,7 +2951,7 @@ class DefaultApi:
     ) -> ApiResponse[List[SalesReportsDetailedRes]]:
         """Детализации к отчётам реализации за период
 
-        Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+        Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
         :param sales_reports_detailed_req: (required)
         :type sales_reports_detailed_req: SalesReportsDetailedReq
@@ -3022,7 +3022,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Детализации к отчётам реализации за период
 
-        Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+        Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 
         :param sales_reports_detailed_req: (required)
         :type sales_reports_detailed_req: SalesReportsDetailedReq
@@ -3171,7 +3171,7 @@ class DefaultApi:
     ) -> List[SalesReportsDetailedRes]:
         """Детализации к отчётам реализации по ID отчётов
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта.<br>Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint) (required)
         :type report_id: int
@@ -3246,7 +3246,7 @@ class DefaultApi:
     ) -> ApiResponse[List[SalesReportsDetailedRes]]:
         """Детализации к отчётам реализации по ID отчётов
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта.<br>Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint) (required)
         :type report_id: int
@@ -3321,7 +3321,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Детализации к отчётам реализации по ID отчётов
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param report_id: ID отчёта.<br>Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint) (required)
         :type report_id: int
@@ -3475,7 +3475,7 @@ class DefaultApi:
     ) -> List[SalesReportListRes]:
         """Список отчётов реализации
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param sales_report_list_req: (required)
         :type sales_report_list_req: SalesReportListReq
@@ -3546,7 +3546,7 @@ class DefaultApi:
     ) -> ApiResponse[List[SalesReportListRes]]:
         """Список отчётов реализации
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param sales_report_list_req: (required)
         :type sales_report_list_req: SalesReportListReq
@@ -3617,7 +3617,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список отчётов реализации
 
-        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+        <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 
         :param sales_report_list_req: (required)
         :type sales_report_list_req: SalesReportListReq

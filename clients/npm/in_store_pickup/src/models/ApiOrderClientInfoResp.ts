@@ -33,6 +33,18 @@ export interface ApiOrderClientInfoResp {
      * @memberof ApiOrderClientInfoResp
      */
     orders?: Array<ApiOrderClientInfo>;
+    /**
+     * Статус сборочного задания, установленный продавцом
+     * @type {string}
+     * @memberof ApiOrderClientInfoResp
+     */
+    supplierStatus?: string;
+    /**
+     * Статус сборочного задания в системе WB
+     * @type {string}
+     * @memberof ApiOrderClientInfoResp
+     */
+    wbStatus?: string;
 }
 
 /**
@@ -53,6 +65,8 @@ export function ApiOrderClientInfoRespFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(ApiOrderClientInfoFromJSON)),
+        'supplierStatus': json['supplierStatus'] == null ? undefined : json['supplierStatus'],
+        'wbStatus': json['wbStatus'] == null ? undefined : json['wbStatus'],
     };
 }
 
@@ -68,6 +82,8 @@ export function ApiOrderClientInfoRespToJSONTyped(value?: ApiOrderClientInfoResp
     return {
         
         'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(ApiOrderClientInfoToJSON)),
+        'supplierStatus': value['supplierStatus'],
+        'wbStatus': value['wbStatus'],
     };
 }
 

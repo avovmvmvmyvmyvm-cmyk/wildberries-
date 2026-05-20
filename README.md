@@ -237,18 +237,6 @@ SDK выпускается с security-first процессом:
 - `POST /api/v3/click-collect/orders/client` — Информация о покупателе
 - `POST /api/v3/click-collect/orders/client/identity` — Проверить, что заказ принадлежит покупателю
 - `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
-- `POST /api/v3/click-collect/orders/status` — Получить статусы сборочных заданий
-- `PATCH /api/v3/click-collect/orders/{orderId}/cancel` — Отменить сборочное задание
-- `PATCH /api/v3/click-collect/orders/{orderId}/confirm` — Перевести на сборку
-- `GET /api/v3/click-collect/orders/{orderId}/meta` — Получить метаданные сборочного задания
-- `DELETE /api/v3/click-collect/orders/{orderId}/meta` — Удалить метаданные сборочного задания
-- `PUT /api/v3/click-collect/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `PUT /api/v3/click-collect/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `PUT /api/v3/click-collect/orders/{orderId}/meta/sgtin` — Закрепить за сборочным заданием код маркировки товара
-- `PUT /api/v3/click-collect/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
-- `PATCH /api/v3/click-collect/orders/{orderId}/prepare` — Сообщить, что сборочное задание готово к выдаче
-- `PATCH /api/v3/click-collect/orders/{orderId}/receive` — Сообщить, что заказ принят покупателем
-- `PATCH /api/v3/click-collect/orders/{orderId}/reject` — Сообщить, что покупатель отказался от заказа
 
 ### Поставки FBW (`07-orders-fbw.yaml`)
 - `POST /api/v1/acceptance/options` — Опции приёмки

@@ -215,18 +215,6 @@ main().catch(console.error);
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientPost` — Информация о покупателе
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersGet` — Получить информацию о завершённых сборочных заданиях
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersNewGet` — Получить список новых сборочных заданий
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdCancelPatch` — Отменить сборочное задание
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdConfirmPatch` — Перевести на сборку
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaDelete` — Удалить метаданные сборочного задания
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaGet` — Получить метаданные сборочного задания
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaGtinPut` — Закрепить за сборочным заданием GTIN
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaImeiPut` — Закрепить за сборочным заданием IMEI
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaSgtinPut` — Закрепить за сборочным заданием код маркировки товара
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdMetaUinPut` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdPreparePatch` — Сообщить, что сборочное задание готово к выдаче
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdReceivePatch` — Сообщить, что заказ принят покупателем
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersOrderIdRejectPatch` — Сообщить, что покупатель отказался от заказа
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersStatusPost` — Получить статусы сборочных заданий
 
 ### orders_fbw (`orders_fbw`)
 - `orders_fbw.DefaultApi.apiV1AcceptanceOptionsPost` — Опции приёмки

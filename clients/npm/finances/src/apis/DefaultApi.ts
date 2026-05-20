@@ -202,7 +202,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Получить баланс продавца
      */
     async apiV1AccountBalanceGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AccountBalanceGet200Response>> {
@@ -213,7 +213,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Получить баланс продавца
      */
     async apiV1AccountBalanceGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AccountBalanceGet200Response> {
@@ -249,7 +249,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Категории документов
      */
     async apiV1DocumentsCategoriesGetRaw(requestParameters: ApiV1DocumentsCategoriesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetCategories>> {
@@ -260,7 +260,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Категории документов
      */
     async apiV1DocumentsCategoriesGet(requestParameters: ApiV1DocumentsCategoriesGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetCategories> {
@@ -295,7 +295,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Получить документы
      */
     async apiV1DocumentsDownloadAllPostRaw(requestParameters: ApiV1DocumentsDownloadAllPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetDocs>> {
@@ -306,7 +306,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Получить документы
      */
     async apiV1DocumentsDownloadAllPost(requestParameters: ApiV1DocumentsDownloadAllPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetDocs> {
@@ -360,7 +360,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Получить документ
      */
     async apiV1DocumentsDownloadGetRaw(requestParameters: ApiV1DocumentsDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetDoc>> {
@@ -371,7 +371,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Получить документ
      */
     async apiV1DocumentsDownloadGet(requestParameters: ApiV1DocumentsDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetDoc> {
@@ -439,7 +439,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Список документов
      */
     async apiV1DocumentsListGetRaw(requestParameters: ApiV1DocumentsListGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetList>> {
@@ -450,7 +450,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
      * Список документов
      */
     async apiV1DocumentsListGet(requestParameters: ApiV1DocumentsListGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetList> {
@@ -517,7 +517,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+     * Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
      * Отчёт о продажах по реализации
      * @deprecated
      */
@@ -529,7 +529,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+     * Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
      * Отчёт о продажах по реализации
      * @deprecated
      */
@@ -579,7 +579,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Детализации к отчётам об издержках на приём платежей за период
      */
     async postV1AcquiringDetailedRaw(requestParameters: PostV1AcquiringDetailedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AcquiringReportsDetailedRes>>> {
@@ -590,7 +590,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Детализации к отчётам об издержках на приём платежей за период
      */
     async postV1AcquiringDetailed(requestParameters: PostV1AcquiringDetailedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AcquiringReportsDetailedRes> | null | undefined > {
@@ -647,7 +647,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Детализации к отчётам об издержках на приём платежей по ID отчётов
      */
     async postV1AcquiringDetailedReportIdRaw(requestParameters: PostV1AcquiringDetailedReportIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AcquiringReportsDetailedRes>>> {
@@ -658,7 +658,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Детализации к отчётам об издержках на приём платежей по ID отчётов
      */
     async postV1AcquiringDetailedReportId(requestParameters: PostV1AcquiringDetailedReportIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AcquiringReportsDetailedRes> | null | undefined > {
@@ -707,7 +707,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Список отчётов об издержках на приём платежей
      */
     async postV1AcquiringListRaw(requestParameters: PostV1AcquiringListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AcquiringReportListRes>>> {
@@ -718,7 +718,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Список отчётов об издержках на приём платежей
      */
     async postV1AcquiringList(requestParameters: PostV1AcquiringListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AcquiringReportListRes> | null | undefined > {
@@ -767,7 +767,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+     * Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
      * Детализации к отчётам реализации за период
      */
     async postV1SalesReportsDetailedRaw(requestParameters: PostV1SalesReportsDetailedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SalesReportsDetailedRes>>> {
@@ -778,7 +778,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+     * Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
      * Детализации к отчётам реализации за период
      */
     async postV1SalesReportsDetailed(requestParameters: PostV1SalesReportsDetailedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesReportsDetailedRes> | null | undefined > {
@@ -835,7 +835,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Детализации к отчётам реализации по ID отчётов
      */
     async postV1SalesReportsDetailedReportIdRaw(requestParameters: PostV1SalesReportsDetailedReportIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SalesReportsDetailedRes>>> {
@@ -846,7 +846,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Детализации к отчётам реализации по ID отчётов
      */
     async postV1SalesReportsDetailedReportId(requestParameters: PostV1SalesReportsDetailedReportIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesReportsDetailedRes> | null | undefined > {
@@ -895,7 +895,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Список отчётов реализации
      */
     async postV1SalesReportsListRaw(requestParameters: PostV1SalesReportsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SalesReportListRes>>> {
@@ -906,7 +906,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
      * Список отчётов реализации
      */
     async postV1SalesReportsList(requestParameters: PostV1SalesReportsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesReportListRes> | null | undefined > {

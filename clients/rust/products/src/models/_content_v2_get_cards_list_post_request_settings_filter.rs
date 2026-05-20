@@ -16,7 +16,7 @@ use serde_repr::{Serialize_repr,Deserialize_repr};
 /// ContentV2GetCardsListPostRequestSettingsFilter : Параметры фильтрации
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContentV2GetCardsListPostRequestSettingsFilter {
-    /// Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото 
+    /// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) 
     #[serde(rename = "withPhoto", skip_serializing_if = "Option::is_none")]
     pub with_photo: Option<WithPhoto>,
     /// Поиск по артикулу продавца, артикулу WB, баркоду
@@ -53,28 +53,30 @@ impl ContentV2GetCardsListPostRequestSettingsFilter {
         }
     }
 }
-/// Фильтр по фото:   * `0` — только карточки без фото. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — любые карточки товаров   * `1` — только карточки с фото   * `-1` — любые карточки товаров. С [3 июня](https://dev.wildberries.ru/release-notes?id=527) — только карточки без фото 
+/// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) 
 #[repr(i64)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum WithPhoto {
+    Variant1 = -1,
     Variant0 = 0,
-    Variant1 = 1,
-    Variant12 = -1,
+    Variant12 = 1,
+    Variant2 = 2,
 }
 
 impl std::fmt::Display for WithPhoto {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", match self {
+            Self::Variant1 => "-1",
             Self::Variant0 => "0",
-            Self::Variant1 => "1",
-            Self::Variant12 => "-1",
+            Self::Variant12 => "1",
+            Self::Variant2 => "2",
         })
     }
 }
 
 impl Default for WithPhoto {
     fn default() -> WithPhoto {
-        Self::Variant0
+        Self::Variant1
     }
 }
 

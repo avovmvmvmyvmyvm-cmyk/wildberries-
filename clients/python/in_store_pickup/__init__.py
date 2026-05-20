@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.91"
+__version__ = "0.1.92"
 
 # Define package exports
 __all__ = [
@@ -28,20 +28,13 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    "ApiBaseMeta",
-    "ApiBaseMetaGtin",
-    "ApiBaseMetaImei",
-    "ApiBaseMetaSgtin",
-    "ApiBaseMetaUin",
     "ApiBatchError",
     "ApiBatchErrorResponse",
     "ApiCheckIdentityRequest",
     "ApiCheckedIdentity",
     "ApiError",
     "ApiGTIN",
-    "ApiGTINRequest",
     "ApiIMEI",
-    "ApiIMEIRequest",
     "ApiMetaErrorResponse",
     "ApiMetaSetResponse",
     "ApiMetaSetResponses",
@@ -51,15 +44,12 @@ __all__ = [
     "ApiOrderClientInfo",
     "ApiOrderClientInfoResp",
     "ApiOrderMetaV2",
-    "ApiOrderStatus",
     "ApiOrderStatusV2",
-    "ApiOrderStatuses",
     "ApiOrderStatusesV2",
     "ApiOrders",
     "ApiOrdersErrorResponse",
     "ApiOrdersGTINSetRequest",
     "ApiOrdersIMEISetRequest",
-    "ApiOrdersMeta",
     "ApiOrdersMetaDeleteRequest",
     "ApiOrdersMetaResponse",
     "ApiOrdersRequest",
@@ -69,11 +59,9 @@ __all__ = [
     "ApiOrdersSGTINsSetRequest",
     "ApiOrdersUINSetRequest",
     "ApiSGTINs",
-    "ApiSGTINsRequest",
     "ApiStatusSetResponse",
     "ApiStatusSetResponses",
     "ApiUIN",
-    "ApiUINRequest",
     "ApiV3ClickCollectOrdersNewGet401Response",
     "ApiV3ClickCollectOrdersNewGet402Response",
     "Error",
@@ -94,20 +82,13 @@ from wildberries_sdk.in_store_pickup.exceptions import ApiAttributeError as ApiA
 from wildberries_sdk.in_store_pickup.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from wildberries_sdk.in_store_pickup.models.api_base_meta import ApiBaseMeta as ApiBaseMeta
-from wildberries_sdk.in_store_pickup.models.api_base_meta_gtin import ApiBaseMetaGtin as ApiBaseMetaGtin
-from wildberries_sdk.in_store_pickup.models.api_base_meta_imei import ApiBaseMetaImei as ApiBaseMetaImei
-from wildberries_sdk.in_store_pickup.models.api_base_meta_sgtin import ApiBaseMetaSgtin as ApiBaseMetaSgtin
-from wildberries_sdk.in_store_pickup.models.api_base_meta_uin import ApiBaseMetaUin as ApiBaseMetaUin
 from wildberries_sdk.in_store_pickup.models.api_batch_error import ApiBatchError as ApiBatchError
 from wildberries_sdk.in_store_pickup.models.api_batch_error_response import ApiBatchErrorResponse as ApiBatchErrorResponse
 from wildberries_sdk.in_store_pickup.models.api_check_identity_request import ApiCheckIdentityRequest as ApiCheckIdentityRequest
 from wildberries_sdk.in_store_pickup.models.api_checked_identity import ApiCheckedIdentity as ApiCheckedIdentity
 from wildberries_sdk.in_store_pickup.models.api_error import ApiError as ApiError
 from wildberries_sdk.in_store_pickup.models.api_gtin import ApiGTIN as ApiGTIN
-from wildberries_sdk.in_store_pickup.models.api_gtin_request import ApiGTINRequest as ApiGTINRequest
 from wildberries_sdk.in_store_pickup.models.api_imei import ApiIMEI as ApiIMEI
-from wildberries_sdk.in_store_pickup.models.api_imei_request import ApiIMEIRequest as ApiIMEIRequest
 from wildberries_sdk.in_store_pickup.models.api_meta_error_response import ApiMetaErrorResponse as ApiMetaErrorResponse
 from wildberries_sdk.in_store_pickup.models.api_meta_set_response import ApiMetaSetResponse as ApiMetaSetResponse
 from wildberries_sdk.in_store_pickup.models.api_meta_set_responses import ApiMetaSetResponses as ApiMetaSetResponses
@@ -117,15 +98,12 @@ from wildberries_sdk.in_store_pickup.models.api_order import ApiOrder as ApiOrde
 from wildberries_sdk.in_store_pickup.models.api_order_client_info import ApiOrderClientInfo as ApiOrderClientInfo
 from wildberries_sdk.in_store_pickup.models.api_order_client_info_resp import ApiOrderClientInfoResp as ApiOrderClientInfoResp
 from wildberries_sdk.in_store_pickup.models.api_order_meta_v2 import ApiOrderMetaV2 as ApiOrderMetaV2
-from wildberries_sdk.in_store_pickup.models.api_order_status import ApiOrderStatus as ApiOrderStatus
 from wildberries_sdk.in_store_pickup.models.api_order_status_v2 import ApiOrderStatusV2 as ApiOrderStatusV2
-from wildberries_sdk.in_store_pickup.models.api_order_statuses import ApiOrderStatuses as ApiOrderStatuses
 from wildberries_sdk.in_store_pickup.models.api_order_statuses_v2 import ApiOrderStatusesV2 as ApiOrderStatusesV2
 from wildberries_sdk.in_store_pickup.models.api_orders import ApiOrders as ApiOrders
 from wildberries_sdk.in_store_pickup.models.api_orders_error_response import ApiOrdersErrorResponse as ApiOrdersErrorResponse
 from wildberries_sdk.in_store_pickup.models.api_orders_gtin_set_request import ApiOrdersGTINSetRequest as ApiOrdersGTINSetRequest
 from wildberries_sdk.in_store_pickup.models.api_orders_imei_set_request import ApiOrdersIMEISetRequest as ApiOrdersIMEISetRequest
-from wildberries_sdk.in_store_pickup.models.api_orders_meta import ApiOrdersMeta as ApiOrdersMeta
 from wildberries_sdk.in_store_pickup.models.api_orders_meta_delete_request import ApiOrdersMetaDeleteRequest as ApiOrdersMetaDeleteRequest
 from wildberries_sdk.in_store_pickup.models.api_orders_meta_response import ApiOrdersMetaResponse as ApiOrdersMetaResponse
 from wildberries_sdk.in_store_pickup.models.api_orders_request import ApiOrdersRequest as ApiOrdersRequest
@@ -135,11 +113,9 @@ from wildberries_sdk.in_store_pickup.models.api_orders_responses import ApiOrder
 from wildberries_sdk.in_store_pickup.models.api_orders_sgtins_set_request import ApiOrdersSGTINsSetRequest as ApiOrdersSGTINsSetRequest
 from wildberries_sdk.in_store_pickup.models.api_orders_uin_set_request import ApiOrdersUINSetRequest as ApiOrdersUINSetRequest
 from wildberries_sdk.in_store_pickup.models.api_sgtins import ApiSGTINs as ApiSGTINs
-from wildberries_sdk.in_store_pickup.models.api_sgtins_request import ApiSGTINsRequest as ApiSGTINsRequest
 from wildberries_sdk.in_store_pickup.models.api_status_set_response import ApiStatusSetResponse as ApiStatusSetResponse
 from wildberries_sdk.in_store_pickup.models.api_status_set_responses import ApiStatusSetResponses as ApiStatusSetResponses
 from wildberries_sdk.in_store_pickup.models.api_uin import ApiUIN as ApiUIN
-from wildberries_sdk.in_store_pickup.models.api_uin_request import ApiUINRequest as ApiUINRequest
 from wildberries_sdk.in_store_pickup.models.api_v3_click_collect_orders_new_get401_response import ApiV3ClickCollectOrdersNewGet401Response as ApiV3ClickCollectOrdersNewGet401Response
 from wildberries_sdk.in_store_pickup.models.api_v3_click_collect_orders_new_get402_response import ApiV3ClickCollectOrdersNewGet402Response as ApiV3ClickCollectOrdersNewGet402Response
 from wildberries_sdk.in_store_pickup.models.error import Error as Error

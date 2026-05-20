@@ -139,7 +139,7 @@ pub enum PostV1SalesReportsListError {
 }
 
 
-/// Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+/// Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 pub async fn api_v1_account_balance_get(configuration: &configuration::Configuration, ) -> Result<models::ApiV1AccountBalanceGet200Response, Error<ApiV1AccountBalanceGetError>> {
 
     let uri_str = format!("{}/api/v1/account/balance", configuration.base_path);
@@ -182,7 +182,7 @@ pub async fn api_v1_account_balance_get(configuration: &configuration::Configura
     }
 }
 
-/// Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+/// Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 pub async fn api_v1_documents_categories_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetCategories, Error<ApiV1DocumentsCategoriesGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
@@ -230,7 +230,7 @@ pub async fn api_v1_documents_categories_get(configuration: &configuration::Conf
     }
 }
 
-/// Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+/// Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Сервисный | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый с секретом | 5 мин | 1 запрос | 5 мин | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 pub async fn api_v1_documents_download_all_post(configuration: &configuration::Configuration, request_download: Option<models::RequestDownload>) -> Result<models::GetDocs, Error<ApiV1DocumentsDownloadAllPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_request_download = request_download;
@@ -276,7 +276,7 @@ pub async fn api_v1_documents_download_all_post(configuration: &configuration::C
     }
 }
 
-/// Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+/// Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 pub async fn api_v1_documents_download_get(configuration: &configuration::Configuration, service_name: &str, extension: &str) -> Result<models::GetDoc, Error<ApiV1DocumentsDownloadGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_service_name = service_name;
@@ -324,7 +324,7 @@ pub async fn api_v1_documents_download_get(configuration: &configuration::Config
     }
 }
 
-/// Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+/// Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
 pub async fn api_v1_documents_list_get(configuration: &configuration::Configuration, locale: Option<&str>, begin_time: Option<chrono::NaiveDate>, end_time: Option<chrono::NaiveDate>, sort: Option<&str>, order: Option<&str>, category: Option<&str>, service_name: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::GetList, Error<ApiV1DocumentsListGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
@@ -404,7 +404,7 @@ pub async fn api_v1_documents_list_get(configuration: &configuration::Configurat
     }
 }
 
-/// Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+/// Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 #[deprecated]
 pub async fn api_v5_supplier_report_detail_by_period_get(configuration: &configuration::Configuration, date_from: chrono::DateTime<chrono::FixedOffset>, date_to: chrono::DateTime<chrono::FixedOffset>, limit: Option<i32>, rrdid: Option<i32>, period: Option<&str>) -> Result<Vec<models::DetailReportItem>, Error<ApiV5SupplierReportDetailByPeriodGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
@@ -465,7 +465,7 @@ pub async fn api_v5_supplier_report_detail_by_period_get(configuration: &configu
     }
 }
 
-/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn post_v1_acquiring_detailed(configuration: &configuration::Configuration, acquiring_reports_detailed_req: models::AcquiringReportsDetailedReq) -> Result<Vec<models::AcquiringReportsDetailedRes>, Error<PostV1AcquiringDetailedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_acquiring_reports_detailed_req = acquiring_reports_detailed_req;
@@ -511,7 +511,7 @@ pub async fn post_v1_acquiring_detailed(configuration: &configuration::Configura
     }
 }
 
-/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn post_v1_acquiring_detailed_report_id(configuration: &configuration::Configuration, report_id: i64, financial_reports_detailed_report_id_req: models::FinancialReportsDetailedReportIdReq) -> Result<Vec<models::AcquiringReportsDetailedRes>, Error<PostV1AcquiringDetailedReportIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_report_id = report_id;
@@ -558,7 +558,7 @@ pub async fn post_v1_acquiring_detailed_report_id(configuration: &configuration:
     }
 }
 
-/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn post_v1_acquiring_list(configuration: &configuration::Configuration, acquiring_report_list_req: models::AcquiringReportListReq) -> Result<Vec<models::AcquiringReportListRes>, Error<PostV1AcquiringListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_acquiring_report_list_req = acquiring_report_list_req;
@@ -604,7 +604,7 @@ pub async fn post_v1_acquiring_list(configuration: &configuration::Configuration
     }
 }
 
-/// Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+/// Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
 pub async fn post_v1_sales_reports_detailed(configuration: &configuration::Configuration, sales_reports_detailed_req: models::SalesReportsDetailedReq) -> Result<Vec<models::SalesReportsDetailedRes>, Error<PostV1SalesReportsDetailedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_sales_reports_detailed_req = sales_reports_detailed_req;
@@ -650,7 +650,7 @@ pub async fn post_v1_sales_reports_detailed(configuration: &configuration::Confi
     }
 }
 
-/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов. <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn post_v1_sales_reports_detailed_report_id(configuration: &configuration::Configuration, report_id: i64, financial_reports_detailed_report_id_req: models::FinancialReportsDetailedReportIdReq) -> Result<Vec<models::SalesReportsDetailedRes>, Error<PostV1SalesReportsDetailedReportIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_report_id = report_id;
@@ -697,7 +697,7 @@ pub async fn post_v1_sales_reports_detailed_report_id(configuration: &configurat
     }
 }
 
-/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">типам токенов</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements). <br><br> Данные доступны с 1 января 2025 года.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
 pub async fn post_v1_sales_reports_list(configuration: &configuration::Configuration, sales_report_list_req: models::SalesReportListReq) -> Result<Vec<models::SalesReportListRes>, Error<PostV1SalesReportsListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_sales_report_list_req = sales_report_list_req;
