@@ -1269,7 +1269,6 @@ components:
           type: boolean
         inviteUrl:
           description: "URL приглашения, по которому должен перейти пользователь"
-          format: uri
           type: string
       required:
       - expiredAt

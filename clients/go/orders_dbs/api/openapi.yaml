@@ -25,7 +25,7 @@ paths:
         Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS), которые есть у продавца на момент запроса.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+        <a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ paths:
         Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+        <a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -235,7 +235,7 @@ paths:
         Метод возвращает информацию о платной доставке сборочных заданий, которые поступили на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+        <a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -318,7 +318,7 @@ paths:
         Метод возвращает информацию о покупателе по ID сборочных заданий.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+        <a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -429,7 +429,7 @@ paths:
           - Наименование организации
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+        <a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -513,7 +513,7 @@ paths:
         <br>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+        <a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -636,7 +636,7 @@ paths:
         - `canceled_by_missed_call` — отмена по причине недозвона
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+        <a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -905,9 +905,9 @@ paths:
         \ в ПВЗ в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post):\n\
         \  - `confirm` — на сборке\n  - `deliver` — в доставке\n\nПолучить стикеры\
         \ можно только в размере 580x400 px в формате PDF.\n\n<div class=\"description_limit\"\
-        >\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит\
-        \ запросов</a> на один аккаунт продавца для методов <strong>сборочных зада\
-        ний DBS</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
+        >\n<a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Л\
+        имит запросов</a> на один аккаунт продавца для методов <strong>сборочных з\
+        аданий DBS</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\n</div>\n"
       parameters:
       - description: Формат стикера

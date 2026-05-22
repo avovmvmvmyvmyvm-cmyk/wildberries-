@@ -75,7 +75,7 @@ class CreateInviteResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'invite_id' => 'uuid',
         'expired_at' => 'date-time',
         'is_success' => null,
-        'invite_url' => 'uri'
+        'invite_url' => null
     ];
 
     /**
