@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
-    /// Номер ГТД
+    /// Номер ДТ
     #[serde(rename = "customsDeclaration", skip_serializing_if = "Option::is_none")]
     pub customs_declaration: Option<String>,
 }

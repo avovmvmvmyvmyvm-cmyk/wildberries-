@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostReque
 
 // ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner struct for ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner
 type ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner struct {
-	// Номер ГТД
+	// Номер ДТ
 	CustomsDeclaration string `json:"customsDeclaration"`
 	// ID сборочного задания
 	OrderId int32 `json:"orderId"`

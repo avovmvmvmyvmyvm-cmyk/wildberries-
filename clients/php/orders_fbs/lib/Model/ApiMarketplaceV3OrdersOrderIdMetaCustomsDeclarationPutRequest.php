@@ -310,7 +310,7 @@ class ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest implements M
     /**
      * Sets customs_declaration
      *
-     * @param string|null $customs_declaration Номер ГТД
+     * @param string|null $customs_declaration Номер ДТ
      *
      * @return self
      */

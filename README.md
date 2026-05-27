@@ -141,7 +141,7 @@ SDK выпускается с security-first процессом:
 ### Заказы FBS (`03-orders-fbs.yaml`)
 - `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `POST /api/marketplace/v3/orders/meta` — Получить метаданные сборочных заданий
-- `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить за сборочным заданием номер ГТД
+- `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить за сборочным заданием номер ДТ
 - `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
 - `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
 - `GET /api/v3/orders` — Получить информацию о сборочных заданиях
@@ -199,7 +199,7 @@ SDK выпускается с security-first процессом:
 
 ### Заказы DBS (`05-orders-dbs.yaml`)
 - `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B
-- `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номер ГТД
+- `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номер ДТ
 - `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить метаданные сборочных заданий
 - `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить метаданные сборочных заданий
 - `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями

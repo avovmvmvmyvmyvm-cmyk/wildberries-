@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner {
-    /// Номер ГТД
+    /// Номер ДТ
     #[serde(rename = "customsDeclaration")]
     pub customs_declaration: String,
     /// ID сборочного задания

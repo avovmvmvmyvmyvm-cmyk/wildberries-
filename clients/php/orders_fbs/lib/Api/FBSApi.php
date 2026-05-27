@@ -1085,7 +1085,7 @@ class FBSApi
     /**
      * Operation apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut
      *
-     * Закрепить за сборочным заданием номер ГТД
+     * Закрепить за сборочным заданием номер ДТ
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -1109,7 +1109,7 @@ class FBSApi
     /**
      * Operation apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutWithHttpInfo
      *
-     * Закрепить за сборочным заданием номер ГТД
+     * Закрепить за сборочным заданием номер ДТ
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -1213,7 +1213,7 @@ class FBSApi
     /**
      * Operation apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutAsync
      *
-     * Закрепить за сборочным заданием номер ГТД
+     * Закрепить за сборочным заданием номер ДТ
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -1241,7 +1241,7 @@ class FBSApi
     /**
      * Operation apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutAsyncWithHttpInfo
      *
-     * Закрепить за сборочным заданием номер ГТД
+     * Закрепить за сборочным заданием номер ДТ
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.

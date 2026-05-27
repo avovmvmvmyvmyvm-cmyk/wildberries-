@@ -19,7 +19,7 @@ var _ MappedNullable = &ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRe
 
 // ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest struct for ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
 type ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest struct {
-	// Номер ГТД
+	// Номер ДТ
 	CustomsDeclaration *string `json:"customsDeclaration,omitempty"`
 }
 

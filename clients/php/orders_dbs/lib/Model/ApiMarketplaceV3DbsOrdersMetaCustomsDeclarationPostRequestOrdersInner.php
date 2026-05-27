@@ -323,7 +323,7 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
     /**
      * Sets customs_declaration
      *
-     * @param string $customs_declaration Номер ГТД
+     * @param string $customs_declaration Номер ДТ
      *
      * @return self
      */

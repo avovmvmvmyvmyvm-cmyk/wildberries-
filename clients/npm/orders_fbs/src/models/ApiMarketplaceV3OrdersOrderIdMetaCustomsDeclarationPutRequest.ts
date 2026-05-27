@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
     /**
-     * Номер ГТД
+     * Номер ДТ
      * @type {string}
      * @memberof ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
      */
